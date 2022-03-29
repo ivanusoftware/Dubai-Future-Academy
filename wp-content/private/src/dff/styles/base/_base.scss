@@ -1,0 +1,100 @@
+/**
+ * Apply box-sizing here, then inherit.
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  min-height: 100%;
+  margin-top: 0px !important;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/**
+ * Page level styles.
+ *
+ * 1. Use advanced typographic features included in some OpenType fonts. Only enable if
+ *    font supports it.
+ * 2. Prevent certain mobile browsers from automatically zooming fonts.
+ * 3. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ */
+body {
+  font-size: $base-font-size;
+  font-family: $font-family-primary;
+  line-height: $line-height-ratio;
+  color: $body-color;
+  background-color: $background-color;
+  // font-feature-settings: "kern", "liga", "pnum"; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -moz-osx-font-smoothing: grayscale;   /* 3 */
+  -webkit-font-smoothing: antialiased; /* 3 */
+}
+
+body.home main {
+  overflow-x: hidden;
+}
+
+html.no-scroll {
+  overflow-y: scroll !important;
+  height: 100% !important;
+
+  body {
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+.container {
+  width: $flexy-container;
+  margin: 0 auto;
+  padding-left: $flexy-outer-gutter;
+  padding-right: $flexy-outer-gutter;
+  max-width: 100%;
+}
+
+.wrapper {
+  @include flexy-container;
+}
+
+.flexy-wrapper {
+  @include flexy-wrapper;
+}
+
+.skip-to-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999999;
+  display: flex;
+  align-items: center;
+  padding: 17px 32px;
+  background-color: $body-color;
+  color: $background-color;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: $font-family-secondary;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all .25s ease-in-out;
+
+  span {
+    display: block;
+    color: $background-color;
+    margin-right: 15px;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:focus, &:active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

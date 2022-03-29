@@ -1,0 +1,15 @@
+// This file uses spacing to align, disable disalowing more than 1 space after colon.
+/* stylelint-disable declaration-colon-space-after */
+$mq-breakpoints: (
+  xxx-small: 320px,
+  xx-small: 480px,
+  x-small:  540px,
+  md-small: 600px,
+  small:    760px,
+  medium-sm: 820px,
+  medium:   940px,
+  large-sm: 980px,
+  large:    1024px,
+  x-large-sm: 1240px,
+  x-large:  1320px,
+);

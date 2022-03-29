@@ -1,0 +1,192 @@
+.section-searchResults {
+  overflow-x: visible !important;
+
+  li.searchLoading ~ li {
+    transition: opacity .2s;
+    opacity: .25;
+  }
+
+  .archivePosts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .searchFilters {
+      @include flexy-column(12, $include-margin: false);
+      align-self: flex-start;
+
+      @include mq(medium) {
+        @include flexy-column(3);
+        position: sticky;
+        top: 100px;
+
+        body.rtl & {
+          @include flexy-column(3, $include-margin: false);
+          margin-right: 0;
+        }
+      }
+
+      header {
+        margin-top: 8px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.28;
+        margin-top: 0;
+      }
+
+      nav {
+        display: block;
+        margin: 0;
+      }
+
+      ul {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          margin-left: 0;
+
+          body.rtl & {
+            margin-left: 10px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .archivePosts-inner {
+      @include flexy-column(12, $include-margin: false);
+
+      @include mq(medium) {
+        @include flexy-column(9, $include-margin: false);
+
+        body.rtl & {
+          @include flexy-column(9);
+        }
+      }
+
+      ul.archivePosts-list {
+        display: block;
+
+        li {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 0 25px !important;
+          padding-bottom: 25px;
+          border-bottom: 1px solid $border-color;
+        }
+
+        h1 {
+          color: $heading-color;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        p {
+          margin-top: 15px;
+
+          a {
+            color: blue;
+            font-size: 15px;
+            text-decoration: underline;
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+
+        button.archivePosts-tag {
+          margin-top: 15px;
+          margin-right: 20px;
+
+          body.rtl & {
+            margin-right: 0;
+            margin-left: 20px;
+          }
+        }
+
+        button, span {
+          display: inline-block;
+          font-weight: bold;
+          font-size: 12px;
+          letter-spacing: .05em;
+          line-height: 1.15;
+          text-transform: uppercase;
+          color: #000;
+          background-color: #f0f0f0;
+          border-radius: 1000px;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+
+          .section--dark &,
+          .is-dark &,
+          .dark-mode & {
+            background-color: #202020;
+            color: #fff;
+          }
+
+          .section--dark &.is-active,
+          .is-dark &.is-active,
+          .dark-mode &.is-active,
+          &.is-active {
+            color: $background-color;
+            background: $body-color;
+          }
+        }
+      }
+
+      button.button {
+        margin: 40px auto 0 0;
+
+        body.rtl & {
+          margin: 40px 0 0 auto;
+        }
+      }
+    }
+  }
+}
+
+/* php search style */
+.section-searchResults {
+  .archivePosts {
+    .archivePosts-inner.archivePosts-inner--php,
+    body.rtl & .archivePosts-inner.archivePosts-inner--php {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-basis: 100%;
+      margin-right: 0;
+      flex-wrap: wrap;
+
+      li.searchLoading ~ li {
+        transition: opacity .2s;
+        opacity: .25;
+      }
+
+      .searchFilters ul {
+        transition: opacity .2s;
+        opacity: .25;
+      }
+    }
+
+    .archivePosts-content--php {
+      @include flexy-column(12, $include-margin: false);
+
+      @include mq(medium) {
+        @include flexy-column(9, $include-margin: false);
+
+        body.rtl & {
+          @include flexy-column(9);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+p, span, blockquote, cite, figcaption {
+  &,
+  .is-dark &,
+  .section--dark & {
+    color: $body-color;
+  }
+}
+
+/**
+ * Paragraphy text styles.
+ */
+p strong,
+p b {
+  font-family: $font-family-primary;
+  font-weight: bold;
+}
+
+p i,
+p em {
+  font-family: $font-family-primary;
+  font-style: italic;
+}
+
+p strong i,
+p b i,
+p strong em,
+p b em {
+  font-family: $font-family-primary;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.has-medium-font-size {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.has-large-font-size,
+.has-large-body-font-size {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.has-small-font-size,
+.has-small-body-font-size {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/**
+ * Headings.
+ *
+ * NOTE: This is replicated editor/_fixes.scss to ensure Gutenberg renders these styles
+ *       by using !important's for every rule. Keep this file in sync when making changes.
+ */
+@include headings(1, 6) {
+  font-family: $font-family-primary;
+  color: $heading-color;
+  font-weight: 500;
+}
+
+@for $i from 1 through 6 {
+  h#{$i},
+  .h#{$i},
+  .is-style-h#{$i} { // For Gutenberg generated classes
+    font-size: map-get($mobile-header-sizes, h#{$i});
+    line-height: map-get($mobile-header-line-height, h#{$i});
+
+    @include mq($from: xx-small, $until: medium) {
+      font-size: map-get($tablet-header-sizes, h#{$i});
+      line-height: map-get($tablet-header-line-height, h#{$i});
+    }
+
+    @include mq($from: medium) {
+      font-size: map-get($desktop-header-sizes, h#{$i});
+      line-height: map-get($desktop-header-line-height, h#{$i});
+    }
+  }
+
+  /**
+  * Heading text styles.
+  */
+  h#{$i} strong,
+  h#{$i} b {
+    font-family: $font-family-primary;
+    font-weight: normal;
+  }
+
+  /**
+  * Header links inherit color.
+  */
+  h#{$i} a {
+    color: inherit;
+
+    &:hover,
+    &:active,
+    &:visited {
+      color: inherit;
+    }
+  }
+}
+
+/**
+ * Margin adjustments for 24px ($spacing-unit--paragraph) + 32px ($spacing-unit--small).
+ */
+// After headings.
+@for $i from 1 through 6 {
+  h#{$i} + p,
+  h#{$i} + ul,
+  h#{$i} + ol {
+    margin-top: $spacing-unit-small--half;
+  }
+
+  h#{$i} + .wp-block-button {
+    margin-top: $spacing-unit-small;
+  }
+}
+
+// Paragraphs.
+p + p,
+ul + p,
+ol + p {
+  margin-top: $spacing-unit-paragraph;
+}
+
+// Unordered list.
+p + ul,
+ul + ul,
+ol + ul {
+  margin-top: $spacing-unit-paragraph;
+}
+
+// Ordered list.
+p + ol,
+ul + ol,
+ol + ol {
+  margin-top: $spacing-unit-paragraph;
+}
+
+/**
+ * Display heading styles. Similar to the heading styles but with some specific
+ * changes for display versions.
+ *
+ * NOTE: This is replicated editor/_fixes.scss to ensure Gutenberg renders these styles
+ *       by using !important's for every rule. Keep this file in sync when making changes.
+ */
+@for $i from 1 through 2 {
+  .d#{$i},
+  .is-style-d#{$i} { // For Gutenberg generated classes
+    font-family: map-get($display-font-family, d#{$i});
+    font-weight: map-get($display-font-weight, d#{$i});
+    font-size: map-get($mobile-display-sizes, d#{$i});
+    line-height: map-get($mobile-display-line-height, d#{$i});
+
+    @include mq($from: xx-small, $until: medium) {
+      font-size: map-get($tablet-display-sizes, d#{$i});
+      line-height: map-get($tablet-display-line-height, d#{$i});
+    }
+
+    @include mq($from: medium) {
+      font-size: map-get($desktop-display-sizes, d#{$i});
+      line-height: map-get($desktop-display-line-height, d#{$i});
+    }
+
+    strong,
+    b {
+      font-weight: normal;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover,
+      &:active,
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+}

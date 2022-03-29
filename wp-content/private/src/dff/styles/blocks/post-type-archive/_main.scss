@@ -1,0 +1,356 @@
+.archivePosts ul.archivePosts-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    @include flexy-column(12);
+    margin-right: 0;
+
+    body.rtl & {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    & + li {
+      margin-top: 24px;
+    }
+
+    @include mq(md-small, $until: medium) {
+      @include flexy-column(6);
+
+      body.rtl & {
+        margin-right: 0;
+        margin-left: flexy-gutter();
+      }
+      
+      & + li {
+        margin-top: 0;
+      }
+
+      &:nth-child(2n + 2) {
+        margin-right: 0;
+
+        body.rtl & {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(n + 3) {
+        margin-top: 60px;
+      }
+    }
+
+    @include mq(medium) {
+      @include flexy-column(3);
+
+      body.rtl & {
+        margin-right: 0;
+        margin-left: flexy-gutter();
+      }
+
+      & + li {
+        margin-top: 0;
+      }
+
+      &:nth-child(4n + 4) {
+        margin-right: 0;
+
+        body.rtl & {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(n + 5) {
+        margin-top: 60px;
+      }
+    }
+  }
+}
+
+.archivePosts-item {
+  position: relative;
+  display: block;
+}
+
+.archivePosts-tag {
+  display: block;
+  margin-top: 10px;
+  font-family: $font-family-secondary;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-align: left;
+  color: $body-color;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+
+  body.rtl & {
+    text-align: right;
+  }
+}
+
+button.archivePosts-tag {
+  cursor: pointer;
+}
+
+.archivePosts h1.archivePosts-title {
+  font-size: 18px;
+  line-height: 1.27;
+  margin: 0;
+  margin-bottom: 8px;
+  color: $body-color;
+  margin-top: 12px;
+}
+
+.archivePosts-meta {
+  font-size: 12px;
+  line-height: 1.66;
+  margin-top: 10px;
+
+  &.is-link-style a {
+    // text-transform: uppercase;
+    font-weight: 600;
+    // font-family: $font-family-secondary;
+  }
+}
+
+.archivePosts-introContainer {
+  position: relative;
+  margin-top: 40px;
+}
+
+.archivePosts-intro {
+  p {
+    margin: 0;
+  }
+
+  .button {
+    margin-top: 16px;
+  }
+}
+
+[data-tabbed-posts-id]:not(.is-selected) {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  z-index: -999;
+  transition: opacity .25s ease-in-out, z-index .25s step-end;
+}
+
+.archivePosts-buttonContainer {
+  position: relative;
+  margin-top: 32px;
+  flex: 1 0 100%;
+
+  @include mq(x-small) {
+    margin-top: 0;
+    display: none;
+  }
+}
+
+[data-tabbed-posts-id].is-selected,
+[data-tabbed-posts-id].is-selected {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .25s ease-in-out, z-index .25s step-start;
+}
+
+.archivePosts-list {
+  overflow-x: auto;
+}
+
+.slider-arrow {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .25s ease-in-out, z-index .25s step-start;
+}
+
+.slider-arrow.is-hidden {
+  opacity: 0;
+  z-index: -9999;
+  transition: opacity .25s ease-in-out, z-index .25s step-end;
+}
+
+.archivePosts-inner button.button {
+  display: block;
+  margin: 40px auto 0;
+
+  &[disabled] {
+    opacity: .6;
+    cursor: not-allowed;
+  }
+}
+
+.section--dark .archivePosts-header,
+.archivePosts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  color: $body-color;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mq($until: md-small) {
+    flex-direction: column;
+
+    .archivePosts-sortBy {
+      margin-top: 10px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.28;
+  }
+
+  label {
+    font-family: $font-family-secondary;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-left: 20px;
+    padding: 6px 35px 6px 20px;
+    border: 1px solid $body-color;
+    font-family: $font-family-secondary;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: .1em;
+    line-height: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    background-image: url(../../../static/img/ico-chevron-down.svg);
+    background-size: 9px 5px;
+    background-position: calc(100% - 20px) center;
+    background-repeat: no-repeat;
+    color: $body-color;
+
+    @include mq(md-small) {
+      padding: 13px 35px 13px 20px;
+    }
+
+    body.rtl & {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+  }
+}
+
+.dark-mode .archivePosts-header select,
+.section--dark .archivePosts-header select {
+  background-color: $background-color;
+  color: $body-color;
+  background-image: url(../../../static/img/ico-chevron-down-light.svg);
+}
+
+.archivePosts-filters {
+  margin-bottom: 35px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -5px;
+
+  @include mq(small) {
+    display: flex;
+  }
+
+  ul {
+    flex: 1 1 auto;
+  }
+
+  span {
+    display: block;
+    white-space: pre;
+    padding: 10px 20px;
+    font-family: $font-family-secondary;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  ul {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 5px;
+
+    @include mq(small) {
+      margin: 5px 10px;
+    }
+  }
+}
+
+.archivePosts-filterActions button,
+.archivePosts-filters button {
+  font-family: $font-family-secondary;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #f0f0f0;
+  border-radius: 1000px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  .section--dark &,
+  .is-dark &,
+  .dark-mode & {
+    background-color: #202020;
+    color: #fff;
+  }
+
+  .section--dark &.is-active,
+  .is-dark &.is-active,
+  .dark-mode &.is-active,
+  &.is-active {
+    color: $background-color;
+    background: $body-color;
+  }
+
+  &.is-ghost {
+    padding: 10px 0;
+    background-color: transparent;
+    color: #7a7a7a;
+
+    .section--dark &,
+    .dark-mode & {
+      color: $border-color;
+    }
+  }
+}
+
+.archivePosts-filterActions {
+  display: flex;
+
+  button {
+    margin: 5px;
+  }
+}
+
+.archivePosts-filters + .archivePosts-filters {
+  border-top: 1px solid $border-color;
+  padding-top: 35px;
+}

@@ -1,0 +1,86 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+*{-webkit-box-sizing:border-box;box-sizing:border-box}
+.toplevel_page_impact-map .tab button{background-color:inherit;float:left;border:none;outline:none;cursor:pointer;padding:14px 16px;-webkit-transition:0.3s;-o-transition:0.3s;transition:0.3s}
+.toplevel_page_impact-map .tab button:hover{background-color:#ddd}
+.toplevel_page_impact-map .tab button.active{background-color:#fff;font-weight:bold;border:1px solid #cbcbcb}
+.toplevel_page_impact-map .news_master_settings_section hr{margin:20px 0 20px 0}
+
+/* News Master Tabbing Design */
+.toplevel_page_impact-map .tab{overflow:hidden;border:1px solid #ccc;background-color:#f1f1f1}
+.toplevel_page_impact-map .tab span{float:left;outline:none;cursor:pointer;padding:14px 16px;-webkit-transition:0.3s;-o-transition:0.3s;transition:0.3s;border:1px solid transparent}
+.toplevel_page_impact-map .tab span:hover{background-color:#ddd}
+.toplevel_page_impact-map .tab span.active{background-color:#fff;font-weight:bold;border-color:#cbcbcb;border-bottom-color:transparent;border-top-color:transparent}
+.toplevel_page_impact-map .tab span.active:first-child{border-left-color:transparent}
+.toplevel_page_impact-map .tabcontent{display:none;padding:20px;border:1px solid #ccc;border-top-color:transparent;background:#fff;width:100%;min-height:250px}
+.toplevel_page_impact-map .tabcontent .page_section{margin-bottom:30px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+
+/* select cats & tags */
+.toplevel_page_impact-map .page_section h3{margin:0 0 1em}
+.toplevel_page_impact-map .category_tags_section{margin:1em 0 0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.toplevel_page_impact-map .category_tags_section .category_block,
+.toplevel_page_impact-map .category_tags_section .tags_block{width:23%;padding:10px;border:1px solid #ccd0d4;margin:10px 20px 20px 0;min-width:350px}
+.toplevel_page_impact-map .category_tags_section .category_block .categorychecklist,
+.toplevel_page_impact-map .category_tags_section .tags_block .tagschecklist{padding:10px;border:1px solid #ccd0d4;max-height:250px;height:60%;height:calc(100% - 50px);overflow:auto;-webkit-box-sizing:border-box;box-sizing:border-box}
+.toplevel_page_impact-map .category_tags_section .category_block .categorychecklist li,
+.toplevel_page_impact-map .category_tags_section .tags_block .tagschecklist li{margin-bottom:7px;line-height:normal}
+.toplevel_page_impact-map .category_tags_section label.post_type_lable.sub_category{margin-left:15px}
+.toplevel_page_impact-map .category_tags_section label.post_type_lable.super_sub_category{margin-left:30px}
+.toplevel_page_impact-map .category_tags_section .category_block h4,
+.toplevel_page_impact-map .category_tags_section .tags_block h4{font-size:16px;margin:0.5em 0 1.33em}
+.toplevel_page_impact-map .nmp_save_button{padding:2px 15px;font-size:14px}
+.send_grid_credentials.arabic_language_checkbox_wrapper label{display:inline-block;vertical-align:baseline;margin-right:5px;}
+
+/* Add sites */
+.toplevel_page_impact-map .add_site_table_group{margin-top:35px}
+.toplevel_page_impact-map .add_sites_group{margin-bottom:10px;}
+.toplevel_page_impact-map .add_sites_group input.add_sites_field{width:30%;margin-right:5px}
+.toplevel_page_impact-map .add_site_table{font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;border-collapse:collapse;width:50%}
+.toplevel_page_impact-map .add_site_table td,
+.toplevel_page_impact-map .add_site_table th{border:1px solid #ccc;padding:8px}
+.toplevel_page_impact-map .add_site_table th{background-color:#ddd;color:#090707;text-align:center}
+.toplevel_page_impact-map .add_site_table tr:nth-child(even) td{background-color:#f2f2f2}
+.toplevel_page_impact-map .add_site_table tr:hover td{background-color:#eee}
+.toplevel_page_impact-map .add_site_table td.action{text-align:center}
+.toplevel_page_impact-map .add_site_table .delete_site_button{cursor:pointer;font-size:22px}
+.toplevel_page_impact-map .add_site_table .delete_site_button:hover{color:#000}
+.project_google_map_api{width:30%;}
+
+/* page sections */
+.page_section{overflow:hidden}
+.page_section h3{margin:0 0 1em}
+.page_section .button-primary{padding:2px 15px;font-size:14px}
+#config .page_section{margin-bottom:30px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+.two_col_layout{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.two_col_layout .section_col{min-width:350px;margin:10px 15px 30px 10px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+.google_recaptcha_credentials label{display:block;margin-bottom:15px}
+.google_recaptcha_credentials label:last-child{margin-bottom:0}
+.page_section label input{margin-left:10px;width:350px}
+.send_grid_credentials label{display:block;margin-bottom:15px}
+.send_grid_credentials label:last-child{margin-bottom:0}
+.send_grid_credentials label span{display:inline-block;vertical-align:middle;width:100px;max-width:100%;}
+#config .page_section label{cursor:auto}
+#config .page_section label span{min-width:170px;display:inline-block}
+.button-image-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+.button-image-wrapper .background_image_view,
+.button-image-wrapper .background_mobile_image_view,
+.button-image-wrapper .logo_image_view{margin-right:10px;}
+textarea#popup_description {margin-left: 10px;width: 350px;height: 100px;vertical-align: middle;}
+@media (max-width:1366px){
+	.project_google_map_api  {width: 60%;}
+}
+@media (max-width:991px){
+	.toplevel_page_impact-map .category_tags_section .category_block,
+	.toplevel_page_impact-map .category_tags_section .tags_block{min-width:300px}
+}
+@media (max-width:767px){
+	.project_google_map_api  {width: 84%;}
+}
+.settings_container form .page_section  {overflow: initial;}
+.settings_container span.tool-tip{background:#9c9c9c;color:#fff;height:17px;width:17px;display:inline-block;text-align:center;border-radius:50%;vertical-align:middle;margin:0 5px;position:relative}
+.settings_container span.tool-tip[data-tip]::before{content:'';display:none;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:5px solid #444;position:absolute;top:20px;right:7px;z-index:8;-webkit-transform:translate(50%, 0);-ms-transform:translate(50%, 0);transform:translate(50%, 0)}
+.settings_container span.tool-tip[data-tip]::after{display:none;content:attr(data-tip);position:absolute;top:25px;right:70px;width:150px;padding:5px 8px;background:#444;color:#fff;z-index:9;font-size:12px;line-height:18px;border-radius:3px;-webkit-transform:translate(50%, 0);-ms-transform:translate(50%, 0);transform:translate(50%, 0)}
+.settings_container span.tool-tip[data-tip]:hover::before, .settings_container span.tool-tip[data-tip]:hover::after{display:block}
+.settings_container span.tool-tip i{font-size:14px;line-height:20px;font-weight:700;margin-top:-1px;display:block;font-style:normal}

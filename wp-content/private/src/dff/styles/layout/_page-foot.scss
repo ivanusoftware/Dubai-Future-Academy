@@ -1,0 +1,134 @@
+.page-foot {
+  padding: 40px 16px 20px;
+  background-color: $footer-color;
+  color: $footer-text-color;
+
+  a:enter {
+    color: #fff;
+  }
+
+  @include mq(small) {
+    padding: 100px 16px 40px;
+  }
+}
+
+.page-foot .page-footBottom {
+  font-size: 12px;
+  margin-top: 20px;
+
+  > * + .span-12 {
+    margin-top: 8px;
+  }
+
+  @include mq(small) {
+    margin-top: 80px;
+
+    * + .span-12 {
+      margin-top: 0;
+    }
+  }
+}
+
+.page-footLogo {
+  margin-bottom: 20px;
+}
+
+.page-footLogo svg {
+  display: block;
+  fill: $footer-text-color;
+  height: 50px;
+}
+
+.page-footerMain {
+  margin-bottom: 70px;
+}
+
+ul.footerNav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footerNav-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.footerNav li {
+  padding: 0;
+}
+
+.footerNav a {
+  color: #aaa;
+}
+
+.footerBottomNav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li + li {
+    margin-left: 10px;
+
+    &::before {
+      content: "|";
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    body.rtl & {
+      margin-left: 0;
+      margin-right: 10px;
+
+      &::before {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  a {
+    color: #aaa;
+    font-size: 12px;
+  }
+}
+
+.footerNav-container {
+  a {
+    font-size: 14px;
+  }
+
+  * + & {
+    margin-top: 16px;
+    margin-left: 0;
+
+    @include mq(xx-small) {
+      margin-top: 0;
+      margin-left: flexy-gutter();
+
+      &:nth-child(n + 2) {
+        margin-top: 16px;
+      }
+
+      &:nth-child(2n + 2) {
+        margin-left: 0;
+      }
+    }
+
+    @include mq(x-small) {
+      &:nth-child(n + 2) {
+        margin-top: 0;
+      }
+
+      &:nth-child(2n + 3) {
+        margin-left: flexy-gutter();
+      }
+    }
+  }
+}

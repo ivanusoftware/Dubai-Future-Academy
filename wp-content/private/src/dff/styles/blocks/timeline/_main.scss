@@ -1,0 +1,169 @@
+.timeline {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+}
+
+.timeline.flickity-enabled {
+  display: block;
+  padding-left: 25px;
+
+  @include mq(x-large) {
+    padding-left: 0;
+  }
+}
+
+.timeline-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  flex: 0 0 20%;
+  width: 80%;
+
+  @include mq(md-small) {
+    flex: 0 0 20%;
+    width: 45%;
+  }
+
+  @include mq(medium) {
+    flex: 0 0 20%;
+    width: 30%;
+  }
+
+  @include mq(large) {
+    flex: 0 0 20%;
+    width: 23%;
+  }
+
+  @include mq(x-large) {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+
+  h3 {
+    position: relative;
+    font-family: $font-family-tertiary;
+    font-weight: 300;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 70px;
+
+    body.rtl & {
+      text-align: right;
+    }
+  }
+
+  h3::after,
+  h3::before {
+    position: absolute;
+    top: calc(100% + 35px);
+    content: "";
+    display: block;
+    background-color: $body-color;
+    transition: all .25s ease-in-out;
+  }
+
+  h3::before {
+    width: 100%;
+    height: 1px;
+    right: 0;
+  }
+
+  h3::after {
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+
+    body.rtl & {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: #aaa;
+    padding-right: 40px;
+
+    body.rtl & {
+      text-align: right;
+      padding-right: 0;
+      padding-left: 40px;
+    }
+  }
+}
+
+.timeline-container {
+  position: relative;
+}
+
+.timeline-action {
+  position: absolute;
+  top: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $body-color;
+  background-color: transparent;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  color: $body-color;
+  opacity: 0;
+  transition: all .25s ease-in-out;
+  cursor: pointer;
+
+  @include mq($until: medium) {
+    display: none;
+  }
+}
+
+.timeline-action.previous {
+  left: 25px;
+  transform: translateX(-50%);
+
+  .has-previous & {
+    opacity: 1;
+  }
+
+  svg {
+    transform: rotate(180deg);
+  }
+
+  @include mq(x-large) {
+    left: 0;
+  }
+}
+
+.timeline-action.next {
+  right: 20%;
+  transform: translateX(calc(50% + 5px));
+
+  .has-next & {
+    opacity: 1;
+  }
+
+  @include mq(md-small) {
+    right: 10%;
+    transform: translateX(calc(50% + 2px));
+  }
+
+  @include mq(large) {
+    right: 8%;
+  }
+
+  @include mq(x-large) {
+    transform: translateX(50%);
+    right: 0;
+  }
+}
+
+.timeline .flickity-viewport {
+  overflow: visible;
+}

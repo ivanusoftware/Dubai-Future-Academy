@@ -1,0 +1,77 @@
+/**
+ * Apply box-sizing here, then inherit.
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/**
+ * Page level styles.
+ *
+ * 1. Use advanced typographic features included in some OpenType fonts. Only enable if
+ *    font supports it.
+ * 2. Prevent certain mobile browsers from automatically zooming fonts.
+ * 3. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ */
+body .editor-styles-wrapper {
+  font-size: $base-font-size;
+  font-family: $font-family-primary;
+  line-height: $line-height-ratio;
+  color: $body-color;
+  // font-feature-settings: "kern", "liga", "pnum"; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -moz-osx-font-smoothing: grayscale;   /* 3 */
+  -webkit-font-smoothing: antialiased; /* 3 */
+}
+
+/**
+ * Container set up.
+ */
+.editor-styles-wrapper .container {
+  display: block;
+  width: 100%;
+  max-width: $flexy-container;
+  margin: 0 auto;
+  padding: 0 $flexy-outer-gutter;
+}
+
+/**
+ * Overide for editor post title.
+ */
+.editor-post-title__input {
+  padding: 0 0 0 5px !important;
+  margin-bottom: 80px !important;
+  font-family: $font-family-primary !important;
+  font-size: map-get($mobile-header-sizes, h1);
+  font-weight: normal;
+  color: $heading-color !important;
+
+  @include mq($from: small, $until: medium) {
+    font-size: map-get($tablet-header-sizes, h1);
+  }
+
+  @include mq($from: medium) {
+    font-size: map-get($desktop-header-sizes, h1);
+  }
+}
+
+.editor-backgroundColorMobile-container {
+  .components-circular-option-picker__custom-clear-wrapper {
+    justify-content: flex-start !important;
+    margin-bottom: 10px;
+  }
+
+  .editor-backgroundColorMobile-selectedLabel {
+    font-size: 11px;
+  }
+}

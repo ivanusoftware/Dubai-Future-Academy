@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<ruleset name="CodeSniffer" namespace="CodeSniffer">
+    <description>CodeSniffer</description>
+
+    <config name="encoding" value="utf-8" />
+
+    <arg name="tab-width" value="4" />
+    <arg name="report-width" value="192" />
+    <arg name="report" value="full" />
+    <arg name="extensions" value="php" />
+    <arg value="q" />
+
+    <ini name="memory_limit" value="1024M" />
+
+    <!-- Generic -->
+    <exclude-pattern>*/.git/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendors/*</exclude-pattern>
+    <!-- Classes built on abstract classes of packages -->
+    <exclude-pattern>*/providers/*</exclude-pattern>
+    <exclude-pattern>*/inc/cli/*</exclude-pattern>
+    <exclude-pattern>*/inc/pdf/templates/*</exclude-pattern>
+    <exclude-pattern>*/inc/pdf/calculators/*</exclude-pattern>
+    <exclude-pattern>*/inc/frontend/calculators.php</exclude-pattern>
+    <exclude-pattern>*/mu-plugins/*</exclude-pattern>
+    <exclude-pattern>*/plugins/*</exclude-pattern>
+    <exclude-pattern>*/plugins/akismet/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wp-migrate-db-pro/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wp-migrate-db-pro-cli/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wp-migrate-db-pro-media-files/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wp-migrate-db-pro-multisite-tools/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wordpress-seo/*</exclude-pattern>
+    <exclude-pattern>*/plugins/jetpack/*</exclude-pattern>
+    <exclude-pattern>*/plugins/redirection/*</exclude-pattern>
+    <exclude-pattern>*/plugins/stream/*</exclude-pattern>
+    <exclude-pattern>*/uploads/wp-migrate-db/*</exclude-pattern>
+    <exclude-pattern>*/plugins/enable-svg-uploads/*</exclude-pattern>
+    <exclude-pattern>*/plugins/ithemes-security-pro/*</exclude-pattern>
+    <exclude-pattern>*/themes/twenty*/*</exclude-pattern>
+    <exclude-pattern>*/plugins/stream/*</exclude-pattern>
+    <exclude-pattern>*/plugins/contact-form-7/*</exclude-pattern>
+    <exclude-pattern>*/plugins/regenerate-thumbnails/*</exclude-pattern>
+    <exclude-pattern>*/plugins/events-child-plugin/*</exclude-pattern>
+    <exclude-pattern>*/plugins/wordpress-seo/*</exclude-pattern>
+    <exclude-pattern>*/plugins/news-master-plugin/*</exclude-pattern>
+    <exclude-pattern>*/plugins/multilingualpress/*</exclude-pattern>
+    <exclude-pattern>*/plugins/sendgrid-email-delivery-simplified/*</exclude-pattern>
+    <exclude-pattern>*/wp-content/db.php</exclude-pattern>
+
+    <exclude-pattern>*/plugins/wordpress-beta-tester/*</exclude-pattern>
+    <exclude-pattern>*/plugins/news-master-plugin/*</exclude-pattern>
+
+
+    <rule ref="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket" />
+    <rule ref="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket" />
+
+    <rule ref="WordPress-Core">
+        <exclude name="WordPress.Files.FileName" />
+    </rule>
+
+    <rule ref="WordPress-Extra" />
+
+    <rule ref="WordPress-VIP-Go" />
+</ruleset>

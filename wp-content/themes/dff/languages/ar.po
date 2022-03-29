@@ -1,0 +1,1936 @@
+# #-#-#-#-#  php.pot (Dubai Future Foundations 1.0)  #-#-#-#-#
+# Copyright (C) 2020 Big Bite
+# This file is distributed under the .
+msgid ""
+msgstr ""
+"Project-Id-Version: Dubai Future Foundations 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/dff\n"
+"POT-Creation-Date: 2020-08-25T12:34:27+01:00\n"
+"PO-Revision-Date: 2020-08-25 12:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: dff\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:24
+msgid "Custom Button Settings"
+msgstr "إعدادات زر مخصص"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:29
+#, 
+msgid "Burgundy"
+msgstr "عنابي"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:35
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:15
+#, 
+msgid "Red"
+msgstr "أحمر"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:42
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:3
+#, 
+msgid "Black"
+msgstr "أسود"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:45
+#, 
+msgid "White"
+msgstr "أبيض"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:55
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:158
+#, 
+msgid "Button Text"
+msgstr "نص الزر"
+
+#: src/dff/gutenberg/blocks/button/index.js:15
+#, 
+msgid "Button"
+msgstr "زر"
+
+#: src/dff/gutenberg/blocks/button/index.js:17 src/dff/gutenberg/blocks/google-map/index.js:17
+#, 
+msgid "button"
+msgstr "الزر"
+
+#: src/dff/gutenberg/blocks/button/index.js:17 src/dff/gutenberg/blocks/google-map/index.js:17
+#, 
+msgid "link"
+msgstr "رابط"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:106
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:149
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:104
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:96
+msgid "(Content)"
+msgstr "المحتوى"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:113
+#: src/dff/gutenberg/blocks/quote-banner/Components/CallToActionEdit.js:24
+msgid "(Button text)"
+msgstr "نص الزر"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:31
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:101
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:17
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:8
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:37
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:27
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:122
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:67
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:58
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:12
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:348
+#, 
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:34
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:16
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:225
+#, 
+msgid "Layout"
+msgstr "التخطيط"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:36
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:19
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:50
+#, 
+msgid "Default"
+msgstr "افتراضي"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:39
+#, 
+msgid "Image Left"
+msgstr "الصورة الى اليسرى"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:42
+#, 
+msgid "Image Right"
+msgstr "الصورة إلى اليمين"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:48
+msgid "Please select a heading level: (h1 to h4)"
+msgstr "الرجاء تحديد مستوى العنوان: (h1 إلى h4)"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:61
+msgid "Enable Category Icon"
+msgstr "تمكين أيقونة الفئة"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:65
+msgid "Enable Category Text"
+msgstr "تمكين نص الفئة"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:69
+msgid "Enable Button"
+msgstr "زر التمكين"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:73
+#, 
+msgid "Padding"
+msgstr "الحشو"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:92
+#, 
+msgid "(Category)"
+msgstr "(الفئة)"
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:99
+msgid "(Card Title)"
+msgstr "(عنوان البطاقة)"
+
+#: src/dff/gutenberg/blocks/card/index.js:11
+#, 
+msgid "card"
+msgstr "بطاقة"
+
+#: src/dff/gutenberg/blocks/card/index.js:11
+#, 
+msgid "thumbnail"
+msgstr "المصغرات"
+
+#: src/dff/gutenberg/blocks/card/index.js:8
+#, 
+msgid "Card"
+msgstr "البطاقة"
+
+#: src/dff/gutenberg/blocks/card/index.js:9
+msgid "Card block for displaying an image with content below."
+msgstr "حجب البطاقة لعرض صورة بالمحتوى أدناه"
+
+#: src/dff/gutenberg/blocks/column/index.js:14 src/dff/gutenberg/blocks/columns/index.js:11
+#, 
+msgid "columns"
+msgstr "الأعمدة"
+
+#: src/dff/gutenberg/blocks/column/index.js:14 src/dff/gutenberg/blocks/columns/index.js:11
+#, 
+msgid "column"
+msgstr "عمود"
+
+#: src/dff/gutenberg/blocks/column/index.js:9
+#, 
+msgid "Column"
+msgstr "عمود"
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:191
+msgid "Select number of columns your row requires"
+msgstr "تحديد عدد الأعمدة التي يتطلبها الصف"
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:205
+msgid "Select the desired layout."
+msgstr "حدد التخطيط المطلوب."
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:216
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:131
+#: src/dff/gutenberg/blocks/columns/index.js:8
+#, 
+msgid "Columns"
+msgstr "اعمدة"
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:231
+msgid "Space columns"
+msgstr "أعمدة المساحة"
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:238
+msgid "Vertical column alignment"
+msgstr "محاذاة العمود العمودي"
+
+#: src/dff/gutenberg/blocks/columns/index.js:9
+msgid "Column builder"
+msgstr "منشئ الأعمدة"
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:137
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:108
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:76
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:90
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:53
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:47
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:195
+#, 
+msgid "Set Background Image"
+msgstr "إعداد صورة الخلفية"
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:144
+msgid "(Title)"
+msgstr "(العنوان)"
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:185
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:156
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:167
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:136
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:102
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:110
+#, 
+msgid "Add Item"
+msgstr "إضافة عنصر"
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:11
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+#, 
+msgid "slider"
+msgstr "تمرير"
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:8
+#, 
+msgid "Content Slider"
+msgstr "تمريرالمحتوي"
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:9
+msgid "Slider block for displaying content."
+msgstr "حجب التمرير لعرض المحتوى"
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:280
+msgid "Dynamic Type:"
+msgstr "نوع ديناميكي:"
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:285
+#, 
+msgid "Category"
+msgstr "الفئة"
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:298
+#, 
+msgid "Post Type"
+msgstr "نوع المنشور"
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:308
+msgid "Preview Posts"
+msgstr "معاينة المشاركات"
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:10
+#, 
+msgid "posts"
+msgstr "المشاركات"
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:10
+#, 
+msgid "feature"
+msgstr "خاصية"
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:7
+#, 
+msgid "Featured Posts"
+msgstr "المشاركات المميزة"
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:8
+msgid "A grid to display a grid of posts"
+msgstr "شبكة لعرض شبكة من المشاركات"
+
+#: src/dff/gutenberg/blocks/full-sized-image/containers/Edit.js:24
+#: src/dff/gutenberg/components/PostMediaSelector.js:68
+#, 
+msgid "Set Image"
+msgstr "تعيين صورة"
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:11
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+#, 
+msgid "image"
+msgstr "صورة"
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:11
+#, 
+msgid "visual"
+msgstr "بَصَرِيّ"
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:8
+msgid "Full sized image"
+msgstr "صورة كاملة الحجم"
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:9
+msgid "An image to fill the entire container, this is mainly used for stylistic purposes"
+msgstr "صورة لملء الحاوية بأكملها، ويستخدم هذا أساسا لأغراض التنسيق"
+
+#: src/dff/gutenberg/blocks/google-map/containers/Edit.js:235
+#: src/dff/gutenberg/blocks/google-map/containers/Edit.js:154
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:198
+#, 
+msgid "Options"
+msgstr "خيارات"
+
+#: src/dff/gutenberg/blocks/google-map/index.js:14
+#, 
+msgid "Google Map"
+msgstr "خرائط جوجل"
+
+#: src/dff/gutenberg/blocks/google-map/index.js:15
+msgid "A google map integration"
+msgstr "تكامل خريطة Google"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:103
+#, 
+msgid "Background Image"
+msgstr "صورة الخلفية"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:103
+#, 
+msgid "Background"
+msgstr "الخلفية"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:111
+#, 
+msgid "Background Vertical Position"
+msgstr "الوضع الرأسي للخلفية"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:131
+msgid "Set Background Image for Mobile"
+msgstr "تعيين صورة الخلفية للجوال"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:146
+msgid "Selected Color"
+msgstr "اللون المحدد"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:156
+msgid "Clear Background Color"
+msgstr "مسح لون الخلفية"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:160
+msgid "Set Background Video"
+msgstr "تعيين فيديو الخلفية"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:164
+msgid "Dark Background"
+msgstr "خلفية داكنة"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:165
+msgid "If the background is dark toggle this to flip the colors."
+msgstr "إذا كانت الخلفية داكنة قم بتبديل هذا لقلب الألوان."
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:169
+#, 
+msgid "Title Options"
+msgstr "خيارات العنوان"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:170
+#, 
+msgid "Title Position"
+msgstr "موقع العنوان"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:180
+msgid "Arrow Settings"
+msgstr "إعدادات السهم"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:182
+msgid "Click Option"
+msgstr "انقر فوق الخيار"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:184
+#, 
+msgid "Scroll"
+msgstr "التمرير"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:187
+#, 
+msgid "Link"
+msgstr "رابط"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:193
+msgid "Scroll To: "
+msgstr "قم بالتمرير إلى"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:195
+msgid "Below Hero"
+msgstr "أدنى القسم الرئيسي"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:201
+msgid "Link To: "
+msgstr "رابط إلى:"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:206
+#, 
+msgid "Open link in new tab"
+msgstr "فتح الرابط في تفرع جديد"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:79
+#, 
+msgid "Style"
+msgstr "النمط"
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:99
+#, 
+msgid "Show Breadcrumbs"
+msgstr "عرض فتات الخبز"
+
+#: src/dff/gutenberg/blocks/hero/index.js:11
+#, 
+msgid "hero"
+msgstr "القسم الرئيسي"
+
+#: src/dff/gutenberg/blocks/hero/index.js:11
+#, 
+msgid "display"
+msgstr "عَرْض"
+
+#: src/dff/gutenberg/blocks/hero/index.js:9
+#, 
+msgid "Hero"
+msgstr "القسم الرئيسي"
+
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:66
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:59
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:63
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:74
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:71
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:89
+msgid "Scroll down text"
+msgstr "تمرير لأسفل النص"
+
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:66
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:59
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:64
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:75
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:72
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:89
+#, 
+msgid "Link text"
+msgstr "نص الرابط"
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:31
+msgid "Hero Quote"
+msgstr "اقتباس القسم الرئيسي"
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:37
+msgid "Hero Cite"
+msgstr "اقتباس القسم الرئيسي"
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:44
+msgid "Hero Cite (Job Title)"
+msgstr "اقتباس القسم الرئيسي (المسمى الوظيفي)"
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:54
+#, 
+msgid "Call to action text"
+msgstr "نص الاتصال للإجراء"
+
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:23
+#, 
+msgid "Set Logo"
+msgstr "تعيين الشعار"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:103
+msgid "Block alignment: "
+msgstr "محاذاة الكتلة:"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:112
+msgid "Toggle Column Control"
+msgstr "تبديل عنصر تحكم العمود"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:120
+msgid "Column Control Settings"
+msgstr "إعدادات التحكم بالعمود"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:122
+msgid "Items per row: "
+msgstr "العناصر لكل صف:"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:132
+msgid "Fix Arrow to Bottom"
+msgstr "إصلاح السهم إلى الأسفل"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:146
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:111
+#, 
+msgid "Remove Item"
+msgstr "حذف عنصر"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:152
+#, 
+msgid "List Title"
+msgstr "عنوان القائمة"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:158
+#, 
+msgid "List Content"
+msgstr "محتويات القائمة"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:88
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:38
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:57
+#, 
+msgid "None"
+msgstr "دون"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:91
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:42
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:90
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:391
+#, 
+msgid "Left"
+msgstr "يسار"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:94
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:46
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:93
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:394
+#, 
+msgid "Center"
+msgstr "وسط"
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:97
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:50
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:96
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:397
+#, 
+msgid "Right"
+msgstr "يمين"
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:10
+msgid "Horizontal list."
+msgstr "قائمة أفقية."
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:12
+#: src/dff/gutenberg/blocks/icon-list/index.js:11
+#, 
+msgid "list"
+msgstr "قائمة"
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:12
+#, 
+msgid "horizontal"
+msgstr "أُفُقِيّ ; عَرْضِيّ ; مُسْتَعْرِض ; مُعْتَرِض"
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:9
+msgid "Horizontal list"
+msgstr "قائمة أفقية"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:117
+#, 
+msgid "Set Icon"
+msgstr "تعيين ايقونة"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:124
+#, 
+msgid "Title"
+msgstr "العنوان"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:130
+#, 
+msgid "Content"
+msgstr "المحتوى"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:85
+msgid "Dark Mode Settings"
+msgstr "إعدادات الوضع الداكن"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:87
+msgid "Enable Dark Mode Invert"
+msgstr "تمكين عكس الوضع الداكن"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:88
+msgid "This will invert icon colours for dark mode only"
+msgstr "هذا سوف عكس ألوان الرموز للوضع الداكن فقط"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:96
+msgid "Show Dark Mode Preview"
+msgstr "إظهار معاينة الوضع الداكن"
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:97
+msgid "A preview of how the icon will potentially look in dark mode"
+msgstr "معاينة لكيفية احتمال أن يظهر الرمز في الوضع المظلم"
+
+#: src/dff/gutenberg/blocks/icon-list/index.js:11
+#, 
+msgid "icon"
+msgstr "ايقونة"
+
+#: src/dff/gutenberg/blocks/icon-list/index.js:9
+#, 
+msgid "Icon list"
+msgstr "قائمة أيقونات"
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:19
+msgid "Number of items visible"
+msgstr "عدد العناصر المرئية"
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:29
+msgid "Please select your images"
+msgstr "الرجاء تحديد الصور"
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:40
+msgid "Edit Images"
+msgstr "تعديل الصور"
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:40
+#, 
+msgid "Add Images"
+msgstr "إضافة صور"
+
+#: src/dff/gutenberg/blocks/image-slider/components/Slider.js:12
+msgid "No images selected, cannot display slider."
+msgstr "لا توجد صور محددة، لا يمكن عرض شريط التمرير."
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:5
+#, 
+msgid "Image Slider"
+msgstr "تمرير الصورة"
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:6
+msgid "Allows for the displaying of multiple images inline"
+msgstr "يسمح بعرض صور متعددة مضمنة"
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+#, 
+msgid "scrolling"
+msgstr "تمرير"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:150
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:88
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:192
+#, 
+msgid "Post Types"
+msgstr "أنواع المنشور"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:156
+#, 
+msgid "Taxonomies"
+msgstr "التصنيفات"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:171
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:60
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:56
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:116
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:371
+#, 
+msgid "Additional Settings"
+msgstr "إعدادات إضافية"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:173
+#, 
+msgid "Selection Mode"
+msgstr "وضع اختيار"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:177
+#, 
+msgid "Show Preview"
+msgstr "عرض المعاينة"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:181
+msgid "Please select a heading tag to be used for the title."
+msgstr "الرجاء تحديد علامة عنوان ليتم استخدامها للعنوان."
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:198
+msgid "Current Background URL"
+msgstr "عنوان URL الحالي للخلفية"
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:202
+msgid "Please choose a background image"
+msgstr "الرجاء اختيار صورة خلفية"
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:331
+#, 
+msgid "Add new tag"
+msgstr "أضف وسم جديد"
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:331
+msgid "Add new Term"
+msgstr "إضافة مصطلح جديد"
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:332
+#, 
+msgid "Tag"
+msgstr "وسم"
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:332
+#, 
+msgid "Term"
+msgstr "مدة"
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:10
+msgid "Post Feed"
+msgstr "نتائج المنشور"
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:12
+#, 
+msgid "post"
+msgstr "منشور"
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:12
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:11
+#, 
+msgid "feed"
+msgstr "نتيجة"
+
+#: src/dff/gutenberg/blocks/post-feed/styles/Banner.js:138
+msgid "Has featured post"
+msgstr "تم عرض المنشور"
+
+#: src/dff/gutenberg/blocks/post-feed/styles/Simple.js:92
+#, 
+msgid "Enable Slider"
+msgstr "تفعيل التمرير"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:200
+msgid "Show Category Filters"
+msgstr "إظهار عوامل تصفية الفئة"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:204
+msgid "Show Sort By Options"
+msgstr "إظهار الفرز حسب الخيارات"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:208
+msgid "Show View All Button"
+msgstr "إظهار عرض الكل الزر"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:212
+#, 
+msgid "View All Link"
+msgstr "عرض جميع الروابط"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:216
+#, 
+msgid "Show Pagination"
+msgstr "عرض ترقيم الصفحات"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:223
+#, 
+msgid "Number of posts"
+msgstr "عدد المشاركات"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:226
+msgid "Card Options"
+msgstr "خيارات البطاقة"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:228
+msgid "Show Taxonomy"
+msgstr "إظهار التصنيف"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:232
+#, 
+msgid "Show Date"
+msgstr "إظهار التاريخ"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:236
+#, 
+msgid "Filters"
+msgstr "الفلاتر"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:248
+msgid "Archive Title"
+msgstr "عنوان الأرشيف"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:73
+#, 
+msgid "Past Events"
+msgstr "الفعاليات السابقة"
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:74
+msgid "When toggled this will only show events that have passed."
+msgstr "عند تبديل هذا سوف تظهر الأحداث التيحصلت فقط."
+
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:11
+#, 
+msgid "archive"
+msgstr "الارشيف"
+
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:9
+msgid "Post type archive"
+msgstr "أرشيف نوع النشر"
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/CallToActionEdit.js:14
+#, 
+msgid "Text"
+msgstr "نص"
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/QuoteSettings.js:12
+#, 
+msgid "Cite"
+msgstr "اقتباس"
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/QuoteSettings.js:16
+msgid "Cite Job"
+msgstr "اقتباس الوظيفة"
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:39
+msgid "Select banner style:"
+msgstr "حدد نمط الشعار:"
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:44
+#, 
+msgid "Quote"
+msgstr "اقتبس"
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:47
+#, 
+msgid "Call To Action"
+msgstr "اتخاذ إجراء"
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:10
+msgid "Large quote with background image"
+msgstr "اقتباس كبير مع صورة خلفية"
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:12
+#, 
+msgid "quote"
+msgstr "اقتباس"
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:12
+#, 
+msgid "banner"
+msgstr "شعار"
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:9
+msgid "Quote Banner"
+msgstr "شعار الاقتباس"
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:28
+msgid "Larger content area"
+msgstr "مساحة محتوى أكبر"
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:32
+msgid "Alternate Style"
+msgstr "نمط بديل"
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:40
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:35
+#: src/dff/gutenberg/blocks/title/index.js:8
+#, 
+msgid "Section title"
+msgstr "عنوان القسم"
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:50
+msgid "(Section Content)"
+msgstr "(محتوى المقطع)"
+
+#: src/dff/gutenberg/blocks/section-header/index.js:11
+#: src/dff/gutenberg/blocks/section-header/index.js:14
+#: src/dff/gutenberg/blocks/section/index.js:12 src/dff/gutenberg/blocks/title/index.js:11
+#, 
+msgid "section"
+msgstr "قسم"
+
+#: src/dff/gutenberg/blocks/section-header/index.js:11 src/dff/gutenberg/blocks/title/index.js:11
+#, 
+msgid "header"
+msgstr "رأس"
+
+#: src/dff/gutenberg/blocks/section-header/index.js:8
+#, 
+msgid "Section Header"
+msgstr "رأس القسم"
+
+#: src/dff/gutenberg/blocks/section-header/index.js:9 src/dff/gutenberg/blocks/title/index.js:9
+msgid "Header block for a section that contains the heading and sub-content."
+msgstr "حجب الترويس لاحتواء قسم على العنوان والمحتوى الفرعي."
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:12
+msgid "Grey Light"
+msgstr "رمادي فاتح"
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:6
+msgid "Grey Dark"
+msgstr "رمادي غامق"
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:9
+#, 
+msgid "Grey"
+msgstr "رمادي"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:141
+msgid "Content Width:"
+msgstr "عرض المحتوى:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:146
+msgid "Content Alignment:"
+msgstr "محاذاة المحتوى:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:151
+#, 
+msgid "Size:"
+msgstr "الحجم:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:156
+msgid "Section margins"
+msgstr "هوامش المقطع"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:164
+#, 
+msgid "Color:"
+msgstr "اللون:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:169
+msgid "Has border"
+msgstr "له حد"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:173
+msgid "No Padding on Mobile"
+msgstr "لا يوجد حشو على الجوال"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:177
+msgid "Triangle Option:"
+msgstr "خيار المثلث:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:182
+msgid "Triangle Position:"
+msgstr "موضع المثلث:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:186
+msgid "Background Colour:"
+msgstr "لون الخلفية:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:202
+#, 
+msgid "Anchor"
+msgstr "مرساة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:204
+msgid "Is Anchor"
+msgstr "مرساة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:205
+msgid "Allow the hero to link to this section"
+msgstr "السماح للقسم الرئيسي بالارتباط بهذا القسم"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:209
+#, 
+msgid "Section Name"
+msgstr "إسم القسم"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:210
+msgid "This will be used to identify the section within the header options"
+msgstr "سيتم استخدام هذا لتحديد المقطع ضمن خيارات الرأس"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:214
+msgid "Negative Settings"
+msgstr "إعدادات سالبة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:216
+#, 
+msgid "Enable"
+msgstr "تفعيل"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:217
+msgid "This will enable the negative margin mode for this section"
+msgstr "سيؤدي هذا إلى تمكين وضع الهامش السالب لهذا المقطع"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:221
+msgid "Negative Space:"
+msgstr "الفضاء السالب:"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:227
+msgid "Triangle Images"
+msgstr "صور المثلث"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:232
+msgid "Set Image Triangle One"
+msgstr "تعيين مثلث الصورة واحد"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:238
+msgid "Set Image Triangle Two"
+msgstr "تعيين مثلث الصورة اثنين"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:244
+msgid "Set Image Triangle Three"
+msgstr "تعيين مثلث الصورة ثلاثة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:43
+#, 
+msgid "No Padding"
+msgstr "بدون حشو"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:53
+#, 
+msgid "Dark"
+msgstr "داكن"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:60
+#, 
+msgid "Small"
+msgstr "صغير"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:63
+#, 
+msgid "Large"
+msgstr "كبير"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:66
+#, 
+msgid "Custom"
+msgstr "مخصص"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:70
+#, 
+msgid "Start"
+msgstr "ابدأ"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:73
+#, 
+msgid "End"
+msgstr "النهاية"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:77
+#, 
+msgid "12 Columns"
+msgstr "12 عمود"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:80
+#, 
+msgid "10 Columns"
+msgstr "10 أعمدة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:83
+#, 
+msgid "8 Columns"
+msgstr "8 أعمدة"
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:86
+#, 
+msgid "6 Columns"
+msgstr "6 اعمدة"
+
+#: src/dff/gutenberg/blocks/section/index.js:10
+msgid "Section block for containing the content."
+msgstr "حجب القسم لاحتواء المحتوى."
+
+#: src/dff/gutenberg/blocks/section/index.js:12
+#, 
+msgid "container"
+msgstr "منطقة"
+
+#: src/dff/gutenberg/blocks/section/index.js:9
+#, 
+msgid "Section"
+msgstr "قسم"
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:13
+msgid "Getting pages..."
+msgstr "الحصول على الصفحات..."
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:20
+msgid "Current page selected has no sub pages, please select a new page."
+msgstr "الصفحة الحالية المحددة لا تحتوي على صفحات فرعية، الرجاء تحديد صفحة جديدة."
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:27
+msgid "Please select a page from the settings menu."
+msgstr "الرجاء تحديد صفحة من قائمة الإعدادات."
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:101
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:49
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:316
+#, 
+msgid "Please select a page"
+msgstr "الرجاء تحديد صفحة"
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:124
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:70
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:407
+msgid "Please select a page:"
+msgstr "الرجاء تحديد صفحة"
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:133
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:78
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:412
+#, 
+msgid "Order by: "
+msgstr "ترتيب حسب:"
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:157
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:107
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:426
+#, 
+msgid "Order: "
+msgstr "ترتيب :"
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:5
+msgid "Page Sub Menu"
+msgstr "قائمة فرعية للصفحة"
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:6
+msgid "Sub menu page block which will display a menu of sub pages"
+msgstr "كتلة صفحة القائمة الفرعية التي ستعرض قائمة من الصفحات الفرعية"
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:8
+msgid "sub pages menu"
+msgstr "قائمة الصفحات الفرعية"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:122
+msgid "Maximum of two post types can be selected"
+msgstr "يمكن تحديد نوعين من الوظائف كحد أقصى"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:350
+msgid "Please select a mode type:"
+msgstr "الرجاء تحديد نوع وضع:"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:361
+msgid "Enable preview"
+msgstr "تمكين المعاينة"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:362
+msgid "Toggles the preview card option for the select feed."
+msgstr "تبديل خيار بطاقة المعاينة لتغذية تحديد."
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:373
+#, 
+msgid "No Sidebar "
+msgstr "بدون شريط جانبي"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:374
+msgid "Disables the sidebar"
+msgstr "تعطيل الشريط الجانبي"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:378
+msgid "Enable Meta Information "
+msgstr "تمكين معلومات التعريف"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:379
+msgid "Enables the display of meta information for each item"
+msgstr "تمكين عرض معلومات التعريف لكل عنصر"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:383
+msgid "Enable Call To Action "
+msgstr "تمكين الدعوة إلى اتخاذ إجراء"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:384
+msgid "Enables the display of an arrow icon where meta information would usually go"
+msgstr "تمكين عرض رمز السهم حيث تتجه معلومات meta عادة"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:388
+msgid "Please an alignment"
+msgstr "الرجاء محاذاة"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:402
+msgid "Restrict To Sub Pages "
+msgstr "تقييد إلى الصفحات الفرعية"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:403
+msgid "Enables the selection of a parent page to be used."
+msgstr "تمكين تحديد الصفحة الأصل لاستخدامها."
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:455
+#, 
+msgid "Enter title"
+msgstr "ادخل عنوان"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:460
+#, 
+msgid "Enter description"
+msgstr "أدخل الوصف"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:11
+msgid "tabs"
+msgstr "علامات التبويب"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:11
+#, 
+msgid "tab"
+msgstr "علامة تبويب"
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:9
+msgid "Tabbed Posts"
+msgstr "المشاركات المبوبة"
+
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:91
+#, 
+msgid "(Year)"
+msgstr "(السنة)"
+
+#: src/dff/gutenberg/blocks/timeline/index.js:11
+#, 
+msgid "timeline"
+msgstr "جدول زمني"
+
+#: src/dff/gutenberg/blocks/timeline/index.js:11
+#, 
+msgid "about"
+msgstr "نبذة عن"
+
+#: src/dff/gutenberg/blocks/timeline/index.js:8
+#, 
+msgid "Timeline"
+msgstr "الجدول الزمني"
+
+#: src/dff/gutenberg/blocks/timeline/index.js:9
+msgid "Timeline block for displaying content."
+msgstr "كتلة الجدول الزمني لعرض المحتوى."
+
+#: src/dff/gutenberg/blocks/title/containers/Edit.js:31
+msgid "Has Graphic"
+msgstr "لديه رسم"
+
+#: src/dff/gutenberg/components/PostMediaSelector.js:70
+#, 
+msgid "Replace Image"
+msgstr "استبدل الصورة"
+
+#: src/dff/gutenberg/components/PostMediaSelector.js:72
+#, 
+msgid "Remove Image"
+msgstr "احذف صورة"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:11
+#, 
+msgid "Sun"
+msgstr "الشمس"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:15
+#, 
+msgid "Hourglass"
+msgstr "الساعة الرملية"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:19
+#, 
+msgid "People"
+msgstr "أشخاص"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:23
+#, 
+msgid "Moon"
+msgstr "القمر"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:27 inc/frontend/loader.php:14
+#, 
+msgid "Search"
+msgstr "بحث"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:31
+#, 
+msgid "Play"
+msgstr "تشغيل"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:35
+#, 
+msgid "Chevron Down"
+msgstr "علامة v للأسفل"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:39
+msgid "Chevron Right"
+msgstr "علامة v لليمين"
+
+#: src/dff/gutenberg/components/icons/getIcons.js:7
+msgid "Arrow Right"
+msgstr "السهم لليمين"
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:30
+#, 
+msgid "Loading Posts..."
+msgstr "جاري تحميل المنشورات"
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:36
+#: inc/frontend/loader.php:29
+msgid "Your query yielded no results, please try again."
+msgstr "لم يسفر الاستعلام عن أي نتائج، الرجاء المحاولة مرة أخرى."
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:40
+#, 
+msgid "No Posts."
+msgstr "لا توجد منشورات"
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:56
+#: src/dff/gutenberg/components/post-selector/PostList.js:51
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:52 inc/frontend/loader.php:23
+#, 
+msgid "Loading..."
+msgstr "جاري التحميل..."
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:56 inc/frontend/loader.php:24
+#, 
+msgid "Load More"
+msgstr "تحميل المزيد"
+
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:39
+msgid "Please enter your search query..."
+msgstr "الرجاء إدخال استعلام البحث..."
+
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:46
+#, 
+msgid "Post Type:"
+msgstr "نوع المشاركة:"
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:70
+msgid "Font settings"
+msgstr "إعدادات الخط"
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:72
+#, 
+msgid "Font family"
+msgstr "عائلة الخط"
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:93
+#, 
+msgid "Font weight"
+msgstr "وزن الخط"
+
+#: src/dff/gutenberg/extended-blocks/quote/index.js:5
+msgid "Stylised"
+msgstr "منمق"
+
+#: src/dff/gutenberg/extended-blocks/quote/index.js:8
+#, 
+msgid "Simple"
+msgstr "بسيط"
+
+#: src/dff/gutenberg/meta/future-talks/index.js:56
+#, 
+msgid "Video Settings"
+msgstr "اعدادات الفيديو"
+
+#: src/dff/gutenberg/meta/future-talks/index.js:59
+#, 
+msgid "Video URL"
+msgstr "رابط الفيديو"
+
+#: src/dff/gutenberg/meta/future-talks/index.js:64
+#, 
+msgid "Video Length"
+msgstr "مدة الفيديو"
+
+#: src/dff/gutenberg/meta/theme/index.js:31
+msgid "Page Theme Options"
+msgstr "خيارات نسق الصفحة"
+
+#. %s: term name.
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:335
+#, 
+msgctxt "term"
+msgid "%s added"
+msgstr "%s تم إضافته"
+
+#. %s: term name.
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:338
+msgctxt "term"
+msgid "%s removed"
+msgstr "تمت إزالة %s"
+
+#. %s: term name.
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:341
+#, 
+msgctxt "term"
+msgid "Remove %s"
+msgstr "حذف %s"
+
+#. Theme Name of the theme
+msgid "Dubai Future Foundations"
+msgstr "مؤسسات دبي للمستقبل"
+
+#. Author of the theme
+msgid "Big Bite"
+msgstr "بيغ بايت"
+
+#. Author URI of the theme
+msgid "https://bigbite.net/"
+msgstr "https://bigbite.net/"
+
+#. Template Name of the theme
+#, 
+msgid "404"
+msgstr "404"
+
+#: 404.php:22
+#, 
+msgid "Page Not Found"
+msgstr "الصفحة غير موجودة"
+
+#: 404.php:23
+#, 
+msgid "Back to Home"
+msgstr "العودة للصفحة الرئيسية"
+
+#: archive.php:61 home.php:81 inc/frontend/loader.php:17 search.php:73
+#, 
+msgid "Sort By"
+msgstr "ترتيب حسب"
+
+#: archive.php:63 home.php:83 inc/frontend/loader.php:18 search.php:76
+msgid "Date (OLDEST)"
+msgstr "التاريخ (الأقدم)"
+
+#: archive.php:64 home.php:84 inc/frontend/loader.php:19 search.php:77
+msgid "Date (NEWEST)"
+msgstr "التاريخ (الأحدث)"
+
+#: footer.php:10
+msgid "Subscribe for updates"
+msgstr "الاشتراك للحصول على التحديثات"
+
+#: footer.php:11
+msgid "A weekly update from DFF"
+msgstr "تحديث أسبوعي من DFF"
+
+#: footer.php:14 footer.php:15
+#, 
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: footer.php:17
+#, 
+msgid "Subscribe"
+msgstr "الاشتراك"
+
+#: header.php:122
+#, 
+msgid "Skip to content"
+msgstr "تخطى الى المحتوى"
+
+#: header.php:135
+msgid "Go to the homepage"
+msgstr "الانتقال إلى الصفحة الرئيسية"
+
+#: header.php:143
+msgid "Main Menu Navigation"
+msgstr "التنقل في القائمة الرئيسية"
+
+#: header.php:160
+#, 
+msgid "Open Search"
+msgstr "افتح البحث"
+
+#: header.php:164
+msgid "Future ID menu"
+msgstr "قائمة المعرّف المستقبلي"
+
+#: header.php:181
+msgid "Turn darkmode on"
+msgstr "تشغيل وضع داكن"
+
+#: header.php:185
+msgid "Turn darkmode off"
+msgstr "إيقاف تشغيل المودي الداكن"
+
+#: header.php:191
+#, 
+msgid "Close Search"
+msgstr "اغلاق البحث"
+
+#: home.php:29
+msgid "Latest insights"
+msgstr "أحدث الرؤى"
+
+#: home.php:39 inc/frontend/loader.php:20
+#, 
+msgid "Filter by content type"
+msgstr "تصفية حسب نوع المحتوى"
+
+#. translators: Subnavigation for "menu item title"
+#: inc/class-nav-megamenu-walker.php:65
+msgid "Subnavigation for %s"
+msgstr "نقّار فرعي لـ %s"
+
+#: inc/class-nav-megamenu.php:40
+msgid "Submenu Title"
+msgstr "عنوان الـ submenmenu"
+
+#: inc/class-nav-megamenu.php:52
+msgid "Submenu content"
+msgstr "محتوى القائمة الفرعية"
+
+#: inc/frontend/loader.php:15
+msgid "Top search results"
+msgstr "أهم نتائج البحث"
+
+#: inc/frontend/loader.php:16
+msgid "All search results ›"
+msgstr "جميع نتائج البحث ›"
+
+#: inc/frontend/loader.php:21
+#, 
+msgid "Filter by"
+msgstr "فرز حسب"
+
+#: inc/frontend/loader.php:22
+#, 
+msgid "Clear Filter"
+msgstr "إلغاء الفلترة"
+
+#: inc/frontend/loader.php:25
+msgid "Login / Register"
+msgstr "تسجيل الدخول/تسجيل"
+
+#: inc/frontend/loader.php:30
+msgid "Filter search results"
+msgstr "تصفية نتائج البحث"
+
+#: inc/frontend/loader.php:31
+msgid "Filtering By"
+msgstr "تصفية حسب"
+
+#: inc/frontend/loader.php:32
+msgid "No results found for the search term"
+msgstr "لم يتم العثور على نتائج تطابق مصطلح البحث"
+
+#: inc/frontend/loader.php:33
+msgid "Searching"
+msgstr "جاري البحث"
+
+#: inc/gutenberg/blocks/class-post-type-archive.php:177
+#: inc/gutenberg/blocks/class-tabbed-posts.php:217 inc/gutenberg/blocks/class-tabbed-posts.php:302
+#, 
+msgid "View All"
+msgstr "عرض الكل"
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:228
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:116
+#, 
+msgid "Previous Posts"
+msgstr "المنشورات السابقة"
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:274
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:128
+#, 
+msgid "Next Posts"
+msgstr "المنشورات التالية"
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:28
+#, 
+msgid "Previous Image"
+msgstr "الصورة السابقه"
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:42
+#, 
+msgid "Next Image"
+msgstr "الصورة التالية"
+
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:34
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:36
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:71
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:73
+msgid "Link to %s"
+msgstr "ارتباط بـ %s"
+
+#: inc/gutenberg/blocks/sub-menu/class-render.php:66
+#: inc/gutenberg/blocks/sub-menu/class-render.php:67
+msgid "Overview"
+msgstr "نظرة"
+
+#: inc/gutenberg/class-loader.php:62
+msgid "DFF"
+msgstr "مؤسسة دبي للمستقبل"
+
+#: inc/integrations/programs/class-cron.php:39
+#, 
+msgid "Every 6 hours"
+msgstr "كل 6 ساعات"
+
+#: inc/integrations/programs/class-rest.php:26
+msgid "Successfully synchronised programs."
+msgstr "بنجاح تمت مزامنة البرامج"
+
+#: inc/integrations/programs/views/admin.php:2
+msgid "Synchronise Programs"
+msgstr "مزامنة البرامج"
+
+#: inc/integrations/programs/views/admin.php:3
+msgid "The website synchronises programs every six hours without user interaction."
+msgstr "يزامن الموقع البرامج كل ست ساعات دون تدخل المستخدم."
+
+#: inc/integrations/programs/views/admin.php:29
+msgid "Something went wrong whilst trying to synchronise programs, hit synchronise to try again"
+msgstr "حدث خطأ ما أثناء محاولة مزامنة البرامج ، انقر synchronise للمحاولة مرة أخرى"
+
+#: inc/navigation.php:9
+#, 
+msgid "Primary Nav"
+msgstr "القائمة الرئيسية"
+
+#: inc/navigation.php:10
+msgid "Future ID"
+msgstr "معرف المستقبل"
+
+#: inc/navigation.php:11
+#, 
+msgid "Footer #1"
+msgstr "الفوتر"
+
+#: inc/navigation.php:12
+msgid "Footer #2"
+msgstr "#2 تذييل"
+
+#: inc/navigation.php:13
+msgid "Footer #3"
+msgstr "#3 تذييل الصفحة"
+
+#: inc/navigation.php:14
+#, 
+msgid "Footer Bottom"
+msgstr "أسفل التذييل"
+
+#: inc/navigation.php:15
+msgid "Footer Bottom #2"
+msgstr "#2 أسفل التذييل"
+
+#: inc/post-types/insights.php:12 inc/post-types/insights.php:13 inc/post-types/insights.php:23
+#: inc/post-types/insights.php:34 inc/post-types/insights.php:35
+#: search.php:5
+#, 
+msgid "Insights"
+msgstr "معلومات"
+
+#: inc/post-types/insights.php:14 inc/post-types/insights.php:25 inc/post-types/insights.php:26
+msgid "Add Insight"
+msgstr "إضافة المعلومة"
+
+#: inc/post-types/insights.php:15
+#, 
+msgid "Tags"
+msgstr "الوسوم"
+
+#: inc/post-types/insights.php:24 inc/post-types/insights.php:28
+#, 
+msgid "Insight"
+msgstr "معلومات"
+
+#: inc/post-types/insights.php:27
+#, 
+msgid "Edit Insight"
+msgstr "تعديل المعلومات"
+
+#: inc/post-types/insights.php:29
+msgid "View Insight"
+msgstr "عرض المعلومات"
+
+#: inc/post-types/insights.php:30
+msgid "Search Insights"
+msgstr "البحث عن معلومات"
+
+#: inc/post-types/insights.php:31
+msgid "No Insight found"
+msgstr "لم يتم العثور على معلومات"
+
+#: inc/post-types/insights.php:32
+msgid "No Insight found in Trash"
+msgstr "لم يتم العثور على معلومات في المهملات"
+
+#: inc/post-types/insights.php:33
+msgid "All Insights"
+msgstr "كل المعلومات"
+
+#: inc/post-types/insights.php:48
+msgctxt "Taxonomy General Name"
+msgid "Article Types"
+msgstr "أنواع المقالات"
+
+#: inc/post-types/insights.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Article Type"
+msgstr "نوع المقال"
+
+#: inc/post-types/insights.php:50
+msgid "Article Type"
+msgstr "نوع المقال"
+
+#: inc/post-types/insights.php:51
+msgid "All Article Types"
+msgstr "كل أنواع المقالات"
+
+#: inc/post-types/insights.php:52
+msgid "Parent Article Type"
+msgstr "نوع المقالة الأصلية"
+
+#: inc/post-types/insights.php:53
+msgid "Parent Article Type:"
+msgstr "نوع المقالة الأصلية:"
+
+#: inc/post-types/insights.php:54
+msgid "New Article Type Name"
+msgstr "اسم نوع المقالة الجديد"
+
+#: inc/post-types/insights.php:55
+msgid "Add New Article Type"
+msgstr "إضافة نوع مقال جديد"
+
+#: inc/post-types/insights.php:56
+msgid "Edit Article Type"
+msgstr "تحرير نوع المقال"
+
+#: inc/post-types/insights.php:57
+msgid "Update Article Type"
+msgstr "تحديث نوع المقالة"
+
+#: inc/post-types/insights.php:58
+msgid "View Article Type"
+msgstr "عرض نوع المقال"
+
+#: inc/post-types/insights.php:59 inc/post-types/programs.php:59 inc/post-types/programs.php:105
+msgid "Separate event categories with commas"
+msgstr "فصل فئات الأحداث بفواصل"
+
+#: inc/post-types/insights.php:60 inc/post-types/programs.php:60 inc/post-types/programs.php:106
+msgid "Add or remove event categories"
+msgstr "إضافة فئات الأحداث أو إزالتها"
+
+#: inc/post-types/insights.php:61 inc/post-types/programs.php:61 inc/post-types/programs.php:107
+#, 
+msgid "Choose from the most used"
+msgstr "اختر من بين الأكثر استخداما"
+
+#: inc/post-types/insights.php:62
+msgid "Popular Article Types"
+msgstr "أنواع المقالات الشائعة"
+
+#: inc/post-types/insights.php:63
+msgid "Search Article Types"
+msgstr "بحث في أنواع المقالات"
+
+#: inc/post-types/insights.php:64 inc/post-types/programs.php:64 inc/post-types/programs.php:110
+#, 
+msgid "Not Found"
+msgstr "غير موجود"
+
+#: inc/post-types/insights.php:65
+msgid "No Article Types"
+msgstr "لا توجد أنواع مقالات"
+
+#: inc/post-types/insights.php:66
+msgid "Article Types list"
+msgstr "قائمة أنواع المقالات"
+
+#: inc/post-types/insights.php:67
+msgid "Article Types list navigation"
+msgstr "التنقل في قائمة أنواع المقالات"
+
+#: inc/post-types/programs.php:48
+#, 
+msgctxt "Taxonomy General Name"
+msgid "Facilitators"
+msgstr "الميسرون"
+
+#: inc/post-types/programs.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Facilitator"
+msgstr "الميسر"
+
+#: inc/post-types/programs.php:50
+#, 
+msgid "Facilitator"
+msgstr "الميسر"
+
+#: inc/post-types/programs.php:51
+msgid "All Facilitators"
+msgstr "جميع الميسرين"
+
+#: inc/post-types/programs.php:52
+msgid "Parent Facilitator"
+msgstr "الميسر الأصل"
+
+#: inc/post-types/programs.php:53
+msgid "Parent Facilitator:"
+msgstr "الميسر الأصل"
+
+#: inc/post-types/programs.php:54
+msgid "New Facilitator Name"
+msgstr "اسم الميسر الجديد"
+
+#: inc/post-types/programs.php:55
+msgid "Add New Facilitator"
+msgstr "إضافة ميسر جديد"
+
+#: inc/post-types/programs.php:56
+msgid "Edit Facilitator"
+msgstr "تحرير الميسر"
+
+#: inc/post-types/programs.php:57
+msgid "Update Facilitator"
+msgstr "تحديث الميسر"
+
+#: inc/post-types/programs.php:58
+msgid "View Facilitator"
+msgstr "عرض الميسر"
+
+#: inc/post-types/programs.php:62
+msgid "Popular Facilitators"
+msgstr "الميسرون الشائعون"
+
+#: inc/post-types/programs.php:63
+msgid "Search Facilitators"
+msgstr "بحث في الميسرين"
+
+#: inc/post-types/programs.php:65
+msgid "No Facilitators"
+msgstr "الميسرون"
+
+#: inc/post-types/programs.php:66
+msgid "Facilitators list"
+msgstr "قائمة الميسرين"
+
+#: inc/post-types/programs.php:67
+msgid "Facilitators list navigation"
+msgstr "تنقل قائمة الميسرين"
+
+#: inc/post-types/programs.php:94
+msgctxt "Taxonomy General Name"
+msgid "Challenge Owners"
+msgstr "مالكو التحدي"
+
+#: inc/post-types/programs.php:95
+msgctxt "Taxonomy Singular Name"
+msgid "Challenge Owner"
+msgstr "مالك التحدي"
+
+#: inc/post-types/programs.php:96
+msgid "Challenge Owner"
+msgstr "مالك التحدي"
+
+#: inc/post-types/programs.php:97
+msgid "All Challenge Owners"
+msgstr "جميع مالكي التحديات"
+
+#: inc/post-types/programs.php:98
+msgid "Parent Challenge Owner"
+msgstr "مالك التحدي الأصل"
+
+#: inc/post-types/programs.php:99
+msgid "Parent Challenge Owner:"
+msgstr "مالك التحدي الأصل:"
+
+#: inc/post-types/programs.php:100
+msgid "New Challenge Owner Name"
+msgstr "اسم مالك التحدي الجديد"
+
+#: inc/post-types/programs.php:101
+msgid "Add New Challenge Owner"
+msgstr "إضافة مالك تحدي جديد"
+
+#: inc/post-types/programs.php:102
+msgid "Edit Challenge Owner"
+msgstr "تحرير مالك التحدي"
+
+#: inc/post-types/programs.php:103
+msgid "Update Challenge Owner"
+msgstr "تحديث مالك التحدي"
+
+#: inc/post-types/programs.php:104
+msgid "View Challenge Owner"
+msgstr "عرض مالك التحدي"
+
+#: inc/post-types/programs.php:108
+msgid "Popular Challenge Owners"
+msgstr "أصحاب التحدي الشائع"
+
+#: inc/post-types/programs.php:109
+msgid "Search Challenge Owners"
+msgstr "أصحاب تحدي البحث"
+
+#: inc/post-types/programs.php:111
+msgid "No Challenge Owners"
+msgstr "لا يوجد ملاك للتحدي"
+
+#: inc/post-types/programs.php:112
+msgid "Challenge Owners list"
+msgstr "قائمة مالكي التحدي"
+
+#: inc/post-types/programs.php:113
+msgid "Challenge Owners list navigation"
+msgstr "التنقل في قائمة مالكي التحدي"
+
+#. translators: Search results for "$query_text"
+#: search.php:23
+#, 
+msgid "Search results for \"%s\""
+msgstr "نتائج البحث عن \"%s\""
+
+#: search.php:6
+msgid "Pages"
+msgstr "الصفحات"
+
+#: search.php:7
+msgid "Events"
+msgstr "أنشطة"
+
+#: search.php:8
+msgid "Programmes"
+msgstr "البرامج"
+
+#: search.php:9
+msgid "Future Talks"
+msgstr "حوارات المستقبل"
+
+#: search.php:30
+msgid "Showing results for \"%s\""
+msgstr "عرض النتائج لـ \"%s\""
+
+#: search.php:35 search.php:75
+#, 
+msgid "Relevance"
+msgstr "الأكثر تطابقاً"
+
+#: single-future-talk.php:40 single.php:76
+#, 
+msgid "Share"
+msgstr "شارك"
+
+#: single-future-talk.php:63 single.php:103
+#, 
+msgid "Related Posts"
+msgstr "مقالات ذات صلة"
+
+#: single.php:30
+msgid "Scroll down to post content"
+msgstr "مرر للأسفل لنشر المحتوى"
+
+#: single.php:81
+#, 
+msgid "Share to Facebook"
+msgstr "مشاركة على فيسبوك"
+
+#: single.php:87
+#, 
+msgid "Share to Twitter"
+msgstr "مشاركة على تويتر"

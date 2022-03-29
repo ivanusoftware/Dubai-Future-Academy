@@ -1,0 +1,89 @@
+// This file uses spacing to align, disable disalowing more than 1 space after colon.
+/* stylelint-disable declaration-colon-space-after */
+/* stylelint-disable declaration-bang-space-before */
+
+////
+/// @group Defaults
+/// @type Number (Unit)
+////
+
+/// Enable flexbox components.
+/// @type Bool
+$enable-flexbox: true !default;
+
+/// Primary font family.
+/// @type String (List)
+$font-family-primary:   var(--font-primary);
+$font-family-secondary: var(--font-secondary);
+$font-family-tertiary: var(--font-tertiary);
+
+/// Sets the base font size.
+$base-font-size:   16px !default;
+
+/// Sets the base line height.
+$base-line-height: 24px !default;
+
+/// Heading sizes
+$header-sizes: (
+  h1: 6ms,
+  h2: 5ms,
+  h3: 4ms,
+  h4: 3ms,
+  h5: 2ms,
+  h6: 1ms,
+);
+
+/// `.milli`.
+$milli-size: -1ms;
+
+//
+// Misc. variables.
+//
+
+/// Unitless line-height ratio (e.g 16px/24px = 1.5)
+/// @require $base-line-height
+/// @require $base-font-size
+/// @access private
+$line-height-ratio: $base-line-height / $base-font-size;
+
+/// Spacing based on padding rules.
+$spacing-unit: 40px !default;
+
+/// Type spacing.
+$spacing-unit-paragraph: 24px;
+
+/// Smaller spacing.
+$spacing-unit-small: 32px;
+
+@mixin spacing-unit() {
+  margin-top: $spacing-unit-small;
+
+  @include mq($from: mobile, $until: tablet) {
+    margin-top: $spacing-unit-small;
+  }
+
+  @include mq($from: tablet) {
+    margin-top: $spacing-unit;
+  }
+}
+
+/// Half `$spacing-unit-small`.
+$spacing-unit-small--half: round($spacing-unit-small / 2);
+
+/// Double `$spacing-unit`.
+$spacing-unit--double:  round($spacing-unit * 2);
+
+/// Half `$spacing-unit`.
+$spacing-unit--half:    round($spacing-unit / 2);
+
+/// Half `$spacing-unit`.
+$spacing-unit--quad:    round($spacing-unit * 4);
+
+/// Half `$spacing-unit`.
+$spacing-unit--quarter: round($spacing-unit / 4);
+
+/// Global border radius.
+$base-border-radius: 4px !default;
+
+/// Global border size.
+$base-border-size: 10px !default;

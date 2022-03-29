@@ -1,0 +1,110 @@
+// .btn for gutenberg editor to avoid WP own styles.
+
+a, button, span, input[type="submit"] {
+  &.button, &.btn {
+    @extend %btn-base;
+    position: relative;
+    padding: 12px 33px;
+    color: $background-color;
+    background-color: $color-primary;
+    border-radius: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5;
+    width: fit-content;
+    border: 1px solid $color-primary;
+    transition: all .25s ease-in-out;
+
+    @include mq(small) {
+      padding: 16px 33px;
+    }
+
+    &:hover {
+      color: $background-color;
+    }
+
+    body.rtl & {
+      font-size: 14px;
+    }
+  }
+  .section--dark &.button--ghost,
+  &.button--ghost {
+    background: transparent;
+    color: $color-primary;
+
+    &:enter {
+      background-color: $color-primary-transparent;
+      color: $color-primary;
+    }
+  }
+
+  &.button--large {
+    font-size: 18px;
+    padding: 9.5px 20px;
+
+    &.button--ghost {
+      padding: 8.5px 19px;
+    }
+  }
+
+  &.button--small {
+    font-size: 12px;
+    padding: 3px 8px;
+
+    &.button--ghost {
+      padding: 2px 7px;
+    }
+  }
+
+  &.button--block {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &.button.is-icon {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      display: block;
+      fill: currentColor;
+    }
+
+    // Only set the stroke color if there is a stroke width set.
+    svg path[stroke-width] {
+      stroke: currentColor;
+    }
+  }
+
+  &.btn.is-style-cta {
+    @include mq(small) {
+      padding: 30px;
+    }
+  }
+}
+
+/**
+ * Add a margin top to the button/buttons block if it follows a paragraph or heading.
+ */
+p + .btn,
+h1 + .btn,
+h2 + .btn,
+h3 + .btn,
+h4 + .btn,
+h5 + .btn,
+h6 + .btn,
+p + .wp-block-buttons,
+h1 + .wp-block-buttons,
+h2 + .wp-block-buttons,
+h3 + .wp-block-buttons,
+h4 + .wp-block-buttons,
+h5 + .wp-block-buttons,
+h6 + .wp-block-buttons {
+  margin-top: 20px !important;
+}

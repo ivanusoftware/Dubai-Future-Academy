@@ -1,0 +1,521 @@
+.primaryNav {
+  list-style: none;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0;
+  padding-bottom: 20px;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translateX(-100%);
+  background-color: $background-color;
+
+  body.rtl & {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+
+  .nav-active body.rtl &,
+  .nav-active & {
+    transform: translateX(0);
+    overflow-y: scroll;
+    max-height: calc(100vh - 71px);
+
+    @include mq(md-small) {
+      max-height: calc(100vh - 91px);
+    }
+
+    @include mq(small) {
+      max-height: calc(100vh - 103px);
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  .nav-active .is-scrolled & {
+    max-height: calc(100vh - 51px);
+
+    @include mq(md-small) {
+      max-height: calc(100vh - 57px);
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  > li:last-of-type {
+    border: 2px solid $border-color;
+    text-align: center;
+
+    @media (any-hover: none) {
+      margin-bottom: 5px;
+    }
+
+    a {
+      white-space: nowrap;
+      flex: 1 1 auto;
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      text-align: left;
+      margin-left: 10px;
+      border-top: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+      border-bottom: 0;
+      border-right: 0;
+
+      body.rtl & {
+        border-right: 1px solid $border-color;
+        border-left: none;
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
+
+    @include mq(x-large) {
+      margin-left: 20px;
+
+      body.rtl & {
+        margin-left: 0;
+        margin-right: 20px;
+      }
+    }
+
+    &:hover {
+      background-color: $color-primary-transparent;
+    }
+  }
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      display: block;
+      margin: 0;
+    }
+
+    &.menu-item.is-active > button svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    > li {
+      &.current-menu-item,
+      &.current-menu-ancestor {
+        > a {
+          position: relative;
+        }
+
+        > a::before {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 5px;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          background-color: $body-color;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  > li + li {
+    border-top: 1px solid $border-color;
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      border-top: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 17px 0 16px;
+    font-size: 13px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .5px;
+    font-family: $font-family-secondary;
+
+    @include mq(medium) {
+      padding: 17px 10px 16px;
+      line-height: 1.16;
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      flex: 1 1 auto;
+    }
+
+    @include mq(x-large-sm) {
+      padding: 17px 20px 16px;
+      line-height: 1.16;
+    }
+  }
+
+  .nav-btn {
+    padding-top: 20px;
+  }
+
+  .nav-btn a {
+    border: 1px solid $border-color;
+    text-align: center;
+
+    &:enter {
+      background-color: $color-primary-transparent;
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      border-right: none;
+      border-bottom: none;
+
+      body.rtl & {
+        border-left: none;
+        border-right: 1px solid $border-color;
+      }
+    }
+  }
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    display: flex;
+    align-items: flex-end;
+    position: static;
+    transform: none;
+    padding-bottom: 0;
+
+    body.rtl & {
+      transform: none;
+    }
+  }
+}
+
+.search-active .primaryNav {
+  opacity: 0;
+}
+
+.primaryNav .has-children > a,
+.primaryNav > li > a {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: $body-color;
+    opacity: 0;
+    transition: all .25s ease-in-out;
+  }
+}
+
+@include mq(large-sm, $and: "(any-hover: hover)") {
+  .primaryNav .has-children:enter,
+  .primaryNav > li:enter,
+  .primaryNav .has-children:focus-within {
+    a::before {
+      opacity: 1;
+    }
+  }
+}
+
+button[data-toggle-children] {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  color: $body-color;
+  text-align: right;
+
+  body.rtl & {
+    text-align: left;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    display: none;
+  }
+}
+
+.megamenu {
+  display: none;
+  width: 100%;
+  background-color: $background-color;
+  box-shadow: 0 0 0 rgba(#000, .13);
+
+  body.rtl & {
+    text-align: right;
+  }
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    z-index: -1;
+  }
+
+  .menu-item.is-active & {
+    display: block;
+  }
+
+  .megamenu-intro,
+  .megamenu-links {
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      @include flexy-column(6);
+    }
+  }
+
+  .megamenu-intro {
+    display: none;
+
+    h1 {
+      margin-top: 0;
+    }
+
+    p {
+      width: 50%;
+    }
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      display: block;
+    }
+  }
+
+  .megamenu-links {
+    ul {
+      margin: 20px 0;
+      padding: 0;
+
+      @include mq(large-sm, $and: "(any-hover: hover)") {
+        margin: 0;
+      }
+    }
+
+    li {
+      margin: 0;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item + .menu-item {
+      margin-top: 32px;
+    }
+
+    .menu-item a {
+      font-size: 13px;
+      text-transform: none;
+      padding: 0;
+      order: 2;
+
+      @include mq(large-sm, $and: "(any-hover: hover)") {
+        font-size: 18px;
+      }
+
+    }
+
+    .menu-item svg {
+      fill: currentColor;
+      color: $body-color;
+      margin-right: 24px;
+
+      body.rtl & {
+        margin-left: 24px;
+        margin-right: 0;
+        transform: rotate(180deg);
+      }
+
+    }
+  }
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    padding: 64px 50px;
+    transform: translateY(-100%);
+    transition-delay: .25s;
+
+    &.megamenu--columns {
+      padding: 32px 50px;
+    }
+
+    .container {
+      display: flex;
+      opacity: 0;
+      transition-delay: 0s;
+    }
+  }
+}
+
+.megamenu-triangles {
+  position: absolute;
+  display: none;
+  bottom: 0;
+  right: 0;
+  color: var(--color-primary);
+  fill: currentColor;
+  pointer-events: none;
+
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    display: block;
+  }
+}
+
+@include mq(large-sm, $and: "(any-hover: hover)") {
+  .megamenu:enter,
+  a:enter ~ .megamenu {
+    top: 100%;
+    transform: translateY(0);
+    transition-delay: 0s;
+    box-shadow: 0 30px 30px rgba(#000, .13);
+
+    .container {
+      opacity: 1;
+      transition-delay: .25s;
+    }
+
+  }
+
+  .megamenu:focus-within {
+    top: 100%;
+    transform: translateY(0);
+    transition-delay: 0s;
+    box-shadow: 0 30px 30px rgba(#000, .13);
+
+    .container {
+      opacity: 1;
+      transition-delay: .25s;
+    }
+  }
+}
+
+.page-head:not(.page-head--sticky) .page-headSearch,
+.page-head:not(.page-head--sticky) .megamenu {
+  display: none;
+}
+
+.container {
+
+  &.container-columns {
+    width: 100%;
+  }
+
+  &.container-columns a {
+    font-family: $font-family-primary;
+    text-transform: none !important;
+    font-size: 13px;
+    color: $heading-color;
+    padding: 17px 0;
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      font-size: 16px;
+    }
+  }
+
+  &.container-columns > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: space-between;
+    margin: 0;
+    border-top: 1px solid $border-color;
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      flex-direction: row;
+      border-top: 0;
+    }
+
+    > li {
+      margin: 0;
+    }
+
+    li.is-active {
+      ul.subSubMenu {
+        display: block;
+      }
+    }
+  }
+
+  &.container-columns ul.subSubMenu {
+    margin: 0 0 20px;
+    padding: 0;
+    border-bottom: 1px solid $border-color;
+    width: 100%;
+    display: none;
+
+    @include mq(large-sm, $and: "(any-hover: hover)") {
+      border-bottom: 0;
+      display: block;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+html.nav-active main::before {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  content: " ";
+  pointer-events: none;
+  z-index: 200;
+}
+
+html.nav-active,
+html.nav-active body {
+  @media (any-hover: none) {
+    overflow-y: hidden;
+  }
+}
+
+.megamenu--columns li {
+  @include mq(large-sm, $and: "(any-hover: hover)") {
+    padding: 0 10px;
+  }
+}
+
+.megamenu--columns li a {
+  @include mq($from: large-sm, $until: x-large-sm, $and: "(any-hover: hover)") {
+    font-size: 14px !important;
+    padding: 10px 0 !important;
+  }
+}
+
+/**
+ * Disable transistions on header/menu icons for mobile size.
+ */
+@include mq($until: large-sm) {
+  .page-head * {
+    transition: none !important;
+  }
+}

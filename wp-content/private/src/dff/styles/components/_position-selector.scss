@@ -1,0 +1,43 @@
+.positionSelector {
+  display: flex;
+  flex-wrap: wrap;
+  width: 120px;
+  margin: 15px 0;
+}
+
+.positionSelector-row {
+  display: flex;
+  width: 100%;
+}
+
+.positionSelector-item {
+  background: #f8f8f8;
+  border: none;
+  height: 30px;
+  flex: 1 0 auto;
+
+  &.is-selected {
+    background-color: #354ca1;
+  }
+
+  &.top-left,
+  &.top-center,
+  &.top-right,
+  &.middle-left,
+  &.middle-center,
+  &.middle-right {
+    border-bottom: 1px solid #c1c1c1;
+  }
+
+  &.top-center,
+  &.middle-center,
+  &.bottom-center {
+    &:not(:first-child) {
+      border-left: 1px solid #c1c1c1;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid #c1c1c1;
+    }
+  }
+}

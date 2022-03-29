@@ -1,0 +1,288 @@
+.postFeed {
+  padding: 30px 20px;
+  color: #fff;
+  background-size: cover;
+  background-position: center center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .postFeed-feature,
+  .postFeed-list {
+    @include flexy-flex(100%);
+
+    @include mq(medium) {
+      @include flexy-column(6);
+    }
+  }
+
+  .postFeed-list {
+    // display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, .5);
+
+    li {
+      flex: 0 0 80%;
+      list-style: none;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .5);
+
+      @include mq(x-small) {
+        flex: 0 0 40%;
+      }
+    }
+
+    @include mq(medium) {
+      margin-top: 0;
+      border-top: none;
+
+      li:first-child {
+        border-top: 1px solid rgba(255, 255, 255, .5);
+      }
+    }
+  }
+
+  .postFeed-tag {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    padding-bottom: 15px;
+    display: block;
+  }
+
+  .postFeed-title {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+    line-height: 1;
+
+    @include mq(small) {
+      font-size: 22px;
+    }
+  }
+
+  .postFeed-feature {
+
+    * {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .button--ghost:hover {
+      background-color: rgba(255, 255, 255, .2);
+    }
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 54px;
+      line-height: 1;
+      color: #fff;
+    }
+
+    p {
+      display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      width: 60%;
+      color: #fff;
+
+      &:first-of-type {
+        margin-top: 20px;
+      }
+    }
+
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  @include mq(x-small) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mq(small) {
+    padding: 80px 50px;
+  }
+
+  @include mq(medium) {
+    padding-top: 124px;
+    padding-bottom: 124px;
+  }
+}
+
+.postFeed--simple {
+  margin: 0;
+  padding: 0;
+
+  &:not(.flickity-enabled) {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  div.postFeed-listItem, li {
+    @include flexy-column(8);
+    margin-right: 0;
+    list-style: none;
+
+    & + .postFeed-listItem,
+    & + li {
+      margin-left: flexy-gutter();
+
+      body.rtl & {
+        margin-left: 0;
+        margin-right: flexy-gutter();
+      }
+    }
+
+    @include mq(xx-small) {
+      @include flexy-column(5);
+      margin-right: 0;
+    }
+
+    @include mq(small) {
+      @include flexy-column(3.5);
+      margin-right: 0;
+    }
+
+    @include mq(medium) {
+      @include flexy-column(2.4);
+      margin-right: 0;
+    }
+  }
+
+  .postFeed-title {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.2;
+    color: $heading-color;
+  }
+
+  .postFeed-tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-weight: 600;
+  }
+
+  figure.postFeed-figure {
+    margin-top: 12px;
+  }
+
+  .postFeed-meta {
+    font-size: 12px;
+  }
+
+  .postFeed-icon {
+    margin-right: 8px;
+    margin-top: 16px;
+    align-self: flex-start;
+
+    svg {
+      width: 12px;
+      height: 10px;
+      transform: rotate(90deg);
+      fill: $heading-color;
+
+      body.rtl & {
+        transform: rotate(-90deg);
+      }
+    }
+
+    body.rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  .postFeed-content {
+    display: flex;
+  }
+}
+
+.slider-container {
+  position: relative;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $body-color;
+
+  svg {
+    fill: currentColor;
+
+    @include mq($until: x-large-sm) {
+      width: 14px;
+    }
+  }
+
+  &.prev {
+    right: calc(100% + 5px);
+
+    @include mq($until: x-large-sm) {
+      right: 100%;
+    }
+
+    body.rtl & {
+      right: auto;
+      left: calc(100% + 5px);
+
+      svg {
+        transform: rotate(180deg);
+      }
+
+      @include mq($until: x-large-sm) {
+        left: 100%;
+      }
+    }
+  }
+
+  &.next {
+    left: calc(100% + 5px);
+
+    @include mq($until: x-large-sm) {
+      left: 100%;
+    }
+
+    body.rtl & {
+      left: auto;
+      right: calc(100% + 5px);
+
+      @include mq($until: x-large-sm) {
+        right: 100%;
+      }
+    }
+  }
+
+  &.next svg {
+    transform: rotate(180deg);
+
+    body.rtl & {
+      transform: none;
+    }
+  }
+
+  &.not-active {
+    display: none;
+  }
+}
+
+.postFeed--featured {
+  background-color: #333;
+}

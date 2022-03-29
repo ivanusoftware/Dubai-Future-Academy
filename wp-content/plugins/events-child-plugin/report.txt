@@ -1,0 +1,125 @@
+
+
+
+FILE: ...t/plugins/events-child-plugin/admin/partials/child-event-plugin-wizard.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+--------------------------------------------------------------------------------
+
+ 34 | ERROR   | All output should be run through an escaping function (see the
+    |         | Security sections in the WordPress Developer Handbooks), found
+    |         | 'EVENT_PLUGIN_URL'.
+--------------------------------------------------------------------------------
+
+
+FILE: ...plugins/events-child-plugin/admin/partials/child-event-plugin-settings.php
+--------------------------------------------------------------------------------
+FOUND 2 ERRORS AND 3 WARNINGS AFFECTING 4 LINES
+--------------------------------------------------------------------------------
+ 13 | ERROR   | All output should be run through an escaping function (see the
+    |         | Security sections in the WordPress Developer Handbooks), found
+    |         | 'EVENT_PLUGIN_URL'.
+ 32 | WARNING | wp_remote_get() is highly discouraged, please use
+    |         | vip_safe_wp_remote_get() instead.
+ 78 | WARNING | Usage of a direct database call is discouraged.
+ 78 | WARNING | Direct database call without caching detected. Consider using
+    |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 79 | ERROR   | Use placeholders and $wpdb->prepare(); found interpolated
+    |         | variable $db_table_name at 						SELECT `id`, `total_event`,
+    |         | `status`, `end_time` FROM $db_table_name ORDER BY id DESC LIMIT
+    |         | 0,3
+    |         | 
+--------------------------------------------------------------------------------
+
+
+FILE: ...tent/plugins/events-child-plugin/admin/class-events-child-plugin-admin.php
+--------------------------------------------------------------------------------
+FOUND 7 ERRORS AND 56 WARNINGS AFFECTING 47 LINES
+--------------------------------------------------------------------------------
+
+ 1089 | ERROR   | Processing form data without nonce verification.
+ 1090 | ERROR   | All output should be run through an escaping function (see
+      |         | the Security sections in the WordPress Developer Handbooks),
+      |         | found '$html'.
+
+
+ 1110 | WARNING | get_posts() is discouraged in favor of creating a new
+      |         | WP_Query() so that Advanced Post Cache will cache the query,
+      |         | unless you explicitly supply suppress_filters => false.
+ 1140 | WARNING | Unused global variable `$post`.
+ 1186 | WARNING | Usage of a direct database call is discouraged.
+ 1186 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1226 | WARNING | Usage of a direct database call is discouraged.
+ 1234 | WARNING | wp_remote_get() is highly discouraged, please use
+      |         | vip_safe_wp_remote_get() instead.
+ 1254 | WARNING | Usage of a direct database call is discouraged.
+ 1254 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1273 | WARNING | Detected usage of meta_query, possible slow query.
+ 1283 | WARNING | This comment is 52% valid code; is this commented out code?
+ 1304 | WARNING | Detected usage of meta_query, possible slow query.
+ 1314 | WARNING | This comment is 55% valid code; is this commented out code?
+ 1323 | WARNING | This comment is 57% valid code; is this commented out code?
+ 1383 | WARNING | Unused variable `$cat_rest_id`.
+ 1387 | WARNING | Detected usage of meta_query, possible slow query.
+ 1422 | WARNING | Detected usage of meta_query, possible slow query.
+ 1456 | WARNING | Usage of a direct database call is discouraged.
+ 1456 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1465 | WARNING | Unused variable `$everything_uptodate`.
+ 1468 | WARNING | Found: ==. Use strict comparisons (=== or !==).
+ 1484 | WARNING | Unused variable `$result`.
+ 1484 | WARNING | Usage of a direct database call is discouraged.
+ 1484 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1496 | WARNING | Unused variable `$db_table_name`.
+ 1497 | WARNING | Usage of a direct database call is discouraged.
+ 1497 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1525 | WARNING | Detected access of super global var $_POST, probably needs
+      |         | manual inspection.
+ 1525 | ERROR   | Processing form data without nonce verification.
+ 1527 | WARNING | Unused variable `$db_table_name`.
+ 1529 | ERROR   | Use placeholders and $wpdb->prepare(); found interpolated
+      |         | variable $next_page at "SELECT `id`, `total_event`, `status`,
+      |         | `sync_type`, `end_time` FROM %1sdff_history ORDER BY
+      |         | `end_time` DESC LIMIT $next_page, 10"
+ 1530 | WARNING | Usage of a direct database call is discouraged.
+ 1530 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1530 | ERROR   | Use placeholders and $wpdb->prepare(); found $sql
+ 1543 | WARNING | Variable $array_data is undefined.
+ 1550 | WARNING | Usage of a direct database call is discouraged.
+ 1550 | WARNING | Direct database call without caching detected. Consider using
+      |         | wp_cache_get() / wp_cache_set() or wp_cache_delete().
+ 1550 | ERROR   | Use placeholders and $wpdb->prepare(); found $sql
+ 1556 | WARNING | Variable $array_data is undefined.
+ 1586 | WARNING | `file_get_contents()` is highly discouraged for remote
+      |         | requests, please use `wpcom_vip_file_get_contents()` or
+      |         | `vip_safe_wp_remote_get()` instead.
+ 1586 | WARNING | File operations should use WP_Filesystem methods instead of
+      |         | direct PHP filesystem calls. Found: file_get_contents()
+ 1587 | WARNING | File operations should use WP_Filesystem methods instead of
+      |         | direct PHP filesystem calls. Found: fopen()
+ 1588 | WARNING | File operations should use WP_Filesystem methods instead of
+      |         | direct PHP filesystem calls. Found: fwrite()
+ 1588 | ERROR   | Filesystem writes are forbidden, you should not be using
+      |         | fwrite()
+ 1589 | WARNING | File operations should use WP_Filesystem methods instead of
+      |         | direct PHP filesystem calls. Found: fclose()
+--------------------------------------------------------------------------------
+
+
+
+
+
+FILE: ...public_html/wp-content/plugins/events-child-plugin/events-child-plugin.php
+--------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------
+ 105 | WARNING | Variable $schedules is undefined.
+ 110 | WARNING | Variable $schedules is undefined.
+--------------------------------------------------------------------------------
+
+

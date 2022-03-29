@@ -1,0 +1,44 @@
+.iconGroup,
+.buttonGroup {
+  display: flex;
+}
+
+.iconGroup {
+  margin-top: 6px;
+}
+
+.iconGroupItem,
+.buttonGroupItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 5px;
+  min-width: 50px;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  border: none;
+  background-color: #fff;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  border-radius: 0;
+  color: #425a70;
+  cursor: pointer;
+
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+    border-left: 1px solid $border-color;
+  }
+
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+    border-right: 1px solid $border-color;
+  }
+
+  &.is-selected {
+    background-color: #0076d6;
+    color: #fff;
+    border-color: #0076d6;
+  }
+}

@@ -1,0 +1,24 @@
+.wp-block[data-type="dff/timeline"],
+.wp-block[data-type="dff/timeline"] .wp-block {
+  width: 100%;
+  max-width: 100%;
+}
+
+ul.timeline {
+  overflow-x: scroll;
+}
+
+li.timeline-item {
+  display: flex;
+  flex-direction: column;
+
+  button.components-button {
+    margin-top: auto;
+  }
+}
+
+ul li.timeline-anchor {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

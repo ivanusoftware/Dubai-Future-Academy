@@ -1,0 +1,55 @@
+a {
+  text-decoration: none;
+  color: $link-color;
+  // transition: all .3s ease-in-out;
+}
+
+a:hover,
+a:active {
+  color: $link-color;
+}
+
+a[href^="tel"] {
+  text-decoration: none;
+  color: $link-color;
+  transition: all .3s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: $link-color;
+  }
+}
+
+p a {
+  display: inline-block;
+  position: relative;
+
+  &:hover {
+    background: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &:hover::before {
+    background-color: $link-color;
+  }
+
+  &:visited {
+    color: $link-color-visited;
+  }
+
+  &:visited:hover::before {
+    background-color: $link-color-visited;
+  }
+}

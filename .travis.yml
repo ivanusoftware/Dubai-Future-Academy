@@ -1,0 +1,66 @@
+language: php
+
+branches:
+  except:
+  - /^.*-built$/
+
+cache:
+  apt: true
+  yarn: true
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.yarn/node_modules
+    - node_modules
+
+matrix:
+  include:
+  - php: 7.3
+
+before_script:
+  - echo -e "Host git.wpengine.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - composer global require dealerdirect/phpcodesniffer-composer-installer:0.7.0 wp-coding-standards/wpcs:2.1.1 automattic/vipwpcs:2.0.0
+
+install:
+  - nvm install 12.14.1
+  - cd $TRAVIS_BUILD_DIR/wp-content/private
+  - yarn
+
+script:
+  - set -e
+  - cd $TRAVIS_BUILD_DIR/wp-content
+  - ~/.config/composer/vendor/squizlabs/php_codesniffer/bin/phpcs .
+  - cd $TRAVIS_BUILD_DIR/wp-content/private
+  - yarn lint:scripts
+  - yarn lint:styles
+
+after_success:
+  - if [[ ! "$TRAVIS_BRANCH" =~ (master|uat|staging|develop|staging-internal) ]]; then travis_terminate 0; fi
+  - cd $TRAVIS_BUILD_DIR/wp-content/private
+  - yarn build:ci
+  - yarn build:ci --theme dff
+  - cd $TRAVIS_BUILD_DIR
+  - rm .gitignore
+  - mv .deployignore .gitignore
+  - git config --global user.email "ci@bigbite.net"
+  - git config --global user.name "Big Bite CI"
+  - git remote set-url origin https://bigbiteci:$GITHUB_KEY@github.com/bigbite/dubai-future-foundation.git
+  - git checkout -b $TRAVIS_BRANCH-built
+  - git add -A && git commit -m "built from ${TRAVIS_COMMIT::6}"
+  - git push --force -u origin $TRAVIS_BRANCH-built
+  - if [[ ! "$TRAVIS_BRANCH" =~ (master|develop|staging) ]]; then travis_terminate 0; fi
+  - eval "$(ssh-agent -s)" #start the ssh agent
+  - chmod 600 .travis/deploy.pem # this key should have push access
+  - ssh-add .travis/deploy.pem
+  - |
+    if [[ "$TRAVIS_BRANCH" =~ (develop) ]]; then
+      git remote add deploy git@git.wpengine.com:production/dubaidevelop.git
+    fi
+  - |
+    if [[ "$TRAVIS_BRANCH" =~ (staging) ]]; then
+      git remote add deploy git@git.wpengine.com:production/dubaifuturestg.git
+    fi
+  - |
+    if [[ "$TRAVIS_BRANCH" =~ (master) ]]; then
+      git remote add deploy git@git.wpengine.com:production/dubaifuture.git
+    fi
+  - git push deploy $TRAVIS_BRANCH-built:master --force

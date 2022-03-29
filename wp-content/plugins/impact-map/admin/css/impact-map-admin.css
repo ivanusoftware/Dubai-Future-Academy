@@ -1,0 +1,133 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.input_full_width{width:100%;}
+.input_half_width{width:40%;}
+
+/* Always set the map height explicitly to define the size of the div
+      * element that contains the map. */
+.location_search_section #map{height:500px;}
+.location_search_section#description{font-family:Roboto;font-size:15px;font-weight:300;}
+.location_search_section #infowindow-content .title{font-weight:bold;}
+.location_search_section #infowindow-content{display:none;}
+.location_search_section #map #infowindow-content{display:inline;}
+.location_search_section .pac-card{margin:10px 10px 0 0;border-radius:2px 0 0 2px;box-sizing:border-box;-moz-box-sizing:border-box;outline:none;box-shadow:0 2px 6px rgba(0,0,0,0.3);background-color:#fff;font-family:Roboto;}
+.location_search_section #pac-container{padding-bottom:12px;margin-right:12px;}
+.location_search_section .pac-controls{display:inline-block;padding:5px 11px;}
+.location_search_section .pac-controls label{font-family:Roboto;font-size:13px;font-weight:300;}
+.location_search_section #pac-input{background-color:#fff;font-family:Roboto;font-size:15px;font-weight:300;margin-left:12px;padding:0 11px 0 13px;text-overflow:ellipsis;width:400px;}
+.location_search_section #pac-input:focus{border-color:#4d90fe;}
+.location_search_section #title{color:#fff;background-color:#4d90fe;font-size:25px;font-weight:500;padding:6px 12px;}
+.location_search_section #target{width:345px;}
+.project_hide_show_switch_div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+.onoffswitch{position:relative;width:40px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;margin-left:10px;}
+.onoffswitch-checkbox{position:absolute;opacity:0;pointer-events:none;}
+.onoffswitch-label{display:block;overflow:hidden;cursor:pointer;border:1px solid #999999;border-radius:20px;}
+.onoffswitch-inner{display:block;width:200%;margin-left:-100%;transition:margin 0.3s ease-in 0s;}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after{display:block;float:left;width:50%;padding:0;line-height:1;font-size:14px;color:white;font-family:Trebuchet,Arial,sans-serif;font-weight:bold;box-sizing:border-box;padding:1px 3px;}
+.onoffswitch-inner:before{content:"I";padding-left:6px;background-color:#34A7C1;color:#FFFFFF;}
+.onoffswitch-inner:after{content:"o";padding-right:5px;color:#555d66;text-align:right;position:relative;bottom:1px;}
+.onoffswitch-switch{display:block;width:10px;background:#555d66;position:absolute;top:50%;right:24px;border-radius:20px;transition:all 0.3s ease-in 0s;height:10px;transform:translateY(-50%);}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner{margin-left:0;}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch{right:6px;background:#fff;}
+.term-image {
+	width: 150px;
+	border: 1px solid #7e8993;
+	padding: 5px;
+}
+.post-type-dff-project-map #project_slider_images .gallery-screenshot{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;}
+.post-type-dff-project-map #project_slider_images .gallery-screenshot .screen-thumb{width:calc(50% - 3px);margin-bottom:6px;}
+.post-type-dff-project-map #project_slider_images .gallery-screenshot .screen-thumb img{max-width:100%;display:block;}
+
+#google-map-admin{ height: 500px; width: 100%;}
+
+/* Inspector control css */
+.exhibition-wrapper .components-base-control, .change-image-wrapper .components-base-control {display:inline-block;width:70px;margin-bottom:0;}
+.exhibition-wrapper span, .change-image-wrapper span {width:calc(100% - 80px);display:inline-block;margin-left:10px;}
+ .change-image-wrapper {margin-bottom: 15px;}
+.gmap-setting-panel .components-toggle-control__label p{margin:0;}
+
+/* Admin Map width */
+div[data-type="imap/imap"]{max-width:100%;}
+div[data-type="imap/imap"] #google-map-admin{height:70vh;}
+
+/*CSS for Gutenberg block map*/
+.animated-dot .middle-dot{width:14px;height:14px;border-radius:50%;position:absolute;top:3px;left:3px;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;}
+.animated-dot .signal{pointer-events:none;width:100px;height:100px;left:-40px;top:-40px;-webkit-animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-delay:.78s;animation-delay:.78s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;}
+.animated-dot .signal2{width:100px;height:100px;pointer-events:none;border-radius:50%;position:absolute;left:-40px;top:-40px;opacity:0;-webkit-animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-delay:1.1s;animation-delay:1.1s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;}
+.animated-dot .middle-dot::after,
+.animated-dot .signal{position:absolute;border-radius:50%;opacity:0;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;}
+
+/*Cluster*/
+.gmap-custom-cluster{width:24px!important;height:24px!important;border-radius:50%;position:absolute;top:3px;left:3px;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;background-image:none!important;color:#fff!important;line-height:24px!important;font-size:14px!important;}
+.gmap-custom-cluster:before{pointer-events:none;width:100px;height:100px;left:-38px;top:-38px;-webkit-animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-delay:.78s;animation-delay:.78s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;content:"";}
+.gmap-custom-cluster:after{width:100px;height:100px;pointer-events:none;border-radius:50%;position:absolute;left:-38px;top:-38px;opacity:0;-webkit-animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;animation:animationSignal cubic-bezier(0,.55,.55,1) 2s;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-delay:1.1s;animation-delay:1.1s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;background-color:#0E5D9E;content:"";}
+.gmap-custom-cluster:before{position:absolute;border-radius:50%;opacity:0;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;}
+.gmap-custom-cluster.cluster-medium{width:32px!important;height:32px!important;line-height:32px!important;}
+.gmap-custom-cluster.cluster-medium:before,
+.gmap-custom-cluster.cluster-medium:after{width:100px;height:100px;left:-34px;top:-34px;}
+.gmap-custom-cluster.cluster-large{width:38px!important;height:38px!important;line-height:38px!important;}
+.gmap-custom-cluster.cluster-large:before,
+.gmap-custom-cluster.cluster-large:after{width:100px;height:100px;left:-31px;top:-31px;}
+
+
+@-webkit-keyframes animationSignal {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0);
+		transform: scale(0)
+	}
+	1% {
+		opacity: .14
+	}
+	20% {
+		opacity: .14
+	}
+	60% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0
+	}
+}
+@keyframes animationSignal {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0);
+		transform: scale(0)
+	}
+	1% {
+		opacity: .14
+	}
+	20% {
+		opacity: .14
+	}
+	60% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0
+	}
+}
+
+.map-block .components-placeholder {
+    height: 70vh;
+    position: relative;
+	background-color: rgb(0 0 0 / 0.4);
+}
+.map-block .components-placeholder::before {content: "";position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-color: rgb(0 0 0 / 0.4);background-image: url(/wp-content/plugins/impact-map/public/images/Logo-Animation-Blue.gif);z-index: 9;background-repeat: no-repeat;background-position: center; background-size: 6%;}
+.map-block .components-placeholder .components-spinner {
+    display: none;
+}
+
+
+.column-logo > span > img {max-width: 160px; width: 100% !important;}
+.table-view-list thead tr th {color:#0073aa;}
+#project_partner_order {width: 95% !important;}
+.post-type-dff-project-map span.tool-tip{background:#9c9c9c;color:#fff;height:17px;width:17px;display:inline-block;text-align:center;border-radius:50%;vertical-align:middle;margin:0 5px;position:relative}
+.post-type-dff-project-map span.tool-tip[data-tip]::before{content:'';display:none;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:5px solid #444;position:absolute;top:20px;right:7px;z-index:8;-webkit-transform:translate(50%, 0);-ms-transform:translate(50%, 0);transform:translate(50%, 0)}
+.post-type-dff-project-map span.tool-tip[data-tip]::after{display:none;content:attr(data-tip);position:absolute;top:25px;right:70px;width:150px;padding:5px 8px;background:#444;color:#fff;z-index:9;font-size:12px;line-height:18px;border-radius:3px;-webkit-transform:translate(50%, 0);-ms-transform:translate(50%, 0);transform:translate(50%, 0)}
+.post-type-dff-project-map span.tool-tip[data-tip]:hover::before, .post-type-dff-project-map span.tool-tip[data-tip]:hover::after{display:block}
+.post-type-dff-project-map span.tool-tip i{font-size:14px;line-height:20px;font-weight:700;margin-top:-1px;display:block;font-style:normal}
+
+/* .ui-datepicker-calendar {display: none;}​ */

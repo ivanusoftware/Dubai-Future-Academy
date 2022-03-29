@@ -1,0 +1,197 @@
+# Copyright (C) 2020 WPForms Salesforce
+# This file is distributed under the same license as the WPForms Salesforce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPForms Salesforce\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: WPForms <support@wpforms.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Provider/Api.php:69, src/Provider/Api.php:84
+msgid "Unexpected account options."
+msgstr ""
+
+#: src/Provider/Auth.php:220
+msgid "Salesforce Integration: account was connected successfully."
+msgstr ""
+
+#. translators: %s - response error description.
+#. translators: %s - response error description.
+#: src/Provider/Auth.php:230, src/Provider/Auth.php:379
+msgid "Salesforce Integration: account connection failed (%s)."
+msgstr ""
+
+#. translators: %s - response error description.
+#: src/Provider/Auth.php:238
+msgid "Salesforce Integration: account was connection failed (%s)."
+msgstr ""
+
+#: src/Provider/Auth.php:259
+msgid "Salesforce Integration: account connection update failed (no access token found)."
+msgstr ""
+
+#: src/Provider/Auth.php:268
+msgid "Salesforce Integration: account connection update failed (no refresh token found)."
+msgstr ""
+
+#: src/Provider/Auth.php:283
+msgid "Salesforce Integration: account connection updated successfully."
+msgstr ""
+
+#. translators: %s - response error description.
+#. translators: %s - response error description.
+#: src/Provider/Auth.php:293, src/Provider/Auth.php:301
+msgid "Salesforce Integration: account connection update failed (%s)."
+msgstr ""
+
+#: src/Provider/Auth.php:394
+msgid "Salesforce Integration: account connection failed (authorization code not passed)."
+msgstr ""
+
+#: src/Provider/Auth.php:517
+msgid "Salesforce Integration: account connection failed (this account already connected)."
+msgstr ""
+
+#: src/Provider/Auth.php:554
+msgid "Salesforce Integration: data retrieval failed (resource owner error)."
+msgstr ""
+
+#. translators: %s - response error description.
+#. translators: %s - response error description.
+#: src/Provider/Auth.php:565, src/Provider/Auth.php:573
+msgid "Salesforce Integration: data retrieval failed (%s)."
+msgstr ""
+
+#: src/Provider/Connection.php:35
+msgid "Unexpected connection data."
+msgstr ""
+
+#: src/Provider/Connection.php:227
+msgid "Account"
+msgstr ""
+
+#: src/Provider/Connection.php:228
+msgid "Campaign"
+msgstr ""
+
+#: src/Provider/Connection.php:229
+msgid "Case"
+msgstr ""
+
+#: src/Provider/Connection.php:230
+msgid "Contact"
+msgstr ""
+
+#: src/Provider/Connection.php:231
+msgid "Lead"
+msgstr ""
+
+#: src/Provider/Connection.php:232
+msgid "Opportunity"
+msgstr ""
+
+#: src/Provider/Connection.php:233
+msgid "Product"
+msgstr ""
+
+#: src/Provider/Core.php:34
+msgid "Salesforce"
+msgstr ""
+
+#: src/Provider/Process.php:143
+msgid "Form to Salesforce processing stopped by conditional logic."
+msgstr ""
+
+#: src/Provider/Process.php:197
+msgid "Something went wrong while performing API request for retrieving object fields."
+msgstr ""
+
+#: src/Provider/Process.php:207
+msgid "Missing valid values for all required fields."
+msgstr ""
+
+#: src/Provider/Process.php:469
+msgid "Submission to Salesforce failed."
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:218
+msgid "New Salesforce Account"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:254
+msgid "Marketing provider connection"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:445
+msgid "--- Select Salesforce Field ---"
+msgstr ""
+
+#: src/Provider/Settings/PageIntegrations.php:98
+msgid "Please, provide valid Consumer Key and Consumer Secret."
+msgstr ""
+
+#. translators: %s - provider name.
+#: src/Provider/Settings/PageIntegrations.php:131
+msgid "Connect to %s"
+msgstr ""
+
+#: src/Provider/Settings/PageIntegrations.php:135
+msgid "Add New Account"
+msgstr ""
+
+#: src/Provider/Settings/PageIntegrations.php:140
+msgid "Please fill out all of the fields below to add your new provider account."
+msgstr ""
+
+#: templates/settings/new-account-form.php:13
+msgid "Consumer Key"
+msgstr ""
+
+#: templates/settings/new-account-form.php:14
+msgid "Consumer Secret"
+msgstr ""
+
+#: templates/settings/new-account-form.php:17
+msgid "Callback URL:"
+msgstr ""
+
+#. translators: %s - URL to the Salesforce documentation page on WPForms.com.
+#: templates/settings/new-account-form.php:28
+msgid "Click <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">here</a> to learn how to connect WPForms with Salesforce."
+msgstr ""
+
+#: templates/settings/new-account-form.php:42, templates/tmpl/error.php:8
+msgid "Something went wrong while performing an AJAX request."
+msgstr ""
+
+#: templates/tmpl/connection.php:24
+msgid "Select Account"
+msgstr ""
+
+#: templates/tmpl/connection.php:27, templates/tmpl/connection.php:41
+msgid "--- Select ---"
+msgstr ""
+
+#: templates/tmpl/connection.php:38
+msgid "Select Salesforce Object"
+msgstr ""
+
+#: templates/tmpl/required-fields.php:16
+msgid "--- Select Form Field ---"
+msgstr ""
+
+#. translators: %s - WPForms.com documentation page URL.
+#: wpforms-salesforce.php:87
+msgid "The WPForms Salesforce plugin has been deactivated. Your site is running an outdated version of PHP that is no longer supported and is not compatible with the Salesforce plugin. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Read more</a> for additional information."
+msgstr ""
+
+#: wpforms-salesforce.php:115
+msgid "The WPForms Salesforce plugin has been deactivated, because it requires WPForms 1.6.2 to work."
+msgstr ""

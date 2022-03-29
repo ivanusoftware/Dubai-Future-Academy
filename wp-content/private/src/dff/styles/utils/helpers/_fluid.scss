@@ -1,0 +1,60 @@
+$breakpoints: $mq-breakpoints !default;
+
+@for $i from 1 through 12 {
+  $basis: #{$i / 12 * 100%};
+
+  .span-#{$i} {
+    @include flexy-flex($basis);
+  }
+
+  .offset-#{$i} {
+    margin-left: $basis;
+  }
+
+  .is-spaced > .span-#{$i} {
+    @include flexy-column($i, $include-margin: false);
+  }
+}
+
+@each $breakpoint, $width in $breakpoints {
+  @for $i from 1 through 12 {
+    $basis: #{$i / 12 * 100%};
+
+    @media screen and (min-width: $width) {
+      .span-#{$i}--#{$breakpoint} {
+        @include flexy-flex($basis);
+      }
+
+      .offset-#{$i}--#{$breakpoint} {
+        margin-left: $basis;
+      }
+
+      .is-spaced > .span-#{$i}--#{$breakpoint} {
+        @include flexy-column($i, $include-margin: false);
+      }
+    }
+  }
+
+  .span-reverse--#{$breakpoint} {
+    @media screen and (max-width: $width) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.flexy-wrapper {
+  @include flexy-wrapper();
+
+  &.is-spaced {
+    justify-content: space-between;
+  }
+}
+
+.flex-wrapper {
+  @include flexy-wrapper();
+  justify-content: center;
+}
+
+.u--max-col {
+  max-width: 767px;
+}

@@ -1,0 +1,98 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+/* Event detail sidebar */
+*{-webkit-box-sizing:border-box;box-sizing:border-box}
+.event_reminder_select_box{width:100%}
+.event_date_select{width:100%}
+.event_time_start_select, .event_time_end_select{width:48%}
+.event_google_map_input{width:100%}
+
+/* Events Settings */
+.dff-events_page_cep-settings .event_section .tab{overflow:hidden;border:1px solid #ccc;background-color:#f1f1f1}
+.dff-events_page_cep-settings .event_section .tab span{float:left;outline:none;cursor:pointer;padding:14px 16px;-webkit-transition:0.3s;-o-transition:0.3s;transition:0.3s;border:1px solid transparent}
+.dff-events_page_cep-settings .event_section .tab span:hover{background-color:#ddd}
+.dff-events_page_cep-settings .event_section .tab span.active{background-color:#fff;font-weight:bold;border-color:#cbcbcb;border-bottom-color:transparent;border-top-color:transparent}
+.dff-events_page_cep-settings .event_section .tab span.active:first-child{border-left-color:transparent}
+.dff-events_page_cep-settings .event_section .tabcontent{display:none;padding:20px;background:#fff;border:1px solid #ccc;border-top-color:transparent;min-height:250px;width:100%}
+.dff-events_page_cep-settings .event_section .tabcontent .save_email_template{text-align:right;margin:1em 0}
+.dff-events_page_cep-settings .event_section .tabcontent .save_email_template input.button{padding:4px 20px;font-size:14px}
+.dff-events_page_cep-settings .event_section .add_site_table_group{margin-top:35px}
+.dff-events_page_cep-settings .event_section .add_site_table{font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;border-collapse:collapse;width:50%}
+.dff-events_page_cep-settings .event_section .add_site_table th{padding-top:12px;padding-bottom:12px;background-color:#ddd;color:#090707;text-align:center}
+.dff-events_page_cep-settings .event_section .add_site_table td, .dff-events_page_cep-settings .event_section .add_site_table th{padding:8px;border:1px solid #ccc}
+.dff-events_page_cep-settings .event_section .add_site_table td.action{text-align:center}
+.dff-events_page_cep-settings .event_section .add_site_table tr:nth-child(even) td{background-color:#f2f2f2}
+.dff-events_page_cep-settings .event_section .add_site_table tr:hover td{background-color:#eee}
+.dff-events_page_cep-settings .event_section .add_sites_group input.add_sites_field{width:30%}
+.dff-events_page_cep-settings label.settings-tooltip{cursor:default;display:block}
+#wp-admin-bar-new-dff-events,.post-type-dff-events .page-title-action{display: none;}
+/* page sections */
+.dff-events_page_cep-settings .page_section{overflow:hidden}
+.dff-events_page_cep-settings .page_section h3{margin:0 0 1em}
+.dff-events_page_cep-settings .page_section .button-primary{padding:2px 15px;font-size:14px;min-width: 120px;margin-bottom: 5px;}
+.dff-events_page_cep-settings #config .page_section{margin-bottom:30px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+.dff-events_page_cep-settings .two_col_layout{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.dff-events_page_cep-settings .two_col_layout .section_col{min-width:350px;margin:10px 15px 30px 10px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+.dff-events_page_cep-settings #config .danger_zone_section{margin-bottom: 0;}
+.dff-events_page_cep-settings .page_section input#reset_plugin_button:hover {color: #cb2431;border: 1px solid #ddd;font-weight: 600;cursor: pointer;background: #fff;}
+.dff-events_page_cep-settings .page_section input#reset_plugin_button {background: #cb2431;color: #fff;}
+.event_section {margin-top: 10px;}
+.post-type-dff-events .row-actions .edit,.post-type-dff-events .row-actions .inline{display: none}
+.components-toolbar.active{border:1px solid #23282e;background:#f5efe0}
+/* OAuth Token setting */
+.dff-events_page_cep-settings .oauth_token_config .enter_oauth_token_button{padding:0 10px;font-size:13px;vertical-align:middle;display:inline-block;padding: 2px 15px;font-size: 14px;min-width: 120px;margin-bottom: 5px;}
+.dff-events_page_cep-settings .oauth_token_config #edit-token{cursor:pointer;display:inline-block;vertical-align:middle;font-size:16px}
+.dff-events_page_cep-settings .oauth_token_config .image_status{display:inline-block;vertical-align:middle}
+.dff-events_page_cep-settings .oauth_token_config .image_status img.loading_status{width:32px}
+.dff-events_page_cep-settings .oauth_token_config input.enter_oauth_token{vertical-align:middle;display:inline-block;margin:0 5px}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages{margin-top:10px}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages i, .dff-events_page_cep-settings .oauth_token_config .oauth_token_messages span{display:inline-block;vertical-align:middle}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages #incorrect_token{color:#ff0000;font-size:22px}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages .error_message{color:#ff0000;font-size:15px}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages i#correct_token{color:#008000;font-size:22px}
+.dff-events_page_cep-settings .oauth_token_config .oauth_token_messages .success_message{color:#008000;font-size:15px}
+.language_section{margin-top:100px}
+
+/* category and tags */
+.dff-events_page_cep-settings .category_tags_section{margin:1em 0 0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.dff-events_page_cep-settings .category_tags_section .category_block, .dff-events_page_cep-settings .category_tags_section .tags_block{width:23%;padding:10px;border:1px solid #ccd0d4;margin:10px 20px 20px 0;min-width:350px}
+.dff-events_page_cep-settings .category_tags_section .category_block h4, .dff-events_page_cep-settings .category_tags_section .tags_block h4{font-size:16px;margin:0.5em 0 1.33em}
+.dff-events_page_cep-settings .category_tags_section .category_block .categorychecklist, .dff-events_page_cep-settings .category_tags_section .tags_block .tagschecklist{padding:10px;border:1px solid #ccd0d4;min-height:250px;max-height:250px;overflow:auto;-webkit-box-sizing:border-box;box-sizing:border-box}
+.dff-events_page_cep-settings .category_tags_section .category_block .categorychecklist li, .dff-events_page_cep-settings .category_tags_section .tags_block .tagschecklist li{margin-bottom:7px;line-height:normal}
+.dff-events_page_cep-settings .category_tags_section .category_block .categorychecklist label, .dff-events_page_cep-settings .category_tags_section .tags_block .tagschecklist label{font-size:15px}
+.dff-events_page_cep-settings .category_tags_section input[type=checkbox]{width:1.2rem;height:1.2rem;margin:-0.25rem 0.3rem 0 0}
+.dff-events_page_cep-settings .category_tags_section input[type=checkbox]:checked::before{width:1.4rem;height:1.4rem;margin:-0.1rem -0.2rem}
+
+/* Event History DataTable */
+.dff-events_page_cep-settings .event_history .dataTables_scrollHeadInner{overflow:auto!important}
+.dff-events_page_cep-settings .event_history .dataTables_scrollHeadInner, .dff-events_page_cep-settings .event_history .dataTables_scrollHeadInner table{width:100%!important}
+.dff-events_page_cep-settings .event_history table{border-collapse:collapse!important}
+.dff-events_page_cep-settings .event_history table tr th, .dff-events_page_cep-settings .event_history table tr td{border:1px solid #ccc;background-color:#fff;text-align:left;padding:8px 10px!important}
+.dff-events_page_cep-settings .event_history table tr th{background-color:#eee}
+.dff-events_page_cep-settings .event_history table tr:nth-child(odd) td.sorting_1{background-color:#fff}
+.dff-events_page_cep-settings .event_history table tr:nth-child(even) td{background-color:#f7f7f7}
+.dff-events_page_cep-settings .event_history table tr:nth-child(even) td.sorting_1{background-color:#f7f7f7}
+.dff-events_page_cep-settings .event_history table tr:hover td{background-color:#eee}
+.dff-events_page_cep-settings .event_history table tr:hover td.sorting_1{background-color:#eee}
+
+/* loader */
+.dff-events_page_cep-settings .event_setting_page_loader .loader-wrapper{width:100%;height:100%;position:fixed;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:rgba(0, 0, 0, 0.058823529411764705);z-index:99999}
+.dff-events_page_cep-settings .event_setting_page_loader .loader{position:relative;z-index:999999}
+
+/* Reset Plugin Box */
+.dff-events_page_cep-settings .dff_reset_model{position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0.4);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.dff-events_page_cep-settings .dff-modal-content{background-color:#fefefe;margin:auto;padding:20px;border:1px solid #888;width:50%}
+.dff-events_page_cep-settings .dff-modal-close{color:#aaaaaa;float:right;font-size:28px;font-weight:bold}
+.dff-events_page_cep-settings .dff-modal-close:hover, .dff-events_page_cep-settings .dff-modal-close:focus{color:#000;text-decoration:none;cursor:pointer}
+.dff-events_page_cep-settings .dff-modal-content button.btn.btn-block.btn-danger{color:#cb2431;padding:10px 12px;border:1px solid #ddd;font-weight:600;letter-spacing:1px;cursor:pointer;background:#fff}
+.dff-events_page_cep-settings .dff-modal-content button.btn.btn-block.btn-danger:hover{background:#cb2431;color:#fff}
+.dff-events_page_cep-settings input.reset_plugin.form-control.input-block{width:100%;height:30px;margin-bottom:20px}
+
+/* sync plugin */
+.dff-events_page_cep-settings .manual_sync_section .sync_now_dynamic_value{color:#008000;margin:4px 0 2px 5px;font-size:15px;display:inline-block}
+
+/* Media */
+@media (max-width:991px){.dff-events_page_cep-settings .category_tags_section .category_block,.dff-events_page_cep-settings .category_tags_section .tags_block{min-width:300px}.dff-events_page_cep-settings .two_col_layout .section_col{min-width:300px}}

@@ -1,0 +1,115 @@
+h1.section-title {
+  font-family: $font-family-tertiary;
+  text-align: right;
+  margin: 0;
+
+  &.has-decal > span {
+    position: relative;
+    margin-top: 0;
+    padding-left: 0;
+    display: block;
+    z-index: 0;
+
+    @include mq(x-small) {
+      padding-left: 75px;
+
+      body.rtl & {
+        padding-left: 0;
+        padding-right: 75px;
+      }
+    }
+
+    @include mq(small) {
+      margin-top: 20px;
+      padding-left: 100px;
+
+      body.rtl & {
+        padding-left: 0;
+        padding-right: 100px;
+      }
+    }
+
+    @include mq(medium) {
+      margin-top: 75px;
+      padding-left: 150px;
+
+      body.rtl & {
+        padding-left: 0;
+        padding-right: 150px;
+      }
+    }
+  }
+
+  &.has-decal span > svg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    user-select: none;
+    z-index: -1;
+    width: 150px;
+
+    body.rtl & {
+      left: auto;
+      right: 0;
+    }
+
+    @include mq(small) {
+      width: 200px;
+    }
+
+    @include mq(medium) {
+      width: 360px;
+    }
+  }
+
+  .section-titleMain {
+    display: block;
+    line-height: 1;
+    font-size: 50px;
+
+    @include mq(x-small) {
+      font-size: 80px;
+    }
+
+    @include mq(small) {
+      font-size: 100px;
+    }
+
+    @include mq(medium) {
+      font-size: 124px;
+    }
+  }
+
+  .section-titlePrefix {
+    font-size: 20px;
+
+    @include mq(x-small) {
+      font-size: 28px;
+    }
+
+    @include mq(small) {
+      font-size: 36px;
+    }
+
+    @include mq(medium) {
+      font-size: 40px;
+    }
+  }
+
+  &.is-aligned-left {
+    text-align: left;
+
+    body.rtl & {
+      text-align: right;
+    }
+  }
+
+  &.is-aligned-center {
+    text-align: center;
+  }
+
+  &.is-aligned-right {
+    text-align: right;
+  }
+}

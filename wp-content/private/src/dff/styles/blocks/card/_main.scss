@@ -1,0 +1,147 @@
+.articleCard img {
+  width: 100%;
+}
+
+.articleCard .articleCard-contentContainer {
+  padding: 20px;
+
+  @include mq(x-small) {
+    padding: 20px 20px 50px;
+  }
+
+  @include mq(small) {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 15px;
+  }
+
+  &.articleCard--noPadding {
+    padding-left: 20px;
+
+    @include mq(small) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.articleCard-category {
+  display: flex;
+  align-items: center;
+  font-family: $font-family-secondary;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: .05em;
+  color: $body-color;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+
+  @include mq(small) {
+    margin-top: 40px;
+  }
+
+  > svg {
+    margin-right: 20px;
+    fill: $color-primary;
+  }
+}
+
+.articleCard-title {
+  color: $heading-color;
+  margin: 0;
+
+  @include mq(small) {
+    margin: 0 0 20px;
+  }
+
+  @include mq(medium) {
+    margin: 40px 0 10px;
+  }
+}
+
+.articleCard .btn {
+  margin-top: 30px;
+  width: 100%;
+
+  @include mq(small) {
+    margin-top: 50px;
+    width: auto;
+  }
+}
+
+.articleCard-content {
+  margin-top: 10px;
+}
+
+.articleCard.articleCard--alignLeft,
+.articleCard.articleCard--alignRight {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+
+  @include mq(small) {
+    flex-direction: row;
+    align-items: center;
+
+    .articleCard-title,
+    .articleCard-category {
+      margin-top: 0;
+    }
+  }
+}
+
+.articleCard.articleCard--alignRight figure {
+  order: 0;
+
+  @include mq(small) {
+    order: 1;
+  }
+}
+
+.articleCard.articleCard--alignRight > *,
+.articleCard.articleCard--alignLeft > * {
+  flex: 1 0 50%;
+}
+
+.articleCard.articleCard--alignLeft .articleCard-contentContainer,
+.articleCard.articleCard--alignRight .articleCard-contentContainer {
+  padding: 20px;
+
+  @include mq(small) {
+    padding: 20px 60px;
+  }
+
+  &.articleCard--noPadding {
+    padding: 20px;
+
+    @include mq(small) {
+      padding-left: 0;
+    }
+  }
+}
+
+.articleCard.articleCard--alignTop {
+  @include mq(small) {
+    align-items: flex-start;
+  }
+
+  .articleCard-contentContainer {
+    @include mq(small) {
+      padding-top: 0;
+    }
+  }
+
+  figure {
+    margin-top: 0;
+  }
+}
+
+.articleCard.hasBorder {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+
+  html.dark-mode & {
+    border-color: #010101;
+  }
+}

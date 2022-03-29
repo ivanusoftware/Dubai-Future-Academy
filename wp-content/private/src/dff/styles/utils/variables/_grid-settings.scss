@@ -1,0 +1,11 @@
+// Disable style line for this file as it doesnt like numerous spaces after the !default
+/* stylelint-disable */
+
+
+// Adds support for flexygrids
+$flexy-container:       1340px !default;
+$flexy-columns:         12   !default;
+$flexy-column-width:    75px !default;
+$flexy-gutter-width:    40px !default;
+$flexy-outer-gutter:    0;
+/* stylelint-enable */

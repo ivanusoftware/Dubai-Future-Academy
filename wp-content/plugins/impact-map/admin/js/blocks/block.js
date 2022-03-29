@@ -1,0 +1,5 @@
+/**
+ * Import files
+ */
+
+import './impactmap';

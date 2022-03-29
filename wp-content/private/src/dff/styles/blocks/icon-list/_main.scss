@@ -1,0 +1,136 @@
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    flex: 0 0 100%;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px 18px;
+    list-style: none;
+    text-align: center;
+
+    @include mq(small) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &.has-5-items li {
+    @include mq(md-small) {
+      flex: 1 0 50%;
+    }
+
+    @include mq(small) {
+      flex: 1 0 33%;
+    }
+
+    @include mq(large) {
+      flex: 0 0 20%;
+      padding-right: 35px;
+    }
+  }
+
+  &.has-4-items li {
+    @include mq(small) {
+      flex: 1 0 50%;
+    }
+
+    @include mq(large) {
+      flex: 0 0 25%;
+      padding-right: 35px;
+    }
+  }
+
+  &.has-3-items li {
+    @include mq(small) {
+      flex: 0 0 33.333%;
+      padding-right: 35px;
+    }
+  }
+
+  &.has-2-items li {
+    @include mq(small) {
+      flex: 0 0 50%;
+      padding-right: 35px;
+    }
+  }
+
+  li + li {
+    border-top: 1px solid $border-color;
+
+    @include mq(md-small) {
+      border-top: none;
+    }
+  }
+
+  li > span {
+    display: block;
+    font-family: $font-family-tertiary;
+    color: $body-color;
+    font-size: 40px;
+    opacity: .1;
+    transform: translate(-10px, 8px);
+    line-height: 1;
+    font-weight: 800;
+    pointer-events: none;
+    user-select: none;
+    flex: 1 0 100%;
+
+    @include mq(md-small) {
+      flex: 0 0 auto;
+      font-size: 100px;
+      transform: translate(-30px, 30px);
+    }
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: $body-color;
+    line-height: 1.18;
+    flex: 1 1 calc(100% - 50px);
+
+    @include mq(md-small) {
+      flex: 0 1 auto;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-top: 20px;
+
+    @include mq(md-small) {
+      max-width: 100%;
+    }
+  }
+
+  li > svg {
+    display: block;
+
+    @include mq(md-small) {
+      margin-top: 30px;
+    }
+  }
+
+  li > figure > img {
+    height: 50px;
+  }
+
+  &.isPreview {
+    .postMediaSelect-mediaContainer {
+      background: #222;
+    }
+  }
+
+  &.isPreview.isInverted img {
+    filter: grayscale(1) invert(1);
+  }
+}
+
+html.dark-mode .icon-list.isInverted figure img {
+  filter: grayscale(1) invert(1);
+}

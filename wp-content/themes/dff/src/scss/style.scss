@@ -1,0 +1,17 @@
+// $font-stack: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+
+// @import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+
+// // Connecting your SCSS files
+// @import "./helpers/mixins";
+@import "./helpers/variables";
+
+// // Base
+// @import "./base/fonts";
+// @import "./base/base";
+// @import "./base/typography";
+
+@import "./layout/archive-courses";
+@import "./layout/single-course";
+
+

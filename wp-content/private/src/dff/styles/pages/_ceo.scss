@@ -1,0 +1,26 @@
+.ceo-image {
+  @include mq($until: small) {
+    text-align: center;
+
+    img {
+      width: 240px;
+    }
+  }
+}
+
+/**
+ * Temporary column reverse class.
+ */
+@include mq($until: small) {
+  .u-column-reverse-mobile {
+    flex-direction: column-reverse;
+
+    .wp-block-dff-column {
+      flex-direction: column-reverse;
+
+      & :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

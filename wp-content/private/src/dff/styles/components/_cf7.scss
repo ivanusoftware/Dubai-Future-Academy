@@ -1,0 +1,57 @@
+.wpcf7-form {
+  .span-12:nth-child(n + 3) {
+    margin-top: flexy-gutter();
+  }
+
+  @include mq($until: small) {
+    .span-12:not(:first-of-type) {
+      margin-top: flexy-gutter();
+    }
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 18px;
+    color: $heading-color;
+    margin-bottom: 10px;
+    display: block;
+
+    body.rtl & {
+      text-align: right;
+    }
+  }
+
+  input, textarea {
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    color: $body-color;
+    padding: 11px 17px;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+    width: 100%;
+    max-height: 171px;
+
+    body.rtl & {
+      text-align: right;
+    }
+  }
+
+  body.rtl & {
+    position: relative;
+
+    span.ajax-loader {
+      position: absolute;
+      left: 0;
+      bottom: 16px;
+    }
+
+    input[type="submit"] {
+      margin-left: auto;
+    }
+  }
+}
+
+body.rtl .wpcf7 {
+  direction: rtl;
+}

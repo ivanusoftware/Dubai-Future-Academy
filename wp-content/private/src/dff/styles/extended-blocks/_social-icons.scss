@@ -1,0 +1,17 @@
+.wp-block-social-links {
+  .wp-social-link {
+    width: 60px;
+    height: 60px;
+    color: $background-color !important;
+    background-color: $heading-color !important;
+
+    a {
+      padding: 10%;
+    }
+
+    a, svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

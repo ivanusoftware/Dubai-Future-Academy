@@ -1,0 +1,38 @@
+.whistleblow-form {
+  label {
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -.27px;
+  }
+
+  .label-desc {
+    font-size: 14px;
+    font-weight: normal;
+    color: #8e8e8e;
+  }
+
+  .wpcf7-checkbox {
+    .wpcf7-list-item {
+      width: 100%;
+      margin: 0;
+      flex-grow: 1;
+
+      @include mq(medium) {
+        width: 33%;
+      }
+    }
+
+    .wpcf7-list-item-label {
+      font-weight: normal;
+      padding: 0 20px;
+    }
+
+    label {
+      display: flex;
+    }
+
+    input {
+      width: auto;
+    }
+  }
+}

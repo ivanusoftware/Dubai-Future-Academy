@@ -1,0 +1,42 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+*{-webkit-box-sizing:border-box;box-sizing:border-box}
+.toplevel_page_nmp-settings .tab button{background-color:inherit;float:left;border:none;outline:none;cursor:pointer;padding:14px 16px;-webkit-transition:0.3s;-o-transition:0.3s;transition:0.3s}
+.toplevel_page_nmp-settings .tab button:hover{background-color:#ddd}
+.toplevel_page_nmp-settings .tab button.active{background-color:#fff;font-weight:bold;border:1px solid #cbcbcb}
+.toplevel_page_nmp-settings .news_master_settings_section hr{margin:20px 0 20px 0}
+
+/* News Master Tabbing Design */
+.toplevel_page_nmp-settings .tab{overflow:hidden;border:1px solid #ccc;background-color:#f1f1f1}
+.toplevel_page_nmp-settings .tab span{float:left;outline:none;cursor:pointer;padding:14px 16px;-webkit-transition:0.3s;-o-transition:0.3s;transition:0.3s;border:1px solid transparent}
+.toplevel_page_nmp-settings .tab span:hover{background-color:#ddd}
+.toplevel_page_nmp-settings .tab span.active{background-color:#fff;font-weight:bold;border-color:#cbcbcb;border-bottom-color:transparent;border-top-color:transparent}
+.toplevel_page_nmp-settings .tab span.active:first-child{border-left-color:transparent}
+.toplevel_page_nmp-settings .tabcontent{display:none;padding:20px;border:1px solid #ccc;border-top-color:transparent;background:#fff;width:100%;min-height:250px}
+.toplevel_page_nmp-settings .tabcontent .page_section{margin-bottom:30px;-webkit-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc;padding:20px}
+
+/* select cats & tags */
+.toplevel_page_nmp-settings .page_section h3{margin:0 0 1em}
+.toplevel_page_nmp-settings .category_tags_section{margin:1em 0 0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.toplevel_page_nmp-settings .category_tags_section .category_block, .toplevel_page_nmp-settings .category_tags_section .tags_block{width:23%;padding:10px;border:1px solid #ccd0d4;margin:10px 20px 20px 0;min-width:350px}
+.toplevel_page_nmp-settings .category_tags_section .category_block .categorychecklist, .toplevel_page_nmp-settings .category_tags_section .tags_block .tagschecklist{padding:10px;border:1px solid #ccd0d4;max-height:250px;height:60%;height:calc(100% - 50px);overflow:auto;-webkit-box-sizing:border-box;box-sizing:border-box}
+.toplevel_page_nmp-settings .category_tags_section .category_block .categorychecklist li, .toplevel_page_nmp-settings .category_tags_section .tags_block .tagschecklist li{margin-bottom:7px;line-height:normal}
+.toplevel_page_nmp-settings .category_tags_section label.post_type_lable.sub_category{margin-left:15px}
+.toplevel_page_nmp-settings .category_tags_section label.post_type_lable.super_sub_category{margin-left:30px}
+.toplevel_page_nmp-settings .category_tags_section .category_block h4, .toplevel_page_nmp-settings .category_tags_section .tags_block h4{font-size:16px;margin:0.5em 0 1.33em}
+.toplevel_page_nmp-settings .nmp_save_button{padding:2px 15px;font-size:14px}
+
+/* Add sites */
+.toplevel_page_nmp-settings .add_site_table_group{margin-top:35px}
+.toplevel_page_nmp-settings .add_sites_group input.add_sites_field{width:30%;margin-right:5px}
+.toplevel_page_nmp-settings .add_site_table{font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;border-collapse:collapse;width:50%}
+.toplevel_page_nmp-settings .add_site_table td, .toplevel_page_nmp-settings .add_site_table th{border:1px solid #ccc;padding:8px}
+.toplevel_page_nmp-settings .add_site_table th{background-color:#ddd;color:#090707;text-align:center}
+.toplevel_page_nmp-settings .add_site_table tr:nth-child(even) td{background-color:#f2f2f2}
+.toplevel_page_nmp-settings .add_site_table tr:hover td{background-color:#eee}
+.toplevel_page_nmp-settings .add_site_table td.action{text-align:center}
+.toplevel_page_nmp-settings .add_site_table .delete_site_button{cursor:pointer;font-size:22px}
+.toplevel_page_nmp-settings .add_site_table .delete_site_button:hover{color:#000}
+@media (max-width:991px){.toplevel_page_nmp-settings .category_tags_section .category_block,.toplevel_page_nmp-settings .category_tags_section .tags_block{min-width:300px}}

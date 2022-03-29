@@ -1,0 +1,7 @@
+{
+    "name": "dubia-future-foundations/main-site",
+    "type": "project",
+    "require":  {
+      "league/oauth2-client": "^2.5"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "packages": [
+        {
+            "name": "lewiscowles/file-extension-utils",
+            "version": "1.2.5",
+            "version_normalized": "1.2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lewiscowles1986/filesystem-file-extension-php.git",
+                "reference": "0b35ac9218c9af087871a6ed29071f14835713e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lewiscowles1986/filesystem-file-extension-php/zipball/0b35ac9218c9af087871a6ed29071f14835713e3",
+                "reference": "0b35ac9218c9af087871a6ed29071f14835713e3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "ext-xdebug": "*",
+                "php-coveralls/php-coveralls": "*",
+                "phpunit/phpunit": "^6.0"
+            },
+            "time": "2020-04-30T09:59:17+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "lewiscowles\\Utils\\FileSystem\\Extension\\": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Lewis Cowles",
+                    "email": "lewiscowles@me.com"
+                }
+            ],
+            "description": "Utilities for dealing with file extensions",
+            "support": {
+                "issues": "https://github.com/Lewiscowles1986/filesystem-file-extension-php/issues",
+                "source": "https://github.com/Lewiscowles1986/filesystem-file-extension-php/tree/1.2.5"
+            },
+            "install-path": "../lewiscowles/file-extension-utils"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

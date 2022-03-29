@@ -1,0 +1,11 @@
+.postMediaSelect-mediaActions {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 1em;
+
+  .components-button.is-link {
+    margin-top: 0;
+    margin-right: 1em;
+  }
+}

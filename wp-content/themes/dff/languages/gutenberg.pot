@@ -1,0 +1,1325 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:27
+msgid "Custom Button Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:32
+msgid "Burgundy"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:38
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:15
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:15
+msgid "Red"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:45
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:3
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:3
+msgid "Black"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:48
+msgid "White"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:54
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:232
+msgid "Open link in new tab"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:62
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:48
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:163
+msgid "Button Text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/index.js:15
+msgid "Button"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/index.js:17
+#: src/dff/gutenberg/blocks/google-map/index.js:17
+msgid "button"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/button/index.js:17
+#: src/dff/gutenberg/blocks/google-map/index.js:17
+msgid "link"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:101
+msgid "(Category)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:108
+msgid "(Card Title)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:115
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:154
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:104
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:101
+msgid "(Content)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:122
+#: src/dff/gutenberg/blocks/quote-banner/Components/CallToActionEdit.js:24
+msgid "(Button text)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:32
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:12
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:106
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:17
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:8
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:51
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:116
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:67
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:355
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:229
+#: src/dff/gutenberg/blocks/triangle-block/containers/Edit.js:39
+msgid "Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:35
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:16
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:228
+msgid "Layout"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:37
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:53
+msgid "Default"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:40
+msgid "Image Left"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:43
+msgid "Image Right"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:49
+msgid "Align content to top"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:53
+msgid "Please select a heading level: (h1 to h4)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:66
+msgid "Enable Category Icon"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:70
+msgid "Enable Category Text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:74
+msgid "Enable Button"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:78
+msgid "Padding"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:82
+msgid "Border"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/index.js:10
+msgid "Card block for displaying an image with content below."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/index.js:12
+msgid "card"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/index.js:12
+msgid "thumbnail"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/card/index.js:9
+msgid "Card"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/column/index.js:14
+#: src/dff/gutenberg/blocks/columns/index.js:11
+msgid "columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/column/index.js:14
+#: src/dff/gutenberg/blocks/columns/index.js:11
+msgid "column"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/column/index.js:9
+msgid "Column"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:194
+msgid "Select number of columns your row requires"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:208
+msgid "Select the desired layout."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:219
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:131
+#: src/dff/gutenberg/blocks/columns/index.js:8
+msgid "Columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:234
+msgid "Space columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:238
+msgid "Mobile column reverse"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/containers/Edit.js:245
+msgid "Vertical column alignment"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/columns/index.js:9
+msgid "Column builder"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:142
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:130
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:87
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:67
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:214
+msgid "Set Background Image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:149
+msgid "(Title)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:190
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:156
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:172
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:141
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:102
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:115
+msgid "Add Item"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Save.js:26
+#: src/dff/gutenberg/blocks/content-slider/deprecations/button-amendments.js:36
+msgid "Goto Slide %d"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/containers/Save.js:66
+#: src/dff/gutenberg/blocks/content-slider/deprecations/button-amendments.js:76
+msgid "Current slide is %d out of %d"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:10
+msgid "Slider block for displaying content."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:12
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+msgid "slider"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/content-slider/index.js:9
+msgid "Content Slider"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:272
+msgid "Dynamic Type:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:277
+msgid "Category"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:290
+msgid "Post Type"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/containers/Edit.js:300
+msgid "Preview Posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:10
+msgid "posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:10
+msgid "feature"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:7
+msgid "Featured Posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/featured-posts/index.js:8
+msgid "A grid to display a grid of posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/full-sized-image/containers/Edit.js:24
+#: src/dff/gutenberg/components/PostMediaSelector.js:74
+msgid "Set Image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:11
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+msgid "image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:11
+msgid "visual"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:8
+msgid "Full sized image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/full-sized-image/index.js:9
+msgid ""
+"An image to fill the entire container, this is mainly used for stylistic "
+"purposes"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/google-map/containers/Edit.js:238
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:283
+msgid "Options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/google-map/index.js:14
+msgid "Google Map"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/google-map/index.js:15
+msgid "A google map integration"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:121
+msgid "Show Breadcrumbs"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:125
+msgid "Background Image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:125
+msgid "Background"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:133
+msgid "Background Vertical Position"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:153
+msgid "Set Background Image for Mobile"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:168
+msgid "Selected Color"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:178
+msgid "Clear Background Color"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:182
+msgid "Set Background Video"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:186
+msgid "Dark Background"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:187
+msgid "If the background is dark toggle this to flip the colors."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:191
+msgid "Home Shape Animation"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:195
+msgid "Title Options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:196
+msgid "Title Position"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:206
+msgid "Arrow Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:208
+msgid "Click Option"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:210
+msgid "Scroll"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:213
+msgid "Link"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:219
+msgid "Scroll To: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:221
+msgid "Below Hero"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:227
+msgid "Link To: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:236
+msgid "Align Arrow Left"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:94
+msgid "Style"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/index.js:11
+msgid "hero"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/index.js:11
+msgid "display"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/index.js:9
+msgid "Hero"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:75
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:59
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:89
+msgid "Scroll down text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/home/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:67
+#: src/dff/gutenberg/blocks/hero/variations/quote/Edit.js:76
+#: src/dff/gutenberg/blocks/hero/variations/sbu-archive/Edit.js:59
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:89
+msgid "Link text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:31
+msgid "Hero Quote"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:37
+msgid "Hero Cite"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:44
+msgid "Hero Cite (Job Title)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/quote-with-content/Edit.js:54
+msgid "Call to action text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/hero/variations/sbu/Edit.js:23
+msgid "Set Logo"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:102
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:99
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:404
+msgid "Right"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:108
+msgid "Block alignment: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:117
+msgid "Toggle Column Control"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:125
+msgid "Column Control Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:127
+msgid "Items per row: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:137
+msgid "Fix Arrow to Bottom"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:151
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:116
+msgid "Remove Item"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:157
+msgid "List Title"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:163
+msgid "List Content"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:93
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:60
+msgid "None"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:96
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:93
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:398
+msgid "Left"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:99
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:96
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:401
+msgid "Center"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:10
+msgid "Horizontal list."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:12
+#: src/dff/gutenberg/blocks/icon-list/index.js:11
+msgid "list"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:12
+msgid "horizontal"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/horizontal-list/index.js:9
+msgid "Horizontal list"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:101
+msgid "Show Dark Mode Preview"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:102
+msgid "A preview of how the icon will potentially look in dark mode"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:122
+msgid "Set Icon"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:129
+msgid "Title"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:135
+msgid "Content"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:90
+msgid "Dark Mode Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:92
+msgid "Enable Dark Mode Invert"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/containers/Edit.js:93
+msgid "This will invert icon colours for dark mode only"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/index.js:11
+msgid "icon"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/icon-list/index.js:9
+msgid "Icon list"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:19
+msgid "Number of items visible"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:29
+msgid "Please select your images"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:40
+msgid "Edit Images"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/components/Settings.js:40
+msgid "Add Images"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/components/Slider.js:12
+msgid "No images selected, cannot display slider."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:5
+msgid "Image Slider"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:6
+msgid "Allows for the displaying of multiple images inline"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/image-slider/index.js:7
+msgid "scrolling"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:154
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:88
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:266
+msgid "Post Types"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:160
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:96
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:272
+msgid "Taxonomies"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:175
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:116
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:82
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:378
+msgid "Additional Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:177
+msgid "Selection Mode"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:181
+msgid "Show Preview"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:185
+msgid "Feed name for accessibility"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:188
+msgid ""
+"Please provide a title for this feed for accesibility reasons. E.g Latest "
+"from future talks."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:190
+msgid "Please select a heading tag to be used for the title."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:207
+msgid "Current Background URL"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/Options.js:211
+msgid "Please choose a background image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:334
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:221
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:334
+msgid "Add new tag"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:334
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:221
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:334
+msgid "Add new Term"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:335
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:226
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:335
+msgid "Tag"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:335
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:226
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:335
+msgid "Term"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:10
+msgid "Post Feed"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:12
+msgid "post"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/index.js:12
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:11
+msgid "feed"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/styles/Banner.js:141
+msgid "Has featured post"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/styles/Simple.js:92
+msgid "Enable Slider"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:115
+msgid "Past Programmes"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:116
+msgid "When toggled this will only show programmes that have passed their deadline."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:120
+msgid "Show Apply Now Link"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:285
+msgid "Show Category Filters"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:289
+msgid "Show Sort By Options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:293
+msgid "Show View All Button"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:297
+msgid "View All Link"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:301
+msgid "Show Pagination"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:308
+msgid "Number of posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:311
+msgid "No Posts Found Text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:315
+msgid "Card Options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:317
+msgid "Show Taxonomy"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:321
+msgid "Show Date"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:325
+msgid "Filters"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:337
+msgid "Archive Title"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:98
+msgid "Past Events"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:99
+msgid "When toggled this will only show events that have passed."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:11
+msgid "archive"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-type-archive/index.js:9
+msgid "Post type archive"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/CallToActionEdit.js:14
+msgid "Text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/QuoteSettings.js:12
+msgid "Cite"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/Components/QuoteSettings.js:16
+msgid "Cite Job"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:53
+msgid "Select banner style:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:58
+msgid "Quote"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:61
+msgid "Call To Action"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:74
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:165
+msgid "Section margins"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:10
+msgid "Large quote with background image"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:12
+msgid "quote"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:12
+msgid "banner"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/quote-banner/index.js:9
+msgid "Quote Banner"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:28
+msgid "Larger content area"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:32
+msgid "Alternate Style"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:40
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:35
+#: src/dff/gutenberg/blocks/title/index.js:8
+msgid "Section title"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/containers/Edit.js:50
+msgid "(Section Content)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/index.js:11
+#: src/dff/gutenberg/blocks/section/index.js:12
+#: src/dff/gutenberg/blocks/title/index.js:11
+msgid "section"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/index.js:11
+#: src/dff/gutenberg/blocks/title/index.js:11
+msgid "header"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/index.js:8
+msgid "Section Header"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section-header/index.js:9
+#: src/dff/gutenberg/blocks/title/index.js:9
+msgid "Header block for a section that contains the heading and sub-content."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:12
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:12
+msgid "Grey Light"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:18
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:18
+msgid "Dark Green"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:21
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:21
+msgid "Yellow"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:24
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:24
+msgid "Blue"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:6
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:6
+msgid "Grey Dark"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/components/BackgroundColours.js:9
+#: src/dff/gutenberg/blocks/section/deprecations/section-new-colour-picker/components/BackgroundColours.js:9
+msgid "Grey"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:150
+msgid "Content Width:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:155
+msgid "Content Alignment:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:160
+msgid "Size:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:173
+msgid "Color:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:178
+msgid "Has border"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:182
+msgid "No Padding on Mobile"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:186
+msgid "Triangle Option:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:191
+msgid "Triangle Position:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:195
+msgid "Background Colour:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:200
+msgid "Background Colour Dark Mode"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:201
+msgid "Sets a different background colour for dark theme mode."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:221
+msgid "Anchor"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:223
+msgid "Is Anchor"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:224
+msgid "Allow the hero to link to this section"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:228
+msgid "Section Name"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:229
+msgid "This will be used to identify the section within the header options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:233
+msgid "Negative Settings"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:235
+msgid "Enable"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:236
+msgid "This will enable the negative margin mode for this section"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:240
+msgid "Negative Space:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:246
+msgid "Triangle Images"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:251
+msgid "Set Image Triangle One"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:257
+msgid "Set Image Triangle Two"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:263
+msgid "Set Image Triangle Three"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:46
+msgid "No Padding"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:56
+msgid "Dark"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:63
+msgid "Small"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:66
+msgid "Large"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:69
+msgid "Custom"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:73
+msgid "Start"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:76
+msgid "End"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:80
+msgid "12 Columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:83
+msgid "10 Columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:86
+msgid "8 Columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/containers/Edit.js:89
+msgid "6 Columns"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/index.js:10
+msgid "Section block for containing the content."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/index.js:12
+msgid "container"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/section/index.js:9
+msgid "Section"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:13
+msgid "Getting pages..."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:20
+msgid "Current page selected has no sub pages, please select a new page."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:27
+msgid "Please select a page from the settings menu."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/EditorContent.js:36
+msgid "Overview"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:118
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:70
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:414
+msgid "Please select a page:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:127
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:78
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:419
+msgid "Order by: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:151
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:107
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:433
+msgid "Order: "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:95
+#: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:49
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:323
+msgid "Please select a page"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:5
+msgid "Page Sub Menu"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:6
+msgid "Sub menu page block which will display a menu of sub pages"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/sub-menu/index.js:8
+msgid "sub pages menu"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:131
+msgid "Maximum of two post types can be selected"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:357
+msgid "Please select a mode type:"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:368
+msgid "Enable preview"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:369
+msgid "Toggles the preview card option for the select feed."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:380
+msgid "No Sidebar "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:381
+msgid "Disables the sidebar"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:385
+msgid "Enable Meta Information "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:386
+msgid "Enables the display of meta information for each item"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:390
+msgid "Enable Call To Action "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:391
+msgid "Enables the display of an arrow icon where meta information would usually go"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:395
+msgid "Please an alignment"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:409
+msgid "Restrict To Sub Pages "
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:410
+msgid "Enables the selection of a parent page to be used."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:462
+msgid "Enter title"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:467
+msgid "Enter description"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:11
+msgid "tabs"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:11
+msgid "tab"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/tabbed-posts/index.js:9
+msgid "Tabbed Posts"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/timeline/containers/Edit.js:96
+msgid "(Year)"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/timeline/index.js:11
+msgid "timeline"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/timeline/index.js:11
+msgid "about"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/timeline/index.js:8
+msgid "Timeline"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/timeline/index.js:9
+msgid "Timeline block for displaying content."
+msgstr ""
+
+#: src/dff/gutenberg/blocks/title/containers/Edit.js:31
+msgid "Has Graphic"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/triangle-block/containers/Edit.js:44
+msgid "Set Image Triangle Large"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/triangle-block/containers/Edit.js:50
+msgid "Set Image Triangle Small"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/triangle-block/containers/Edit.js:87
+msgid "Please enter your text"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/triangle-block/index.js:6
+msgid "Triangle Block"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/triangle-block/index.js:7
+msgid "Block for displaying stylised content with custom triangle images"
+msgstr ""
+
+#: src/dff/gutenberg/components/PostMediaSelector.js:76
+msgid "Replace Image"
+msgstr ""
+
+#: src/dff/gutenberg/components/PostMediaSelector.js:78
+msgid "Remove Image"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:11
+msgid "Sun"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:15
+msgid "Hourglass"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:19
+msgid "People"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:23
+msgid "Moon"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:27
+msgid "Search"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:31
+msgid "Play"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:35
+msgid "Chevron Down"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:39
+msgid "Chevron Right"
+msgstr ""
+
+#: src/dff/gutenberg/components/icons/getIcons.js:7
+msgid "Arrow Right"
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:29
+msgid "Loading Posts..."
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:35
+msgid "Your query yielded no results, please try again."
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:39
+msgid "No Posts."
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:55
+#: src/dff/gutenberg/components/post-selector/PostList.js:51
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:53
+msgid "Loading..."
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostList.js:55
+msgid "Load More"
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:40
+msgid "Please enter your search query..."
+msgstr ""
+
+#: src/dff/gutenberg/components/post-selector/PostSelector.js:47
+msgid "Post Type:"
+msgstr ""
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:71
+msgid "Font settings"
+msgstr ""
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:73
+msgid "Font family"
+msgstr ""
+
+#: src/dff/gutenberg/extended-blocks/heading/index.js:94
+msgid "Font weight"
+msgstr ""
+
+#: src/dff/gutenberg/extended-blocks/quote/index.js:5
+msgid "Stylised"
+msgstr ""
+
+#: src/dff/gutenberg/extended-blocks/quote/index.js:8
+msgid "Simple"
+msgstr ""
+
+#: src/dff/gutenberg/meta/future-talks/index.js:56
+msgid "Video Settings"
+msgstr ""
+
+#: src/dff/gutenberg/meta/future-talks/index.js:59
+msgid "Video URL"
+msgstr ""
+
+#: src/dff/gutenberg/meta/future-talks/index.js:64
+msgid "Video Length"
+msgstr ""
+
+#: src/dff/gutenberg/meta/theme/index.js:33
+msgid "Page Theme Options"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:338
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:230
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:338
+#. %s: term name.
+msgctxt "term"
+msgid "%s added"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:341
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:235
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:341
+#. %s: term name.
+msgctxt "term"
+msgid "%s removed"
+msgstr ""
+
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:344
+#: src/dff/gutenberg/blocks/post-feed/components/TaxonomySelector.js:240
+#: src/dff/gutenberg/blocks/post-type-archive/components/TaxonomySelector.js:344
+#. %s: term name.
+msgctxt "term"
+msgid "Remove %s"
+msgstr ""

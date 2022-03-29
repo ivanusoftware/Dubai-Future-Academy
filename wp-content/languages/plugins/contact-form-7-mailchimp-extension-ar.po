@@ -1,0 +1,96 @@
+# Translation of Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk) in Arabic
+# This file is distributed under the same license as the Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-24 22:58:23+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n % 100 >= 3 && n % 100 <= 10) ? 3 : ((n % 100 >= 11 && n % 100 <= 99) ? 4 : 5))));\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: ar\n"
+"Project-Id-Version: Plugins - Contact Form 7 Extension For Mailchimp - Development (trunk)\n"
+
+#: lib/find.php:192
+msgid "Total mailchimp.com Audiences: "
+msgstr "إجمالي جمهور mailchimp.com:"
+
+#: lib/parts/tanu.php:78
+msgid "Add As Unsubscribed "
+msgstr "إضافة كـ غير مشترك"
+
+#: lib/parts/tanu.php:56
+msgid "Enable"
+msgstr "تفعيل"
+
+#: lib/parts/tanu.php:45
+msgid "Send more fields to Mailchimp.com"
+msgstr "إرسال المزيد من الحقول إلى Mailchimp.com"
+
+#: chimpmatic-lite.php:64
+msgid "ChimpMatic Settings"
+msgstr "إعدادات ChimpMatic"
+
+#: lib/handler.php:106
+msgid "ChimpMatic Lite"
+msgstr "ChimpMatic Lite"
+
+#: lib/activate.php:191
+msgid "Dismiss this notice."
+msgstr "إخفاء هذه الملاحظة."
+
+#: lib/activate.php:185
+msgid "Help me develop the plugin and provide support by <br><a class=\"donate button button-primary button-hero load-customize\" href=\""
+msgstr "ساعدني في تطوير الإضافة وتقديم الدعم من خلال <br><a class=\"donate button button-primary button-hero load-customize\" href=\""
+
+#: lib/activate.php:183
+msgid "<div class=\"welcome-panel-column-container\"><div class=\"welcome-panel-column\"><h3>Get Started</h3><p>Make sure it works as you expect <br><a class=\"button button-primary button-hero load-customize\" href=\"%s\">Review your settings <span alt=\"f111\" class=\"dashicons dashicons-admin-generic\" style=\"font-size: 17px;vertical-align: middle;\"> </span> </a>"
+msgstr "<div class=\"welcome-panel-column-container\"><div class=\"welcome-panel-column\"><h3>البدء</h3><p>تأكد من أنها تعمل بالشكل الذي تتوقعه <br><a class=\"button button-primary button-hero load-customize\" href=\"%s\">مراجعة إعداداتك <span alt=\"f111\" class=\"dashicons dashicons-admin-generic\" style=\"font-size: 17px;vertical-align: middle;\"> </span> </a>"
+
+#: lib/activate.php:181
+msgid "We worked hard to make it more reliable, faster, and now with a better Debugger, and more help documents."
+msgstr "لقد عملنا بجد للتأكد أنها أكثر سرعة وفعالية، ومع وضع أفضل الآن لكشف الأخطاء (Debugger)، والمزيد من وثائق المساعدة."
+
+#: lib/activate.php:180
+msgid "MailChimp Extension has been improved!"
+msgstr "تم تحسين الإضافة الملحقة لـ MailChimp!"
+
+#: lib/view.php:228
+msgid "MailChimp field name or *|MERGE|* tag "
+msgstr "اسم حقل MailChimp أو وسم *|MERGE|* "
+
+#: lib/view.php:222
+msgid "Contact Form [mail-tag] "
+msgstr "نموذج الاتصال [mail-tag] "
+
+#: lib/view.php:194
+msgid "MailChimp API Key:"
+msgstr "مفتاح API (واجهة برمجة التطبيقات) MailChimp:"
+
+#: lib/view.php:57
+msgid "Subscriber Name - *|FNAME|* "
+msgstr "اسم المشترك -  *|FNAME|* "
+
+#: lib/view.php:51
+msgid "Subscriber Email: *|EMAIL|* "
+msgstr "البريد الإلكتروني للمشترك: *|EMAIL|* "
+
+#. Author URI of the plugin
+msgid "https://renzojohnson.com"
+msgstr "https://renzojohnson.com"
+
+#. Author of the plugin
+msgid "Renzo Johnson"
+msgstr "Renzo Johnson"
+
+#. Description of the plugin
+msgid "Integrate Contact Form 7 with Mailchimp. Automatically add form submissions to predetermined lists in Mailchimp, using its latest API."
+msgstr "دمج إضافة Contact Form 7 مع Mailchimp. إضافة عمليات تقديم النماذج تلقائيًا إلى القوائم المحددة مسبقاً في Mailchimp، باستخدام أحدث واجهة برمجة التطبيقات API الخاصة بها."
+
+#. Plugin URI of the plugin
+msgid "https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension"
+msgstr "https://renzojohnson.com/contributions/contact-form-7-mailchimp-extension"
+
+#. Plugin Name of the plugin
+msgid "Contact Form 7 Extension For Mailchimp"
+msgstr "إضافة ملحقة Contact Form 7 Extension لـ Mailchimp"

@@ -1,0 +1,104 @@
+blockquote.is-style-simpleStyle,
+blockquote.is-style-stylisedQuote {
+  position: relative;
+  padding: 0;
+  border-left: 0;
+
+  &.has-text-align-center {
+    text-align: center;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  &.has-text-align-right {
+    text-align: right;
+    border-right: 0;
+
+    p {
+      text-align: right;
+    }
+  }
+
+  p {
+    font-size: 24px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    @include mq(x-small) {
+      font-size: 34px;
+    }
+
+    @include mq(small) {
+      font-size: 36px;
+    }
+  }
+}
+
+blockquote.is-style-stylisedQuote {
+  p {
+    font-family: $font-family-tertiary;
+    font-weight: 800;
+    color: $heading-color;
+
+    &:first-of-type {
+      padding-top: 60px;
+    }
+  }
+
+  cite,
+  .wp-block-quote__citation {
+    font-style: normal;
+    font-size: 16px;
+    color: $heading-color;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 160px;
+    height: 146px;
+    background-image: url(../../../static/img/quote-dark.svg);
+    pointer-events: none;
+  }
+}
+
+blockquote.is-style-simpleStyle {
+  p {
+    font-family: $font-family-tertiary;
+    font-weight: 300;
+    color: $heading-color;
+  }
+
+  cite,
+  .wp-block-quote__citation {
+    font-style: normal;
+    font-size: 16px;
+    color: $heading-color;
+  }
+}
+
+html.dark-mode blockquote.is-style-stylisedQuote::before {
+  background-image: url(../../../static/img/quote-light.svg);
+}
+
+body.rtl {
+  blockquote.is-style-simpleStyle,
+  blockquote.is-style-stylisedQuote {
+    p {
+      text-align: inherit;
+    }
+  }
+
+  blockquote.is-style-stylisedQuote::before {
+    right: 0;
+    left: auto;
+    transform: scaleX(-1);
+  }
+}

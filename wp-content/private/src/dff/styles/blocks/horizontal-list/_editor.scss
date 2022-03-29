@@ -1,0 +1,43 @@
+.horizontal-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    position: relative;
+  }
+
+  li > .components-button.has-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+
+  > li > h3 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.28;
+    color: $body-color;
+  }
+
+  > li > p {
+    margin: 0;
+    margin-top: 20px;
+  }
+
+  .block-editor-url-input__button-modal {
+    position: absolute;
+  }
+
+  li > svg {
+    display: block;
+
+    @include mq(md-small) {
+      margin-top: 30px;
+    }
+  }
+
+  li header h1 {
+    font-size: 28px !important;
+    line-height: 1.28 !important;
+  }
+}

@@ -1,0 +1,89 @@
+/**
+ * From base/_type.scss. Uses !importants on each rule to force Gutenberg to render properly.
+ */
+@for $i from 1 through 6 {
+  .editor-styles-wrapper h#{$i},
+  .editor-styles-wrapper .h#{$i},
+  .editor-styles-wrapper .is-style-h#{$i} { // For Gutenberg generated classes
+    font-size: map-get($mobile-header-sizes, h#{$i}) !important;
+    line-height: map-get($mobile-header-line-height, h#{$i}) !important;
+
+    // Override Gutenberg's injected margin styles
+    margin-top: inherit !important;
+    margin-bottom: inherit !important;
+
+    @include mq($from: xx-small, $until: medium) {
+      font-size: map-get($tablet-header-sizes, h#{$i}) !important;
+      line-height: map-get($tablet-header-line-height, h#{$i}) !important;
+    }
+
+    @include mq($from: medium) {
+      font-size: map-get($desktop-header-sizes, h#{$i}) !important;
+      line-height: map-get($desktop-header-line-height, h#{$i}) !important;
+    }
+  }
+
+  /**
+   * Heading text styles.
+   */
+  .editor-styles-wrapper h#{$i} strong,
+  .editor-styles-wrapper h#{$i} b {
+    font-family: $font-family-primary !important;
+    font-weight: normal !important;
+  }
+
+  /**
+   * Header links inherit color.
+   */
+  .editor-styles-wrapper h#{$i} a {
+    color: inherit !important;
+
+    &:hover,
+    &:active,
+    &:visited {
+      color: inherit !important;
+    }
+  }
+}
+
+/**
+ * From base/_type.scss. Uses !importants on each rule to force Gutenberg to render properly.
+ */
+@for $i from 1 through 2 {
+  .editor-styles-wrapper .d#{$i},
+  .editor-styles-wrapper .is-style-d#{$i} { // For Gutenberg generated classes
+    font-family: map-get($display-font-family, d#{$i}) !important;
+    font-weight: map-get($display-font-weight, d#{$i}) !important;
+    font-size: map-get($mobile-display-sizes, d#{$i}) !important;
+    line-height: map-get($mobile-display-line-height, d#{$i}) !important;
+
+    // Override Gutenberg's injected margin styles
+    margin-top: inherit !important;
+    margin-bottom: inherit !important;
+
+    @include mq($from: xx-small, $until: medium) {
+      font-size: map-get($tablet-display-sizes, d#{$i}) !important;
+      line-height: map-get($tablet-display-line-height, d#{$i}) !important;
+    }
+
+    @include mq($from: medium) {
+      font-size: map-get($desktop-display-sizes, d#{$i}) !important;
+      line-height: map-get($desktop-display-line-height, d#{$i}) !important;
+    }
+
+    .editor-styles-wrapper strong,
+    .editor-styles-wrapper b {
+      font-weight: normal !important;
+    }
+
+    .editor-styles-wrapper a {
+      color: inherit !important;
+
+      &:hover,
+      &:active,
+      &:visited {
+        color: inherit !important;
+      }
+    }
+  }
+}

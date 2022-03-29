@@ -1,0 +1,33 @@
+/**
+ * Where `margin-top` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ */
+.editor-styles-wrapper {
+  h1, h2, h3, h4, h5, h6, hgroup,
+  ul, ol, dl,
+  blockquote, p, address,
+  table,
+  fieldset, figure,
+  pre,
+  %margin-top {
+    margin-top: $spacing-unit;
+  }
+}
+
+.editor-styles-wrapper {
+  ul ul {
+    margin-top: 0;
+  }
+}
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once,here.
+ */
+.editor-styles-wrapper {
+  ul, ol, dd,
+  %margin-left {
+    margin-left: $spacing-unit;
+    list-style-position: inside;
+  }
+}

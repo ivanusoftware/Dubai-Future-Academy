@@ -1,0 +1,32 @@
+{
+  "extends": ["airbnb-base", "prettier", "prettier/babel", "prettier/react"],
+  "plugins": ["react", "babel", "jsx-a11y", "prettier"],
+  "globals": {
+    "__DEV__": true,
+    "__PROD__": true,
+    "__TEST__": true,
+    "wp": true,
+    "globalSettings": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "h",
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
+}

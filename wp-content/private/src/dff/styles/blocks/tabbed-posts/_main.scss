@@ -1,0 +1,263 @@
+.tabbedPost-action {
+  font-size: 28px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: $heading-color;
+  opacity: .3;
+  padding: 0;
+  padding-bottom: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+
+  &.is-selected {
+    border-bottom-color: $body-color;
+    opacity: 1;
+    transition: all .25s ease-in-out;
+  }
+}
+
+.tabbedPost-action + .tabbedPost-action {
+  margin-left: 40px;
+}
+
+.tabbedPosts {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+
+  @include mq(medium) {
+    flex-wrap: nowrap;
+  }
+}
+
+.tabbedPosts .hide-mobile {
+  display: none;
+
+  @include mq(x-small) {
+    display: block;
+  }
+}
+
+.tabbedPosts .show-mobile {
+  display: block;
+
+  @include mq(x-small) {
+    display: none;
+  }
+}
+.tabbedPosts-aside {
+  flex: 0 0 100%;
+  margin-bottom: 32px;
+
+  @include mq(medium) {
+    @include flexy-column(3);
+    margin-bottom: 0;
+  }
+
+  body.rtl & {
+    margin-right: 0;
+  }
+}
+
+.tabbedPosts-listContainer {
+  position: relative;
+  right: 0;
+  flex: 0 0 100%;
+
+  @include mq(medium) {
+    @include flexy-column(9);
+  }
+}
+
+.tabbedPosts .tabbedPosts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &:not(.flickity-enabled) {
+    display: flex;
+  }
+
+  .tabbedPost-listItem {
+    @include flexy-column(10);
+
+    body:not(.rtl) &:last-child {
+      margin-right: 0;
+    }
+
+    body.rtl &:first-of-type {
+      margin-right: 0;
+    }
+
+    @include mq(x-small) {
+      @include flexy-column(8);
+    }
+
+    @include mq(md-small) {
+      @include flexy-column(5);
+    }
+
+    @include mq(medium) {
+      @include flexy-column(4);
+    }
+  }
+}
+
+.tabbedPost-item {
+  position: relative;
+  display: block;
+  padding-top: 131.1475%;
+  color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: linear-gradient(to top, #000 0%, transparent 80%);
+  }
+}
+
+.tabbedPost-tag {
+  color: #fff;
+}
+
+.tabbedPost-arrow svg {
+  fill: #fff;
+
+  body.rtl & {
+    transform: rotate(180deg);
+  }
+}
+
+.tabbedPost-content {
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  max-width: calc(100% - 60px);
+
+  body.rtl & {
+    left: auto;
+    right: 30px;
+  }
+}
+
+.tabbedPosts h1.tabbedPost-title {
+  font-size: 22px;
+  line-height: 1.27;
+  margin: 0;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.tabbedPosts-introContainer {
+  position: relative;
+
+  @include mq(small) {
+    margin-top: 40px;
+  }
+}
+
+.tabbedPost-intro {
+  p {
+    margin: 0;
+  }
+
+  .button {
+    margin-top: 16px;
+  }
+}
+
+[data-tabbed-posts-id]:not(.is-selected) {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  z-index: -999;
+  transition: opacity .25s ease-in-out, z-index .25s step-end;
+}
+
+.tabbedPost-buttonContainer {
+  position: relative;
+  margin-top: 32px;
+  flex: 1 0 100%;
+
+  @include mq(x-small) {
+    margin-top: 0;
+    display: none;
+  }
+}
+
+[data-tabbed-posts-id].is-selected,
+[data-tabbed-posts-id].is-selected {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .25s ease-in-out, z-index .25s step-start;
+}
+
+.tabbedPosts-list {
+  overflow-x: auto;
+}
+
+.slider-arrow {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .25s ease-in-out, z-index .25s step-start;
+}
+
+.slider-arrow.is-hidden {
+  opacity: 0;
+  z-index: -9999;
+  transition: opacity .25s ease-in-out, z-index .25s step-end;
+}
+
+.tabbedPosts.is-tabbedSingle {
+  .tabbedPost-action {
+    border-bottom: 0;
+    text-align: left;
+
+    body.rtl & {
+      text-align: right;
+    }
+  }
+
+  a {
+    position: relative;
+  }
+}
+
+.tabbedPosts.is-tabbedSingle.is-sidebarDisabled {
+  .tabbedPosts-aside {
+    display: none;
+  }
+
+  .tabbedPosts-listContainer {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+
+    .tabbedPost-listItem {
+      @include flexy-column(10);
+
+      body:not(.rtl) &:last-child {
+        margin-right: 0;
+      }
+
+      @include mq(x-small) {
+        @include flexy-column(8);
+      }
+
+      @include mq(md-small) {
+        @include flexy-column(5);
+      }
+
+      @include mq(medium) {
+        @include flexy-column(3);
+      }
+    }
+  }
+}

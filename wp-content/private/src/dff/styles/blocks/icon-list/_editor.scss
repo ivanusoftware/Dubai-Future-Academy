@@ -1,0 +1,28 @@
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    position: relative;
+  }
+
+  li > .components-button.has-icon {
+    align-self: flex-end;
+  }
+
+  > li > h3 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.28;
+    color: $body-color;
+  }
+
+  > li > p {
+    margin: 0;
+    margin-top: 20px;
+  }
+
+  .block-editor-url-input__button-modal {
+    position: absolute;
+  }
+}

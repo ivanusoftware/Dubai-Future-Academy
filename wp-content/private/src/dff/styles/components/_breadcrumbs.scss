@@ -1,0 +1,50 @@
+.breadcrumbs {
+  display: none;
+  margin: 0;
+  align-items: start;
+  margin-top: 20px;
+  // Add min-height for calculating the hero sizes more accurate.
+  min-height: $breadcrumb-min-height;
+
+  @include mq(small) {
+    display: flex;
+    margin-top: $breadcrumb-desktop-margin-top;
+    padding: 0 50px;
+  }
+}
+
+.is-dark .breadcrumb,
+.breadcrumb {
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $body-color;
+}
+
+.breadcrumb + .breadcrumb {
+  margin-left: 10px;
+  display: flex;
+  align-items: start;
+}
+
+.is-dark .breadcrumb + .breadcrumb::before,
+.breadcrumb + .breadcrumb::before {
+  content: "›";
+  display: inline-block;
+  margin-right: 10px;
+  color: $body-color;
+}
+
+body.rtl {
+
+  .breadcrumb + .breadcrumb {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
+  .breadcrumb + .breadcrumb::before {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+}

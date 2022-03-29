@@ -1,0 +1,14 @@
+.post-type-dff-project-map #title {direction: rtl;}
+.taxonomy-project_technologies input#tag-name {direction: rtl;}
+.taxonomy-project_technologies input#tag-slug {direction: rtl;}
+.taxonomy-project_technologies #tag-description {direction: rtl;}
+.taxonomy-project_partners input#tag-name {direction: rtl;}
+.taxonomy-project_partners input#tag-slug {direction: rtl;}
+.taxonomy-project_partners #tag-description {direction: rtl;}
+.taxonomy-project_partners input#name {direction: rtl;}
+.taxonomy-project_partners input#slug {direction: rtl;}
+.taxonomy-project_technologies input#name {direction: rtl;}
+.taxonomy-project_technologies input#slug {direction: rtl;}
+.page_section label input {direction: rtl;}
+textarea#popup_description {direction: rtl;}
+.page_section label input {direction: rtl;}

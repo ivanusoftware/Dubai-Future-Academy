@@ -1,0 +1,171 @@
+.page-template-courses-inc .breadcrumb br {
+  display: none; }
+
+.archive-courses {
+  padding-bottom: 50px; }
+  .archive-courses .container {
+    outline: 1px solid red;
+    width: 100%;
+    max-width: 1225px;
+    padding: 0 20px; }
+  .archive-courses-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; }
+    @media only screen and (min-width: 566px) {
+      .archive-courses-list {
+        flex-direction: row;
+        gap: 25px; } }
+    @media only screen and (min-width: 1200px) {
+      .archive-courses-list {
+        gap: 40px;
+        justify-content: unset; } }
+  .archive-courses .courses-categories {
+    padding: 24px 0 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px; }
+    @media only screen and (min-width: 993px) {
+      .archive-courses .courses-categories {
+        padding: 72px 0 40px;
+        margin-bottom: 0;
+        border: none; } }
+    .archive-courses .courses-categories ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0; }
+      .archive-courses .courses-categories ul li {
+        list-style: none;
+        background: #f0f0f0;
+        border-radius: 50px;
+        margin-right: 12px;
+        margin-bottom: 15px; }
+        @media only screen and (min-width: 993px) {
+          .archive-courses .courses-categories ul li {
+            margin-right: 28px; } }
+        .archive-courses .courses-categories ul li:last-child {
+          margin-right: 0; }
+        .archive-courses .courses-categories ul li a {
+          font-family: "Gilroy", Helvetica, Arial, sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 16px;
+          padding: 10px 20px;
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          color: #000000;
+          cursor: pointer; }
+        .archive-courses .courses-categories ul li.active {
+          transition: 0.3s;
+          background: #000000; }
+          .archive-courses .courses-categories ul li.active a {
+            color: #ffffff;
+            transition: 0.3s; }
+  .archive-courses .course-item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 0.870074px solid #f0f0f0;
+    box-sizing: border-box; }
+    @media only screen and (min-width: 566px) {
+      .archive-courses .course-item {
+        flex-basis: 47%; } }
+    @media only screen and (min-width: 769px) {
+      .archive-courses .course-item {
+        flex-basis: 31%; } }
+    @media only screen and (min-width: 1200px) {
+      .archive-courses .course-item {
+        flex-basis: 22.46%; } }
+    .archive-courses .course-item .course-item-content {
+      outline: 1px solid yellow; }
+      .archive-courses .course-item .course-item-content .course-item-img {
+        position: relative;
+        height: 192px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover; }
+        @media only screen and (min-width: 566px) {
+          .archive-courses .course-item .course-item-content .course-item-img {
+            height: 148px; } }
+        .archive-courses .course-item .course-item-content .course-item-img .courses-item-category {
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          display: flex;
+          flex-wrap: wrap; }
+          .archive-courses .course-item .course-item-content .course-item-img .courses-item-category h4 {
+            font-family: "Gilroy", Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 10px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #000000;
+            margin: 0;
+            background: linear-gradient(0deg, #ffffff, #ffffff), linear-gradient(259.4deg, #fbcb43 -49.47%, #ffdc7a 103.79%);
+            padding: 4px;
+            margin: 0 4px 4px 0;
+            display: flex;
+            align-items: center; }
+            .archive-courses .course-item .course-item-content .course-item-img .courses-item-category h4 span {
+              margin-right: 5px; }
+              .archive-courses .course-item .course-item-content .course-item-img .courses-item-category h4 span img {
+                width: 10px;
+                height: 10px; }
+    .archive-courses .course-item .course-item-desc {
+      padding: 15px; }
+      .archive-courses .course-item .course-item-desc h2 {
+        font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        margin: 0; }
+      .archive-courses .course-item .course-item-desc .course-duration h5 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.02em;
+        color: #000000;
+        margin: 15px 0 0 0; }
+
+.single-course .container {
+  outline: 1px solid red;
+  width: 100%;
+  max-width: 1225px;
+  padding: 0 20px; }
+  .single-course .container .columns {
+    display: flex;
+    flex: 1; }
+    .single-course .container .columns .main-content {
+      flex: 1;
+      padding-right: 280px;
+      border-right: 1px solid rgba(0, 0, 0, 0.2); }
+    .single-course .container .columns .single-sidebar {
+      width: 25%;
+      padding-left: 70px; }
+    .single-course .container .columns h2 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 32px;
+      font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
+      letter-spacing: 0.02em; }
+    .single-course .container .columns p {
+      font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000; }
+
+
+/*# sourceMappingURL=main.css.map*/

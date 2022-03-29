@@ -1,0 +1,115 @@
+/**
+ * Header font sizes.
+ */
+$mobile-header-sizes: (
+  h1: 32px,
+  h2: 24px,
+  h3: 22px,
+  h4: 20px,
+  h5: 18px,
+  h6: 16px,
+);
+
+$tablet-header-sizes: (
+  h1: 42px,
+  h2: 36px,
+  h3: 24px,
+  h4: 20px,
+  h5: 18px,
+  h6: 16px,
+);
+
+$desktop-header-sizes: (
+  h1: 48px,
+  h2: 36px,
+  h3: 24px,
+  h4: 20px,
+  h5: 18px,
+  h6: 16px,
+);
+
+/**
+ * Header line height.
+ */
+$mobile-header-line-height: (
+  h1: 40px,
+  h2: 32px,
+  h3: 30px,
+  h4: 28px,
+  h5: 25px,
+  h6: 22px,
+);
+
+$tablet-header-line-height: (
+  h1: 50px,
+  h2: 44px,
+  h3: 32px,
+  h4: 28px,
+  h5: 25px,
+  h6: 22px,
+);
+
+$desktop-header-line-height: (
+  h1: 56px,
+  h2: 44px,
+  h3: 32px,
+  h4: 28px,
+  h5: 25px,
+  h6: 22px,
+);
+
+/**
+ * Display font sizes.
+ */
+$mobile-display-sizes: (
+  d1: 26px,
+  d2: 20px,
+);
+
+$tablet-display-sizes: (
+  d1: 36px,
+  d2: 28px,
+);
+
+$desktop-display-sizes: (
+  d1: 42px,
+  d2: 34px,
+);
+
+/**
+ * Display line heights.
+ */
+$mobile-display-line-height: (
+  d1: 30px,
+  d2: 24px,
+);
+
+$tablet-display-line-height: (
+  d1: 44px,
+  d2: 34px,
+);
+
+$desktop-display-line-height: (
+  d1: 48px,
+  d2: 40px,
+);
+
+/**
+ * Display heading font
+ */
+$display-font-family: (
+  d1: $font-family-primary,
+  d2: $font-family-secondary,
+);
+
+/**
+ * Display heading weights
+ */
+$display-font-weight: (
+  d1: 300,
+  d2: 700,
+);
+
+// Set up variables for hero to use to calculate heights.
+$breadcrumb-min-height: 25px;
+$breadcrumb-desktop-margin-top: 55px;

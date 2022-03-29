@@ -1,0 +1,15 @@
+export { default as plus } from './plus';
+export { default as times } from './times';
+export { default as mobile } from './mobile';
+export { default as tablet } from './tablet';
+export { default as desktop } from './desktop';
+export { default as arrowRight } from './arrow-right';
+export { default as arrow } from './arrow';
+export { default as sun } from './sun';
+export { default as moon } from './moon';
+export { default as search } from './search';
+export { default as playButton } from './play-button';
+export { default as chevronDown } from './chevron-down';
+export { default as people } from './people';
+export { default as hourglass } from './hourglass';
+export { default as chevronRight } from './chevron-right';

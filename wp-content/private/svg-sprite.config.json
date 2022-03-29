@@ -1,0 +1,17 @@
+{
+  "dest": "dist/assets/icons",
+  "log": "info",
+  "shape": {
+    "dimension": {
+      "attributes": true
+    }
+  },
+  "transform": [],
+  "mode": {
+    "defs": {
+      "dest": "./",
+      "sprite": "./sprite.defs.svg",
+      "inline": true
+    }
+  }
+}

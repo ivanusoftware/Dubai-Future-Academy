@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #333;
+  --color-primary-transparent: rgba(51, 51, 51, .1);
+  --color-secondary: #333;
+  --color-heading: #000;
+  --color-accent: #fff;
+  --color-background: #fff;
+  --color-border: #ccc;
+  --color-border-light: #f2f2f2;
+  --font-primary: "Neo Sans Arabic", Helvetica, Arial, sans-serif;
+  --font-secondary: "Roboto", Helvetica, Arial, sans-serif;
+  --font-tertiary: "Gilroy", Helvetica, Arial, sans-serif;
+  --color-footer: #000;
+  --color-footer-text: #fff;
+  --color-triangle: #000;
+  --color-triangle-dark: #fff;
+  --theme-primary: #fff; // default fall back
+}
+
+.is-dark,
+.section--dark,
+html.dark-mode {
+  --color-primary: #fff;
+  --color-primary-transparent: rgba(255, 255, 255, .3);
+  --color-secondary: #fff;
+  --color-heading: #fff;
+  --color-accent: #fff;
+  --color-background: #111;
+  --color-border: #666;
+  --color-border-light: #404040;
+  --color-triangle: #fff;
+}
+
+body.rtl {
+  --font-primary: "Neo Sans Arabic", Helvetica, Arial, sans-serif;
+  --font-secondary: "Neo Sans Arabic", Helvetica, Arial, sans-serif;
+  --font-tertiary: "Neo Sans Arabic", Helvetica, Arial, sans-serif;
+  direction: rtl;
+}
+
+/// Main colors
+$color-primary: var(--color-primary);
+$color-primary-transparent: var(--color-primary-transparent);
+$color-secondary: var(--color-secondary);
+$color-accent: var(--color-accent);
+
+// Set up some type colors
+$body-color: var(--color-primary);
+$heading-color: var(--color-heading);
+$background-color: var(--color-background);
+$footer-color: var(--color-footer);
+$footer-text-color: var(--color-footer-text);
+$border-color: var(--color-border);
+$border-light-color: var(--color-border-light);
+
+$link-color: $body-color;
+$link-color-light: $body-color;
+$link-color-visited: $body-color;
+$link-color-visited-light: $body-color;

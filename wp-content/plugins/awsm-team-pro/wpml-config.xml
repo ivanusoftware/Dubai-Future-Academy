@@ -1,0 +1,8 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1">awsm_team_member</custom-type>
+  </custom-types>
+  <taxonomies>
+    <taxonomy translate="1">awsm_team_filters</taxonomy>
+  </taxonomies>
+</wpml-config>

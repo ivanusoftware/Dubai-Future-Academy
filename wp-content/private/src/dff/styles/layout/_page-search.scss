@@ -1,0 +1,144 @@
+.page-headSearch {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: $background-color;
+  padding: 0 14px;
+  transform: translateX(100%);
+  z-index: 16;
+
+  @include mq(md-small) {
+    padding: 0 50px;
+  }
+
+  @include mq(medium) {
+    padding: 0 100px 0 16px;
+    width: 50%;
+  }
+
+  body.rtl & {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.search-active .page-headSearch,
+.search-active body.rtl .page-headSearch {
+  transform: translateX(0);
+}
+
+.page-headSearch input {
+  flex-grow: 1;
+  border: none;
+  border-left: 2px solid $body-color;
+  font-size: 32px;
+  padding: 5px 8px 0;
+  background-color: $background-color;
+  color: $body-color;
+  max-width: calc(100% - 37px);
+
+  body.rtl & {
+    border-right: 2px solid $body-color;
+    border-left: 0;
+  }
+}
+
+.page-headSearch button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 12px;
+  color: $body-color;
+
+  svg {
+    fill: currentColor;
+  }
+
+  body.rtl & {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+
+.page-searchResults {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  padding: 16px;
+  width: 100%;
+  background-color: $background-color;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, .15);
+
+  @include mq(md-small) {
+    padding: 40px;
+    width: calc(100% - 100px);
+    left: 50px;
+  }
+
+  @include mq(medium) {
+    left: 0;
+    padding: 40px;
+    width: calc(100% - 50px);
+  }
+}
+
+.page-searchResults h3 {
+  font-family: $font-family-secondary;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: .05rem;
+  text-align: left;
+  color: $body-color;
+  text-transform: uppercase;
+  opacity: .5;
+  margin: 0;
+
+  body.rtl & {
+    text-align: right;
+  }
+}
+
+.page-searchResults ul {
+  margin: 15px 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.page-searchResults ul a {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  color: $body-color;
+  padding: 20px 0;
+
+  svg {
+    margin-left: auto;
+    flex-shrink: 0;
+
+    body.rtl & {
+      margin-left: 0;
+      margin-right: auto;
+      transform: rotate(180deg);
+    }
+  }
+
+  body.rtl & {
+    text-align: right;
+  }
+}
+
+.page-searchResults ul li:first-child,
+.page-searchResults ul li + li {
+  border-top: 1px solid $border-color;
+}
+
+.page-searchResults ul li:last-child {
+  border-bottom: 1px solid $border-color;
+}

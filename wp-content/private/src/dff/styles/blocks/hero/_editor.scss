@@ -1,0 +1,12 @@
+.wp-block[data-type="dff/hero"] {
+  width: 100%;
+  max-width: 100%;
+}
+
+.editor-styles-wrapper h1.hero-title {
+  @extend .hero-title;
+}
+
+.editor-styles-wrapper .hero-side p {
+  margin: 0;
+}

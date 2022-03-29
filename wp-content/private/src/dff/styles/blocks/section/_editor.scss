@@ -1,0 +1,49 @@
+.wp-block[data-type="dff/section"],
+.wp-block[data-type="dff/section"] .wp-block {
+  width: 100%;
+  max-width: 100%;
+}
+
+.section.has-small-triangle:not(.align-triangle--end) .container,
+.section.has-small-triangle.align-triangle--end .container {
+  position: static;
+}
+
+.section:not(.align-triangle--end) .section-triangle.is-style-one {
+  left: 16px;
+}
+
+.section.align-triangle--end .section-triangle.is-style-one {
+  right: 16px;
+}
+
+.section--large.align-triangle--end .section-triangle.is-style-one,
+.section.align-triangle--end .section-triangle.is-style-one,
+.section--large:not(.align-triangle--end) .section-triangle.is-style-one,
+.section:not(.align-triangle--end) .section-triangle.is-style-one {
+  bottom: 0;
+}
+
+.section-header {
+  .block-editor-inner-blocks {
+    @include mq(small) {
+      @include flexy-column(6);
+    }
+
+    @include mq(large) {
+      @include flexy-column(4);
+    }
+  }
+
+  &.is-alternate {
+    @include mq(small) {
+      .block-editor-inner-blocks {
+        @include flexy-column(5, 1110px);
+
+        padding-right: flexy-col(1, 1110px);
+        border-left: 5px solid $border-color;
+        padding-left: #{flexy-col(1, 1110px) + flexy-gutter(1110px)};
+      }
+    }
+  }
+}

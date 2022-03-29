@@ -1,0 +1,141 @@
+.menuButton-toggle {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 16px;
+  z-index: 15;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menuButton {
+  position: relative;
+  float: right;
+  margin: 6px 0;
+  transition: background-color 0s ease;
+  transition-delay: .1s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.menuButton,
+.menuButton::before,
+.menuButton::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: $body-color;
+}
+
+.menuButton::before,
+.menuButton::after {
+  content: "";
+  position: absolute;
+  transition: background-color .2s ease;
+}
+
+.menuButton::before {
+  top: -6px;
+}
+
+.menuButton::after {
+  top: 6px;
+}
+
+.nav-active .menuButton-toggle .menuButton {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-active .menuButton-toggle .menuButton::before {
+  animation-duration: .2s;
+  animation-name: burgertop;
+  animation-fill-mode: forwards;
+}
+
+.nav-active .menuButton-toggle .menuButton::after {
+  animation-duration: .2s;
+  animation-name: burgerbottom;
+  animation-fill-mode: forwards;
+}
+
+.nav-inactive .menuButton {
+  background-color: $body-color;
+}
+
+.nav-inactive .menuButton::before {
+  animation-duration: .2s;
+  animation-name: burgertop-back;
+  animation-fill-mode: forwards;
+}
+
+.nav-inactive .menuButton::after {
+  animation-duration: .2s;
+  animation-name: burgerbottom-back;
+  animation-fill-mode: forwards;
+}
+
+@keyframes burgertop {
+  0% {
+    top: -6px;
+  }
+
+  50% {
+    top: 0px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: 0;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes burgerbottom {
+  0% {
+    top: 6px;
+  }
+
+  50% {
+    top: 0px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes burgertop-back {
+  0% {
+    top: 0px;
+    transform: rotate(45deg);
+  }
+
+  50% {
+    top: 0px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: 6px;
+  }
+}
+
+@keyframes burgerbottom-back {
+  0% {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    top: 0px;
+    transform: rotate(0);
+  }
+
+  100% {
+    top: -6px;
+  }
+}

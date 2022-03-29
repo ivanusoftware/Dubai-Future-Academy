@@ -1,0 +1,85 @@
+.wp-block-dff-column:not(:first-child) .articleCard .articleCard-contentContainer {
+  @include mq(small) {
+    padding: 0;
+  }
+}
+
+.articleCard-title {
+  color: $heading-color;
+}
+
+.articleCard-category .icon-picker {
+  margin-right: 12px;
+}
+
+.icon-picker {
+  position: relative;
+}
+
+.icon-pickerToggle {
+  background: #fff;
+  border: 1px solid $border-color;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &.is-open,
+  &:enter {
+    background-color: $color-primary-transparent;
+  }
+}
+
+ul.icon-pickerList {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: #fff;
+  width: 240px;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0 !important;
+  padding: 12px !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, .16);
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    list-style: none;
+    width: 40px;
+    height: 40px;
+  }
+
+  li + li {
+    margin-left: 4px;
+  }
+
+  li:nth-child(n + 6) {
+    margin-top: 4px;
+  }
+
+  li:nth-child(5n + 6) {
+    margin-left: 0;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $border-color;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &.is-active,
+    &:enter {
+      background-color: $color-primary-transparent;
+    }
+  }
+}

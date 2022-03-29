@@ -1,0 +1,20 @@
+blockquote {
+  border-left: $base-border-size solid $border-light-color;
+  padding-left: flexy-col(2);
+}
+
+blockquote p {
+  font-family: $font-family-tertiary;
+  font-weight: 300;
+  font-size: 42px;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  text-align: left;
+}
+
+blockquote cite {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  margin-top: 44px;
+}

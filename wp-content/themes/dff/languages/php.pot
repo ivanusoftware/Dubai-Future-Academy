@@ -1,0 +1,543 @@
+# Copyright (C) 2020 Big Bite
+# This file is distributed under the .
+msgid ""
+msgstr ""
+"Project-Id-Version: Dubai Future Foundations 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/dff\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-08-25T12:34:27+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: dff\n"
+
+#. Theme Name of the theme
+msgid "Dubai Future Foundations"
+msgstr ""
+
+#. Author of the theme
+msgid "Big Bite"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://bigbite.net/"
+msgstr ""
+
+#. Template Name of the theme
+msgid "404"
+msgstr ""
+
+#: 404.php:22
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:23
+msgid "Back to Home"
+msgstr ""
+
+#: archive.php:61
+#: home.php:81
+#: inc/frontend/loader.php:17
+#: search.php:73
+msgid "Sort By"
+msgstr ""
+
+#: archive.php:63
+#: home.php:83
+#: inc/frontend/loader.php:18
+#: search.php:76
+msgid "Date (OLDEST)"
+msgstr ""
+
+#: archive.php:64
+#: home.php:84
+#: inc/frontend/loader.php:19
+#: search.php:77
+msgid "Date (NEWEST)"
+msgstr ""
+
+#: footer.php:10
+msgid "Subscribe for updates"
+msgstr ""
+
+#: footer.php:11
+msgid "A weekly update from DFF"
+msgstr ""
+
+#: footer.php:14
+#: footer.php:15
+msgid "Email Address"
+msgstr ""
+
+#: footer.php:17
+msgid "Subscribe"
+msgstr ""
+
+#: header.php:122
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:135
+msgid "Go to the homepage"
+msgstr ""
+
+#: header.php:143
+msgid "Main Menu Navigation"
+msgstr ""
+
+#: header.php:160
+msgid "Open Search"
+msgstr ""
+
+#: header.php:164
+msgid "Future ID menu"
+msgstr ""
+
+#: header.php:181
+msgid "Turn darkmode on"
+msgstr ""
+
+#: header.php:185
+msgid "Turn darkmode off"
+msgstr ""
+
+#: header.php:191
+msgid "Close Search"
+msgstr ""
+
+#: home.php:29
+msgid "Latest insights"
+msgstr ""
+
+#: home.php:39
+#: inc/frontend/loader.php:20
+msgid "Filter by content type"
+msgstr ""
+
+#. translators: Subnavigation for "menu item title"
+#: inc/class-nav-megamenu-walker.php:65
+msgid "Subnavigation for %s"
+msgstr ""
+
+#: inc/class-nav-megamenu.php:40
+msgid "Submenu Title"
+msgstr ""
+
+#: inc/class-nav-megamenu.php:52
+msgid "Submenu content"
+msgstr ""
+
+#: inc/frontend/loader.php:14
+msgid "Search"
+msgstr ""
+
+#: inc/frontend/loader.php:15
+msgid "Top search results"
+msgstr ""
+
+#: inc/frontend/loader.php:16
+msgid "All search results ›"
+msgstr ""
+
+#: inc/frontend/loader.php:21
+msgid "Filter by"
+msgstr ""
+
+#: inc/frontend/loader.php:22
+msgid "Clear Filter"
+msgstr ""
+
+#: inc/frontend/loader.php:23
+msgid "Loading..."
+msgstr ""
+
+#: inc/frontend/loader.php:24
+msgid "Load More"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-post-type-archive.php:177
+#: inc/gutenberg/blocks/class-tabbed-posts.php:217
+#: inc/gutenberg/blocks/class-tabbed-posts.php:302
+msgid "View All"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:228
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:116
+msgid "Previous Posts"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:274
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:128
+msgid "Next Posts"
+msgstr ""
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:28
+msgid "Previous Image"
+msgstr ""
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:42
+msgid "Next Image"
+msgstr ""
+
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:34
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:36
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:71
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:73
+msgid "Link to %s"
+msgstr ""
+
+#: inc/gutenberg/class-loader.php:62
+msgid "DFF"
+msgstr ""
+
+#: inc/integrations/programs/class-cron.php:39
+msgid "Every 6 hours"
+msgstr ""
+
+#: inc/integrations/programs/class-rest.php:26
+msgid "Successfully synchronised programs."
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:2
+msgid "Synchronise Programs"
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:3
+msgid "The website synchronises programs every six hours without user interaction."
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:29
+msgid "Something went wrong whilst trying to synchronise programs, hit synchronise to try again"
+msgstr ""
+
+#: inc/navigation.php:9
+msgid "Primary Nav"
+msgstr ""
+
+#: inc/navigation.php:10
+msgid "Future ID"
+msgstr ""
+
+#: inc/navigation.php:11
+msgid "Footer #1"
+msgstr ""
+
+#: inc/navigation.php:12
+msgid "Footer #2"
+msgstr ""
+
+#: inc/navigation.php:13
+msgid "Footer #3"
+msgstr ""
+
+#: inc/navigation.php:14
+msgid "Footer Bottom"
+msgstr ""
+
+#: inc/navigation.php:15
+msgid "Footer Bottom #2"
+msgstr ""
+
+#: inc/post-types/insights.php:12
+#: inc/post-types/insights.php:13
+#: inc/post-types/insights.php:23
+#: inc/post-types/insights.php:34
+#: inc/post-types/insights.php:35
+msgid "Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:14
+#: inc/post-types/insights.php:25
+#: inc/post-types/insights.php:26
+msgid "Add Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:15
+msgid "Tags"
+msgstr ""
+
+#: inc/post-types/insights.php:24
+#: inc/post-types/insights.php:28
+msgid "Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:27
+msgid "Edit Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:29
+msgid "View Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:30
+msgid "Search Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:31
+msgid "No Insight found"
+msgstr ""
+
+#: inc/post-types/insights.php:32
+msgid "No Insight found in Trash"
+msgstr ""
+
+#: inc/post-types/insights.php:33
+msgid "All Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:48
+msgctxt "Taxonomy General Name"
+msgid "Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:50
+msgid "Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:51
+msgid "All Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:52
+msgid "Parent Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:53
+msgid "Parent Article Type:"
+msgstr ""
+
+#: inc/post-types/insights.php:54
+msgid "New Article Type Name"
+msgstr ""
+
+#: inc/post-types/insights.php:55
+msgid "Add New Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:56
+msgid "Edit Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:57
+msgid "Update Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:58
+msgid "View Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:59
+#: inc/post-types/programs.php:59
+#: inc/post-types/programs.php:105
+msgid "Separate event categories with commas"
+msgstr ""
+
+#: inc/post-types/insights.php:60
+#: inc/post-types/programs.php:60
+#: inc/post-types/programs.php:106
+msgid "Add or remove event categories"
+msgstr ""
+
+#: inc/post-types/insights.php:61
+#: inc/post-types/programs.php:61
+#: inc/post-types/programs.php:107
+msgid "Choose from the most used"
+msgstr ""
+
+#: inc/post-types/insights.php:62
+msgid "Popular Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:63
+msgid "Search Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:64
+#: inc/post-types/programs.php:64
+#: inc/post-types/programs.php:110
+msgid "Not Found"
+msgstr ""
+
+#: inc/post-types/insights.php:65
+msgid "No Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:66
+msgid "Article Types list"
+msgstr ""
+
+#: inc/post-types/insights.php:67
+msgid "Article Types list navigation"
+msgstr ""
+
+#: inc/post-types/programs.php:48
+msgctxt "Taxonomy General Name"
+msgid "Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:50
+msgid "Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:51
+msgid "All Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:52
+msgid "Parent Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:53
+msgid "Parent Facilitator:"
+msgstr ""
+
+#: inc/post-types/programs.php:54
+msgid "New Facilitator Name"
+msgstr ""
+
+#: inc/post-types/programs.php:55
+msgid "Add New Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:56
+msgid "Edit Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:57
+msgid "Update Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:58
+msgid "View Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:62
+msgid "Popular Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:63
+msgid "Search Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:65
+msgid "No Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:66
+msgid "Facilitators list"
+msgstr ""
+
+#: inc/post-types/programs.php:67
+msgid "Facilitators list navigation"
+msgstr ""
+
+#: inc/post-types/programs.php:94
+msgctxt "Taxonomy General Name"
+msgid "Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:95
+msgctxt "Taxonomy Singular Name"
+msgid "Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:96
+msgid "Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:97
+msgid "All Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:98
+msgid "Parent Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:99
+msgid "Parent Challenge Owner:"
+msgstr ""
+
+#: inc/post-types/programs.php:100
+msgid "New Challenge Owner Name"
+msgstr ""
+
+#: inc/post-types/programs.php:101
+msgid "Add New Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:102
+msgid "Edit Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:103
+msgid "Update Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:104
+msgid "View Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:108
+msgid "Popular Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:109
+msgid "Search Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:111
+msgid "No Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:112
+msgid "Challenge Owners list"
+msgstr ""
+
+#: inc/post-types/programs.php:113
+msgid "Challenge Owners list navigation"
+msgstr ""
+
+#. translators: Search results for "$query_text"
+#: search.php:23
+msgid "Search results for \"%s\""
+msgstr ""
+
+#: search.php:35
+#: search.php:75
+msgid "Relevance"
+msgstr ""
+
+#: single-future-talk.php:40
+#: single.php:76
+msgid "Share"
+msgstr ""
+
+#: single-future-talk.php:63
+#: single.php:103
+msgid "Related Posts"
+msgstr ""
+
+#: single.php:30
+msgid "Scroll down to post content"
+msgstr ""
+
+#: single.php:81
+msgid "Share to Facebook"
+msgstr ""
+
+#: single.php:87
+msgid "Share to Twitter"
+msgstr ""

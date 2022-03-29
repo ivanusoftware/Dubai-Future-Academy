@@ -1,0 +1,27 @@
+import './polyfills';
+import setupScrollTo from './modules/scroll-to';
+import setupSliders from './modules/slider';
+import setupTabbedPosts from './modules/tabbed-posts';
+import setupToggleSearch from './modules/toggle-search';
+import setupSearch from './modules/search';
+import setupTimeline from './modules/timeline';
+import setupContentSliders from './modules/content-slider';
+import setupArchiveFeed from './modules/archive-feed';
+import setupAuthNav from './modules/authorization';
+import setupNoframe from './modules/noframe';
+import setLanguageCookie from './modules/language-cookie';
+import setupHorizontalHeightResizer from './modules/horizontal-list-height';
+import './modules/map';
+
+setupScrollTo();
+setupSliders();
+setupTabbedPosts();
+setupToggleSearch();
+setupSearch();
+setupTimeline();
+setupContentSliders();
+setupArchiveFeed();
+setupNoframe();
+setupHorizontalHeightResizer();
+setupAuthNav();
+setLanguageCookie();

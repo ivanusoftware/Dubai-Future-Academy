@@ -1,0 +1,237 @@
+.triangleBlock {
+  display: flex;
+  align-items: flex-start;
+
+  .triangle-left {
+    @include flexy-column(12, $include-margin: false);
+    padding-right: 30px;
+    padding-left: 30px;
+
+    @include mq(large) {
+      @include flexy-column(9);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .triangle-heading {
+      @include flexy-column(12, $include-margin: false);
+      align-self: flex-start;
+      box-sizing: border-box;
+
+      @include mq(large) {
+        @include flexy-column(12, $include-margin: false);
+        padding-right: flexy-col(1);
+      }
+
+      h1 {
+        font-family: $font-family-tertiary;
+
+        @include mq(large) {
+          padding-top: 150px;
+        }
+
+        span.section-titleMain {
+          font-weight: 800;
+          text-transform: uppercase;
+          font-size: 32px;
+
+          @include mq(x-small) {
+            font-size: 60px;
+          }
+        }
+
+        span.section-titlePrefix {
+          font-weight: 300;
+          text-transform: none;
+          font-size: 24px;
+
+          @include mq(x-small) {
+            font-size: 40px;
+          }
+        }
+
+        &.has-decal span > svg {
+          width: 217px;
+          pointer-events: none;
+          margin-top: 0;
+          left: -30px;
+
+          @include mq(large) {
+            width: 360px;
+            left: 0;
+          }
+        }
+
+        &.has-decal > span {
+          padding-top: 96px;
+          margin-top: 0;
+          padding-left: 0;
+
+          @include mq(large) {
+            padding-top: 0;
+            padding-left: 150px;
+          }
+        }
+      }
+    }
+
+    .triangle-columnOne {
+      box-sizing: border-box;
+
+      @include mq(large) {
+        @include flexy-column(12, $include-margin: false);
+        padding-left: 150px;
+        padding-right: 10px;
+      }
+
+      @include mq(x-large) {
+        @include flexy-column(4);
+        padding-left: 0;
+      }
+    }
+
+    .triangle-columnTwo {
+      box-sizing: border-box;
+
+      @include mq(large) {
+        @include flexy-column(12, $include-margin: false);
+        padding-left: 150px;
+        padding-right: 10px;
+      }
+
+      @include mq(x-large) {
+        @include flexy-column(4, $include-margin: false);
+        padding-left: 0;
+      }
+    }
+
+    .triangle-columnThree {
+      @include flexy-column(12, $include-margin: false);
+      box-sizing: border-box;
+
+      @include mq(large) {
+        @include flexy-column(12, $include-margin: false);
+        padding-left: 150px;
+      }
+
+      @include mq(x-large) {
+        @include flexy-column(8, $include-margin: false);
+        padding-left: 0;
+      }
+
+      p {
+        font-family: $font-family-tertiary;
+        font-size: 32px;
+        line-height: 38px;
+      }
+    }
+  }
+
+  .triangle-right {
+    display: none;
+    position: relative;
+    height: 426px;
+
+    @include mq(large) {
+      @include flexy-column(3, $include-margin: false);
+      display: block;
+    }
+
+    .triangle-image--large,
+    .triangle-image--small {
+      position: absolute;
+      pointer-events: none;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .triangle-image--large {
+      left: -240px;
+      bottom: 0;
+      width: 497px;
+      height: 426px;
+
+      @include mq(x-large) {
+        left: -193px;
+      }
+    }
+
+    .triangle-image--small {
+      left: 13px;
+      bottom: 0;
+      width: 248px;
+      height: 212px;
+
+      @include mq(x-large) {
+        left: 60px;
+      }
+    }
+  }
+}
+
+body.rtl {
+  .triangleBlock {
+    .triangle-left {
+      @include mq(large) {
+        margin-right: 0;
+        margin-left: flexy-gutter();
+      }
+
+      .triangle-heading {
+        @include mq(large) {
+          padding-right: 0;
+          padding-left: flexy-col(1);
+        }
+
+        h1 {
+          &.has-decal > span {
+            padding-left: 0;
+          }
+        }
+      }
+
+      .triangle-columnOne,
+      .triangle-columnTwo,
+      .triangle-columnThree {
+        @include mq(x-small) {
+          padding-left: 10px;
+          padding-right: 75px;
+        }
+
+        @include mq(small) {
+          padding-right: 100px;
+        }
+
+        @include mq(medium) {
+          padding-right: 150px;
+        }
+
+        @include mq(x-large) {
+          padding-right: 0;
+          margin-right: 0;
+          margin-left: flexy-gutter();
+        }
+      }
+    }
+
+    .triangle-right {
+      .triangle-image--large {
+        left: auto;
+        right: -193px;
+      }
+
+      .triangle-image--small {
+        left: auto;
+        right: 60px;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+/**
+ * Generate spacing classes.
+ * Example:
+ *   .u-<type><direction><level>
+ *
+ * So margin top with level of 4 would be:
+ *   .u-mt4
+ */
+
+$spacing: (
+  0: 0,
+  1: 10px,
+  2: 20px,
+  3: 40px,
+  4: 60px,
+  5: 80px,
+);
+
+$dirs: (
+  left: l,
+  top: t,
+  right: r,
+  bottom: b,
+);
+
+$spacingTypes: (
+  margin: m,
+  padding: p,
+);
+
+@each $int, $val in $spacing {
+  @each $dir, $shdir in $dirs {
+    @each $spacingType, $shortform in $spacingTypes {
+      .u-#{$shortform}#{$shdir}#{$int} {
+        #{$spacingType}-#{$dir}: $val !important;
+
+        @include mq($until: small) {
+          #{$spacingType}-#{$dir}: $val/2 !important;
+        }
+      }
+    }
+  }
+
+  @each $spacingType, $shortform in $spacingTypes {
+    .u-#{$shortform}#{$int} {
+      #{$spacingType}: $val !important;
+
+      @include mq($until: small) {
+        #{$spacingType}: $val/2 !important;
+      }
+    }
+  }
+}
