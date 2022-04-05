@@ -8,10 +8,17 @@
 
 // // Base
 // @import "./base/fonts";
-// @import "./base/base";
-// @import "./base/typography";
+@import "./base/base";
+@import "./base/topography";
 
-@import "./layout/archive-courses";
-@import "./layout/single-course";
+@import "./layout/modules";
+@import "./layout/tabs";
+@import "./layout/accordion";
+@import "./layout/about-course";
+@import "./layout/modules-course";
+@import "./layout/audio-player";
 
 
+@import "./pages/archive-courses";
+@import "./pages/single-course";
+@import "./pages/my-courses";

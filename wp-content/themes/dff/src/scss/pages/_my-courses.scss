@@ -1,0 +1,21 @@
+.my-courses-tabs {
+    .container {
+        width: 100%;
+        max-width: 1225px;
+        padding: 0 20px;
+    }
+    .my-courses-tabs-content {
+        padding: 0;
+        .course-header-content {
+            padding-top: 40px;
+            padding-bottom: 150px;
+            @media only screen and (min-width: 769px) {
+                padding-top: 215px;
+                padding-bottom: 0;
+            }
+            h1 {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

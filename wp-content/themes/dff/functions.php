@@ -80,7 +80,7 @@ if ( class_exists( 'WP_CLI' ) ) {
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
 
-/**********************************************************************************
- * Include js and css files
- **********************************************************************************/
-include(get_template_directory() . '/includes/enqueue-script-style.php');
+
+
+
+

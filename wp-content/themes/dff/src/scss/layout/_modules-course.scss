@@ -1,0 +1,231 @@
+.modules-course {
+    .cource-content {
+        .container {
+            .columns {
+                .course-sidebar {
+                    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                    border: unset;
+                    padding: 0;
+                    @media only screen and (min-width: 769px) {
+                        max-width: 305px;
+                    }
+                }
+                .main-content {
+                    padding-left: 70px;
+                    border: unset;
+                }
+                .accordion {
+                    &-item {
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                    }
+                    &-head {
+                        padding-left: 20px;
+                        &.active,
+                        &:hover {
+                            // border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                            border-bottom: unset;
+                            // border-left: 6px solid #000000;
+                            // transition: 0.3s;
+                            h6 {
+                                font-weight: 700;
+                            }
+                        }
+                        cursor: pointer;
+                        h6 {
+                            font-family: $font-family-tertiary;
+                            font-style: normal;
+                            font-weight: 400;
+                            letter-spacing: 0.02em;
+                            text-transform: uppercase;
+                            @media only screen and (min-width: 769px) {
+                                font-size: 18px;
+                                line-height: 24px;
+                            }
+                        }
+
+                        &.active {
+                            &::after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                    &-content {
+                        border-left: 6px solid #000000;
+                        padding: 0px 0 15px 8px;
+                        ul {
+                            padding-left: 6px;
+                            li {
+                                font-family: $font-family-neo-sans-pro;
+                                list-style-type: none;
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 20px;
+                                @media only screen and (min-width: 769px) {
+                                    font-size: 16px;
+                                    line-height: 28px;
+                                }
+                                color: #000000;
+                                cursor: pointer;
+                                &:hover {
+                                    font-weight: 700;
+                                }
+                            }
+                            .active {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+                .main-content {
+                    padding-right: 0;
+                    .content {
+                        max-width: 810px;
+                        background: #f8f8f8;
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 32px;
+
+            span {
+                font-family: $font-family-neo-sans-pro;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+                cursor: pointer;
+            }
+            .back,
+            .next {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+            .next {
+                padding-right: 25px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url("../../images/arrow-next.svg");
+                    background-repeat: no-repeat;
+                    right: 0;
+                    // @media screen and (min-width: 769px) {
+                    //     right: 30px;
+                    // }
+                }
+            }
+            .back {
+                padding-left: 25px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url("../../images/arrow-back.svg");
+                    background-repeat: no-repeat;
+                    left: 0;
+                    // @media screen and (min-width: 769px) {
+                    //     right: 30px;
+                    // }
+                }
+            }
+        }
+        .lesson-inner-container {
+            padding: 20px 32px;
+            border-top: 1px solid #cccccc;
+            h2 {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 16px;
+                letter-spacing: 0.01em;
+            }
+            .module-inner-content {
+                h3 {
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 24px;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                ul {
+                    margin: 15px 0;
+                }
+            }
+            .upload-file-wrap {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                .open-btn {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    text-align: center;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                    color: #000000;
+                    padding: 15px 52px;
+                    border: 1px solid #000000;
+                }
+                .file-info {
+                    position: relative;
+                    padding-left: 43px;
+                    display: flex;
+                    flex-direction: column;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 42px;
+                        height: 42px;
+                        background-image: url("../../images/file-icon.svg");
+                        background-repeat: no-repeat;
+                        left: -7px;
+                    }
+                    h6 {
+                        font-family: $font-family-neo-sans-pro;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    .file-size {
+                        color: #000000;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 20px;
+                        opacity: 0.5;
+                    }
+                }
+            }
+            .upload-audio-file-wrap{
+                h6{
+                    margin-bottom: 15px;
+                }
+            }
+        }      
+    }
+
+    .box {
+        .course-box {
+            display: none;
+        }
+    }
+    .selected {
+        .course-box {
+            display: block;
+        }
+    }
+}
