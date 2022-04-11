@@ -1,5 +1,5 @@
 <section class="about-course">
-    <?php
+    <?php    
     // WP_Query arguments
     $args = array(
         'post_type'      => array('courses'),

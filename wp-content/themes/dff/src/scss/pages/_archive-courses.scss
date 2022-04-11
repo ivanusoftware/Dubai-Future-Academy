@@ -8,7 +8,7 @@
 .archive-courses {
     padding-bottom: 50px;
     .container {
-        outline: 1px solid red;
+        // outline: 1px solid red;
         width: 100%;
         max-width: 1225px;
         padding: 0 20px;
@@ -95,8 +95,7 @@
         background: $color-white;
         border: 0.870074px solid #f0f0f0;
         box-sizing: border-box;
-        .course-item-content {
-            outline: 1px solid yellow;
+        .course-item-content {            
             .course-item-img {
                 position: relative;
                 height: 192px;

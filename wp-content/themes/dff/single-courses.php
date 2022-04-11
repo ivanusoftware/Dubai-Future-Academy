@@ -87,8 +87,9 @@ $posttype = get_post_type();
 															<ul>
 																<?php
 																while (have_rows('course_lesson_repeater')) : the_row();
+																$lesson_name = get_sub_field('lesson_name');
 																?>
-																	<li><?php echo _e('Lesson', 'dff') .' '. get_row_index(); ?></li>
+																	<li><?php echo $lesson_name; ?></li>
 																<?php
 																endwhile;
 																?>

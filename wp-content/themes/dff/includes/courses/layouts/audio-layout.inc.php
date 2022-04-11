@@ -1,4 +1,7 @@
-<?php $lesson_audio_file = get_sub_field('lesson_audio_file'); ?>
+<?php
+$lesson_audio_file = get_sub_field('lesson_audio_file');
+$audio_file_name = get_sub_field('audio_file_name');
+?>
 
 <div class="lesson-inner-container">
     <div class="module-inner-content">
@@ -24,8 +27,10 @@
 
         ?>
             <div class="upload-audio-file-wrap">
-                <h6><?php echo esc_html($title); ?></h6>
-                <?php echo wp_audio_shortcode($attr); ?>
+                <?php
+                    echo $audio_file_name ? '<h6>' . $audio_file_name . '</h6>' : '';
+                    echo wp_audio_shortcode($attr);
+                ?>
             </div>
         <?php endif; ?>
     </div>

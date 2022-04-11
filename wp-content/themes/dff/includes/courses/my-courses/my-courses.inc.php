@@ -9,30 +9,23 @@ $courses_array =  unserialize(get_user_meta($current_user_id, 'course_id_to_user
 if (in_array($course_id, $courses_array)) {
   
 ?>
-<section class="my-courses-tabs" id="post-course-<?php echo $course_id; ?>">
+<section class="my-courses-tabs" course-id="<?php echo $course_id; ?>">
     <div class="container">
 
-        <header class="tabs-nav">
+        <header class="tabs-nav tabs-nav-my-courses">
             <ul>
-                <li class="active"><a href="#tab1"><?php _e('About', 'dff'); ?></a></li>
-                <li><a href="#tab2"><?php _e('Modules', 'dff'); ?></a></li>
-                <li><a href="#tab3"><?php _e('My Progress', 'dff'); ?></a></li>
+                <li class="active"><a href="#tab1" tab-id="tab-1" course-id="<?php echo $course_id; ?>"><?php _e('About', 'dff'); ?></a></li>
+                <li><a href="#tab2" tab-id="tab-2" course-id="<?php echo $course_id; ?>"><?php _e('Modules', 'dff'); ?></a></li>
+                <li><a href="#tab3" tab-id="tab-3" course-id="<?php echo $course_id; ?>"><?php _e('My Progress', 'dff'); ?></a></li>
             </ul>
         </header>
     </div>
 
         <div class="tabs-content my-courses-tabs-content">
-            <div class="tab-wrapper" id="tab1">
-            <?php get_template_part('includes/courses/my-courses/parts-course/about', 'course'); ?>
+            <div class="tab-wrapper">
+                <?php get_template_part('includes/courses/my-courses/parts-course/about', 'course'); ?>
             </div>
-            <div id="tab2" class="tab-wrapper">
-          
-            <?php get_template_part('includes/courses/my-courses/parts-course/modules', 'course'); ?>
-            </div>
-            <div id="tab3" class="tab-wrapper">
            
-            <?php get_template_part('includes/courses/my-courses/parts-course/my-progress', 'course'); ?>
-            </div>
         </div>
 
      

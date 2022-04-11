@@ -24,7 +24,7 @@ if (!is_user_logged_in()) {
     wp_redirect(site_url('courses'));
 };
 ?>
-<section class="my-courses-tabs" id="post-<?php the_ID(); ?>">
+<section class="my-courses-tabs my-course-tab" id="post-<?php the_ID(); ?>">
     <div class="container">
 
         <header class="tabs-nav">
