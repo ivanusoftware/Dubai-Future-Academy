@@ -18789,6 +18789,7 @@ function dffAccordion() {
     */
     $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
     $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
+    
     $('.accordion-head').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
