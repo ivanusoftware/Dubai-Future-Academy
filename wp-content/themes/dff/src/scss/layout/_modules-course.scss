@@ -25,16 +25,7 @@
                         max-width: 305px;
                     }
                 }
-                .main-content {
-                    padding-left: 0;
-                    @media only screen and (min-width: 993px) {
-                        padding-left: 20px;
-                    }
-                    @media only screen and (min-width: 1200px) {
-                        padding-left: 70px;
-                    }
-                    border: unset;
-                }
+                
                 .accordion {
                     &-item {
                         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
@@ -105,9 +96,16 @@
                 .main-content {
                     padding-right: 0;
                     width: 100%;
+                    padding-left: 0;
                     @media only screen and (min-width: 993px) {
                         width: calc(100% - 275px);
+                        padding-left: 20px;
                     }
+                    @media only screen and (min-width: 1200px) {
+                        padding-left: 70px;
+                    }
+                    border: unset;
+                   
                     .content {
                         max-width: 100%;
                         @media only screen and (min-width: 993px) {
@@ -133,6 +131,27 @@
                         .lesson-wrapper {
                             position: relative;
                         }
+                    }
+                }
+                .close-module {
+                    h6 {
+                        opacity: 0.4;
+                        position: relative;
+                        width: 100%;
+                        span {
+                            position: absolute;
+                            top: 0;
+                            right: 10px;
+                            font-weight: 400;
+                            font-size: 15px;
+                            line-height: 24px;                          
+                        }
+                    }
+                    .accordion-head {
+                        &::after {
+                            content: unset;
+                            // opacity: 0.4;
+                        } 
                     }
                 }
             }
@@ -329,31 +348,30 @@
                 // }
                 // img {
                 //     display: block;
-                //     width: 100%;                  
+                //     width: 100%;
                 // }
             }
-            .gallery-fancybox{
+            .gallery-fancybox {
                 height: 300px;
                 background: #000000;
-                    @media only screen and (min-width: 601px) {
-                        height: 450px;
+                @media only screen and (min-width: 601px) {
+                    height: 450px;
+                }
+                &.horizontal {
+                    // width: unset;
+                    img {
+                        object-fit: cover;
+                        display: block;
+                        width: 100%;
+                        // height: 100%;
                     }
-                    &.horizontal{
-                        // width: unset;
-                        img{
-                            object-fit: cover;
-                            display: block;
-                            width: 100%; 
-                            // height: 100%;
-                        }
+                }
+                &.vertical {
+                    img {
+                        object-fit: contain;
+                        height: 100%;
                     }
-                    &.vertical{
-                        img{
-                            object-fit: contain;
-                            height: 100%;
-                        }
-                        
-                    }
+                }
             }
             .swiper-counter {
                 position: absolute;
@@ -400,9 +418,8 @@
 }
 
 // .horizontal {
-//     border:3px solid #00ff00;   
+//     border:3px solid #00ff00;
 //    }
 //    .vertical {
-//     border:3px solid #ff0000;   
+//     border:3px solid #ff0000;
 //    }
-   

@@ -78,6 +78,11 @@ $background-color_2: #c4c4c4;
                 background-image: url("../../images/299-volume-mute2.svg");
             }
         }
+        &.mejs-replay {
+            > button {
+                background: url("../../images/to-replay.svg") no-repeat;
+            }
+        }
     }
     .mejs-time {
         color: $color_1;

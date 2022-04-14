@@ -50,11 +50,12 @@ function mytheme_mejs_add_container_class()
 <?php
 }
 
-function enqueue_mediaelement(){
-    wp_enqueue_style( 'wp-mediaelement' );
-    wp_enqueue_script( 'wp-mediaelement' );
+function enqueue_mediaelement()
+{
+    wp_enqueue_style('wp-mediaelement');
+    wp_enqueue_script('wp-mediaelement');
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_mediaelement' );
+add_action('wp_enqueue_scripts', 'enqueue_mediaelement');
 
 
 /**
@@ -155,6 +156,47 @@ function hide_admin_wpse_93843()
     }
 }
 add_action('wp_head', 'hide_admin_wpse_93843');
+
+/**
+ * Undocumented function
+ *
+ * @param [type] $date_open_module
+ * @return void
+ */
+function dff_open_module_by_date($date_open_module)
+{
+
+    $currentDateTime = date('d-m-Y');
+    $current_timestamp = strtotime($currentDateTime);
+    $date_timestamp = strtotime($date_open_module);
+    if ($current_timestamp >= $date_timestamp) {
+        $time_progressive = 'open-module';
+    } else {
+        $time_progressive = 'close-module';
+    }
+    return $time_progressive;
+}
+
+/**
+ * Undocumented function
+ *
+ * @param [type] $repeater_name
+ * @return void
+ */
+function dff_show_date($date_open_module)
+{
+
+    $currentDateTime = date('d-m-Y');
+    $current_timestamp = strtotime($currentDateTime);
+    $date_timestamp = strtotime($date_open_module);
+    if ($current_timestamp >= $date_timestamp) {
+        $show_date = '';
+    } else {
+        $show_date = '<span>' . date("d.m.Y", strtotime($date_open_module)) . '</span>';
+    }
+    return $show_date;
+}
+
 
 // function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
 //     if ( isset($user->roles) && is_array( $user->roles ) ) {
