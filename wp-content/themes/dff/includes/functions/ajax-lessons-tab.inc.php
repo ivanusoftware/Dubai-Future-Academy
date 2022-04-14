@@ -43,7 +43,7 @@ function upload_lesson_ajax_callback()
             endif;
         endwhile;
     endif; ?>
-<?php
+    <?php
     // wp_reset_postdata();
     wp_die();
 }
@@ -53,7 +53,7 @@ add_action('wp_ajax_nopriv_upload_lesson_ajax', 'upload_lesson_ajax_callback');
 
 function tabs_lesson_ajax_callback()
 {
-    $tab_id = $_POST['main_tab_id'];
+    $tab_id    = $_POST['main_tab_id'];
     $course_id = $_POST['course_id'];
 
     if ($tab_id == 'tab-1') {
@@ -69,3 +69,71 @@ function tabs_lesson_ajax_callback()
 }
 add_action('wp_ajax_tabs_lesson_ajax', 'tabs_lesson_ajax_callback');
 add_action('wp_ajax_nopriv_tabs_lesson_ajax', 'tabs_lesson_ajax_callback');
+
+function left_module_tab_ajax_callback()
+{
+    // $modules_length    = $_POST['modules_length'];
+    // $lesson_count     = $_POST['lesson_count'];
+    $time_progressive = $_POST['time_progressive'];
+    $module_index     = $_POST['module_index'];
+    // $item_index       = $_POST['item_index'];
+    // if ($lesson_count) {
+    // include get_template_directory() . '/includes/courses/my-courses/parts-course/tabs-my-course.php';
+    if (have_rows('course_module_repeater', 10410)) :
+        while (have_rows('course_module_repeater', 10410)) : the_row();
+            $course_module_name = get_sub_field('course_module_name');
+            echo $model_i = get_row_index();
+            // $choose_date_open_module = get_sub_field('choose_date_open_module');
+            // $date_open_module = date("d-m-Y", strtotime(get_sub_field('date_open_module')));
+
+    ?>
+
+            <div class="lesson-blocks">
+
+
+                <?php
+                $lesson_i = get_row_index();
+                if ($model_i == $module_index) {
+
+                    // if ($model_i == 1) {
+                    if (have_rows('course_lesson_repeater')) :
+                ?>
+                        <ul>
+                            <?php
+                            // $i = 0;
+                            while (have_rows('course_lesson_repeater')) : the_row();
+                                $lesson_name = get_sub_field('lesson_name');
+                                $lesson_i = get_row_index();
+                            ?>
+                                <li class="tab-item <?php echo $lesson_i == 1 && $model_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $model_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
+                                    <?php _e('Lesson', 'dff'); ?> <?php echo $lesson_i; ?>
+                                </li>
+                            <?php
+
+                            endwhile;
+                            ?>
+                        </ul>
+                <?php
+                    else :
+                    // Do something...
+                    endif;
+                }
+
+                ?>
+            </div>
+
+    <?php
+
+        endwhile;
+    else :
+    endif;
+    ?>
+
+
+<?php
+    // }
+
+    wp_die();
+}
+add_action('wp_ajax_left_module_tab_ajax', 'left_module_tab_ajax_callback');
+add_action('wp_ajax_nopriv_left_module_tab_ajax', 'left_module_tab_ajax_callback');

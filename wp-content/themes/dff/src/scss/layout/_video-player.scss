@@ -107,6 +107,11 @@ $background-color_2: #c4c4c4;
                 background: url("../../images/299-volume-mute2.svg") no-repeat;
             }
         }
+        &.mejs-replay {
+            > button {
+                background: url("../../images/to-replay.svg") no-repeat;
+            }
+        }
     }
     .mejs-fullscreen-button {
         > button {
