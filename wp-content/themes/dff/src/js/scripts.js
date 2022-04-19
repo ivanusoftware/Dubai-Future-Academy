@@ -1,4 +1,7 @@
 import "@fancyapps/fancybox";
+import 'jquery-nice-select/js/jquery.nice-select.js';
+import 'jquery-steps/build/jquery.steps.js';
+
 import Swiper, { Navigation } from 'swiper';
 
 console.log('I am testing!!!');
@@ -122,9 +125,9 @@ const $ = jQuery.noConflict();
     // $(document).on('click', 'single-course-modal buttons a', function (e) {
     $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
         e.preventDefault();
-        const courseId = $(this).attr('course_id');   
+        const courseId = $(this).attr('course_id');
         const data = {
-            action: "add_lesson_to_user_ajax",            
+            action: "add_lesson_to_user_ajax",
             course_id: courseId,
         };
         // console.log(data);
@@ -133,19 +136,19 @@ const $ = jQuery.noConflict();
             url: courses_ajax.url,
             data: data,
         })
-        .done(function (response) {
-            // $(".my-courses-tabs-content .tab-wrapper ").html(response);
-            console.log(response);
-        }) 
-        .fail(function (response) {
-            console.log(response);
-        });
+            .done(function (response) {
+                // $(".my-courses-tabs-content .tab-wrapper ").html(response);
+                console.log(response);
+            })
+            .fail(function (response) {
+                console.log(response);
+            });
+ 
+        return true;
+    });
+ 
 
-        return true; 
-    }); 
-
-
-    // Shows the active tab.
+    // Shows the active tab. 
     $('.my-course-tab .tabs-nav a').on('click', function () {
         // Check for active
         $('.my-course-tab .tabs-nav li').removeClass('active');
@@ -197,6 +200,31 @@ const $ = jQuery.noConflict();
             $('html').css('overflow', 'auto');
         }
     });
+
+
+
+    $(document).ajaxComplete(function () {
+        $('.course-quiz select').niceSelect();
+
+
+        $("#quiz").steps({
+            headerTag: ".course-quiz__step-title",
+            bodyTag: ".course-quiz__step",
+        });
+
+        let lastStepId = $('.course-quiz__step:last-child').attr("data-step");
+        $('.lastStepId').html(lastStepId);
+
+        $('.actions a').click(function () {
+            let currentStepId = $('.course-quiz__step-title.current').text();
+            $('.currentStepId').html(currentStepId);
+        })
+
+
+    });
+
+
+
 
 })(jQuery);
 

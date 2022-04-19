@@ -47,7 +47,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-//wp-config.php
+wp-config.php
 //wp-config.php
 /db
 db/

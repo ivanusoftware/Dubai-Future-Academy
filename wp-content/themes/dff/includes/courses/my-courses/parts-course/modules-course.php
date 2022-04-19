@@ -121,7 +121,10 @@
                         <main class="main-content">
                             <div class="content">
                                 <div class="lesson-container">
-                                    <?php get_template_part('includes/courses/my-courses/parts-course/lesson', 'content');
+                                    <?php //get_template_part('includes/courses/my-courses/parts-course/lesson', 'content');
+                                    ?>
+
+                                    <?php get_template_part('includes/courses/my-courses/parts-course/quiz', 'content');
                                     ?>
                                 </div>
                             </div>
