@@ -18598,8 +18598,10 @@ const $ = jQuery.noConflict();
 (function ($) {
     // dffSliderToLesson();
     // dffGalleryFancybox();
-    dffAccordion();
-
+    // dffAccordion();
+    /** 
+    * Ajax filter by taxonomy on the archive page
+    */
     $(".archive-courses .courses-categories #tabs-nav .courses-cat a").on("click", function (e) {
         e.preventDefault();
         $(".archive-courses .courses-categories #tabs-nav .courses-cat a").parent().removeClass("active");
@@ -18625,11 +18627,14 @@ const $ = jQuery.noConflict();
             });
     });
 
-
+    /**
+     * Ajax switches between modules and 
+     * lessons on the course page in the my account 
+     */
     $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
         e.preventDefault();
         const tabItem = $('.accordion-content ul li');
-       
+
         // const selectID = $(this).attr('id');
         const moduleIndex = $(this).attr('module-index');
         const lessonIndex = $(this).attr('lesson-index');
@@ -18670,8 +18675,12 @@ const $ = jQuery.noConflict();
         return true;
     });
 
+    /**
+    * Ajax switches between tabs on the course page
+    * in the my account
+    */
     $(document).on('click', '.my-courses-tabs .tabs-nav-my-courses a', function (e) {
-        e.preventDefault();       
+        e.preventDefault();
         $('.tabs-nav li').removeClass('active');
         $(this).parent().addClass('active');
         const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
@@ -18701,6 +18710,34 @@ const $ = jQuery.noConflict();
         return true;
     });
 
+
+    // $(document).on('click', 'single-course-modal buttons a', function (e) {
+    $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
+        e.preventDefault();
+        const courseId = $(this).attr('course_id');   
+        const data = {
+            action: "add_lesson_to_user_ajax",            
+            course_id: courseId,
+        };
+        // console.log(data);
+        $.ajax({
+            type: "POST",
+            url: courses_ajax.url,
+            data: data,
+        })
+        .done(function (response) {
+            // $(".my-courses-tabs-content .tab-wrapper ").html(response);
+            console.log(response);
+        }) 
+        .fail(function (response) {
+            console.log(response);
+        });
+
+        return true; 
+    }); 
+
+
+    // Shows the active tab.
     $('.my-course-tab .tabs-nav a').on('click', function () {
         // Check for active
         $('.my-course-tab .tabs-nav li').removeClass('active');
@@ -18713,17 +18750,14 @@ const $ = jQuery.noConflict();
         return false;
     });
 
+    // Creates a progress tab on the my course page 
     $(document).on('click', '.my-progres-modules li a', function (e) {
         e.preventDefault();
-    // $('.my-progres-modules li a').on('click', function () {
-        
         // Check for active
         $('.my-progress-content .my-progres-modules li').removeClass('active');
         $(this).parent().addClass('active');
-
         // Display active tab
         const currentTab = $(this).attr('href');
-
         $('.progress-container .tabs-content .progress-wrapper').hide();
         $(currentTab).show();
         return false;
@@ -18741,13 +18775,26 @@ const $ = jQuery.noConflict();
     //         // $(this).attr("title", "vertical");
     //     }        
     // });
-    $('.modal-toggle').on('click', function(e) {
+
+    /**
+    * Open modal window.
+    * toggle the visibility of the course modal.
+    */
+    $('.modal-toggle').on('click', function (e) {
         e.preventDefault();
-        $('.single-course-modal .modal').toggleClass('is-visible');
-      });
+        const isVisible = $('.single-course-modal .modal').toggleClass('is-visible');
+        if (isVisible.hasClass('is-visible')) {
+            $('html').css('overflow', 'hidden');
+        } else {
+            $('html').css('overflow', 'auto');
+        }
+    });
 
 })(jQuery);
 
+/**
+ * Slider to Lesson
+ */
 function dffSliderToLesson() {
     swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__.Navigation]);
     $(".gallery-slider").each(function () {
@@ -18778,11 +18825,16 @@ function dffSliderToLesson() {
 
 }
 
+/**
+ * Updates the number of switch - numeric pagination
+ * to slider
+ */
 function updSwiperNumericPagination() {
     this.el.querySelector(".swiper-counter").innerHTML = '<span class="count">' + (this.realIndex + 1) + '</span>/<span class="total">' + this.el.slidesQuantity + "</span>";
 }
 
 
+// Fancybox for gallery
 function dffGalleryFancybox() {
     $('.gallery-fancybox').fancybox({
         buttons: [
@@ -18794,15 +18846,18 @@ function dffGalleryFancybox() {
         ]
     });
 }
+/**
+ * dff adapter for accordion
+ */
 function dffAccordion() {
     /**
     * Accordion for modules
     */
     $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
     $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
-    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () { 
-           
-        if ($(this).hasClass('active')) {            
+    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
+
+        if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
         }

@@ -1036,14 +1036,8 @@ button.swiper-pagination-bullet {
    * Modals ($modals)
    */
   /* 1. Ensure this sits above everything when visible */ }
-  .single-course-modal .icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    fill: currentcolor; }
   .single-course-modal .modal {
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     top: 0;
     left: 0;
@@ -1057,7 +1051,6 @@ button.swiper-pagination-bullet {
       visibility: visible;
       transition-delay: 0s; }
     .single-course-modal .modal.is-visible .modal-transition {
-      transform: translateY(0);
       opacity: 1; }
   .single-course-modal .modal-overlay {
     position: fixed;
@@ -1073,22 +1066,23 @@ button.swiper-pagination-bullet {
   .single-course-modal .modal-wrapper {
     position: absolute;
     z-index: 9999;
-    top: 6em;
+    top: 50%;
     left: 50%;
-    width: 32em;
-    margin-left: -16em;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 574px;
     background-color: #fff;
     box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.35); }
   .single-course-modal .modal-transition {
     transition: all 0.3s 0.12s;
-    transform: translateY(-10%);
     opacity: 0; }
   .single-course-modal .modal-header {
-    padding: 1em;
-    position: relative;
-    background-color: #fff; }
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px 10px 0 0; }
   .single-course-modal .modal-content {
-    padding: 0 0 42px;
+    padding: 15px 0 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1109,23 +1103,45 @@ button.swiper-pagination-bullet {
       line-height: 24px;
       color: #202020;
       text-align: center; }
-    .single-course-modal .modal-content .btn-course-primary {
-      background: #000000;
-      border-radius: 2px;
-      border: none;
-      max-width: 325px; }
-      di .single-course-modal .modal-content .btn-course-primary:first-child {
-        margin: 25px 0 10px 0; }
+    .single-course-modal .modal-content .buttons {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .single-course-modal .modal-content .buttons .btn-course-primary {
+        background: #000000;
+        border-radius: 2px;
+        border: none;
+        width: 326px;
+        text-align: center;
+        line-height: 18px; }
+        .single-course-modal .modal-content .buttons .btn-course-primary:first-child {
+          margin: 25px 0 10px 0; }
+        .single-course-modal .modal-content .buttons .btn-course-primary:hover {
+          color: #fff; }
+      .single-course-modal .modal-content .buttons button.btn-course-primary, .single-course-modal .modal-content .buttons .login.btn-course-primary {
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        background: none;
+        color: #000000; }
+        .single-course-modal .modal-content .buttons button.btn-course-primary:hover, .single-course-modal .modal-content .buttons .login.btn-course-primary:hover {
+          color: #000000; }
   .single-course-modal .modal-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    color: #aaa;
-    background: none;
-    border: 0; }
-    .single-course-modal .modal-close:hover {
-      color: #777; }
+    position: relative;
+    height: 25px;
+    width: 25px;
+    cursor: pointer; }
+    .single-course-modal .modal-close::after {
+      content: "";
+      background-image: url("../../images/close_black.svg");
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 24px;
+      right: 0;
+      top: 3px;
+      position: absolute; }
   .single-course-modal .modal-heading {
     font-size: 1.125em;
     margin: 0;

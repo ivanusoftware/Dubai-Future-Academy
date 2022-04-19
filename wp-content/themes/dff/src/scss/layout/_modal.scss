@@ -8,15 +8,15 @@
    * Modals ($modals)
    */
     /* 1. Ensure this sits above everything when visible */
-    .icon {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-        fill: currentcolor;
-    }
+    // .icon {
+    //     display: inline-block;
+    //     width: 16px;
+    //     height: 16px;
+    //     vertical-align: middle;
+    //     fill: currentcolor;
+    // }
     .modal {
-        position: absolute;
+        position: fixed;
         z-index: 10000;
         top: 0;
         left: 0;
@@ -32,7 +32,6 @@
             transition-delay: 0s;
         }
         .modal-transition {
-            transform: translateY(0);
             opacity: 1;
         }
     }
@@ -51,25 +50,26 @@
     .modal-wrapper {
         position: absolute;
         z-index: 9999;
-        top: 6em;
+        top: 50%;
         left: 50%;
-        width: 32em;
-        margin-left: -16em;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 574px;
         background-color: $background-color_1;
         box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
     }
     .modal-transition {
         transition: all 0.3s 0.12s;
-        transform: translateY(-10%);
         opacity: 0;
     }
     .modal-header {
-        padding: 1em;
-        position: relative;
-        background-color: $background-color_1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 5px 10px 0 0;
     }
     .modal-content {
-        padding: 0 0 42px;
+        padding: 15px 0 42px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -96,27 +96,52 @@
             color: #202020;
             text-align: center;
         }
-        .btn-course-primary {
-            background: #000000;
-            border-radius: 2px;
-            border: none;
-            max-width: 325px;
-            di
-            &:first-child{
-                margin: 25px 0 10px 0;
+        .buttons {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .btn-course-primary {
+                background: #000000;
+                border-radius: 2px;
+                border: none;
+                width: 326px;
+                text-align: center;
+                line-height: 18px;
+                &:first-child {
+                    margin: 25px 0 10px 0;
+                }
+                &:hover {
+                    color: #fff;
+                }
+            }
+            button.btn-course-primary, .login.btn-course-primary {
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                background: none;
+                color: #000000;
+                &:hover {
+                    color: #000000;
+                }
             }
         }
     }
     .modal-close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 1em;
-        color: $color_1;
-        background: none;
-        border: 0;
-        &:hover {
-            color: $color_2;
+        position: relative;
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
+        &::after {
+            content: "";
+            background-image: url("../../images/close_black.svg");
+            background-repeat: no-repeat;
+            width: 24px;
+            height: 24px;
+            right: 0;
+            top: 3px;
+            position: absolute;
         }
     }
     .modal-heading {
