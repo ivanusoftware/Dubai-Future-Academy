@@ -1,7 +1,7 @@
 <?php
 get_header();
 $posttype = get_post_type();
-
+echo get_the_ID();
 ?>
 <article class="single-course">
 	<?php

@@ -3,13 +3,14 @@
 /**********************************************************************************
  * Include js and css files
  **********************************************************************************/
+// Include all enqueue scripts and lessons.
 include(get_template_directory() . '/includes/enqueue-script-style.php');
 include(get_template_directory() . '/includes/functions/user-functions.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 /**
  * Disable Gutenberg template
- *
+ * Add Gutenberg filter for post type.
  * @param [type] $gutenberg_filter
  * @param [type] $post_type
  * @return void
@@ -29,14 +30,14 @@ function dff_disable_gutenberg($gutenberg_filter, $post_type)
     return $gutenberg_filter;
 }
 
-add_action('wp_print_footer_scripts', 'dff_mejs_add_container_class');
 
+// Adds the mejs container class to the script if it is done.
 function dff_mejs_add_container_class()
 {
     if (!wp_script_is('mediaelement', 'done')) {
         return;
     }
-?>
+    ?>
     <script>
         (function() {
             var settings = window._wpmejsSettings || {};
@@ -46,10 +47,12 @@ function dff_mejs_add_container_class()
                 player.container.addClass('lesson-audio-container');
             };
         })();
-    </script>
+        </script>
 <?php
 }
+add_action('wp_print_footer_scripts', 'dff_mejs_add_container_class');
 
+// Enqueue a wp - media element
 function dff_enqueue_mediaelement()
 {
     wp_enqueue_style('wp-mediaelement');
@@ -60,6 +63,7 @@ add_action('wp_enqueue_scripts', 'dff_enqueue_mediaelement');
 
 /**
  * The function show default image.
+ * Get image by id
  * @param $pid
  * @param string $size
  * @return array|bool|false
@@ -74,7 +78,7 @@ function get_image_by_id($pid, $size = '')
 }
 
 /**
- * Get Ids Courses Category
+ * Returns an array of ids for all categories of courses
  *
  * @param [type] $tax_courses_name
  * @return void
@@ -93,18 +97,21 @@ function get_ids_courses_category($tax_courses_name)
 }
 
 
+// Adds the rewrite rules for the user and course.
 add_action('init', function () {
     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
     add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
 });
 
+// Adds the filter to the course_id.
 add_filter('query_vars', function ($query_vars) {
     $query_vars[] = 'course_id';
     // $query_vars[] = 'id';
     return $query_vars;
 });
 
+// Add an action to include a course template.
 add_action('template_include', function ($template) {
     // if (is_user_logged_in()) {
     //     // wp_redirect( home_url( '/wp-login.php' ), 302 );
@@ -118,7 +125,7 @@ add_action('template_include', function ($template) {
 });
 
 /**
- * Undocumented function
+ * Formats a size unit in a human readable format
  *
  * @param [type] $bytes
  * @return void
@@ -142,6 +149,11 @@ function formatSizeUnits($bytes)
     return $bytes;
 }
 
+/**
+ * Remove a Read from a wpse 93843 cap.
+ *
+ * @return void
+ */
 function remove_read_wpse_93843()
 {
     $role = get_role('subscriber');
@@ -149,6 +161,10 @@ function remove_read_wpse_93843()
 }
 add_action('admin_init', 'remove_read_wpse_93843');
 
+/**
+ * Hide the admin wpse. 93843 bar
+ * @return void
+ */ 
 function hide_admin_wpse_93843()
 {
     if (current_user_can('subscriber')) {
@@ -221,7 +237,7 @@ function dff_open_module_by_rusult_test($course_id, $module_i)
 }
 
 /**
- * Undocumented function
+ * Create module course user key
  *
  * @param [type] $course_id
  * @param [type] $model_index
