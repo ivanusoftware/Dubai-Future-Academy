@@ -1,17 +1,32 @@
 // $font-stack: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
 
-// @import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css";
-
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 // // Connecting your SCSS files
 // @import "./helpers/mixins";
 @import "./helpers/variables";
 
 // // Base
 // @import "./base/fonts";
-// @import "./base/base";
-// @import "./base/typography";
+@import "./base/base";
+@import "./base/topography";
 
-@import "./layout/archive-courses";
-@import "./layout/single-course";
+@import "./layout/modules";
+@import "./layout/tabs";
+@import "./layout/accordion";
+@import "./layout/about-course";
+@import "./layout/modules-course";
+@import "./layout/audio-player";
+@import "./layout/video-player";
+@import "./layout/modal";
+@import "./layout/course-quiz";
+
+
+@import "./pages/archive-courses";
+@import "./pages/single-course";
+@import "./pages/my-courses";
+@import "./pages/_my-progress";
 
 

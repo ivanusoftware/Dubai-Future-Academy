@@ -1,0 +1,30 @@
+.archive-courses,
+.single-course {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $font-family-neo-sans-pro;
+        color: $color-black;
+        font-style: normal;
+        margin: 0;
+    }
+    a {
+        color: $color-black;
+    }
+    p {
+        font-family: $font-family-neo-sans-pro;
+        font-style: normal;
+        color: $color-black;
+        margin: 0;
+    }
+    ul {
+        margin: 0;
+        // padding: 0;
+    }
+}
+.cource-content{
+    @extend .archive-courses;    
+}

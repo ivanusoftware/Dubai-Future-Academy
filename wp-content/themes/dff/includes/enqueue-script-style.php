@@ -8,6 +8,17 @@ function include_css_files()
 {
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/includes/css/main.css', array(), null, false);
 }
+// echo basename( get_page_template());
+// echo is_page_template();
+if (is_page_template('/includes/user-profile.inc.php')) { 
+    echo 'test test';
+}
+
+
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('admin-css', get_template_directory_uri() . '/includes/css/main.css');
+    wp_enqueue_script('admin-main-js', get_stylesheet_directory_uri() . '/includes/js/main.js', array('jquery'), null, true);
+}, 99);
 
 /**
  * The function include a javascript files
@@ -29,7 +40,7 @@ function courses_ajax_data()
         'courses_ajax',
         array(
             'url' => admin_url('admin-ajax.php'),
-            
+
         )
     );
 }

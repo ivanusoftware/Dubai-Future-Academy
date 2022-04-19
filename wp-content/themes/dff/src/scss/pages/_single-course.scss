@@ -1,0 +1,231 @@
+.single-course {
+    .breadcrumbs-container {
+        display: none;
+        @media only screen and (min-width: 769px) {
+            display: block;
+            margin-left: 50px;
+        }
+        ul {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            li {
+                a {
+                    color: $color-white;
+                    font-family: $font-family-neo-sans-pro;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 16px;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.02em;
+                }
+                &:before {
+                    content: "›";
+                    color: $color-white;
+                    margin: 0 12px;
+                }
+                &:first-child {
+                    &:before {
+                        content: " ";
+                        margin: 0;
+                    }
+                }
+                color: $color-white;
+                font-family: $font-family-neo-sans-pro;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+}
+
+.course-header-wrapper {
+    padding: 35px 0;
+    @media only screen and (min-width: 769px) {
+        padding: 62px 0 95px 0;
+    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .course-header-content {
+        padding: 0 20px;
+        @media only screen and (min-width: 769px) {
+            max-width: 575px;
+            margin-left: 130px;
+            padding-top: 175px;
+        }
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 34px;
+            @media only screen and (min-width: 769px) {
+                font-size: 56px;
+                line-height: 68px;
+            }
+            display: flex;
+            align-self: flex-end;
+            text-align: right;
+            color: $color-white;
+            margin: 20px 0 150px 0;
+            @media only screen and (min-width: 769px) {
+                margin: 20px 0 95px 0;
+            }
+        }
+        .course-format {
+            display: flex;
+            align-self: flex-end;
+
+            h5 {
+                font-family: $font-family-tertiary;
+                font-weight: 400;
+                @media only screen and (min-width: 769px) {
+                    font-size: 16px;
+                    line-height: 18px;
+                }
+                font-size: 13px;
+                line-height: 22px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.02em;
+                color: $color-white;
+                justify-content: flex-end;
+                margin: 0;
+            }
+            .course-duration {
+                position: relative;
+                padding-left: 30px;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    background: url("../../images/time-icon.svg") no-repeat;
+                    width: 23px;
+                    height: 23px;
+                }
+            }
+        }
+        .apply-now {
+            width: 100%;
+            @media only screen and (min-width: 769px) {
+                width: 125px;
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+.cource-content {
+    padding-top: 50px;
+    @media only screen and (min-width: 769px) {
+        padding-top: 72px;
+    }
+    .container {
+        // outline: 1px solid red;
+        width: 100%;
+        max-width: 1225px;
+        padding: 0 20px;
+        .columns {
+            display: flex;
+            flex-direction: column-reverse;
+            @media only screen and (min-width: 769px) {
+                flex-direction: row;
+            }
+            .main-content {
+                width: 100%;
+                @media only screen and (min-width: 769px) {
+                    width: calc(100% - 275px);
+                    padding-right: 70px;
+                    border-right: 1px solid rgba(0, 0, 0, 0.2);
+                }
+
+                padding-bottom: 72px;
+                .content {
+                    @media only screen and (min-width: 769px) {
+                        max-width: 620px;
+                    }
+                    .desc {
+                        padding-bottom: 30px;
+                        p {
+                            margin-top: 16px;
+                        }
+                    }
+                }
+            }
+            h2 {
+                font-weight: 500;
+                font-size: 24px;
+                @media only screen and (min-width: 769px) {
+                    font-size: 28px;
+                }
+                line-height: 32px;
+                letter-spacing: 0.02em;
+                margin: 0;
+            }
+            p {
+                font-weight: 400;
+                font-size: 15px;
+                @media only screen and (min-width: 769px) {
+                    font-size: 16px;
+                }
+                line-height: 24px;
+            }
+            .course-sidebar {
+                width: 100%;
+                padding-bottom: 25px;
+                margin-bottom: 30px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                @media only screen and (min-width: 769px) {
+                    max-width: 330px;
+                    padding-left: 70px;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                    border: unset;
+                }
+                .sidebar-info {
+                    margin-top: 25px;
+                    h3 {
+                        font-weight: 500;
+                        @media only screen and (min-width: 769px) {
+                            font-size: 18px;
+                        }
+                        font-size: 17px;
+                        line-height: 22px;
+                        display: flex;
+                        align-items: center;
+                        margin-top: 0;
+                    }
+                    p {
+                        margin-top: 2px;
+                    }
+                }
+            }
+            .course-requirments {
+                // padding-top: 30px;
+                ul {
+                    margin-top: 18px;
+                    padding-left: 18px;
+                    li {
+                        font-family: $font-family-neo-sans-pro;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 20px;
+                        @media only screen and (min-width: 769px) {
+                            font-size: 16px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

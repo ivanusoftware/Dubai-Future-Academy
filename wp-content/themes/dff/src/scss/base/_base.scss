@@ -1,0 +1,14 @@
+.btn-course-primary {
+    font-family: $font-family-tertiary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $color-white;
+    background: none;
+    border: 2px solid $color-light-gray;
+    padding: 15px 20px;
+    cursor: pointer;
+}

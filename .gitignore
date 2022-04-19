@@ -47,12 +47,17 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-//wp-config.php
-//wp-config.php
+
+# Log files
+*.log
+
+# Configuration
+wp-config.php
+
 /db
 db/
 wp-content/uploads/wpcf7_uploads
 /wp-content/uploads/wpcf7_uploads
 wp-content/uploads
 wp-content/uploads/
-//wp-config.php
+
