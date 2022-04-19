@@ -18629,6 +18629,7 @@ const $ = jQuery.noConflict();
     $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
         e.preventDefault();
         const tabItem = $('.accordion-content ul li');
+       
         // const selectID = $(this).attr('id');
         const moduleIndex = $(this).attr('module-index');
         const lessonIndex = $(this).attr('lesson-index');
@@ -18669,9 +18670,8 @@ const $ = jQuery.noConflict();
         return true;
     });
 
-    $(".my-courses-tabs .tabs-nav-my-courses").on("click", "a", function (e) {
-        e.preventDefault();
-
+    $(document).on('click', '.my-courses-tabs .tabs-nav-my-courses a', function (e) {
+        e.preventDefault();       
         $('.tabs-nav li').removeClass('active');
         $(this).parent().addClass('active');
         const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
@@ -18700,82 +18700,6 @@ const $ = jQuery.noConflict();
 
         return true;
     });
-
-    // $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
-    // $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
-
-    // $(document).on('click', '.my-single-modules .accordion h6', function (e) {
-    //     e.preventDefault();
-    //     const timeProgressive = $(this).attr('time-progressive');
-    //     // const lessonCount     = $(this).attr('lessons-count');
-    //     const moduleIndex     = $(this).attr('module-index');
-    //     // const itemIndex     = $(this).parent().attr('item');
-    //     // const modulesLength   = $('.my-single-modules .accordion .accordion-item').length;
-    //     // $('.my-single-modules .accordion .accordion-item').length;
-
-    //     // console.log($('.my-single-modules .accordion .accordion-item').length);
-    //     // $('.accordion .accordion-item').length
-    //     // $('.accordion .accordion-item').each(function(i) {
-    //     //     find()
-
-    //     //     if ($(this).attr('module-index') == i) {
-    //     //         console.log(i);
-    //     //         // $(this).each(function() {
-    //     //         //     alert($(this).attr('module-index'));
-    //     //         //     //change this to whatever you want
-    //     //         // });
-    //     //     }
-    //     // });
-
-
-    //     // if (timeProgressive === 'open-module') {
-    //         console.log('accordion-head click');
-
-
-
-    //         // if ($(this).hasClass('active')) {
-    //         //     $(this).siblings('.accordion-content1').slideUp();
-    //         //     $(this).removeClass('active');
-    //         // }
-    //         // else {
-    //         //     $('.accordion-content1').slideUp();
-    //         //     $('.accordion-head').removeClass('active');
-
-    //         //     $(this).siblings('.accordion-content1').slideToggle();
-
-    //         //     $(this).toggleClass('active');
-    //         // }
-    //     // }
-
-
-    //     const data = {
-    //         action: "left_module_tab_ajax",
-    //         time_progressive: timeProgressive,
-    //         // lesson_count: lessonCount,
-    //         module_index: moduleIndex,
-    //         // item_index: itemIndex,
-    //         // modules_length: modulesLength,
-    //     };
-    //     // console.log(data);
-    //     $.ajax({
-    //         type: "POST",
-    //         url: courses_ajax.url,
-    //         data: data,
-    //     }).done(function (response) {
-    //         console.log(response);
-
-    //              $(".accordion .lesson-blocks").html(response);
-
-    //         // dffAccordion();
-    //         // dffSliderToLesson();
-    //         // dffGalleryFancybox();
-    //         // window.wp.mediaelement.initialize();
-    //     }).fail(function (response) {
-    //         console.log(response);
-    //     });
-
-    //     return true;
-    // });
 
     $('.my-course-tab .tabs-nav a').on('click', function () {
         // Check for active
@@ -18817,7 +18741,10 @@ const $ = jQuery.noConflict();
     //         // $(this).attr("title", "vertical");
     //     }        
     // });
-
+    $('.modal-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('.single-course-modal .modal').toggleClass('is-visible');
+      });
 
 })(jQuery);
 
@@ -18873,8 +18800,9 @@ function dffAccordion() {
     */
     $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
     $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
-    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
-        if ($(this).hasClass('active')) {
+    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () { 
+           
+        if ($(this).hasClass('active')) {            
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
         }

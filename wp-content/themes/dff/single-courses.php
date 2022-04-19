@@ -54,7 +54,7 @@ $posttype = get_post_type();
 						?>
 					</div>
 					<h1><?php the_title(); ?></h1>
-					<button class="btn-course-primary apply-now"><?php echo _e('Apply Now', 'dff'); ?></button>
+					<button class="btn-course-primary apply-now modal-toggle"><?php echo _e('Apply Now', 'dff'); ?></button>
 				</div>
 			</section>
 			<section class="cource-content">
@@ -73,12 +73,10 @@ $posttype = get_post_type();
 										<?php
 										if (have_rows('course_module_repeater')) :
 											while (have_rows('course_module_repeater')) : the_row();
-
-												
 										?>
 												<div class="accordion-item">
 													<div class="accordion-head">
-														<h6><?php echo _e('Module', 'dff') .' '. get_row_index(); ?></h6>
+														<h6><?php echo _e('Module', 'dff') . ' ' . get_row_index(); ?></h6>
 													</div>
 													<div class="accordion-content">
 														<?php
@@ -87,7 +85,7 @@ $posttype = get_post_type();
 															<ul>
 																<?php
 																while (have_rows('course_lesson_repeater')) : the_row();
-																$lesson_name = get_sub_field('lesson_name');
+																	$lesson_name = get_sub_field('lesson_name');
 																?>
 																	<li><?php echo $lesson_name; ?></li>
 																<?php
@@ -132,7 +130,7 @@ $posttype = get_post_type();
 						</main>
 						<aside class="course-sidebar">
 							<!-- <div class="single-sidebar"> -->
-							<h2>Course Details</h2>
+							<h2><?php echo _e('Course Details', 'dff'); ?></h2>
 							<div class="sidebar-info">
 								<h3><?php _e('Learning Style', 'dff'); ?></h3>
 								<p><?php echo $learning_style['choices'][$learning_style['value']]; ?></p>
@@ -155,5 +153,6 @@ $posttype = get_post_type();
 	} // end if
 	?>
 </article>
+<?php include(get_template_directory() . '/includes/courses/popup_user.inc.php'); ?>
 <?php include(get_template_directory() . '/includes/courses/other-course.inc.php'); ?>
 <?php get_footer(); ?>

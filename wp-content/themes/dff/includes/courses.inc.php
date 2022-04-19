@@ -84,5 +84,6 @@ $image_main_courses = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_
     </section>
     <?php include(get_template_directory() . '/includes/courses/popular-courses.inc.php'); ?>
 </main>
+
 <?php
 get_footer();

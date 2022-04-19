@@ -19,6 +19,7 @@
             $course_complexities  = get_field_object('course_complexities');
             if ($img = get_image_by_id($modules_course->ID)) $src = $img[0];
             else $src = '';
+            // print_r($learning_style);
     ?>
             <section class="cource-content">
                 <div class="container">
@@ -29,48 +30,81 @@
                                 <div class="accordion">
                                     <?php
                                     if (have_rows('course_module_repeater')) :
+                                        $row_count = count(get_field('course_module_repeater'));
                                         while (have_rows('course_module_repeater')) : the_row();
-                                            $course_module_name = get_sub_field('course_module_name');
-                                            $model_i = get_row_index();
+                                            $module_or_exam = get_sub_field('module_or_exam');
+                                            $module_name = get_sub_field('module_name');
+                                            $module_i = get_row_index();
+
                                             $choose_date_open_module = get_sub_field('choose_date_open_module');
                                             $date_open_module = date("d-m-Y", strtotime(get_sub_field('date_open_module')));
-                                            $type_course = dff_open_module_by_date($date_open_module);
+
+                                            if ($learning_style['value'] == 'timed_progression') {
+                                                $type_course = dff_open_module_by_date($date_open_module);
+                                                $dff_show_date = dff_show_date($date_open_module);
+                                            } elseif ($learning_style['value'] == 'progressive') {
+                                                $type_course = dff_open_module_by_rusult_test($course_id, $module_i);
+                                            } else {
+                                                $type_course = 'open-module';
+                                            }
                                     ?>
+                                            <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>">
+                                                <?php
 
-                                            <div class="accordion-item <?php echo dff_open_module_by_date($date_open_module); ?>">
-                                                <div class="accordion-head" time-progressive="<?php echo dff_open_module_by_date($date_open_module); ?>">
-                                                    <h6><?php _e('Module', 'dff'); ?> <?php echo $model_i . dff_show_date($date_open_module); ?></h6>
-                                                </div>
-                                                <?php if ($type_course == 'open-module') { ?>
-                                                    <div class="accordion-content">
-                                                        <?php
+                                                if ($module_or_exam == 'module') {
+                                                ?>
 
-                                                        if (have_rows('course_lesson_repeater')) :
-                                                        ?>
-                                                            <ul>
-                                                                <?php
-                                                                $i = 0;
-                                                                while (have_rows('course_lesson_repeater')) : the_row();
-                                                                    $lesson_name = get_sub_field('lesson_name');
-                                                                    $lesson_i = get_row_index();
-                                                                ?>
-                                                                    <li class="tab-item <?php echo $lesson_i == 1 && $model_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $model_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
-                                                                        <?php _e('Lesson', 'dff'); ?> 
-                                                                        <?php echo $lesson_i; ?>
+                                                    <div class="accordion-head">
+                                                        <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
+                                                    </div>
 
-                                                                    </li>
-                                                                <?php
-                                                                    $i++;
-                                                                // }
-                                                                endwhile;
-                                                                ?>
-                                                            </ul>
-                                                        <?php
-                                                        else :
-                                                        // Do something...
-                                                        endif;
+                                                    <?php if ($type_course == 'open-module') { ?>
+                                                        <div class="accordion-content">
+                                                            <?php
+                                                            if (have_rows('course_lesson_repeater')) :
+                                                            ?>
+                                                                <ul>
+                                                                    <?php
+                                                                    while (have_rows('course_lesson_repeater')) : the_row();
+                                                                        // $lesson_name = get_sub_field('lesson_name');
+                                                                        $lesson_or_test = get_sub_field('lesson_or_test');
 
-                                                        ?>
+                                                                        $lesson_i = get_row_index();
+                                                                        if ($lesson_or_test == 'lesson') {
+                                                                    ?>
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
+                                                                                <?php _e('Lesson', 'dff'); ?>
+                                                                                <?php echo $lesson_i; ?>
+
+                                                                            </li>
+                                                                        <?php
+                                                                        } elseif ($lesson_or_test == 'lesson_test') {
+                                                                        ?>
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
+                                                                                <?php _e('Test', 'dff'); ?>                                                                              
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    endwhile;
+                                                                    ?>
+                                                                </ul>
+                                                            <?php
+                                                            else :
+                                                            endif;
+                                                            ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                } elseif ($module_or_exam == 'exam') {
+                                                    ?>
+                                                    <div class="accordion-head exam-tab-item">
+                                                        <h6><?php _e('Exam', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
+                                                    </div>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <div class="accordion-head">
+                                                        <h6><?php _e('Please add a module', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
                                                     </div>
                                                 <?php
                                                 }

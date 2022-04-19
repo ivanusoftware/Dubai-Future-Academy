@@ -38,3 +38,24 @@ if (!function_exists('dff_user_courses')) {
         return $course_id_to_user;
     }
 }
+
+if (!function_exists('dff_user_course_module_result')) {
+    function dff_user_course_module_result($current_user_id, $course_id)
+    {
+        $module_exam_key = 'course_' . $course_id . '_exam_result';
+        if (have_rows('course_module_repeater', $course_id)) :
+            while (have_rows('course_module_repeater', $course_id)) : the_row();
+                $module_or_exam = get_sub_field('module_or_exam');
+                $module_i = get_row_index();
+                $module_key = 'course_' . $course_id . '_module_' . $module_i . '_result';
+                $get_result = get_user_meta($current_user_id, $module_key, true);
+                if (!$get_result && $module_or_exam == 'module') {
+                    update_user_meta(get_current_user_id(), $module_key, true);
+                } else {
+                    update_user_meta(get_current_user_id(), $module_exam_key, true);
+                }
+            endwhile;
+        else :
+        endif;
+    }
+}
