@@ -17,7 +17,7 @@ $current_user_id =  get_current_user_id();
 
 $dff_user_courses = unserialize(dff_user_courses($current_user_id, $course_id));
 
-$course_id = 10426;
+$course_id = 10410;
 // $module_exam_key = 'course_'.$course_id.'_exam_result';
 // update_user_meta( get_current_user_id(), $module_exam_key, true );     
 
