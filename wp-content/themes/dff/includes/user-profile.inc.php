@@ -17,51 +17,20 @@ $current_user_id =  get_current_user_id();
 
 $dff_user_courses = unserialize(dff_user_courses($current_user_id, $course_id));
 
-// $array = ['a', 'b', 'c'];
-// $array = array_reverse($array);
+$course_id = 10426;
+// $module_exam_key = 'course_'.$course_id.'_exam_result';
+// update_user_meta( get_current_user_id(), $module_exam_key, true );     
 
-// $result = [];
-
-// foreach ($array as $value) {
-//     $result = [
-//         $value => $result
-//     ];
-// }
-
-// print_r($result);
-// $bookmark = array(
-//     "10410" => array(
-//         "module_1" => "30",
-//         "module_2" => "30",
-//         "module_3" => "30",
-//         "module_4" => "30",
-//         "module_5" => "30"
-//     )
-// );
-// update_user_meta( get_current_user_id(), '_bookmark_article', serialize($bookmark) );
-// $bookmark1 = array();
-// $course_id = 10410;
 // if (have_rows('course_module_repeater', $course_id)) :
 //     while (have_rows('course_module_repeater', $course_id)) : the_row();
-//         $course_module_name = get_sub_field('course_module_name');
-//         $model_i = get_row_index();
-//         $bookmark_article = 'course_'.$course_id.'_module_'.$model_i.'_result';
-//         update_user_meta( get_current_user_id(), $bookmark_article, true );
-
-//         $bookmark = array(
-//             $course_id => array(
-//                 "module_1" => "30",
-//                 "module_2" => "30",
-//                 "module_3" => "30",
-//                 "module_4" => "30",
-//                 "module_5" => "30"
-//             )
-//         );
-//         update_user_meta( get_current_user_id(), '_bookmark_article', serialize($bookmark) );
+//         $module_i = get_row_index();
+//         $module_key = 'course_'.$course_id.'_module_'.$module_i.'_result';
+//         update_user_meta( get_current_user_id(), $module_key, true );        
+//         // update_user_meta( get_current_user_id(), '_bookmark_article', serialize($bookmark) );
 //     endwhile;
 // else :
 // endif;
-
+dff_user_course_module_result($current_user_id, $course_id);
 
 
 get_header(); // Loads the header.php template.

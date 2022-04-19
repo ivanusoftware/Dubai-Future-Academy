@@ -21,10 +21,12 @@
                 if ($img = get_image_by_id($modules_course->ID)) $src = $img[0];
                 else $src = '';
                 $index = '';
+                $row_сount = count(get_field('course_module_repeater'));
         ?>
 
                 <div class="columns">
                     <aside class="course-sidebar" course-id="<?php echo $course_id; ?>">
+
                         <div class="my-progres-modules">
                             <ul>
                                 <li class="active">
@@ -33,17 +35,22 @@
                                     </a>
                                 </li>
                                 <?php
+
                                 if (have_rows('course_module_repeater')) :
                                     while (have_rows('course_module_repeater')) : the_row();
-                                        $course_module_name = get_sub_field('course_module_name');
-                                        $model_i = get_row_index();
-                                        $choose_date_open_module = get_sub_field('choose_date_open_module');
-                                        $date_open_module = date("d-m-Y", strtotime(get_sub_field('date_open_module')));
-                                        $type_course = dff_open_module_by_date($date_open_module);
+                                        $module_or_exam = get_sub_field('module_or_exam');
+                                        $module_i = get_row_index();
                                 ?>
                                         <li>
-                                            <a href="#tab<?php echo $model_i + 1; ?>" tab-id="tab-<?php echo $model_i + 1; ?>">
-                                                <?php _e('Module', 'dff'); ?> <?php echo $model_i; ?>
+                                            <a href="#tab<?php echo $module_i + 1; ?>" tab-id="tab-<?php echo $module_i + 1; ?>">
+                                                <?php
+                                                if ($module_or_exam == 'module') {
+                                                    _e('Module', 'dff');
+                                                    echo ' ' . $module_i;
+                                                } elseif ($module_or_exam == 'exam') {
+                                                    _e('Exam', 'dff');
+                                                }
+                                                ?>
                                             </a>
                                         </li>
                                 <?php
@@ -51,11 +58,7 @@
                                 else :
                                 endif;
                                 ?>
-                                <li>
-                                    <a href="#tab5" tab-id="tab-5">
-                                        <?php _e('Exam', 'dff'); ?>
-                                    </a>
-                                </li>
+
                             </ul>
                         </div>
                     </aside>
@@ -67,30 +70,119 @@
                                 ?>
 
                                 <div class="tabs-content">
-                                    <div class="progress-wrapper" id="tab1">
+                                    <div class="progress-wrapper general-progress" id="tab1">
                                         <div class="module-header">
-                                            <h2>Name of Module</h2>
+                                            <h2>General progress</h2>
                                         </div>
-                                        <p>We don't have anything but happy trees here. See. We take the corner of the brush and let it play back-and-forth. You can work and carry-on and put lots of little happy things in here. Without washing the brush, I'm gonna go right into some Van Dyke Brown, some Burnt Umber, and a little bit of Sap Green. This is a fantastic little painting. The first step to doing anything is to believe you can do it. See it finished in your mind before you ever start.</p>
+                                        <div class="progress-content">
+                                            <h5>Congratulation, you passed the test!</h5>
+                                            <p>Your result is higher than the passing score,
+                                                you can go over the next module.</p>
+                                            <p class="module-result">Result: <span>90%</span></p>
+                                        </div>
                                     </div>
-                                    <div class="progress-wrapper" id="tab2">
-                                        <h3>Second Tab 2</h3>
-                                        <p>We don't have anything but happy trees here. See. We take the corner of the brush and let it play back-and-forth. You can work and carry-on and put lots of little happy things in here. Without washing the brush, I'm gonna go right into some Van Dyke Brown, some Burnt Umber, and a little bit of Sap Green. This is a fantastic little painting. The first step to doing anything is to believe you can do it. See it finished in your mind before you ever start.</p>
-                                    </div>
-                                    <div class="progress-wrapper" id="tab3">
-                                        <h3>Second Tab 3</h3>
-                                        <p>We don't have anything but happy trees here. See. We take the corner of the brush and let it play back-and-forth. You can work and carry-on and put lots of little happy things in here. Without washing the brush, I'm gonna go right into some Van Dyke Brown, some Burnt Umber, and a little bit of Sap Green. This is a fantastic little painting. The first step to doing anything is to believe you can do it. See it finished in your mind before you ever start.</p>
-                                    </div>
+                                    <?php
+                                    // $row_count         = count(get_field('course_module_repeater'));
+                                    // $second_last = $row_count - 1;
+                                    $exam_key   = 'course_' . $course_id . '_exam_result';
+                                    $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
+                                    if (have_rows('course_module_repeater')) :
+                                        while (have_rows('course_module_repeater')) : the_row();
+                                            $module_i = get_row_index();
+
+                                            $module_or_exam    = get_sub_field('module_or_exam');
+                                            $result_module_key = dff_module_course_user_key($course_id, $module_i);
+                                            $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+                                            $module_name       = get_sub_field('module_name');
+
+                                    ?>
+                                            <div class="progress-wrapper" id="tab<?php echo $module_i + 1; ?>">
+
+                                                <div class="module-header">
+                                                    <h2><?php echo $module_or_exam == 'module' ? $module_name : _e('Final exam', 'dff'); ?></h2>
+                                                </div>
+
+                                                <?php
+                                                if ($module_or_exam == 'module') {
+                                                ?>
+                                                    <div class="progress-content">
+                                                        <?php
+                                                        if ($result_module >= 80) { ?>
+
+                                                            <h5>Congratulation, you passed the test!</h5>
+                                                            <p>Your result is higher than the passing score,
+                                                                you can go over the next module.</p>
+                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?><span><?php echo $result_module; ?>%</span></p>
+
+                                                        <?php
+                                                        } elseif ($result_module < 80 && $result_module != 1) {
+                                                        ?>
+
+                                                            <h5>Unfortunately you did not pass the test</h5>
+                                                            <p>Your result is lower than the passing score, you can't go to the next module. Please try again</p>
+                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $result_module ? $result_module .'%' : ''; ?></span></p>
+
+                                                        <?php
+                                                        } elseif ($result_module == 1 && $result_module < 80) {
+                                                        ?>
+
+                                                            <h5>You have not passed the test yet!</h5>
+                                                            <p>Please pass the required module and try to pass the test.</p>
+
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                        <div class="progress-content">
+                                                            <?php
+                                                            if ($exam_result >= 80) {
+                                                            ?>
+
+                                                                <h5>Congratulation, you passed the exam!</h5>
+                                                                <p>Your result is higher than the passing score,
+                                                                    you can go over the next module.</p>
+                                                                <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $exam_result; ?>%</span></p>
+                                                                <div class="exam-footer">
+                                                                    <span>You can download the certificate in the “My Certificates” section</span>
+                                                                    <a href="<?php echo site_url('my-courses'); ?>" class="btn-course-primary"><?php _e('My courses', 'dff'); ?></a>
+                                                                </div>
+                                                            <?php
+                                                            } elseif ($exam_result < 80 && $exam_result != 1) {
+                                                            ?>
+                                                                <h5>Unfortunately you did not pass the Exam</h5>
+                                                                <p>Please try again</p>
+                                                                <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $exam_result; ?>%</span></p>
+                                                            <?php
+                                                            } elseif ($exam_result == 1) {
+                                                            ?>
+                                                                <h5>You have not passed the exam yet</h5>
+                                                                <p>Please pass the required all modules and try to pass the Exam.</p>
+                                                                <p class="module-result"><?php _e('Result:', 'dff'); ?> <span>0%</span></p>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </div>
+
+                                                    <?php
+                                                }
+
+                                                    ?>
+
+                                                    </div>
+                                            <?php
+                                        endwhile;
+                                    else :
+                                    endif;
+                                            ?>
+                                            </div>
+
                                 </div>
-
                             </div>
-                        </div>
                     </main>
-
                 </div>
-
-
-
         <?php
             } // end while
         } // end if

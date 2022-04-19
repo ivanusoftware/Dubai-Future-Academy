@@ -1,7 +1,8 @@
+<?php $lesson_name = get_sub_field('lesson_name'); ?>
 <div class="lesson-content">
     <article class="course-box">
         <div class="lesson-inner-container">
-            <h2><?php echo get_sub_field('lesson_name');; ?></h2>
+            <h2><?php echo $lesson_name ? $lesson_name : ''; ?></h2>
         </div>
         <?php
 

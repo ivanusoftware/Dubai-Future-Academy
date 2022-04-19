@@ -25,10 +25,13 @@
                         max-width: 305px;
                     }
                 }
-                
+
                 .accordion {
                     &-item {
                         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                        &.accordion-item-exam{
+                            border: none;
+                        }
                     }
                     &-head {
                         padding-left: 20px;
@@ -65,13 +68,19 @@
                             //     padding-bottom: 15px;
                             // }
                         }
+                        &.exam-tab-item {
+                            &::after {
+                                content: unset;
+                                // opacity: 0.4;
+                            }
+                        }  
                     }
                     &-content {
                         border-left: 6px solid #000000;
                         padding: 0px 0 15px 8px;
                         ul {
                             padding-left: 6px;
-                            li {
+                            li { 
                                 font-family: $font-family-neo-sans-pro;
                                 list-style-type: none;
                                 font-weight: 400;
@@ -105,7 +114,7 @@
                         padding-left: 70px;
                     }
                     border: unset;
-                   
+
                     .content {
                         max-width: 100%;
                         @media only screen and (min-width: 993px) {
@@ -144,14 +153,14 @@
                             right: 10px;
                             font-weight: 400;
                             font-size: 15px;
-                            line-height: 24px;                          
+                            line-height: 24px;
                         }
                     }
                     .accordion-head {
                         &::after {
                             content: unset;
                             // opacity: 0.4;
-                        } 
+                        }
                     }
                 }
             }
