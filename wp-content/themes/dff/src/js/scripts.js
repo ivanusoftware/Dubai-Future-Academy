@@ -1,4 +1,7 @@
 import "@fancyapps/fancybox";
+import 'jquery-nice-select/js/jquery.nice-select.js';
+import 'jquery-steps/build/jquery.steps.js';
+
 import Swiper, { Navigation } from 'swiper';
 
 console.log('I am testing!!!');
@@ -153,6 +156,31 @@ const $ = jQuery.noConflict();
         e.preventDefault();
         $('.single-course-modal .modal').toggleClass('is-visible');
       });
+
+
+
+    $( document ).ajaxComplete(function() {
+        $('.course-quiz select').niceSelect();
+
+
+        $("#quiz").steps({
+            headerTag: ".course-quiz__step-title",
+            bodyTag: ".course-quiz__step",
+        });
+
+        let lastStepId = $('.course-quiz__step:last-child').attr("data-step");
+        $('.lastStepId').html(lastStepId);
+
+        $('.actions a').click(function (){
+            let currentStepId = $('.course-quiz__step-title.current').text();
+            $('.currentStepId').html(currentStepId);
+        })
+        
+
+    });
+
+
+
 
 })(jQuery);
 
