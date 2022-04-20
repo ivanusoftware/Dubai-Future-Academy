@@ -2,10 +2,11 @@
     <div class="container">
         <?php
         // WP_Query arguments
+        $course_id = $_POST['course_id'];
         $args = array(
             'post_type'      => array('courses'),
             'post_status'    => array('publish'),
-            'page_id'        =>  $course_id,
+            'page_id'        => $_POST['course_id'],
         );
         // The Query
         $modules_course = new WP_Query($args);

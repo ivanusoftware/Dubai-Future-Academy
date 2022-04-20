@@ -1,10 +1,11 @@
 <section class="modules-course">
     <?php
     // WP_Query arguments
+    $course_id = $_POST['course_id'];
     $args = array(
         'post_type'      => array('courses'),
         'post_status'    => array('publish'),
-        'page_id'        =>  $course_id,
+        'page_id'        => $course_id,
     );
     // The Query
     $modules_course = new WP_Query($args);
@@ -53,7 +54,6 @@
 
                                                 if ($module_or_exam == 'module') {
                                                 ?>
-
                                                     <div class="accordion-head">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
                                                     </div>
@@ -68,20 +68,20 @@
                                                                     while (have_rows('course_lesson_repeater')) : the_row();
                                                                         // $lesson_name = get_sub_field('lesson_name');
                                                                         $lesson_or_test = get_sub_field('lesson_or_test');
-
+                                                                        $lesson_test_id = get_sub_field('lesson_test_id');
                                                                         $lesson_i = get_row_index();
+
                                                                         if ($lesson_or_test == 'lesson') {
                                                                     ?>
                                                                             <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
                                                                                 <?php _e('Lesson', 'dff'); ?>
                                                                                 <?php echo $lesson_i; ?>
-
                                                                             </li>
                                                                         <?php
                                                                         } elseif ($lesson_or_test == 'lesson_test') {
                                                                         ?>
-                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
-                                                                                <?php _e('Test', 'dff'); ?>                                                                              
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>" lesson-test-id="<?php echo $lesson_test_id; ?>">
+                                                                                <?php _e('Test', 'dff'); ?>
                                                                             </li>
                                                                     <?php
                                                                         }
@@ -121,11 +121,7 @@
                         <main class="main-content">
                             <div class="content">
                                 <div class="lesson-container">
-                                    <?php //get_template_part('includes/courses/my-courses/parts-course/lesson', 'content');
-                                    ?>
-
-                                    <?php get_template_part('includes/courses/my-courses/parts-course/quiz', 'content');
-                                    ?>
+                                    <?php get_template_part('includes/courses/my-courses/parts-course/lesson', 'content'); ?>
                                 </div>
                             </div>
                         </main>

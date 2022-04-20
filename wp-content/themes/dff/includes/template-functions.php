@@ -9,12 +9,12 @@ include(get_template_directory() . '/includes/functions/user-functions.inc.php')
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 /**
- * Disable Gutenberg template
- * Add Gutenberg filter for post type.
+ * Add disable Gutenberg filter for a given post type.
  * @param [type] $gutenberg_filter
  * @param [type] $post_type
  * @return void
  */
+// Add Gutenberg filter for a given post type
 add_filter('use_block_editor_for_post_type', 'dff_disable_gutenberg', 10, 2);
 function dff_disable_gutenberg($gutenberg_filter, $post_type)
 {
@@ -22,9 +22,9 @@ function dff_disable_gutenberg($gutenberg_filter, $post_type)
         case 'courses':
             return false;
             break;
-            // case 'services':
-            //     return false;
-            //     break;      
+        case 'quizzes':
+            return false;
+            break;
     }
 
     return $gutenberg_filter;
@@ -37,7 +37,7 @@ function dff_mejs_add_container_class()
     if (!wp_script_is('mediaelement', 'done')) {
         return;
     }
-    ?>
+?>
     <script>
         (function() {
             var settings = window._wpmejsSettings || {};
@@ -47,7 +47,7 @@ function dff_mejs_add_container_class()
                 player.container.addClass('lesson-audio-container');
             };
         })();
-        </script>
+    </script>
 <?php
 }
 add_action('wp_print_footer_scripts', 'dff_mejs_add_container_class');
@@ -164,7 +164,7 @@ add_action('admin_init', 'remove_read_wpse_93843');
 /**
  * Hide the admin wpse. 93843 bar
  * @return void
- */ 
+ */
 function hide_admin_wpse_93843()
 {
     if (current_user_can('subscriber')) {
