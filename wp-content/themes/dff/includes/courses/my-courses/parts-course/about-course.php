@@ -1,5 +1,6 @@
 <section class="about-course">
     <?php    
+    $course_id = get_query_var( 'course_id' ) ? get_query_var( 'course_id' ) : $_POST['course_id'];    
     // WP_Query arguments
     $args = array(
         'post_type'      => array('courses'),

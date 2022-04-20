@@ -11,16 +11,6 @@ if (!function_exists('dff_user_courses')) {
     function dff_user_courses($current_user_id, $course_id)
     {
 
-        // $course_id = $_GET['id'];
-        // $course_id = '10410';
-
-        // if(empty($course_id)){
-
-        //     echo 'No value';
-
-        //     die();
-
-        // }
         $course_id_to_user = get_user_meta($current_user_id, 'course_id_to_user', true);
 
         if (!empty($course_id_to_user)) {

@@ -20890,11 +20890,10 @@ const $ = jQuery.noConflict();
      */
     $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
         e.preventDefault();
-        const tabItem = $('.accordion-content ul li');
-
-        // const selectID = $(this).attr('id');
-        const moduleIndex = $(this).attr('module-index');
-        const lessonIndex = $(this).attr('lesson-index');
+        const tabItem = $('.accordion-content ul li'); 
+        const moduleIndex  = $(this).attr('module-index');
+        const lessonIndex  = $(this).attr('lesson-index');        
+        const lessonTestId = $(this).attr('lesson-test-id');        
         const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
         tabItem.removeClass('active');
         $(this).addClass('active');
@@ -20903,6 +20902,7 @@ const $ = jQuery.noConflict();
             module_index: moduleIndex,
             lesson_index: lessonIndex,
             course_id: courseId,
+            lesson_test_id: lessonTestId,
         };
         // console.log(data);
         $.ajax({
@@ -20966,9 +20966,11 @@ const $ = jQuery.noConflict();
 
         return true;
     });
-
-
-    // $(document).on('click', 'single-course-modal buttons a', function (e) {
+    
+    /**
+     * Add a new course to the user.
+     * ajax.
+     */
     $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
@@ -20981,10 +20983,12 @@ const $ = jQuery.noConflict();
             type: "POST",
             url: courses_ajax.url,
             data: data,
+            dataType: 'JSON',
         })
-            .done(function (response) {
-                // $(".my-courses-tabs-content .tab-wrapper ").html(response);
-                console.log(response);
+            .done(function (response) {                
+                if(response.success){                    
+                    window.location.replace("http://dubaifuture.loc/my-courses/");
+                }
             })
             .fail(function (response) {
                 console.log(response);
@@ -20993,6 +20997,8 @@ const $ = jQuery.noConflict();
         return true;
     });
  
+
+    
 
     // Shows the active tab. 
     $('.my-course-tab .tabs-nav a').on('click', function () {

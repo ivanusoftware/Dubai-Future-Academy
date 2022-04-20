@@ -1806,7 +1806,7 @@ button.swiper-pagination-bullet {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: -30px;
   left: 50%;
   transform: translate(-50%, -50%); }
   #loader svg {
