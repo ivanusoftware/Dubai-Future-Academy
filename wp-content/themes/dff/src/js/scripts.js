@@ -42,7 +42,7 @@ const $ = jQuery.noConflict();
      * Ajax switches between modules and 
      * lessons on the course page in the my account 
      */
-    $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
+    $(document).on('click', '.course-sidebar .accordion-content .tab-item', '', function (e) {
         e.preventDefault();
         const tabItem = $('.accordion-content ul li'); 
         const moduleIndex  = $(this).attr('module-index');
@@ -64,7 +64,8 @@ const $ = jQuery.noConflict();
             url: courses_ajax.url,
             data: data,
             beforeSend: function () {
-                $('#loader').show().parent().parent().addClass('loader-wrap');
+                // $('#loader').show().parent().parent().addClass('loader-wrap');
+                $('#loader').show();
             },
             // complete: function() {
 
@@ -76,8 +77,41 @@ const $ = jQuery.noConflict();
                 dffGalleryFancybox();
                 // dffAccordion();
                 $(window.wp.mediaelement.initialize);
-                $('#loader').hide().parent().parent().removeClass('loader-wrap');
+                $('#loader').hide();
                 // console.log(response);
+            }) 
+            .fail(function (response) {
+                console.log(response);
+            });
+
+        return true;
+    });
+    
+    /**
+     * Ajax upload Exam url 
+     */
+    $(document).on('click', '.accordion .accordion-head.exam-tab-item', function (e) {
+        e.preventDefault();
+        const examPostId = $(this).attr('exam-post-id');        
+        const moduleType = $(this).attr('module-type');   
+        const courseId   = $(".modules-course").find(".course-sidebar").attr('course-id');            
+        const data = {
+            action: "upload_exam_ajax",
+            exam_post_id: examPostId,
+            course_id: courseId,
+            module_type: moduleType,
+        };        
+        $.ajax({
+            type: "POST",
+            url: courses_ajax.url,
+            data: data,
+            beforeSend: function () {
+                $('#loader').show();
+            },               
+        })
+            .done(function (response) {
+                $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');               
+                $('#loader').hide();                
             })
             .fail(function (response) {
                 console.log(response);

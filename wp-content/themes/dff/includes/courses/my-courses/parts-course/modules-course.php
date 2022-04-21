@@ -96,8 +96,9 @@
                                                     <?php
                                                     }
                                                 } elseif ($module_or_exam == 'exam') {
+                                                    $exam_post_id = get_sub_field('exam_block');
                                                     ?>
-                                                    <div class="accordion-head exam-tab-item">
+                                                    <div class="accordion-head exam-tab-item" exam-post-id="<?php echo $exam_post_id; ?>" module-type="<?php echo $module_or_exam; ?>">
                                                         <h6><?php _e('Exam', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
                                                     </div>
                                                 <?php
@@ -121,7 +122,9 @@
                         <main class="main-content">
                             <div class="content">
                                 <div class="lesson-container">
-                                    <?php get_template_part('includes/courses/my-courses/parts-course/lesson', 'content'); ?>
+                                    <?php
+                                     get_template_part('includes/courses/my-courses/parts-course/lesson', 'content'); 
+                                    ?>
                                 </div>
                             </div>
                         </main>
