@@ -31,6 +31,30 @@ function dff_disable_gutenberg($gutenberg_filter, $post_type)
 }
 
 
+/**
+ * Options page
+ */
+if (function_exists('acf_add_options_page')) {
+
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Course Settings',
+        'menu_title'  => 'Course Settings',
+        'parent_slug' => 'edit.php?post_type=courses'
+    ));
+    // acf_add_options_sub_page(array(
+    //     'page_title'  => 'Products Settings',
+    //     'menu_title'  => 'Products Settings',
+    //     'parent_slug' => 'edit.php?post_type=products'
+    // ));
+
+    // acf_add_options_sub_page(array(
+    //     'page_title'  => 'Vacancies Settings',
+    //     'menu_title'  => 'Vacancies Settings',
+    //     'parent_slug' => 'edit.php?post_type=vacancies'
+    // ));
+}
+
 // Adds the mejs container class to the script if it is done.
 function dff_mejs_add_container_class()
 {
@@ -249,8 +273,6 @@ function dff_module_course_user_key($course_id, $module_i)
     return $result_module_key;
 }
 
-
-
 /** 
  * Show the date on the tabs on the left of my course page
  *
@@ -268,6 +290,17 @@ function dff_show_date($date_open_module)
         $show_date = '<span>' . date("d.m.Y", strtotime($date_open_module)) . '</span>';
     }
     return $show_date;
+}
+
+
+add_action('wp_enqueue_scripts', 'action_function_php_to_js', 999);
+function action_function_php_to_js()
+{
+    // $straight = get_field('straight', 'option');
+    // $anim = get_field('anim', 'option');
+    wp_localize_script('main', 'php_params', array(
+        'site_url'  => get_site_url(),
+    ));
 }
 
 
