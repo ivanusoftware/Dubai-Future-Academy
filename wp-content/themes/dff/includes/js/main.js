@@ -20853,6 +20853,8 @@ __webpack_require__.r(__webpack_exports__);
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
 (function ($) {
+    const phpParams = php_params;
+    console.log( phpParams);
     // dffSliderToLesson();
     // dffGalleryFancybox();
     // dffAccordion();
@@ -20936,7 +20938,7 @@ const $ = jQuery.noConflict();
     /**
      * Ajax upload Exam url 
      */
-    $(document).on('click', '.accordion .accordion-head.exam-tab-item', function (e) {
+    $(document).on('click', '.accordion-head.exam-tab-item', function (e) {
         e.preventDefault();
         const examPostId = $(this).attr('exam-post-id');        
         const moduleType = $(this).attr('module-type');   
@@ -21021,7 +21023,7 @@ const $ = jQuery.noConflict();
         })
             .done(function (response) {                
                 if(response.success){                    
-                    window.location.replace("http://dubaifuture.loc/my-courses/");
+                    window.location.replace(phpParams.site_url + '/my-courses/');
                 }
             })
             .fail(function (response) {
