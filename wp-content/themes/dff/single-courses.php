@@ -1,7 +1,6 @@
 <?php
 get_header();
 $posttype = get_post_type();
-echo get_the_ID();
 ?>
 <article class="single-course">
 	<?php
@@ -73,33 +72,37 @@ echo get_the_ID();
 										<?php
 										if (have_rows('course_module_repeater')) :
 											while (have_rows('course_module_repeater')) : the_row();
+												$module_or_exam = get_sub_field('module_or_exam');
+												if ($module_or_exam == 'module') {
 										?>
-												<div class="accordion-item">
-													<div class="accordion-head">
-														<h6><?php echo _e('Module', 'dff') . ' ' . get_row_index(); ?></h6>
+													<div class="accordion-item">
+														<div class="accordion-head">
+															<h6><?php echo _e('Module', 'dff') . ' ' . get_row_index(); ?></h6>
+														</div>
+														<div class="accordion-content">
+															<?php
+															if (have_rows('course_lesson_repeater')) :
+															?>
+																<ul>
+																	<?php
+																	while (have_rows('course_lesson_repeater')) : the_row();
+																		$lesson_name = get_sub_field('lesson_name');
+																		$lesson_or_test = get_sub_field('lesson_or_test');
+																	?>
+																		<?php echo $lesson_or_test == 'lesson' ? '<li>' . $lesson_name . '</li>' : ''; ?>
+																	<?php
+																	endwhile;
+																	?>
+																</ul>
+															<?php
+															else :
+															// Do something...
+															endif;
+															?>
+														</div>
 													</div>
-													<div class="accordion-content">
-														<?php
-														if (have_rows('course_lesson_repeater')) :
-														?>
-															<ul>
-																<?php
-																while (have_rows('course_lesson_repeater')) : the_row();
-																	$lesson_name = get_sub_field('lesson_name');
-																?>
-																	<li><?php echo $lesson_name; ?></li>
-																<?php
-																endwhile;
-																?>
-															</ul>
-														<?php
-														else :
-														// Do something...
-														endif;
-														?>
-													</div>
-												</div>
 										<?php
+												}
 											endwhile;
 										else :
 										endif;

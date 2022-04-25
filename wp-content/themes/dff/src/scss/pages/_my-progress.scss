@@ -1,5 +1,5 @@
 .my-progress-content {
-    outline: 1px solid red;
+    // outline: 1px solid red;
     .my-progres-modules {
         ul {
             padding: 0;
@@ -30,13 +30,13 @@
                     &::before {
                         content: "";
                         position: absolute;
-                        height: 6px;
+                        height: 6px; 
                         background: #000000;
                         width: 56px;
                         bottom: 0;
                         top: 24px;
                         left: -25px;
-                        display: flex;
+                        display: flex; 
                         transform: rotate(90deg);
                         align-items: center;
                     }

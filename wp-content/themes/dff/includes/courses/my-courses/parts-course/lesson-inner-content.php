@@ -1,8 +1,5 @@
 <?php $lesson_name = get_sub_field('lesson_name'); ?>
-<div class="lesson-header">
-    <span class="back"><?php _e('Back', 'dff'); ?></span>
-    <span class="next"><?php _e('Next', 'dff'); ?></span>
-</div>
+
 <div class="lesson-content">
     <article class="course-box">
         <div class="lesson-inner-container">
