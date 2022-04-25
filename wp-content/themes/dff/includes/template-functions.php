@@ -292,9 +292,12 @@ function dff_show_date($date_open_module)
     return $show_date;
 }
 
-
-add_action('wp_enqueue_scripts', 'action_function_php_to_js', 999);
-function action_function_php_to_js()
+/**
+ * php to js
+ *
+ * @return void
+ */
+function dff_action_function_php_to_js()
 {
     // $straight = get_field('straight', 'option');
     // $anim = get_field('anim', 'option');
@@ -302,38 +305,39 @@ function action_function_php_to_js()
         'site_url'  => get_site_url(),
     ));
 }
-
-
-
-// function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
-//     if ( isset($user->roles) && is_array( $user->roles ) ) {
-//       if ( in_array( 'subscriber', $user->roles ) ) {
-//           return home_url( );
-//       }   
-//     }
-//     return $redirect_to;
-// }
-// add_filter( 'login_redirect', 'redirect_sub_to_home_wpse_93843', 10, 3 );
-
-
+add_action('wp_enqueue_scripts', 'dff_action_function_php_to_js', 999);
 
 /**
- * URL Rewrites
+ * Returns the permalink for the current user courses
+ *
+ * @param [type] $redirect_to
+ * @param [type] $request
+ * @param [type] $user
+ * @return void
  */
-// function myRewrite()
-// {
-//     /** @global WP_Rewrite $wp_rewrite */
-//     global $wp_rewrite;
+function dff_redirect_to_my_courses($redirect_to, $request, $user)
+{
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('subscriber', $user->roles)) {
+            return get_permalink(10447);
+        }
+    }
+    return $redirect_to;
+}
+add_filter('login_redirect', 'dff_redirect_to_my_courses', 10, 3);
 
-//     $newRules = array(
-//         'pets/?$' => 'index.php?my_page=pet',
-//         'pets/(\d+)/?$' => sprintf(
-//             'index.php?my_page=pet&pet_id=%s',
-//             $wp_rewrite->preg_index(1)
-//         ),
-//     );
-
-//     $wp_rewrite->rules = $newRules + (array) $wp_rewrite->rules;
-// }
-
-// add_action('generate_rewrite_rules', 'myRewrite');
+/**
+ * Returns the navigation classes for the courses menu item.
+ *
+ * @param [type] $classes
+ * @param [type] $item
+ * @return void
+ */
+function dff_courses_nav_class($classes, $item)
+{
+    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {      
+        $classes[] = "current-menu-item";
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);

@@ -76,11 +76,11 @@
                                             <h2><?php _e('General progress', 'dff'); ?></h2>
                                         </div>
                                         <div class="progress-content">
-                                            <h5>Congratulation, you passed the test!</h5>
-                                            <p>Your result is higher than the passing score,
+                                            <h5>Functionality in development</h5>
+                                            <!-- <p>Your result is higher than the passing score,
                                                 you can go over the next module.</p>
 
-                                            <p class="module-result">Result: <span>90%</span></p>
+                                            <p class="module-result">Result: <span>90%</span></p> -->
 
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                                                     <p><?php the_sub_field('сongratulation_content'); ?></p>
                                                                 <?php endwhile; ?>
                                                             <?php endif; ?>
-                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?><span><?php echo $result_module; ?>%</span></p>
+                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?><span> <?php echo $result_module; ?>%</span></p>
                                                         <?php
                                                         } elseif ($result_module < 80 && $result_module != 1) {
                                                         ?>

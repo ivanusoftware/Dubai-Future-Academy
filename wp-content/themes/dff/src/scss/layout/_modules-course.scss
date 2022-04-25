@@ -29,7 +29,7 @@
                 .accordion {
                     &-item {
                         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-                        &.accordion-item-exam{
+                        &.accordion-item-exam {
                             border: none;
                         }
                     }
@@ -73,14 +73,14 @@
                                 content: unset;
                                 // opacity: 0.4;
                             }
-                        }  
+                        }
                     }
                     &-content {
                         border-left: 6px solid #000000;
                         padding: 0px 0 15px 8px;
                         ul {
                             padding-left: 6px;
-                            li { 
+                            li {
                                 font-family: $font-family-neo-sans-pro;
                                 list-style-type: none;
                                 font-weight: 400;
@@ -187,6 +187,14 @@
                 position: relative;
                 display: flex;
                 align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                 &:disabled {
+                    &::after, &::before{
+                        opacity: 0.2;
+                    }
+                }
             }
             .next {
                 padding-right: 25px;
@@ -202,6 +210,7 @@
                     //     right: 30px;
                     // }
                 }
+               
             }
             .back {
                 padding-left: 25px;
