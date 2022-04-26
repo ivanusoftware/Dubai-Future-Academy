@@ -19,7 +19,8 @@
             $courses_format_label = $courses_format['choices'][$courses_format_value];
             $course_complexities  = get_field_object('course_complexities');
             if ($img = get_image_by_id($modules_course->ID)) $src = $img[0];
-            else $src = '';            
+            else $src = '';        
+           
     ?>
             <section class="cource-content">
                 <div class="container">
@@ -32,6 +33,7 @@
                                     if (have_rows('course_module_repeater')) :
                                         $row_count = count(get_field('course_module_repeater'));
                                         while (have_rows('course_module_repeater')) : the_row();
+                                        echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
                                             $module_or_exam = get_sub_field('module_or_exam');
                                             $module_name    = get_sub_field('module_name');
                                             $module_i       = get_row_index();
@@ -50,7 +52,8 @@
                                     ?>
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
                                                 <?php
-                                                echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));
+                                               
+
                                                 if ($module_or_exam == 'module') {
                                                 ?>
                                                     <div class="accordion-head" count-lesson-row="<?php echo $count_lessons; ?>">
