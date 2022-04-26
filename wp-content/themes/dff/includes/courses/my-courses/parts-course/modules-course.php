@@ -50,7 +50,7 @@
                                     ?>
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
                                                 <?php
-                                                //$count_lessons = count(get_sub_field('course_lesson_repeater'));
+                                                echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));
                                                 if ($module_or_exam == 'module') {
                                                 ?>
                                                     <div class="accordion-head" count-lesson-row="<?php echo $count_lessons; ?>">
