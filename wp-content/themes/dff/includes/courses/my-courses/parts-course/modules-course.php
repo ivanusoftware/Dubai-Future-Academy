@@ -48,7 +48,38 @@
                                                 $type_course = 'open-module';
                                             }
                                     ?>
-                                           
+                                            <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
+                                                <?php
+                                                $count_lessons = count(get_sub_field('course_lesson_repeater'));
+                                                if ($module_or_exam == 'module') {
+                                                ?>
+                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons; ?>">
+                                                        <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
+                                                    </div>
+                                                    <?php if ($type_course == 'open-module') { ?>
+                                                        <div class="accordion-content">
+                                                            <?php
+                                                           
+                                                            ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                } elseif ($module_or_exam == 'exam') {
+                                                    $exam_post_id = get_sub_field('exam_block');
+                                                    ?>
+                                                    <div class="accordion-head <?php echo $type_course == 'open-module' ? 'exam-tab-item' : ''; ?>" exam-post-id="<?php echo $exam_post_id; ?>" module-type="<?php echo $module_or_exam; ?>">
+                                                        <h6><?php _e('Exam', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
+                                                    </div>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <div class="accordion-head">
+                                                        <h6><?php _e('Please add a module', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
                                     <?php
                                         endwhile;
                                     else :
