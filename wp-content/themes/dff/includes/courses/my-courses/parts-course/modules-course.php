@@ -21,6 +21,10 @@
             if ($img = get_image_by_id($modules_course->ID)) $src = $img[0];
             else $src = '';
 
+            // $courses_format = get_field_object('courses_format');
+			// echo $courses_format_value = $courses_format['value'];
+			// $courses_format_label = $courses_format['choices'][$courses_format_value];
+
     ?>
             <section class="cource-content">
                 <div class="container">

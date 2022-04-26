@@ -50,6 +50,8 @@ if (!is_user_logged_in()) {
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
                             $courses->the_post();
+                            
+
                     ?>
                             <div class="course-item">
                                 <a href="<?php echo site_url('my-courses') . '/' . get_the_ID(); ?>" class="course-item-content">

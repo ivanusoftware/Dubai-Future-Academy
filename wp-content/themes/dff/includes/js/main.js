@@ -21086,7 +21086,7 @@ const $ = jQuery.noConflict();
     * Ajax switches between tabs on the course page
     * in the my account
     */
-    $(document).on('click', '.my-courses-tabs .tabs-nav-my-courses a', function (e) {
+    $(document).on('click', '.my-courses-tabs .tabs-nav-my-courses .tab-module', function (e) {
         e.preventDefault();
         $('.tabs-nav li').removeClass('active');
         $(this).parent().addClass('active');

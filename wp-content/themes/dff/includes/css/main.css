@@ -404,10 +404,10 @@ button.swiper-pagination-bullet {
         margin-right: 0; }
       .tabs-nav ul li.active {
         color: #000; }
-        .tabs-nav ul li.active a {
+        .tabs-nav ul li.active button, .tabs-nav ul li.active a {
           color: inherit;
           position: relative; }
-          .tabs-nav ul li.active a::after {
+          .tabs-nav ul li.active button::after, .tabs-nav ul li.active a::after {
             content: "";
             position: absolute;
             height: 4px;
@@ -415,13 +415,16 @@ button.swiper-pagination-bullet {
             width: 100%;
             bottom: -2px;
             left: 0; }
-    .tabs-nav ul a {
+    .tabs-nav ul button, .tabs-nav ul a {
       font-weight: 700;
       font-size: 13px;
       line-height: 16px;
       text-align: center;
       text-transform: uppercase;
-      padding: 12px 20px; }
+      padding: 12px 20px;
+      border: none;
+      background: none;
+      cursor: pointer; }
 
 .tabs-content {
   padding: 50px 0; }

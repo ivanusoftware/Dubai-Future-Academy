@@ -205,9 +205,9 @@ add_action('wp_head', 'hide_admin_wpse_93843');
  */
 function dff_open_module_by_date($date_open_module)
 {
-    $currentDateTime = date('d-m-Y');
+    $currentDateTime   = date('d-m-Y');
     $current_timestamp = strtotime($currentDateTime);
-    $date_timestamp = strtotime($date_open_module);
+    $date_timestamp    = strtotime($date_open_module);
     if ($current_timestamp >= $date_timestamp) {
         $module = 'open-module';
     } else {
@@ -240,6 +240,37 @@ function dff_open_module_by_date($date_open_module)
 //     }
 //     return $module;
 // }
+
+// Determines if a time group is disabled or not.
+/**
+ * Undocumented function
+ *
+ * @param [type] $courses_format
+ * @param [type] $course_id
+ * @return void
+ */
+function dff_format_time_bound($courses_format, $course_id)
+{
+    $courses_format_value = $courses_format['value'];
+    if ($courses_format_value == 'time_bound_course') {
+        $course_time_group = get_field('course_time_group', $course_id);
+        if ($course_time_group) :
+            // print_r($course_time_group);
+            $currentDateTime       = date('d-m-Y');
+            $current_timestamp     = strtotime($currentDateTime);
+            $start_date_timestamp  = strtotime($course_time_group['course_start']);
+            $finish_date_timestamp = strtotime($course_time_group['course_finish']);
+            if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
+                $disabled = '';
+            } elseif($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
+                $disabled = 'disabled';
+            }else{
+                $disabled = 'disabled';
+            }
+            return $disabled;
+        endif;
+    }
+}
 
 /**
  * Opening the module after passing the test.
@@ -335,7 +366,7 @@ add_filter('login_redirect', 'dff_redirect_to_my_courses', 10, 3);
  */
 function dff_courses_nav_class($classes, $item)
 {
-    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {      
+    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {
         $classes[] = "current-menu-item";
     }
     return $classes;
