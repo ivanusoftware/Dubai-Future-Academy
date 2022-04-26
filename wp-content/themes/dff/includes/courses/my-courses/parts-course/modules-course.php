@@ -1,7 +1,7 @@
 <section class="modules-course">
     <?php
     // WP_Query arguments
-   echo  $course_id = $_POST['course_id'];
+    $course_id = $_POST['course_id'];
     $args = array(
         'post_type'   => array('courses'),
         'post_status' => array('publish'),
@@ -19,8 +19,8 @@
             $courses_format_label = $courses_format['choices'][$courses_format_value];
             $course_complexities  = get_field_object('course_complexities');
             if ($img = get_image_by_id($modules_course->ID)) $src = $img[0];
-            else $src = '';        
-           
+            else $src = '';
+
     ?>
             <section class="cource-content">
                 <div class="container">
@@ -32,9 +32,9 @@
                                     <?php
                                     if (have_rows('course_module_repeater')) :
                                         $row_count = count(get_field('course_module_repeater'));
-                                           
+
                                         while (have_rows('course_module_repeater')) : the_row();
-                                        // echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
+                                            // echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
                                             $module_or_exam = get_sub_field('module_or_exam');
                                             $module_name    = get_sub_field('module_name');
                                             $module_i       = get_row_index();
@@ -53,10 +53,8 @@
                                     ?>
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
                                                 <?php
-                                               
-
                                                 if ($module_or_exam == 'module') {
-                                                    echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater')); 
+                                                    $count_lessons = count(get_sub_field('course_lesson_repeater'));
                                                 ?>
                                                     <div class="accordion-head" count-lesson-row="<?php echo $count_lessons ? $count_lessons : ''; ?>">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
@@ -65,7 +63,7 @@
                                                         <div class="accordion-content">
                                                             <?php
                                                             if (have_rows('course_lesson_repeater')) :
-                                                              
+
                                                             ?>
                                                                 <ul>
                                                                     <?php

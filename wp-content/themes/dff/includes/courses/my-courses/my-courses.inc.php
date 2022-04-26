@@ -1,7 +1,7 @@
 <?php
 
 get_header();
-echo $course_id       = get_query_var( 'course_id' );
+$course_id       = get_query_var( 'course_id' );
 $current_user_id = get_current_user_id();
 $courses_array   = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
 

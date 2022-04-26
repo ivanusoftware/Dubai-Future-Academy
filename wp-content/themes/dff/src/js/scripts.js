@@ -105,8 +105,7 @@ const $ = jQuery.noConflict();
         e.preventDefault();
         $('.tabs-nav li').removeClass('active');
         $(this).parent().addClass('active');
-        const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
-        console.log(courseId);
+        const courseId = $("#content").find(".my-courses-tabs").attr('course-id');        
         const tabId = $(this).attr('tab-id');
         const data = {
             action: "tabs_lesson_ajax", 

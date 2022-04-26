@@ -98,7 +98,7 @@ add_action('wp_ajax_nopriv_upload_exam_ajax', 'upload_exam_ajax_callback');
 function tabs_lesson_ajax_callback()
 {
     $tab_id    = $_POST['main_tab_id'];
-    $course_id = $_POST['course_id'];
+    // $course_id = $_POST['course_id'];
     if ($tab_id == 'tab-1') {
         include(get_template_directory() . '/includes/courses/my-courses/parts-course/about-course.php');
     } else if ($tab_id == 'tab-2') {
