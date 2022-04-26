@@ -1,7 +1,7 @@
 <section class="modules-course">
     <?php
     // WP_Query arguments
-    $course_id = $_POST['course_id'];
+   echo  $course_id = $_POST['course_id'];
     $args = array(
         'post_type'   => array('courses'),
         'post_status' => array('publish'),
