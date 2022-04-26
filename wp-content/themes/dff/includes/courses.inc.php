@@ -67,12 +67,11 @@ $image_main_courses = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_
                         $courses->the_post();
                 ?>
                         <div class="course-item">
-                            <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">
-                                <?php get_template_part('includes/courses/parts/courses', 'content'); ?>
+                            <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">                                
+                                <?php include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
                             </a>
                         </div>
                 <?php
-
                     }
                 } else {
                     // no posts found
