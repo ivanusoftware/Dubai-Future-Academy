@@ -50,8 +50,62 @@
                                     ?>
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
                                                 <?php
-                                                echo $count_lessons = count(get_sub_field('course_lesson_repeater'));
-                                                
+                                                //$count_lessons = count(get_sub_field('course_lesson_repeater'));
+                                                if ($module_or_exam == 'module') {
+                                                ?>
+                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons; ?>">
+                                                        <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
+                                                    </div>
+                                                    <?php if ($type_course == 'open-module') { ?>
+                                                        <div class="accordion-content">
+                                                            <?php
+                                                            if (have_rows('course_lesson_repeater')) :
+                                                            ?>
+                                                                <ul>
+                                                                    <?php
+                                                                    while (have_rows('course_lesson_repeater')) : the_row();
+                                                                        // $lesson_name = get_sub_field('lesson_name');
+                                                                        $lesson_or_test = get_sub_field('lesson_or_test');
+                                                                        $lesson_test_id = get_sub_field('lesson_test_id');
+                                                                        $lesson_i = get_row_index();
+                                                                        if ($lesson_or_test == 'lesson') {
+                                                                    ?>
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
+                                                                                <?php _e('Lesson', 'dff'); ?>
+                                                                                <?php echo $lesson_i; ?>
+                                                                            </li>
+                                                                        <?php
+                                                                        } elseif ($lesson_or_test == 'lesson_test') {
+                                                                        ?>
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>" lesson-test-id="<?php echo $lesson_test_id; ?>">
+                                                                                <?php _e('Test', 'dff'); ?>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    endwhile;
+                                                                    ?>
+                                                                </ul>
+                                                            <?php
+                                                            else :
+                                                            endif;
+                                                            ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                } elseif ($module_or_exam == 'exam') {
+                                                    $exam_post_id = get_sub_field('exam_block');
+                                                    ?>
+                                                    <div class="accordion-head <?php echo $type_course == 'open-module' ? 'exam-tab-item' : ''; ?>" exam-post-id="<?php echo $exam_post_id; ?>" module-type="<?php echo $module_or_exam; ?>">
+                                                        <h6><?php _e('Exam', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
+                                                    </div>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <div class="accordion-head">
+                                                        <h6><?php _e('Please add a module', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
+                                                    </div>
+                                                <?php
+                                                }
                                                 ?>
                                             </div>
                                     <?php
