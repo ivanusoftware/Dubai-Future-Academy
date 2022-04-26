@@ -1,7 +1,6 @@
 <?php
 get_header();
 $posttype = get_post_type();
-echo get_the_ID();
 ?>
 <article class="single-course">
 	<?php
@@ -13,7 +12,7 @@ echo get_the_ID();
 			$courses_format_value = $courses_format['value'];
 			$courses_format_label = $courses_format['choices'][$courses_format_value];
 			$course_complexities = get_field_object('course_complexities');
-			if ($img = get_image_by_id($courses->ID)) $src = $img[0];
+			if ($img = get_image_by_id(get_the_ID())) $src = $img[0];
 			else $src = '';
 			$home_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="17.333" height="16" viewBox="0 0 17.333 16">
 			<path fill="currentColor" id="Icon_ionic-md-home" data-name="Icon ionic-md-home" d="M10.042,20.5V15.167h4V20.5h4.067v-8h2.6l-8.667-8-8.667,8h2.6v8Z" transform="translate(-3.375 -4.5)"></path>
@@ -73,33 +72,37 @@ echo get_the_ID();
 										<?php
 										if (have_rows('course_module_repeater')) :
 											while (have_rows('course_module_repeater')) : the_row();
+												$module_or_exam = get_sub_field('module_or_exam');
+												if ($module_or_exam == 'module') {
 										?>
-												<div class="accordion-item">
-													<div class="accordion-head">
-														<h6><?php echo _e('Module', 'dff') . ' ' . get_row_index(); ?></h6>
+													<div class="accordion-item">
+														<div class="accordion-head">
+															<h6><?php echo _e('Module', 'dff') . ' ' . get_row_index(); ?></h6>
+														</div>
+														<div class="accordion-content">
+															<?php
+															if (have_rows('course_lesson_repeater')) :
+															?>
+																<ul>
+																	<?php
+																	while (have_rows('course_lesson_repeater')) : the_row();
+																		$lesson_name = get_sub_field('lesson_name');
+																		$lesson_or_test = get_sub_field('lesson_or_test');
+																	?>
+																		<?php echo $lesson_or_test == 'lesson' ? '<li>' . $lesson_name . '</li>' : ''; ?>
+																	<?php
+																	endwhile;
+																	?>
+																</ul>
+															<?php
+															else :
+															// Do something...
+															endif;
+															?>
+														</div>
 													</div>
-													<div class="accordion-content">
-														<?php
-														if (have_rows('course_lesson_repeater')) :
-														?>
-															<ul>
-																<?php
-																while (have_rows('course_lesson_repeater')) : the_row();
-																	$lesson_name = get_sub_field('lesson_name');
-																?>
-																	<li><?php echo $lesson_name; ?></li>
-																<?php
-																endwhile;
-																?>
-															</ul>
-														<?php
-														else :
-														// Do something...
-														endif;
-														?>
-													</div>
-												</div>
 										<?php
+												}
 											endwhile;
 										else :
 										endif;

@@ -9,12 +9,12 @@ include(get_template_directory() . '/includes/functions/user-functions.inc.php')
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 /**
- * Disable Gutenberg template
- * Add Gutenberg filter for post type.
+ * Add disable Gutenberg filter for a given post type.
  * @param [type] $gutenberg_filter
  * @param [type] $post_type
  * @return void
  */
+// Add Gutenberg filter for a given post type
 add_filter('use_block_editor_for_post_type', 'dff_disable_gutenberg', 10, 2);
 function dff_disable_gutenberg($gutenberg_filter, $post_type)
 {
@@ -22,14 +22,38 @@ function dff_disable_gutenberg($gutenberg_filter, $post_type)
         case 'courses':
             return false;
             break;
-            // case 'services':
-            //     return false;
-            //     break;      
+        case 'quizzes':
+            return false;
+            break;
     }
 
     return $gutenberg_filter;
 }
 
+
+/**
+ * Options page
+ */
+if (function_exists('acf_add_options_page')) {
+
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Course Settings',
+        'menu_title'  => 'Course Settings',
+        'parent_slug' => 'edit.php?post_type=courses'
+    ));
+    // acf_add_options_sub_page(array(
+    //     'page_title'  => 'Products Settings',
+    //     'menu_title'  => 'Products Settings',
+    //     'parent_slug' => 'edit.php?post_type=products'
+    // ));
+
+    // acf_add_options_sub_page(array(
+    //     'page_title'  => 'Vacancies Settings',
+    //     'menu_title'  => 'Vacancies Settings',
+    //     'parent_slug' => 'edit.php?post_type=vacancies'
+    // ));
+}
 
 // Adds the mejs container class to the script if it is done.
 function dff_mejs_add_container_class()
@@ -37,7 +61,7 @@ function dff_mejs_add_container_class()
     if (!wp_script_is('mediaelement', 'done')) {
         return;
     }
-    ?>
+?>
     <script>
         (function() {
             var settings = window._wpmejsSettings || {};
@@ -47,7 +71,7 @@ function dff_mejs_add_container_class()
                 player.container.addClass('lesson-audio-container');
             };
         })();
-        </script>
+    </script>
 <?php
 }
 add_action('wp_print_footer_scripts', 'dff_mejs_add_container_class');
@@ -164,7 +188,7 @@ add_action('admin_init', 'remove_read_wpse_93843');
 /**
  * Hide the admin wpse. 93843 bar
  * @return void
- */ 
+ */
 function hide_admin_wpse_93843()
 {
     if (current_user_can('subscriber')) {
@@ -249,8 +273,6 @@ function dff_module_course_user_key($course_id, $module_i)
     return $result_module_key;
 }
 
-
-
 /** 
  * Show the date on the tabs on the left of my course page
  *
@@ -270,37 +292,52 @@ function dff_show_date($date_open_module)
     return $show_date;
 }
 
-
-
-// function redirect_sub_to_home_wpse_93843( $redirect_to, $request, $user ) {
-//     if ( isset($user->roles) && is_array( $user->roles ) ) {
-//       if ( in_array( 'subscriber', $user->roles ) ) {
-//           return home_url( );
-//       }   
-//     }
-//     return $redirect_to;
-// }
-// add_filter( 'login_redirect', 'redirect_sub_to_home_wpse_93843', 10, 3 );
-
-
+/**
+ * php to js
+ *
+ * @return void
+ */
+function dff_action_function_php_to_js()
+{
+    // $straight = get_field('straight', 'option');
+    // $anim = get_field('anim', 'option');
+    wp_localize_script('main', 'php_params', array(
+        'site_url'  => get_site_url(),
+    ));
+}
+add_action('wp_enqueue_scripts', 'dff_action_function_php_to_js', 999);
 
 /**
- * URL Rewrites
+ * Returns the permalink for the current user courses
+ *
+ * @param [type] $redirect_to
+ * @param [type] $request
+ * @param [type] $user
+ * @return void
  */
-// function myRewrite()
-// {
-//     /** @global WP_Rewrite $wp_rewrite */
-//     global $wp_rewrite;
+function dff_redirect_to_my_courses($redirect_to, $request, $user)
+{
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('subscriber', $user->roles)) {
+            return get_permalink(10447);
+        }
+    }
+    return $redirect_to;
+}
+add_filter('login_redirect', 'dff_redirect_to_my_courses', 10, 3);
 
-//     $newRules = array(
-//         'pets/?$' => 'index.php?my_page=pet',
-//         'pets/(\d+)/?$' => sprintf(
-//             'index.php?my_page=pet&pet_id=%s',
-//             $wp_rewrite->preg_index(1)
-//         ),
-//     );
-
-//     $wp_rewrite->rules = $newRules + (array) $wp_rewrite->rules;
-// }
-
-// add_action('generate_rewrite_rules', 'myRewrite');
+/**
+ * Returns the navigation classes for the courses menu item.
+ *
+ * @param [type] $classes
+ * @param [type] $item
+ * @return void
+ */
+function dff_courses_nav_class($classes, $item)
+{
+    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {      
+        $classes[] = "current-menu-item";
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
