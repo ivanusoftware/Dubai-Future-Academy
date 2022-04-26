@@ -6,19 +6,18 @@
  * Allow users to update their profiles from Frontend.
  *
  **/
-
-
+get_header(); // Loads the header.php template.
 // Get user info
 // global $wp_roles;
 $current_user     = wp_get_current_user();
 $current_user_id  = get_current_user_id();
-$dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
-// print_r($dff_user_courses);
 
-get_header(); // Loads the header.php template.
+$dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
+
 if (!is_user_logged_in()) {
-wp_redirect(site_url('courses'));
+    wp_redirect(site_url('courses'));
 };
+
 ?>
 <section class="my-courses-tabs my-course-tab" id="post-<?php the_ID(); ?>">
     <div class="container">
@@ -34,17 +33,19 @@ wp_redirect(site_url('courses'));
             <div class="tab-wrapper" id="tab1">
 
                 <article class="archive-courses-list">
-                    <?php
-                    // print_r($dff_user_courses); 
+                    <?php                    
                     // WP_Query arguments
-                    $args = array(
-                        'posts_per_page' => -1,
-                        'post_type'      => array('courses'),
-                        'post_status'    => array('publish'),
-                        'order'          => 'DESC',
-                        'orderby'        => 'date',
-                        'post__in'       => $dff_user_courses,
-                    );
+                    if (!empty($dff_user_courses)) {
+                        $args = array(
+                            'posts_per_page' => -1,
+                            'post_type'      => array('courses'),
+                            'post_status'    => array('publish'),
+                            'order'          => 'DESC',
+                            'orderby'        => 'post__in',
+                            'post__in'       => $dff_user_courses,
+                            'ignore_sticky_posts' => 0
+                        );
+                    }
                     // The Query
                     $courses = new WP_Query($args);
                     // The Loop
@@ -54,10 +55,10 @@ wp_redirect(site_url('courses'));
                     ?>
                             <div class="course-item">
                                 <a href="<?php echo site_url('my-courses') . '/' . get_the_ID(); ?>" class="course-item-content">
-                                    <?php 
+                                    <?php
                                     // dff_user_course_module_result($current_user_id,  get_the_ID());
                                     include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
-                                    
+
                                 </a>
                             </div>
                         <?php
