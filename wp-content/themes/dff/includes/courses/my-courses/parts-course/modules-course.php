@@ -56,7 +56,7 @@
 
                                                 if ($module_or_exam == 'module') {
                                                 ?>
-                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons; ?>">
+                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons ? $count_lessons : ''; ?>">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
                                                     </div>
                                                     <?php if ($type_course == 'open-module') { ?>
