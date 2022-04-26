@@ -9,13 +9,11 @@
 
 
 // Get user info
-// global $current_user, $wp_roles;
-global $wp_roles;
-// get_currentuserinfo();
-$current_user = wp_get_current_user();
-$current_user_id =  get_current_user_id();
-
-$dff_user_courses = unserialize(dff_user_courses($current_user_id, $course_id));
+// global $wp_roles;
+$current_user     = wp_get_current_user();
+$current_user_id  = get_current_user_id();
+$dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
+// print_r($dff_user_courses);
 
 get_header(); // Loads the header.php template.
 if (!is_user_logged_in()) {
