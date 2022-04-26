@@ -33,7 +33,8 @@
                                     if (have_rows('course_module_repeater')) :
                                         $row_count = count(get_field('course_module_repeater'));
                                         while (have_rows('course_module_repeater')) : the_row();
-                                        echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
+                                        // echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
+                                        echo 'count' . $count_lessons = 4;    
                                             $module_or_exam = get_sub_field('module_or_exam');
                                             $module_name    = get_sub_field('module_name');
                                             $module_i       = get_row_index();
@@ -56,7 +57,7 @@
 
                                                 if ($module_or_exam == 'module') {
                                                 ?>
-                                                    <div class="accordion-head">
+                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons ? $count_lessons : ''; ?>">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
                                                     </div>
                                                     <?php if ($type_course == 'open-module') { ?>
