@@ -21,7 +21,7 @@
             ?>
                     <div class="course-item">
                         <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">
-                        <?php include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
+                            <?php include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
                         </a>
                     </div>
             <?php
