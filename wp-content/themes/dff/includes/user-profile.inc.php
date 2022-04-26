@@ -34,8 +34,7 @@ if (!is_user_logged_in()) {
 
                 <article class="archive-courses-list">
                     <?php                    
-                    // WP_Query arguments
-                    if (!empty($dff_user_courses)) {
+                    // WP_Query arguments                 
                         $args = array(
                             'posts_per_page' => -1,
                             'post_type'      => array('courses'),
@@ -44,10 +43,9 @@ if (!is_user_logged_in()) {
                             'orderby'        => 'post__in',
                             'post__in'       => $dff_user_courses,
                             'ignore_sticky_posts' => 0
-                        );
-                    }
+                        );                    
                     // The Query
-                    $courses = new WP_Query($args);
+                    $courses = new WP_Query(!empty($dff_user_courses) ? $args : '');
                     // The Loop
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
