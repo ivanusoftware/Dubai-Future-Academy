@@ -3,7 +3,7 @@
         <h2><?php _e('Popular courses', 'dff'); ?></h2>
         <article class="archive-courses-list">
             <?php
-            $popular_courses_relatiomships = get_field('popular_courses_relatiomship', 'option');
+            $popular_courses_relatiomships = get_field('popular_courses_relationship', 'option');
             // print_r($popular_courses_relatiomship);
 
             if ($popular_courses_relatiomships) :
