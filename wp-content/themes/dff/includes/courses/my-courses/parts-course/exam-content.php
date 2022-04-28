@@ -2,8 +2,8 @@
 <div class="course-quiz">
 
     <?php
-    // echo 'Exam ID: ' .$exam_post_id;
+    echo '<p>Functionality in development: ' .$exam_post_id .'</p>';
     
     ?>
-    <p>Functionality in development</p>
+   
 </div>
