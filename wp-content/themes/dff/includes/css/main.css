@@ -2009,7 +2009,7 @@ button.swiper-pagination-bullet {
           display: flex;
           flex-direction: column;
           margin-top: 55px; }
-          .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer a {
+          .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer button {
             background: none;
             color: #000000;
             border: 1px solid #000000;

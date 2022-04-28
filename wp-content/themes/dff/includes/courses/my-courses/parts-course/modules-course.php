@@ -55,7 +55,7 @@
                                                 $type_course = 'open-module';
                                             }
                                     ?>
-                                            <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>">
+                                            <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>" module-i="<?php echo $module_i; ?>">
                                                 <?php
                                                 if ($module_or_exam == 'module') {
                                                     $count_lessons = count(get_sub_field('course_lesson_repeater'));

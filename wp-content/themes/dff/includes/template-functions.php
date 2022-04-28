@@ -262,9 +262,9 @@ function dff_format_time_bound($courses_format, $course_id)
             $finish_date_timestamp = strtotime($course_time_group['course_finish']);
             if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
                 $disabled = '';
-            } elseif($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
+            } elseif ($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
                 $disabled = 'disabled';
-            }else{
+            } else {
                 $disabled = 'disabled';
             }
             return $disabled;
@@ -289,6 +289,28 @@ function dff_open_module_by_rusult_test($course_id, $module_i)
         $module = 'close-module';
     }
     return $module;
+}
+
+/**
+ * Creates a button to try again for test.
+ *
+ * @param [type] $module_i
+ * @return void
+ */
+function dff_button_try_again_test($module_i)
+{
+    if (have_rows('course_lesson_repeater')) :
+        while (have_rows('course_lesson_repeater')) : the_row();
+            $lesson_i = get_row_index();
+            $lesson_or_test = get_sub_field('lesson_or_test');
+            $lesson_test_id = get_sub_field('lesson_test_id');
+            if ($lesson_or_test == 'lesson_test') {
+                $try_again = '<button class="btn-course-primary test-try-again" tab-id="tab-2" module-index="' . $module_i . '" lesson-index="' . $lesson_i . '" lesson-test-id="' . $lesson_test_id . '">' . __('Try again', 'dff') . '</button>';
+            }
+        endwhile;
+    else :    
+    endif;
+    return $try_again;
 }
 
 /**
