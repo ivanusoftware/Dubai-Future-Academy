@@ -8215,7 +8215,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 const dffAccordion = () => {
-    $ = jQuery;
+    const $ = jQuery.noConflict();
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
@@ -21468,9 +21468,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
+const chart = null;
 (function ($) {
     const phpParams = php_params;
 

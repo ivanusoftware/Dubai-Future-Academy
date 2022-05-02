@@ -58,6 +58,7 @@
                                     endwhile;
                                 else :
                                 endif;
+
                                 ?>
 
                             </ul>
@@ -66,34 +67,24 @@
                     <main class="main-content">
                         <div class="content">
                             <div class="progress-container">
-                                <?php
-                                // get_template_part('includes/courses/my-courses/parts-course/lesson', 'content');
-                                ?>
-
                                 <div class="tabs-content">
                                     <div class="progress-wrapper general-progress" id="tab1">
-                                        <div class="module-header">
-                                            <h2><?php _e('General progress', 'dff'); ?></h2>
-                                        </div>
-                                        <div class="progress-content">
-                                            <h5>Functionality in development</h5>
-                                            <!-- <p>Your result is higher than the passing score,
-                                                you can go over the next module.</p>
-
-                                            <p class="module-result">Result: <span>90%</span></p> -->
-
+                                        <div class="general-progress-content">
+                                            <?php
+                                            include get_template_directory() . '/includes/courses/my-courses/parts-course/general-progress.php';
+                                            ?>
                                         </div>
                                     </div>
                                     <?php
                                     // $row_count         = count(get_field('course_module_repeater'));
                                     // $second_last = $row_count - 1;
-                                    $exam_key   = 'course_' . $course_id . '_exam_result';
+                                    $exam_key    = 'course_' . $course_id . '_exam_result';
                                     $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
                                     if (have_rows('course_module_repeater')) :
                                         while (have_rows('course_module_repeater')) : the_row();
                                             $module_i = get_row_index();
                                             $module_or_exam    = get_sub_field('module_or_exam');
-                                            $exam_post_id = get_sub_field('exam_block');
+                                            $exam_post_id      = get_sub_field('exam_block');
                                             $result_module_key = dff_module_course_user_key($course_id, $module_i);
                                             $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
                                             $module_name       = get_sub_field('module_name');
@@ -171,10 +162,9 @@
                                                             <?php endif; ?>
                                                             <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $exam_result; ?>%</span></p>
                                                             <div class="exam-footer">
-                                                           
                                                                 <?php echo '<button class="btn-course-primary test-try-again-exam" tab-id="tab-2"
-                                                                 module-type="' .$module_or_exam .'" module-index="' . $module_i . '" exam-post-id="' .  $exam_post_id . '" >' . __('Try again', 'dff') . '</button>'; ?>
-                                                                
+                                                                 module-type="' . $module_or_exam . '" module-index="' . $module_i . '" exam-post-id="' .  $exam_post_id . '" >' . __('Try again', 'dff') . '</button>'; ?>
+
                                                             </div>
                                                         <?php
                                                         } elseif ($exam_result == 1) {
