@@ -8,6 +8,8 @@ include(get_template_directory() . '/includes/enqueue-script-style.php');
 include(get_template_directory() . '/includes/functions/user-functions.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
+include(get_template_directory() . '/includes/functions/ajax-quiz.inc.php');
+
 /**
  * Add disable Gutenberg filter for a given post type.
  * @param [type] $gutenberg_filter
