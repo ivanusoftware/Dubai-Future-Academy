@@ -229,3 +229,48 @@
         }
     }
 }
+
+.rtl {
+    .cource-content {
+        .container {
+            .columns {
+                .main-content {
+                    padding-right: 0;
+                    border-right: unset;
+                    padding-left: 70px;
+                    border-left: unset;
+                }
+                .course-sidebar {
+                    padding-left: 0;
+                    @media only screen and (min-width: 769px) {
+                        padding-right: 70px;
+                    }
+                }
+                .course-requirments ul {
+                    padding-left: 0;
+                    padding-right: 18px;
+                }
+            }
+        }
+    }
+    .course-header-wrapper {       
+        .course-header-content {            
+            @media only screen and (min-width: 769px) {
+                max-width: 810px;
+                margin-left: 0;
+                padding-right: 160px;
+            }
+            h1{
+                text-align: left;
+            }
+        }
+    }
+    .single-course {
+        .breadcrumbs-container {            
+            @media only screen and (min-width: 769px) {                
+                margin-left: 0;
+                margin-right: 50px;
+            }            
+        }
+    }
+}

@@ -126,6 +126,7 @@ add_action('init', function () {
     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
     add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+    add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
 });
 
 // Adds the filter to the course_id.
@@ -205,9 +206,9 @@ add_action('wp_head', 'hide_admin_wpse_93843');
  */
 function dff_open_module_by_date($date_open_module)
 {
-    $currentDateTime = date('d-m-Y');
+    $currentDateTime   = date('d-m-Y');
     $current_timestamp = strtotime($currentDateTime);
-    $date_timestamp = strtotime($date_open_module);
+    $date_timestamp    = strtotime($date_open_module);
     if ($current_timestamp >= $date_timestamp) {
         $module = 'open-module';
     } else {
@@ -215,31 +216,88 @@ function dff_open_module_by_date($date_open_module)
     }
     return $module;
 }
+
 /**
- * Open and block Exam by date
+ * Returns a json encoded representation of a progress module.
  *
- * @param [type] $module_i
- * @param [type] $row_count
- * @param [type] $date_open_module
  * @return void
  */
-// function dff_open_exam_by_date($module_i, $row_count, $date_open_module)
-// {
-//     $currentDateTime = date('d-m-Y');
-//     $current_timestamp = strtotime($currentDateTime);
-//     if ($module_i == $row_count - 1 && $module_i < $row_count) {
-//         echo 'test';
-//         $date_timestamp = strtotime($date_open_module);
-//     }
-//     if ($current_timestamp >= $date_timestamp && $module_i == $row_count - 1) {
-//         echo $date_timestamp;
-//         $module = 'open-module';
-//     } else {
-//         echo $date_timestamp;
-//         $module = 'close-module';
-//     }
-//     return $module;
-// }
+function dff_general_progress_mod()
+{
+    $mod_arr = array();
+    if (have_rows('course_module_repeater')) :
+        while (have_rows('course_module_repeater')) : the_row();
+            $module_or_exam = get_sub_field('module_or_exam');
+            $module_i = get_row_index();
+            if ($module_or_exam == 'module') {
+                $mod_arr[] = __('Mod', 'dff') . ' ' . $module_i;
+            } elseif ($module_or_exam == 'exam') {
+                $mod_arr[] = __('Exam', 'dff');
+            }
+        endwhile;
+    else :
+    endif;
+    return  json_encode($mod_arr);
+}
+
+// dff_general_progress_mod_result
+function dff_general_progress_mod_result($course_id)
+{
+    $mod_result_arr = array();
+    $exam_key    = 'course_' . $course_id . '_exam_result';
+    $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
+    if($exam_result == 1){
+        $exam_result = 0;
+    }
+    if (have_rows('course_module_repeater')) :
+        while (have_rows('course_module_repeater')) : the_row();
+            $module_or_exam = get_sub_field('module_or_exam');
+            $module_i = get_row_index();
+            $result_module_key = dff_module_course_user_key($course_id, $module_i);
+            $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+            if($result_module == 1){
+                $result_module = 0;
+            }
+            if ($module_or_exam == 'module') {
+                $mod_result_arr[] = $result_module;
+            } elseif ($module_or_exam == 'exam') {
+                $mod_result_arr[] = $exam_result;
+            }
+        endwhile;
+    else :
+    endif;
+    return  implode(",", $mod_result_arr);
+}
+
+//
+/**
+ *  Determines if a time group is disabled or not.
+ *
+ * @param [type] $courses_format
+ * @param [type] $course_id
+ * @return void
+ */
+function dff_format_time_bound($courses_format, $course_id)
+{
+    $courses_format_value = $courses_format['value'];
+    if ($courses_format_value == 'time_bound_course') {
+        $course_time_group = get_field('course_time_group', $course_id);
+        if ($course_time_group) :
+            $currentDateTime       = date('d-m-Y');
+            $current_timestamp     = strtotime($currentDateTime);
+            $start_date_timestamp  = strtotime($course_time_group['course_start']);
+            $finish_date_timestamp = strtotime($course_time_group['course_finish']);
+            if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
+                $disabled = '';
+            } elseif ($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
+                $disabled = 'disabled';
+            } else {
+                $disabled = 'disabled';
+            }
+            return $disabled;
+        endif;
+    }
+}
 
 /**
  * Opening the module after passing the test.
@@ -258,6 +316,28 @@ function dff_open_module_by_rusult_test($course_id, $module_i)
         $module = 'close-module';
     }
     return $module;
+}
+
+/**
+ * Creates a button to try again for test.
+ *
+ * @param [type] $module_i
+ * @return void
+ */
+function dff_button_try_again_test($module_i)
+{
+    if (have_rows('course_lesson_repeater')) :
+        while (have_rows('course_lesson_repeater')) : the_row();
+            $lesson_i = get_row_index();
+            $lesson_or_test = get_sub_field('lesson_or_test');
+            $lesson_test_id = get_sub_field('lesson_test_id');
+            if ($lesson_or_test == 'lesson_test') {
+                $try_again = '<button class="btn-course-primary test-try-again" tab-id="tab-2" module-index="' . $module_i . '" lesson-index="' . $lesson_i . '" lesson-test-id="' . $lesson_test_id . '">' . __('Try again', 'dff') . '</button>';
+            }
+        endwhile;
+    else :
+    endif;
+    return $try_again;
 }
 
 /**
@@ -335,7 +415,7 @@ add_filter('login_redirect', 'dff_redirect_to_my_courses', 10, 3);
  */
 function dff_courses_nav_class($classes, $item)
 {
-    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {      
+    if (is_single() && 'courses' == get_post_type() && $item->title == "Courses") {
         $classes[] = "current-menu-item";
     }
     return $classes;

@@ -28,6 +28,7 @@ function include_javascript_files()
 {
 
     wp_enqueue_script('jquery');
+    wp_enqueue_script('highcharts', get_stylesheet_directory_uri() . '/includes/js/libs/highcharts.js', array('jquery'), null, true);
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/includes/js/main.js', array('jquery'), null, true);
 }
 
