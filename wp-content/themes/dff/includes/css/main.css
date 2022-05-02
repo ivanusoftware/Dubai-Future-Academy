@@ -497,9 +497,21 @@ button.swiper-pagination-bullet {
             font-size: 16px;
             line-height: 24px; } }
 
-.rtl .accordion-head::after {
-  left: 14px;
-  right: unset; }
+.rtl .accordion-head {
+  padding-left: 0;
+  padding-right: 17px; }
+  .rtl .accordion-head::after {
+    left: 14px;
+    right: unset; }
+
+.rtl .accordion-content {
+  display: none;
+  border-left: unset;
+  border-right: 8px solid #000000;
+  padding: 15px 8px; }
+  .rtl .accordion-content ul {
+    padding-left: 0;
+    padding-right: 20px; }
 
 .modules-course .cource-content {
   padding-top: 15px; }
