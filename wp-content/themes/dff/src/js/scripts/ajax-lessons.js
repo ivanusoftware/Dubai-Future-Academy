@@ -8,9 +8,9 @@ import dffGalleryFancybox from '../scripts/gallery-fancybox';
      * @param {*} courseId 
      * @param {*} countLessonRow 
      */
-  export default function dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) {
-    // if (lessonIndex == undefined) lessonIndex = false;
-    // if (lessonTestId == undefined) lessonTestId = false;
+
+  const dffAjaxLessons = (moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) => {
+    const $ = jQuery.noConflict();
     const data = {
         action: "upload_lesson_ajax",
         module_index: moduleIndex,
@@ -36,3 +36,5 @@ import dffGalleryFancybox from '../scripts/gallery-fancybox';
         console.log(response);
     });
 }
+
+export default dffAjaxLessons;
