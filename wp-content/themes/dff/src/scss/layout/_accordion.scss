@@ -72,3 +72,14 @@
         }
     }
 }
+.rtl {
+    .accordion {
+        &-head {
+            &::after {               
+                left: 14px;
+                right: unset;                
+            }
+        }
+       
+    }
+}

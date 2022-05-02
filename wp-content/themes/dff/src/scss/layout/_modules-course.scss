@@ -190,8 +190,9 @@
                 background: none;
                 border: none;
                 cursor: pointer;
-                 &:disabled {
-                    &::after, &::before{
+                &:disabled {
+                    &::after,
+                    &::before {
                         opacity: 0.2;
                     }
                 }
@@ -210,7 +211,6 @@
                     //     right: 30px;
                     // }
                 }
-               
             }
             .back {
                 padding-left: 25px;
@@ -435,9 +435,54 @@
     }
 }
 
-// .horizontal {
-//     border:3px solid #00ff00;
-//    }
-//    .vertical {
-//     border:3px solid #ff0000;
-//    }
+.rtl {
+    .modules-course {
+        .cource-content {
+            padding-top: 15px;
+            @media only screen and (min-width: 769px) {
+                padding-top: 72px;
+            }
+            .container {
+                .columns {
+                    .main-content {
+                        padding-right: 0;
+                        width: 100%;
+                        padding-left: 0;
+                        @media only screen and (min-width: 993px) {
+                            padding-left: 0;
+                            padding-right: 20px;
+                        }
+                        @media only screen and (min-width: 1200px) {
+                            padding-left: 0;
+                            padding-right: 70px;
+                        }
+                    }
+                    .accordion {
+                        &-head{
+                            padding-left: 0;
+                            padding-right: 17px;
+                        }
+                        &-content {
+                            display: none;
+                            border-left: unset;
+                            border-right: 6px solid #000000;
+                            padding: 15px 8px;
+                            ul {
+                                padding-left: 0;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+                .close-module {
+                    h6 {
+                        span {                             
+                            left: 10px;   
+                            right: unset;                  
+                        }
+                    }                   
+                } 
+            }
+        } 
+    }
+}

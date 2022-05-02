@@ -22,8 +22,8 @@
             else $src = '';
 
             // $courses_format = get_field_object('courses_format');
-			// echo $courses_format_value = $courses_format['value'];
-			// $courses_format_label = $courses_format['choices'][$courses_format_value];
+            // echo $courses_format_value = $courses_format['value'];
+            // $courses_format_label = $courses_format['choices'][$courses_format_value];
 
     ?>
             <section class="cource-content">
@@ -42,11 +42,10 @@
                                             $module_or_exam = get_sub_field('module_or_exam');
                                             $module_name    = get_sub_field('module_name');
                                             $module_i       = get_row_index();
-
                                             $choose_date_open_module = get_sub_field('choose_date_open_module');
-                                            $date_open_module = date("d-m-Y", strtotime(get_sub_field('date_open_module')));
-
+                                            $date_open_module = $choose_date_open_module == 'open-module' ? date("d-m-Y", strtotime(get_sub_field('date_open_module'))) : '';
                                             if ($learning_style['value'] == 'timed_progression') {
+
                                                 $type_course   = dff_open_module_by_date($date_open_module);
                                                 $dff_show_date = dff_show_date($date_open_module);
                                             } elseif ($learning_style['value'] == 'progressive') {

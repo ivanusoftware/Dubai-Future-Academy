@@ -49,3 +49,17 @@ if (!function_exists('dff_user_course_module_result')) {
         endif;
     }
 }
+// function dff_add_user_course_module_result($user_id, $course_id, $module_i, $test_result)
+// {
+//     // $module_exam_key = 'course_' . $course_id . '_exam_result';
+//     if (have_rows('course_module_repeater', $course_id)) :
+//         while (have_rows('course_module_repeater', $course_id)) : the_row();
+//             $module_or_exam = get_sub_field('module_or_exam');            
+//             $module_key = 'course_' . $course_id . '_module_' . $module_i . '_result';            
+//             if ($module_or_exam == 'module') {
+//                 update_user_meta($user_id, $module_key, $test_result);
+//             }
+//         endwhile;
+//     else :
+//     endif;
+// }
