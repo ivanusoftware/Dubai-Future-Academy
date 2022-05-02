@@ -1,5 +1,6 @@
 // Uploads an exam to an exam post.
 export default function uploadExam(examPostId, moduleType) {
+    const $ = jQuery.noConflict();
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     const data = {
         action: "upload_exam_ajax",

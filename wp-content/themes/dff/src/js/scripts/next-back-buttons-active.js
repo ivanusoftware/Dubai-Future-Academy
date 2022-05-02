@@ -5,6 +5,7 @@
     * @param {*} lessonIndex 
     */
 export default function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
+    const $ = jQuery.noConflict();
     const tabAccordionItem = $('.accordion-content ul li');
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');

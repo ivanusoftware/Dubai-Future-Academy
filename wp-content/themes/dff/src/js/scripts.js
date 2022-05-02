@@ -10,7 +10,7 @@ import './ajax/back-next-buttons';
 
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
-const chart = null;
+// const chart = null;
 (function ($) {
     const phpParams = php_params;
 

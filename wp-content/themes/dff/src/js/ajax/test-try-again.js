@@ -7,6 +7,7 @@ import dffTryAgainActive from '../scripts/try-again-active';
  * The click functionality the button "try again"
  * to pass the test for the module.
  */
+const $ = jQuery.noConflict();
 jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');

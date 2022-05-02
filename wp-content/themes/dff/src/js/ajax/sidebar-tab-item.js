@@ -5,8 +5,8 @@ import dffGalleryFancybox from '../scripts/gallery-fancybox';
      * Ajax switches between modules and 
      * lessons on the course page in the my account 
      */
-
- jQuery(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
+ const $ = jQuery.noConflict();
+ $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
     e.preventDefault();
     const tabItem = $('.accordion-content ul li');
     const moduleIndex = $(this).attr('module-index');

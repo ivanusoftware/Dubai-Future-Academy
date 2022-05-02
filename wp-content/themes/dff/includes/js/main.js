@@ -7946,7 +7946,9 @@ __webpack_require__.r(__webpack_exports__);
    * The functionality for the 
    * back button on the lesson. 
    */
-jQuery(document).on('click', '.lesson-header .back', '', function (e) {
+const $ = jQuery.noConflict();
+
+$(document).on('click', '.lesson-header .back', '', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
@@ -7957,11 +7959,11 @@ jQuery(document).on('click', '.lesson-header .back', '', function (e) {
     (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);
 });
 
-/** 
+/**  
 * The functionality for the 
 * next button on the lesson. 
 */
-jQuery(document).on('click', '.lesson-header .next', function (e) {
+$(document).on('click', '.lesson-header .next', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
@@ -7992,8 +7994,8 @@ __webpack_require__.r(__webpack_exports__);
      * Ajax switches between modules and 
      * lessons on the course page in the my account 
      */
-
- jQuery(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
+ const $ = jQuery.noConflict();
+ $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
     e.preventDefault();
     const tabItem = $('.accordion-content ul li');
     const moduleIndex = $(this).attr('module-index');
@@ -8107,7 +8109,7 @@ __webpack_require__.r(__webpack_exports__);
    * The click functionality the button "try again"
    * to pass the Exam for the course.
    */
-//   const $ = jQuery.noConflict();
+  const $ = jQuery.noConflict();
 jQuery(document).on('click', '.exam-footer .test-try-again-exam', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
@@ -8169,6 +8171,7 @@ __webpack_require__.r(__webpack_exports__);
  * The click functionality the button "try again"
  * to pass the test for the module.
  */
+const $ = jQuery.noConflict();
 jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
@@ -8244,7 +8247,7 @@ const dffAccordion = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ dffAjaxLessons)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/slider-lesson */ "./src/js/scripts/slider-lesson.js");
 /* harmony import */ var _scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/gallery-fancybox */ "./src/js/scripts/gallery-fancybox.js");
@@ -8258,9 +8261,9 @@ __webpack_require__.r(__webpack_exports__);
      * @param {*} courseId 
      * @param {*} countLessonRow 
      */
-  function dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) {
-    // if (lessonIndex == undefined) lessonIndex = false;
-    // if (lessonTestId == undefined) lessonTestId = false;
+
+  const dffAjaxLessons = (moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) => {
+    const $ = jQuery.noConflict();
     const data = {
         action: "upload_lesson_ajax",
         module_index: moduleIndex,
@@ -8286,6 +8289,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
     });
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dffAjaxLessons);
 
 /***/ }),
 
@@ -8333,6 +8338,7 @@ __webpack_require__.r(__webpack_exports__);
     * @param {*} lessonIndex 
     */
 function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
+    const $ = jQuery.noConflict();
     const tabAccordionItem = $('.accordion-content ul li');
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');
@@ -8421,6 +8427,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {*} tabId 
  */
 function dffTryAgainActiveMainTab(tabId) {
+    const $ = jQuery.noConflict();
     const tabItem = $('.tabs-nav-my-courses ul li button');
     tabItem.each(function () {
         const tabMainId = $(this).attr('tab-id');
@@ -8451,6 +8458,7 @@ __webpack_require__.r(__webpack_exports__);
     * @param {*} moduleIndex 
     */
  function dffTryAgainActive(moduleIndex) {
+    const $ = jQuery.noConflict();
     const tabAccordionItem = $('.accordion .accordion-item .accordion-head');
     tabAccordionItem.each(function () {
         const accordionModuleI = $(this).parent().attr('module-i');
@@ -8476,6 +8484,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // Uploads an exam to an exam post.
 function uploadExam(examPostId, moduleType) {
+    const $ = jQuery.noConflict();
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     const data = {
         action: "upload_exam_ajax",
@@ -21470,7 +21479,7 @@ __webpack_require__.r(__webpack_exports__);
 
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
-const chart = null;
+// const chart = null;
 (function ($) {
     const phpParams = php_params;
 

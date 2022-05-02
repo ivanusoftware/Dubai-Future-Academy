@@ -5,6 +5,7 @@
  * @param {*} tabId 
  */
 export default function dffTryAgainActiveMainTab(tabId) {
+    const $ = jQuery.noConflict();
     const tabItem = $('.tabs-nav-my-courses ul li button');
     tabItem.each(function () {
         const tabMainId = $(this).attr('tab-id');

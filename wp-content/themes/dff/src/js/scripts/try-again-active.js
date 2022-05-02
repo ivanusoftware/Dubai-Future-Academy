@@ -4,6 +4,7 @@
     * @param {*} moduleIndex 
     */
  export default function dffTryAgainActive(moduleIndex) {
+    const $ = jQuery.noConflict();
     const tabAccordionItem = $('.accordion .accordion-item .accordion-head');
     tabAccordionItem.each(function () {
         const accordionModuleI = $(this).parent().attr('module-i');

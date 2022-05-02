@@ -4,7 +4,9 @@ import dffAjaxLessons from '../scripts/ajax-lessons';
    * The functionality for the 
    * back button on the lesson. 
    */
-jQuery(document).on('click', '.lesson-header .back', '', function (e) {
+const $ = jQuery.noConflict();
+
+$(document).on('click', '.lesson-header .back', '', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
@@ -15,11 +17,11 @@ jQuery(document).on('click', '.lesson-header .back', '', function (e) {
     dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId);
 });
 
-/** 
+/**  
 * The functionality for the 
 * next button on the lesson. 
 */
-jQuery(document).on('click', '.lesson-header .next', function (e) {
+$(document).on('click', '.lesson-header .next', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
