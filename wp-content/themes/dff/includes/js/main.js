@@ -7930,100 +7930,582 @@ var defaults = $.fn.steps.defaults = {
 
 /***/ }),
 
-/***/ "./src/js/ajax/custom.js":
-/*!*******************************!*\
-  !*** ./src/js/ajax/custom.js ***!
-  \*******************************/
-/***/ (() => {
+/***/ "./src/js/ajax/back-next-buttons.js":
+/*!******************************************!*\
+  !*** ./src/js/ajax/back-next-buttons.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-(function ($) {
-    const phpParams = php_params;
-   /**
-     * Ajax upload Exam url 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
+/* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
+
+
+/** 
+   * The functionality for the 
+   * back button on the lesson. 
+   */
+const $ = jQuery.noConflict();
+
+$(document).on('click', '.lesson-header .back', '', function (e) {
+    e.preventDefault();
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
+    const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
+    $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
+    (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
+    (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);
+});
+
+/**  
+* The functionality for the 
+* next button on the lesson. 
+*/
+$(document).on('click', '.lesson-header .next', function (e) {
+    e.preventDefault();
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
+    const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
+    $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
+    (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
+    (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow)
+});
+
+/***/ }),
+
+/***/ "./src/js/ajax/sidebar-tab-item.js":
+/*!*****************************************!*\
+  !*** ./src/js/ajax/sidebar-tab-item.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/slider-lesson */ "./src/js/scripts/slider-lesson.js");
+/* harmony import */ var _scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/gallery-fancybox */ "./src/js/scripts/gallery-fancybox.js");
+// import dffAccordion from '../scripts/accordion';
+
+
+/**
+     * Ajax switches between modules and 
+     * lessons on the course page in the my account 
      */
-    $(document).on('click', '.accordion-head.exam-tab-item', function (e) {
-        e.preventDefault();
-        const examPostId = $(this).attr('exam-post-id');
-        const moduleType = $(this).attr('module-type');
-        const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
-        const data = {
-            action: "upload_exam_ajax",
-            exam_post_id: examPostId,
-            course_id: courseId,
-            module_type: moduleType,
-        };
-        $.ajax({
-            type: "POST",
-            url: courses_ajax.url,
-            data: data,
-            beforeSend: function () {
-                $('#loader').show();
-            },
-        })
-            .done(function (response) {
-                $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
-                $('#loader').hide();
-            })
-            .fail(function (response) {
-                console.log(response);
-            });
+ const $ = jQuery.noConflict();
+ $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
+    e.preventDefault();
+    const tabItem = $('.accordion-content ul li');
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const lessonTestId = $(this).attr('lesson-test-id');
+    const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
+    tabItem.removeClass('active');
+    $(this).addClass('active');    
+    const data = {
+        action: "upload_lesson_ajax",
+        module_index: moduleIndex,
+        lesson_index: lessonIndex,
+        course_id: courseId,
+        lesson_test_id: lessonTestId,
+    };
+    // console.log(data); 
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+        beforeSend: function () {
+            // $('#loader').show().parent().parent().addClass('loader-wrap');
+            $('#loader').show();
+        },
+    }).done(function (response) {
+        $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
+        (0,_scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        // dffAccordion();
+        $(window.wp.mediaelement.initialize);
+        $('#loader').hide();
+        // console.log(response);
+    }).fail(function (response) {
+        console.log(response);
     });
+});
 
-    /**
-     * Add a new course to the user.
-     * ajax.
+/***/ }),
+
+/***/ "./src/js/ajax/tab-module.js":
+/*!***********************************!*\
+  !*** ./src/js/ajax/tab-module.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
+/* harmony import */ var _scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/slider-lesson */ "./src/js/scripts/slider-lesson.js");
+/* harmony import */ var _scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/gallery-fancybox */ "./src/js/scripts/gallery-fancybox.js");
+
+
+
+/**
+    * Ajax switches between tabs on the course page
+    * in the my account
+    */
+const $ = jQuery.noConflict();
+$(document).on('click', '.my-courses-tabs .tabs-nav-my-courses .tab-module', function (e) {
+    e.preventDefault();
+
+    $('.tabs-nav li').removeClass('active');
+    $(this).parent().addClass('active');
+    const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
+    const tabId = $(this).attr('tab-id');
+    const data = {
+        action: "tabs_lesson_ajax",
+        main_tab_id: tabId,
+        course_id: courseId,
+    };
+    // console.log(data);
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+    }).done(function (response) {
+        $(".my-courses-tabs-content .tab-wrapper ").html(response);
+        $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
+        $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
+        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        (0,_scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        window.wp.mediaelement.initialize();
+    }).fail(function (response) {
+        console.log(response);
+    });
+});
+
+
+/***/ }),
+
+/***/ "./src/js/ajax/test-try-again-exam.js":
+/*!********************************************!*\
+  !*** ./src/js/ajax/test-try-again-exam.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
+/* harmony import */ var _scripts_upload_exam__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/upload-exam */ "./src/js/scripts/upload-exam.js");
+/* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
+/* harmony import */ var _scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/try-again-active-main-tab */ "./src/js/scripts/try-again-active-main-tab.js");
+/* harmony import */ var _scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/try-again-active */ "./src/js/scripts/try-again-active.js");
+
+
+
+
+
+/**
+   * The click functionality the button "try again"
+   * to pass the Exam for the course.
+   */
+  const $ = jQuery.noConflict();
+jQuery(document).on('click', '.exam-footer .test-try-again-exam', function (e) {
+    e.preventDefault();
+    const moduleIndex = $(this).attr('module-index');
+    const examPostId = $(this).attr('exam-post-id');
+    const moduleType = $(this).attr('module-type');
+    const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
+    const tabId = $(this).attr('tab-id');
+    const data = {
+        action: "tabs_lesson_ajax",
+        main_tab_id: tabId,
+        course_id: courseId,
+    };
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+    }).done(function (response) {
+        $(".my-courses-tabs-content .tab-wrapper ").html(response);
+        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__["default"])(tabId);
+        (0,_scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex);
+        (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__["default"])(moduleIndex);
+        (0,_scripts_upload_exam__WEBPACK_IMPORTED_MODULE_1__["default"])(examPostId, moduleType);
+    }).fail(function (response) {
+        console.log(response);
+    });
+});
+/**
+   * Ajax upload Exam url 
+   */
+ jQuery(document).on('click', '.accordion-head.exam-tab-item', function (e) {
+    e.preventDefault();
+    const examPostId = $(this).attr('exam-post-id');
+    const moduleType = $(this).attr('module-type');
+    (0,_scripts_upload_exam__WEBPACK_IMPORTED_MODULE_1__["default"])(examPostId, moduleType);
+});
+
+/***/ }),
+
+/***/ "./src/js/ajax/test-try-again.js":
+/*!***************************************!*\
+  !*** ./src/js/ajax/test-try-again.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
+/* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
+/* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
+/* harmony import */ var _scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/try-again-active-main-tab */ "./src/js/scripts/try-again-active-main-tab.js");
+/* harmony import */ var _scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/try-again-active */ "./src/js/scripts/try-again-active.js");
+
+
+
+
+
+/**
+ * The click functionality the button "try again"
+ * to pass the test for the module.
+ */
+const $ = jQuery.noConflict();
+jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
+    e.preventDefault();
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const lessonTestId = $(this).attr('lesson-test-id');
+    const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
+    const tabId = $(this).attr('tab-id');
+    const data = {
+        action: "tabs_lesson_ajax",
+        main_tab_id: tabId,
+        course_id: courseId,
+    };
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+    }).done(function (response) {
+        $(".my-courses-tabs-content .tab-wrapper ").html(response);
+        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);
+        (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__["default"])(moduleIndex, lessonIndex);
+        (0,_scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__["default"])(tabId);
+        (0,_scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex);
+    }).fail(function (response) {
+        console.log(response);
+    });
+});
+
+/***/ }),
+
+/***/ "./src/js/scripts/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/scripts/accordion.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Accordion for modules
+ */
+
+const dffAccordion = () => {
+    const $ = jQuery.noConflict();
+    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
+        if ($(this).hasClass('active')) {
+            $(this).siblings('.accordion-content').slideUp();
+            $(this).removeClass('active');
+        }
+        else {
+            $('.accordion-content').slideUp();
+            $('.accordion-head').removeClass('active');
+            $(this).siblings('.accordion-content').slideToggle();
+            $(this).toggleClass('active');
+        }
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dffAccordion);
+
+
+/***/ }),
+
+/***/ "./src/js/scripts/ajax-lessons.js":
+/*!****************************************!*\
+  !*** ./src/js/scripts/ajax-lessons.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/slider-lesson */ "./src/js/scripts/slider-lesson.js");
+/* harmony import */ var _scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/gallery-fancybox */ "./src/js/scripts/gallery-fancybox.js");
+
+
+ /**
+     * Upload a lesson ajax
+     * @param {*} moduleIndex 
+     * @param {*} lessonIndex 
+     * @param {*} lessonTestId 
+     * @param {*} courseId 
+     * @param {*} countLessonRow 
      */
-     $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
-        e.preventDefault();
-        const courseId = $(this).attr('course_id');
-        const data = {
-            action: "add_lesson_to_user_ajax",
-            course_id: courseId,
-        };
-        // console.log(data);
-        $.ajax({
-            type: "POST",
-            url: courses_ajax.url,
-            data: data,
-            dataType: 'JSON',
-        }).done(function (response) {
-            if (response.success) {
-                window.location.replace(phpParams.site_url + '/my-courses/');
-            }
-        }).fail(function (response) {
-            console.log(response);
+
+  const dffAjaxLessons = (moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) => {
+    const $ = jQuery.noConflict();
+    const data = {
+        action: "upload_lesson_ajax",
+        module_index: moduleIndex,
+        lesson_index: lessonIndex,
+        course_id: courseId,
+        lesson_test_id: lessonTestId,
+        count_lesson_row: countLessonRow,
+    };
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+        beforeSend: function () {
+            $('#loader').show();
+        }
+    }).done(function (response) {
+        $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
+        $('#loader').hide();
+        (0,_scripts_slider_lesson__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_gallery_fancybox__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        $(window.wp.mediaelement.initialize);
+    }).fail(function (response) {
+        console.log(response);
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dffAjaxLessons);
+
+/***/ }),
+
+/***/ "./src/js/scripts/gallery-fancybox.js":
+/*!********************************************!*\
+  !*** ./src/js/scripts/gallery-fancybox.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dffGalleryFancybox)
+/* harmony export */ });
+ // Fancybox for gallery
+ function dffGalleryFancybox() {
+    jQuery('.gallery-fancybox').fancybox({
+        buttons: [
+            "zoom",
+            "slideShow",
+            "fullScreen",
+            "thumbs",
+            "close"
+        ]
+    });
+}
+
+/***/ }),
+
+/***/ "./src/js/scripts/next-back-buttons-active.js":
+/*!****************************************************!*\
+  !*** ./src/js/scripts/next-back-buttons-active.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dffNextBackButtonsActive)
+/* harmony export */ });
+/**
+    * Add class active to sidebar tab item 
+    * when clicking on next or back buttons.
+    * @param {*} moduleIndex 
+    * @param {*} lessonIndex 
+    */
+function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
+    const $ = jQuery.noConflict();
+    const tabAccordionItem = $('.accordion-content ul li');
+    tabAccordionItem.each(function () {
+        const accordionModuleIndex = $(this).attr('module-index');
+        const accordionLessonIndex = $(this).attr('lesson-index');
+        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+}
+
+
+/***/ }),
+
+/***/ "./src/js/scripts/slider-lesson.js":
+/*!*****************************************!*\
+  !*** ./src/js/scripts/slider-lesson.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+
+const dffSliderToLesson = () => {
+
+    swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation]);
+    jQuery(".gallery-slider").each(function () {
+        // Getting slides quantity before slider clones them
+        this.slidesQuantity = this.querySelectorAll(".swiper-slide").length;
+
+        // Swiper initialization
+        const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](this, {
+            speed: 1000,
+            slidesPerView: 'auto',
+            // loop: false,
+            //   pagination: {
+            //     el: this.querySelector(".swiper-pagination")
+            //   },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                init: updSwiperNumericPagination,
+                slideChange: updSwiperNumericPagination
+            },
+            // on('slideChangeTransitionEnd', function() {
+            //     console.log('slideChangeTransitionEnd');
+            // });
         });
     });
+    /**
+    * Updates the number of switch - numeric pagination
+    * to slider
+    */
+    function updSwiperNumericPagination() {
+        this.el.querySelector(".swiper-counter").innerHTML = '<span class="count">' + (this.realIndex + 1) + '</span>/<span class="total">' + this.el.slidesQuantity + "</span>";
+    }
 
-     // Shows the active tab. 
-     $('.my-course-tab .tabs-nav a').on('click', function () {
-        // Check for active
-        $('.my-course-tab .tabs-nav li').removeClass('active');
-        $(this).parent().addClass('active');
+}
 
-        // Display active tab
-        const currentTab = $(this).attr('href');
-        $('.my-course-tab .tabs-content .tab-wrapper').hide();
-        $(currentTab).show();
-        return false;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dffSliderToLesson);
+
+/***/ }),
+
+/***/ "./src/js/scripts/try-again-active-main-tab.js":
+/*!*****************************************************!*\
+  !*** ./src/js/scripts/try-again-active-main-tab.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dffTryAgainActiveMainTab)
+/* harmony export */ });
+
+/**
+ * Clicking the button "try again" adds an active 
+ * class to the main tab (Modules).
+ * @param {*} tabId 
+ */
+function dffTryAgainActiveMainTab(tabId) {
+    const $ = jQuery.noConflict();
+    const tabItem = $('.tabs-nav-my-courses ul li button');
+    tabItem.each(function () {
+        const tabMainId = $(this).attr('tab-id');
+        if (tabMainId === tabId) {
+            $(this).parent().addClass('active');
+        } else {
+            $(this).parent().removeClass('active');
+        }
     });
+}
 
-    // Creates a progress tab on the my course page 
-    $(document).on('click', '.my-progres-modules li a', function (e) {
-        e.preventDefault();
-        // Check for active
-        $('.my-progress-content .my-progres-modules li').removeClass('active');
-        $(this).parent().addClass('active');
-        // Display active tab
-        const currentTab = $(this).attr('href');
-        $('.progress-container .tabs-content .progress-wrapper').hide();
-        $(currentTab).show();
-        return false;
+/***/ }),
+
+/***/ "./src/js/scripts/try-again-active.js":
+/*!********************************************!*\
+  !*** ./src/js/scripts/try-again-active.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dffTryAgainActive)
+/* harmony export */ });
+/**
+    * Clicking the button "try again" adds an active class 
+    * to the module accordion (module 1, module 2 etc).
+    * @param {*} moduleIndex 
+    */
+ function dffTryAgainActive(moduleIndex) {
+    const $ = jQuery.noConflict();
+    const tabAccordionItem = $('.accordion .accordion-item .accordion-head');
+    tabAccordionItem.each(function () {
+        const accordionModuleI = $(this).parent().attr('module-i');
+        if (accordionModuleI === moduleIndex) {
+            $(this).siblings('.accordion-content').slideToggle();
+            $(this).toggleClass('active');
+        }
     });
+}
 
+/***/ }),
 
-    
-})(jQuery);    
+/***/ "./src/js/scripts/upload-exam.js":
+/*!***************************************!*\
+  !*** ./src/js/scripts/upload-exam.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ uploadExam)
+/* harmony export */ });
+// Uploads an exam to an exam post.
+function uploadExam(examPostId, moduleType) {
+    const $ = jQuery.noConflict();
+    const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
+    const data = {
+        action: "upload_exam_ajax",
+        exam_post_id: examPostId,
+        course_id: courseId,
+        module_type: moduleType,
+    };
+    $.ajax({
+        type: "POST",
+        url: courses_ajax.url,
+        data: data,
+        beforeSend: function () {
+            $('#loader').show();
+        },
+    }).done(function (response) {
+        $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
+        $('#loader').hide();
+    }).fail(function (response) {
+        console.log(response);
+    });
+}
 
 /***/ }),
 
@@ -20978,11 +21460,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_nice_select_js_jquery_nice_select_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_nice_select_js_jquery_nice_select_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery_steps_build_jquery_steps_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-steps/build/jquery.steps.js */ "./node_modules/jquery-steps/build/jquery.steps.js");
 /* harmony import */ var jquery_steps_build_jquery_steps_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_steps_build_jquery_steps_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
-/* harmony import */ var _ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax/ajax-categories */ "./src/js/ajax/ajax-categories.js");
-/* harmony import */ var _ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ajax_custom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ajax/custom */ "./src/js/ajax/custom.js");
-/* harmony import */ var _ajax_custom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_ajax_custom__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax/ajax-categories */ "./src/js/ajax/ajax-categories.js");
+/* harmony import */ var _ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ajax_ajax_categories__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ajax_tab_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax/tab-module */ "./src/js/ajax/tab-module.js");
+/* harmony import */ var _ajax_sidebar_tab_item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ajax/sidebar-tab-item */ "./src/js/ajax/sidebar-tab-item.js");
+/* harmony import */ var _ajax_test_try_again__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ajax/test-try-again */ "./src/js/ajax/test-try-again.js");
+/* harmony import */ var _ajax_test_try_again_exam__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ajax/test-try-again-exam */ "./src/js/ajax/test-try-again-exam.js");
+/* harmony import */ var _ajax_back_next_buttons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ajax/back-next-buttons */ "./src/js/ajax/back-next-buttons.js");
+
+
 
 
 
@@ -20993,108 +21479,19 @@ __webpack_require__.r(__webpack_exports__);
 
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
+// const chart = null;
 (function ($) {
-    dffAccordion();
+    const phpParams = php_params;
 
     /**
-     * Ajax switches between modules and 
-     * lessons on the course page in the my account 
+     * Add a new course to the user.
+     * ajax.
      */
-    $(document).on('click', '.course-sidebar .accordion-content .tab-item', function (e) {
+    $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
         e.preventDefault();
-        const tabItem = $('.accordion-content ul li');
-        const moduleIndex = $(this).attr('module-index');
-        const lessonIndex = $(this).attr('lesson-index');
-        const lessonTestId = $(this).attr('lesson-test-id');
-        const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
-        tabItem.removeClass('active');
-        $(this).addClass('active');
+        const courseId = $(this).attr('course_id');
         const data = {
-            action: "upload_lesson_ajax",
-            module_index: moduleIndex,
-            lesson_index: lessonIndex,
-            course_id: courseId,
-            lesson_test_id: lessonTestId,
-        };
-        // console.log(data); 
-        $.ajax({
-            type: "POST",
-            url: courses_ajax.url,
-            data: data,
-            beforeSend: function () {
-                // $('#loader').show().parent().parent().addClass('loader-wrap');
-                $('#loader').show();
-            },
-        }).done(function (response) {
-            $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
-            dffSliderToLesson();
-            dffGalleryFancybox();
-            // dffAccordion();
-            $(window.wp.mediaelement.initialize);
-            $('#loader').hide();
-            // console.log(response);
-        }).fail(function (response) {
-            console.log(response);
-        });
-    });
-
-
-
-    $(document).on('click', '.lesson-header .back', '', function (e) {
-        e.preventDefault();
-        const moduleIndex = $(this).attr('module-index');
-        const lessonIndex = $(this).attr('lesson-index');
-        const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
-        const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
-        $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
-        dffNextBackButtonsActive(moduleIndex, lessonIndex);
-        dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId);
-    });
-
-    $(document).on('click', '.lesson-header .next', function (e) {
-        e.preventDefault();
-        const moduleIndex = $(this).attr('module-index');
-        const lessonIndex = $(this).attr('lesson-index');
-        const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
-        const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
-        const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
-        $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
-        dffNextBackButtonsActive(moduleIndex, lessonIndex);
-        dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow)
-    });
-
-    /**
-     * Add class active to sidebar tab item
-     * when click to next or back buttons
-     * @param {*} moduleIndex 
-     * @param {*} lessonIndex 
-     */
-    function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
-        const tabAccordionItem = $('.accordion-content ul li');
-        tabAccordionItem.each(function () {
-            const accordionModuleIndex = $(this).attr('module-index');
-            const accordionLessonIndex = $(this).attr('lesson-index');
-            if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
-                $(this).addClass('active');
-            } else {
-                $(this).removeClass('active');
-            }
-        });
-    }
-
-    /**
-    * Ajax switches between tabs on the course page
-    * in the my account
-    */
-    $(document).on('click', '.my-courses-tabs .tabs-nav-my-courses a', function (e) {
-        e.preventDefault();
-        $('.tabs-nav li').removeClass('active');
-        $(this).parent().addClass('active');
-        const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
-        const tabId = $(this).attr('tab-id');
-        const data = {
-            action: "tabs_lesson_ajax",
-            main_tab_id: tabId,
+            action: "add_lesson_to_user_ajax",
             course_id: courseId,
         };
         // console.log(data);
@@ -21102,32 +21499,15 @@ const $ = jQuery.noConflict();
             type: "POST",
             url: courses_ajax.url,
             data: data,
+            dataType: 'JSON',
         }).done(function (response) {
-            $(".my-courses-tabs-content .tab-wrapper ").html(response);
-            dffAccordion();
-            dffSliderToLesson();
-            dffGalleryFancybox();
-            window.wp.mediaelement.initialize();
+            if (response.success) {
+                window.location.replace(phpParams.site_url + '/my-courses/');
+            }
         }).fail(function (response) {
             console.log(response);
         });
     });
-
-
-
-
-    // $('.gallery-slider .gallery-fancybox img').each(function() {
-    //     console.log($(this).width());
-    //     console.log('----------------------');
-    //     console.log($(this).height());
-    //     if($(this).width() > $(this).height()) {
-    //           $(this).addClass("horizontal"); 
-    //         // $(this).attr("title", "horizontal");
-    //     } else {
-    //         $(this).addClass("vertical");
-    //         // $(this).attr("title", "vertical");
-    //     }        
-    // });
 
     /**
     * Open modal window.
@@ -21161,121 +21541,45 @@ const $ = jQuery.noConflict();
         })
     });
 
+    $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
+        if ($(this).hasClass('active')) {
+            $(this).siblings('.accordion-content').slideUp();
+            $(this).removeClass('active');
+        }
+        else {
+            $('.accordion-content').slideUp();
+            $('.accordion-head').removeClass('active');
+            $(this).siblings('.accordion-content').slideToggle();
+            $(this).toggleClass('active');
+        }
+    });
 
-    // Upload a lesson ajax
-    /**
-     * 
-     * @param {*} moduleIndex 
-     * @param {*} lessonIndex 
-     * @param {*} lessonTestId 
-     * @param {*} courseId 
-     * @param {*} countLessonRow 
-     */
-    function dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow) {
-        const data = {
-            action: "upload_lesson_ajax",
-            module_index: moduleIndex,
-            lesson_index: lessonIndex,
-            course_id: courseId,
-            lesson_test_id: lessonTestId,
-            count_lesson_row: countLessonRow,
-        };
-        $.ajax({
-            type: "POST",
-            url: courses_ajax.url,
-            data: data,
-            beforeSend: function () {
-                $('#loader').show();
-            }
-        }).done(function (response) {
-            $(".main-content .content .lesson-container").html('<div class="lesson-wrapper">' + response + '</div>');
-            dffSliderToLesson();
-            dffGalleryFancybox();
-            $(window.wp.mediaelement.initialize);
-            $('#loader').hide();
-        }).fail(function (response) {
-            console.log(response);
-        });
-    }
+    // Shows the active tab. 
+    $('.my-course-tab .tabs-nav a').on('click', function () {
+        // Check for active
+        $('.my-course-tab .tabs-nav li').removeClass('active');
+        $(this).parent().addClass('active');
 
-    /**
-     * Slider to Lesson
-     */
-    function dffSliderToLesson() {
-        swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation]);
-        $(".gallery-slider").each(function () {
-            // Getting slides quantity before slider clones them
-            this.slidesQuantity = this.querySelectorAll(".swiper-slide").length;
+        // Display active tab
+        const currentTab = $(this).attr('href');
+        $('.my-course-tab .tabs-content .tab-wrapper').hide();
+        $(currentTab).show();
+        return false;
+    });
 
-            // Swiper initialization
-            const swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](this, {
-                speed: 1000,
-                slidesPerView: 'auto',
-                // loop: false,
-                //   pagination: {
-                //     el: this.querySelector(".swiper-pagination")
-                //   },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                on: {
-                    init: updSwiperNumericPagination,
-                    slideChange: updSwiperNumericPagination
-                },
-                // on('slideChangeTransitionEnd', function() {
-                //     console.log('slideChangeTransitionEnd');
-                // });
-            });
-        });
+    // Creates a progress tab on the my course page 
+    $(document).on('click', '.my-progres-modules li a', function (e) {
+        e.preventDefault();
+        // Check for active
+        $('.my-progress-content .my-progres-modules li').removeClass('active');
+        $(this).parent().addClass('active');
+        // Display active tab
+        const currentTab = $(this).attr('href');
+        $('.progress-container .tabs-content .progress-wrapper').hide();
+        $(currentTab).show();
+        return false;
+    });
 
-    }
-
-    /**
-     * Updates the number of switch - numeric pagination
-     * to slider
-     */
-    function updSwiperNumericPagination() {
-        this.el.querySelector(".swiper-counter").innerHTML = '<span class="count">' + (this.realIndex + 1) + '</span>/<span class="total">' + this.el.slidesQuantity + "</span>";
-    }
-
-
-    // Fancybox for gallery
-    function dffGalleryFancybox() {
-        $('.gallery-fancybox').fancybox({
-            buttons: [
-                "zoom",
-                "slideShow",
-                "fullScreen",
-                "thumbs",
-                "close"
-            ]
-        });
-    }
-
-    /**
-     * dff adapter for accordion
-     */
-    function dffAccordion() {
-        /**
-        * Accordion for modules
-        */
-        $('.accordion .accordion-item:nth-child(1) .accordion-head').addClass('active');
-        $('.accordion .accordion-item:nth-child(1) .accordion-content').slideDown();
-        $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
-
-            if ($(this).hasClass('active')) {
-                $(this).siblings('.accordion-content').slideUp();
-                $(this).removeClass('active');
-            }
-            else {
-                $('.accordion-content').slideUp();
-                $('.accordion-head').removeClass('active');
-                $(this).siblings('.accordion-content').slideToggle();
-                $(this).toggleClass('active');
-            }
-        });
-    }
 
 })(jQuery);
 
