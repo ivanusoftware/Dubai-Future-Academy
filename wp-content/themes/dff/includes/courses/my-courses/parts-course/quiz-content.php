@@ -12,13 +12,14 @@
     ?>
 
         <?php if (have_rows('quiz_steps')) : ?>
-            <div id="quiz" class="course-quiz__content">
+            <form id="quiz" class="course-quiz__content" data-id="<?php echo get_the_ID(); ?>" data-user="<?php echo get_current_user_id(); ?>">
                 <?php while (have_rows('quiz_steps')) : the_row();
                     $row_parent = get_row_index(); ?>
                     <div class="course-quiz__step-title"><?php echo get_row_index(); ?></div>
                     <div class="course-quiz__step" data-step="<?php echo get_row_index(); ?>">
                         <?php if (have_rows('quiz_step_inputs')) : ?>
-                            <?php while (have_rows('quiz_step_inputs')) : the_row(); ?>
+                            <?php while (have_rows('quiz_step_inputs')) : the_row(); 
+                                $layout_parent = get_row_index(); ?>
 
                                 <?php if (get_row_layout() == 'radio') : ?>
 
@@ -28,8 +29,8 @@
                                         <?php while (have_rows('answers_radio')) : the_row(); ?>
 
                                             <div class="course-quiz__radio">
-                                                <input type="radio" name="radio_<?php echo $row_parent; ?>" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>">
-                                                <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
+                                                <input type="radio" name="radio_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
                                             </div>
 
                                         <?php endwhile; ?>
@@ -41,8 +42,8 @@
                                         <?php while (have_rows('answers_checkbox')) : the_row(); ?>
 
                                             <div class="course-quiz__checkbox">
-                                                <input type="checkbox" name="checkbox_<?php echo $row_parent; ?>" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>">
-                                                <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
+                                                <input type="checkbox" name="checkbox_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>[]" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
                                             </div>
 
                                         <?php endwhile; ?>
@@ -61,7 +62,7 @@
 
                                                 <?php if (get_sub_field('variant') == 'select') { ?>
 
-                                                    <select name="select_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>">
+                                                    <select name="select_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
                                                         <option value="" disabled="" selected="">Choose the option</option>
                                                         <?php if (have_rows('select')) : ?>
                                                             <?php while (have_rows('select')) : the_row(); ?>
@@ -73,7 +74,7 @@
                                                 <?php } ?>
 
                                                 <?php if (get_sub_field('variant') == 'input') { ?>
-                                                    <input type="text" name="fragment_text_<?php echo $row_parent; ?>_<?php echo get_row_index(); ?>">
+                                                    <input type="text" name="fragment_text_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
                                                 <?php } ?>
 
 
@@ -90,7 +91,7 @@
 
                 <?php endwhile; ?>
 
-            </div>
+            </form>
         <?php endif; ?>
 
 

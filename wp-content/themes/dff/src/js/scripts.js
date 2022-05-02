@@ -61,6 +61,50 @@ const $ = jQuery.noConflict();
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
             bodyTag: ".course-quiz__step",
+            //onStepChanging: function (event, currentIndex, newIndex) { return true; },
+            //onStepChanged: function (event, currentIndex, priorIndex) { }, 
+            //onCanceled: function (event) { },
+            //onFinishing: function (event, currentIndex) { return true; }, 
+            onFinished: function (event, currentIndex) {
+                var quizData = {};
+                $.each($(this).serializeArray(), function(index, value) {
+                  if (value['name'].endsWith('[]')) {
+                      var name = value['name'];
+                      name = name.substring(0, name.length - 2);
+                      if (!(name in quizData)) {
+                          quizData[name] = [];
+                      }
+                      quizData[name].push(value['value']);
+                  } else {
+                      quizData[value['name']] = value['value'];
+                  }
+                });
+                var data = new FormData();
+                data.append('action', 'quiz_answers');
+                data.append('id', $(this).data('id'));
+                data.append('user', $(this).data('user'));
+                data.append('form', JSON.stringify(quizData));
+                $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    url: courses_ajax.url,
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        $('#loader').show();
+                    }
+                }).done(function (response) {
+                    $('#loader').hide();
+                    if (response.result) {
+                      alert('Your result: ' + response.percentage + '%');
+                    } else {
+                      console.log(response);
+                    }
+                }).fail(function (response) {
+                    console.log(response);
+                });
+            },
         });
 
         let lastStepId = $('.course-quiz__step:last-child').attr("data-step");
