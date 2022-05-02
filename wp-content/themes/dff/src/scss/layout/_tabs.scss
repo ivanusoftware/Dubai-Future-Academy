@@ -19,7 +19,8 @@
             &.active {
                 color: #000;
 
-                button, a{
+                button,
+                a {
                     color: inherit;
                     position: relative;
                     &::after {
@@ -34,7 +35,8 @@
                 }
             }
         }
-        button, a{
+        button,
+        a {
             font-weight: 700;
             font-size: 13px;
             line-height: 16px;
@@ -63,6 +65,22 @@
         // height: 100%;
         &:not(:first-child) {
             display: none;
+        }
+    }
+}
+.rtl {
+    .tabs-nav {        
+        ul {            
+            li {               
+                @media only screen and (min-width: 546px) {
+                    margin-right: 0;
+                    margin-left: 55px;
+                }
+                &:last-child {
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+            }
         }
     }
 }
