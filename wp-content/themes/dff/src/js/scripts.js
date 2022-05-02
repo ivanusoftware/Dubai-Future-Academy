@@ -1,7 +1,6 @@
 import "@fancyapps/fancybox";
 import 'jquery-nice-select/js/jquery.nice-select.js';
 import 'jquery-steps/build/jquery.steps.js';
-
 import './ajax/ajax-categories';
 import './ajax/tab-module';
 import './ajax/sidebar-tab-item';
@@ -11,6 +10,7 @@ import './ajax/back-next-buttons';
 
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
+const chart = null;
 (function ($) {
     const phpParams = php_params;
 

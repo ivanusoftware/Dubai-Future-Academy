@@ -3,7 +3,7 @@
  */
 
 const dffAccordion = () => {
-    $ = jQuery;
+    const $ = jQuery.noConflict();
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();

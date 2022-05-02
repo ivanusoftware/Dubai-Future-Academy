@@ -13,6 +13,7 @@
     "@fancyapps/fancybox": "^3.5.7",
     "autosize": "^5.0.1",
     "flexbox": "0.0.3",
+    "highcharts": "^10.0.0",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.5.1",
     "jquery-nice-select": "^1.1.0",

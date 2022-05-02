@@ -1899,21 +1899,21 @@ button.swiper-pagination-bullet {
 
 .my-progress-content .columns {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 50px 0; }
-  @media only screen and (min-width: 769px) {
+  @media only screen and (min-width: 993px) {
     .my-progress-content .columns {
       flex-direction: row;
       padding-bottom: 50px; } }
   .my-progress-content .columns .main-content {
     width: 100%;
     padding-bottom: 72px; }
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 993px) {
       .my-progress-content .columns .main-content {
         width: calc(100% - 275px);
         padding-right: 70px;
         border-right: 1px solid rgba(0, 0, 0, 0.2); } }
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 993px) {
       .my-progress-content .columns .main-content .content {
         max-width: 620px; } }
     .my-progress-content .columns .main-content .content .desc {
@@ -1938,10 +1938,10 @@ button.swiper-pagination-bullet {
         font-size: 16px; } }
   .my-progress-content .columns .course-sidebar {
     width: 100%;
-    padding-bottom: 25px;
+    padding-bottom: 0;
     margin-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
-    @media only screen and (min-width: 769px) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+    @media only screen and (min-width: 993px) {
       .my-progress-content .columns .course-sidebar {
         max-width: 330px;
         padding-left: 70px;
@@ -2009,12 +2009,18 @@ button.swiper-pagination-bullet {
           display: flex;
           flex-direction: column;
           margin-top: 55px; }
-          .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer button {
+          .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer button, .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer a {
             background: none;
             color: #000000;
             border: 1px solid #000000;
             width: 190px;
             margin: 15px auto 0; }
+
+.general-progress .general-progress-content {
+  padding: 40px 0; }
+  @media only screen and (min-width: 768px) {
+    .general-progress .general-progress-content {
+      padding: 40px 30px 15px 30px; } }
 
 
 /*# sourceMappingURL=main.css.map*/
