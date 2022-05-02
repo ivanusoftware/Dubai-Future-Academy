@@ -126,6 +126,7 @@ add_action('init', function () {
     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
     add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+    add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
 });
 
 // Adds the filter to the course_id.
@@ -239,6 +240,7 @@ function dff_general_progress_mod()
     return  json_encode($mod_arr);
 }
 
+// dff_general_progress_mod_result
 function dff_general_progress_mod_result($course_id)
 {
     $mod_result_arr = array();

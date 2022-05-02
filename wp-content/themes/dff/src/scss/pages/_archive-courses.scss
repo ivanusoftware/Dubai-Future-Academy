@@ -95,7 +95,7 @@
         background: $color-white;
         border: 0.870074px solid #f0f0f0;
         box-sizing: border-box;
-        .course-item-content {            
+        .course-item-content {
             .course-item-img {
                 position: relative;
                 height: 192px;
@@ -209,3 +209,34 @@
     }
 }
 
+.rtl {
+    .archive-courses-list {
+        .course-item {
+            .course-item-img {
+                .courses-item-category {
+                    right: 15px;
+                    h4 {
+                        span {
+                            margin-left: 5px;
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .courses-categories {
+        ul {
+            li {
+                @media only screen and (min-width: 993px) {
+                    margin-left: 28px;
+                    margin-right: 0;
+                }
+                margin-bottom: 15px;
+                &:last-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
