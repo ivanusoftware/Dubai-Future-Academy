@@ -18393,3 +18393,8 @@ msgstr "يمر"
 #: includes/courses/my-courses/parts-course/general-progress.php:53
 msgid "Pass 80%"
 msgstr "80% يمر"
+
+#: includes/user-profile.inc.php:68
+#: includes/user-profile.inc.php:78
+msgid "You have no courses. Please, check our <a href=\"%s\">courses</a>"
+msgstr "ليس لديك دورات. من فضلك ، تحقق من <a href=\"%s\"> دوراتنا </a>"
