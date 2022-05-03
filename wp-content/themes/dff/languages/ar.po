@@ -2089,3 +2089,7 @@ msgstr "قدم الآن"
 #: single-courses.php:29
 msgid "Courses"
 msgstr "الدورات"
+
+#: includes/courses/my-courses/parts-course/general-progress.php:53
+msgid "Pass 80%"
+msgstr "80% يمر"

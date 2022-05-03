@@ -4,7 +4,6 @@ $mod_result   = dff_general_progress_mod_result($course_id);
 $choose_сhart = get_field('choose_сhart', 'option');
 ?>
 <div id="container-highcharts"></div>
-
 <script>
     //  const $ = jQuery.noConflict();
     jQuery(document).ready(function() {
@@ -51,7 +50,7 @@ $choose_сhart = get_field('choose_сhart', 'option');
             },
             yAxis: {
                 title: {
-                    text: 'Pass 80%',
+                    text: '<?php _e('Pass 80%', 'dff'); ?>',
                     style: {
                         color: 'rgba(0, 0, 0, 0.5)',
                         cursor: 'default',
