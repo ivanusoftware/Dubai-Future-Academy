@@ -1191,12 +1191,14 @@ button.swiper-pagination-bullet {
           margin: 25px 0 10px 0; }
         .single-course-modal .modal-content .buttons .btn-course-primary:hover {
           color: #fff; }
-      .single-course-modal .modal-content .buttons button.btn-course-primary, .single-course-modal .modal-content .buttons .login.btn-course-primary {
+      .single-course-modal .modal-content .buttons button.btn-course-primary,
+      .single-course-modal .modal-content .buttons .login.btn-course-primary {
         border: 1px solid #000000;
         box-sizing: border-box;
         background: none;
         color: #000000; }
-        .single-course-modal .modal-content .buttons button.btn-course-primary:hover, .single-course-modal .modal-content .buttons .login.btn-course-primary:hover {
+        .single-course-modal .modal-content .buttons button.btn-course-primary:hover,
+        .single-course-modal .modal-content .buttons .login.btn-course-primary:hover {
           color: #000000; }
   .single-course-modal .modal-close {
     position: relative;
@@ -1217,6 +1219,10 @@ button.swiper-pagination-bullet {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+
+.rtl .single-course-modal .modal-close::after {
+  left: 6px;
+  right: unset; }
 
 .course-quiz__top {
   border-bottom: 1px solid #CCCCCC;

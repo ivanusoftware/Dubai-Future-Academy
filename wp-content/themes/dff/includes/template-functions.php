@@ -251,7 +251,7 @@ function dff_general_progress_mod_result($course_id)
     $mod_result_arr = array();
     $exam_key    = 'course_' . $course_id . '_exam_result';
     $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
-    if($exam_result == 1){
+    if ($exam_result == 1) {
         $exam_result = 0;
     }
     if (have_rows('course_module_repeater')) :
@@ -260,7 +260,7 @@ function dff_general_progress_mod_result($course_id)
             $module_i = get_row_index();
             $result_module_key = dff_module_course_user_key($course_id, $module_i);
             $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
-            if($result_module == 1){
+            if ($result_module == 1) {
                 $result_module = 0;
             }
             if ($module_or_exam == 'module') {
@@ -286,22 +286,26 @@ function dff_format_time_bound($courses_format, $course_id)
 {
     $courses_format_value = $courses_format['value'];
     if ($courses_format_value == 'time_bound_course') {
-        $course_time_group = get_field('course_time_group', $course_id);
-        if ($course_time_group) :
-            $currentDateTime       = date('d-m-Y');
-            $current_timestamp     = strtotime($currentDateTime);
-            $start_date_timestamp  = strtotime($course_time_group['course_start']);
-            $finish_date_timestamp = strtotime($course_time_group['course_finish']);
-            if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
-                $disabled = '';
-            } elseif ($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
-                $disabled = 'disabled';
-            } else {
-                $disabled = 'disabled';
-            }
-            return $disabled;
+        if (have_rows('course_time_group', $course_id)) :
+            while (have_rows('course_time_group', $course_id)) : the_row();
+                $currentDateTime       = date('d-m-Y');
+                $current_timestamp     = strtotime($currentDateTime);
+
+                $start_date_timestamp  = strtotime(get_sub_field('course_start'));
+                $finish_date_timestamp = strtotime(get_sub_field('course_finish'));
+
+                if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
+                    $disabled = '';
+                } elseif ($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
+                    $disabled = 'disabled';
+                } else {
+                    $disabled = 'disabled';
+                }
+                
+            endwhile;
         endif;
     }
+    return $disabled;
 }
 
 /**
@@ -366,13 +370,14 @@ function dff_module_course_user_key($course_id, $module_i)
  */
 function dff_show_date($date_open_module)
 {
-    $currentDateTime = date('d-m-Y');
-    $current_timestamp = strtotime($currentDateTime);
-    $date_timestamp = strtotime($date_open_module);
+    $lang = get_bloginfo("language");
+    $currentDateTime    = date('d-m-Y');
+    $current_timestamp  = strtotime($currentDateTime);
+    $date_timestamp     = strtotime($date_open_module);
     if ($current_timestamp >= $date_timestamp) {
         $show_date = '';
     } else {
-        $show_date = '<span>' . date("d.m.Y", strtotime($date_open_module)) . '</span>';
+        $show_date = '<span>' . date($lang == 'ar' ? "Y.m.d" : "d.m.Y", strtotime($date_open_module)) . '</span>';
     }
     return $show_date;
 }
