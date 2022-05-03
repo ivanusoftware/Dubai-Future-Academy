@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-03T07:12:32+00:00\n"
+"POT-Creation-Date: 2022-05-03T20:10:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: dff\n"
@@ -211,7 +211,7 @@ msgid "Searching"
 msgstr ""
 
 #: inc/gutenberg/blocks/class-post-type-archive.php:114
-#: single-courses.php:56
+#: single-courses.php:57
 msgid "Apply Now"
 msgstr ""
 
@@ -746,37 +746,46 @@ msgid "About"
 msgstr ""
 
 #: includes/courses/my-courses/my-courses.inc.php:16
-#: single-courses.php:69
+#: single-courses.php:70
 msgid "Modules"
-msgstr "الوحدات"
+msgstr ""
 
 #: includes/courses/my-courses/my-courses.inc.php:17
 msgid "My Progress"
-msgstr "تقدمي"
+msgstr ""
 
 #: includes/courses/my-courses/parts-course/about-course.php:54
-#: single-courses.php:64
+#: single-courses.php:65
 msgid "Description"
 msgstr ""
 
 #: includes/courses/my-courses/parts-course/about-course.php:59
-#: single-courses.php:114
+#: single-courses.php:115
 msgid "Requirments"
 msgstr ""
 
+#: includes/courses/my-courses/parts-course/about-course.php:81
+#: single-courses.php:137
+msgid "Course Details"
+msgstr ""
+
 #: includes/courses/my-courses/parts-course/about-course.php:83
-#: single-courses.php:138
+#: single-courses.php:139
 msgid "Learning Style"
 msgstr ""
 
 #: includes/courses/my-courses/parts-course/about-course.php:87
-#: single-courses.php:142
+#: single-courses.php:143
 msgid "Course format"
 msgstr ""
 
 #: includes/courses/my-courses/parts-course/about-course.php:91
-#: single-courses.php:146
+#: single-courses.php:147
 msgid "Complexities"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/general-progress.php:53
+msgid "Pass 80%"
 msgstr ""
 
 #: includes/courses/my-courses/parts-course/lesson-content.php:9
@@ -792,7 +801,7 @@ msgstr ""
 
 #: includes/courses/my-courses/parts-course/modules-course.php:63
 #: includes/courses/my-courses/parts-course/my-progress-course.php:49
-#: single-courses.php:80
+#: single-courses.php:81
 msgid "Module"
 msgstr ""
 
@@ -836,7 +845,7 @@ msgid "My courses"
 msgstr ""
 
 #: includes/courses/my-courses/parts-course/my-progress-course.php:166
-#: includes/template-functions.php:340
+#: includes/template-functions.php:344
 msgid "Try again"
 msgstr ""
 
@@ -894,10 +903,6 @@ msgstr ""
 #: search.php:42
 #: search.php:103
 msgid "Relevance"
-msgstr ""
-
-#: single-courses.php:136
-msgid "Course Details"
 msgstr ""
 
 #: single-future-talk.php:40
