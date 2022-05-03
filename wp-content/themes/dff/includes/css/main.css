@@ -1886,11 +1886,7 @@ button.swiper-pagination-bullet {
   padding-left: 0; }
   @media only screen and (min-width: 769px) {
     .rtl .cource-content .container .columns .course-sidebar {
-      padding-right: 70px; } }
-
-.rtl .cource-content .container .columns .course-requirments ul {
-  padding-left: 0;
-  padding-right: 18px; }
+      padding-right: 0; } }
 
 @media only screen and (min-width: 769px) {
   .rtl .course-header-wrapper .course-header-content {
