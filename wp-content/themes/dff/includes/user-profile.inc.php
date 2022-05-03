@@ -33,24 +33,24 @@ if (!is_user_logged_in()) {
             <div class="tab-wrapper" id="tab1">
 
                 <article class="archive-courses-list">
-                    <?php                    
+                    <?php
                     // WP_Query arguments                 
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'post_type'      => array('courses'),
-                            'post_status'    => array('publish'),
-                            'order'          => 'DESC',
-                            'orderby'        => 'post__in',
-                            'post__in'       => $dff_user_courses,
-                            'ignore_sticky_posts' => 0
-                        );                    
+                    $args = array(
+                        'posts_per_page' => -1,
+                        'post_type'      => array('courses'),
+                        'post_status'    => array('publish'),
+                        'order'          => 'DESC',
+                        'orderby'        => 'post__in',
+                        'post__in'       => $dff_user_courses,
+                        'ignore_sticky_posts' => 0
+                    );
                     // The Query
                     $courses = new WP_Query(!empty($dff_user_courses) ? $args : '');
                     // The Loop
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
                             $courses->the_post();
-                            
+
 
                     ?>
                             <div class="course-item">
@@ -65,9 +65,7 @@ if (!is_user_logged_in()) {
                         }
                     } else {
                         ?>
-                        <p><?php _e('You have no courses. Please, check our <a href="' . esc_url(site_url('courses')) . '">courses</a>', 'dff');
-                            ?></p>
-
+                          <p><?php printf( __('You have no courses. Please, check our <a href="%s">courses</a>', 'dff' ), esc_url(site_url('courses'))); ?></p>
                     <?php
                     }
                     wp_reset_postdata();
@@ -77,8 +75,7 @@ if (!is_user_logged_in()) {
             </div>
             <div id="tab2" class="tab-wrapper">
                 <h3><?php _e('My certification', 'dff'); ?></h3>
-                <p><?php _e('You have no courses. Please, check our <a href="' . esc_url(site_url('courses')) . '">courses</a>', 'dff');
-                    ?></p>
+                <p><?php printf( __('You have no courses. Please, check our <a href="%s">courses</a>', 'dff' ), esc_url(site_url('courses'))); ?></p>
             </div>
         </div>
 
