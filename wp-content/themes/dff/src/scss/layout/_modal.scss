@@ -27,7 +27,7 @@
     .modal.is-visible {
         visibility: visible;
         .modal-overlay {
-            opacity: 1;  
+            opacity: 1;
             visibility: visible;
             transition-delay: 0s;
         }
@@ -117,7 +117,8 @@
                     color: #fff;
                 }
             }
-            button.btn-course-primary, .login.btn-course-primary {
+            button.btn-course-primary,
+            .login.btn-course-primary {
                 border: 1px solid #000000;
                 box-sizing: border-box;
                 background: none;
@@ -149,5 +150,15 @@
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+}
+.rtl {
+    .single-course-modal {
+        .modal-close {
+            &::after {
+                left: 6px;
+                right: unset;
+            }
+        }
     }
 }

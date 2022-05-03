@@ -78,7 +78,7 @@
                         </main>
                         <aside class="course-sidebar">
                             <!-- <div class="single-sidebar"> -->
-                            <h2>Course Details</h2>
+                            <h2><?php _e('Course Details', 'dff'); ?></h2>
                             <div class="sidebar-info">
                                 <h3><?php _e('Learning Style', 'dff'); ?></h3>
                                 <p><?php echo $learning_style['choices'][$learning_style['value']]; ?></p>

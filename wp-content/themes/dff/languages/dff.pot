@@ -1,0 +1,2153 @@
+# Copyright (C) 2022 Dubaifuture
+# This file is distributed under the .
+msgid ""
+msgstr ""
+"Project-Id-Version: Dubai Future Foundations 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/dff\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-05-03T07:12:32+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: dff\n"
+
+#. Theme Name of the theme
+msgid "Dubai Future Foundations"
+msgstr ""
+
+#. Author of the theme
+msgid "Dubaifuture"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://www.dubaifuture.ae/"
+msgstr ""
+
+#. Template Name of the theme
+msgid "404"
+msgstr ""
+
+#: 404.php:22
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:23
+msgid "Back to Home"
+msgstr ""
+
+#: archive-future-talk.php:54
+#: inc/post-types/future-talks.php:15
+msgid "Future Talks"
+msgstr ""
+
+#: archive-future-talk.php:65
+msgid "Filter "
+msgstr ""
+
+#: archive.php:61
+#: home.php:116
+#: inc/frontend/loader.php:17
+#: search.php:101
+msgid "Sort By"
+msgstr ""
+
+#: archive.php:63
+#: home.php:118
+#: inc/frontend/loader.php:18
+#: search.php:104
+msgid "Date (OLDEST)"
+msgstr ""
+
+#: archive.php:64
+#: home.php:119
+#: inc/frontend/loader.php:19
+#: search.php:105
+msgid "Date (NEWEST)"
+msgstr ""
+
+#: footer.php:9
+msgid "Subscribe for updates"
+msgstr ""
+
+#: footer.php:10
+msgid "A weekly update from DFF"
+msgstr ""
+
+#: footer.php:13
+#: footer.php:14
+msgid "Email Address"
+msgstr ""
+
+#: footer.php:16
+msgid "Subscribe"
+msgstr ""
+
+#: header.php:75
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:88
+msgid "Go to the homepage"
+msgstr ""
+
+#: header.php:91
+msgid "Main Menu Navigation"
+msgstr ""
+
+#: header.php:122
+msgid "Open Search"
+msgstr ""
+
+#: header.php:126
+msgid "Future ID menu"
+msgstr ""
+
+#: header.php:131
+msgid "Turn darkmode on"
+msgstr ""
+
+#: header.php:135
+msgid "Turn darkmode off"
+msgstr ""
+
+#: header.php:141
+msgid "Close Search"
+msgstr ""
+
+#: home.php:61
+msgid "Latest insights"
+msgstr ""
+
+#: home.php:72
+#: inc/frontend/loader.php:20
+msgid "Filter by content type"
+msgstr ""
+
+#. translators: Subnavigation for "menu item title"
+#: inc/class-nav-megamenu-walker.php:65
+msgid "Subnavigation for %s"
+msgstr ""
+
+#: inc/class-nav-megamenu.php:40
+msgid "Submenu Title"
+msgstr ""
+
+#: inc/class-nav-megamenu.php:52
+msgid "Submenu content"
+msgstr ""
+
+#: inc/frontend/loader.php:14
+#: dist/scripts/gutenberg.js:62140
+msgid "Search"
+msgstr ""
+
+#: inc/frontend/loader.php:15
+msgid "Top search results"
+msgstr ""
+
+#: inc/frontend/loader.php:16
+msgid "All search results ›"
+msgstr ""
+
+#: inc/frontend/loader.php:21
+msgid "Filter by"
+msgstr ""
+
+#: inc/frontend/loader.php:22
+msgid "Clear Filter"
+msgstr ""
+
+#: inc/frontend/loader.php:23
+#: search.php:110
+#: dist/scripts/gutenberg.js:62746
+#: dist/scripts/gutenberg.js:62829
+msgid "Loading..."
+msgstr ""
+
+#: inc/frontend/loader.php:24
+#: dist/scripts/gutenberg.js:62746
+msgid "Load More"
+msgstr ""
+
+#: inc/frontend/loader.php:25
+msgid "Login / Register"
+msgstr ""
+
+#: inc/frontend/loader.php:26
+msgid "Logout"
+msgstr ""
+
+#: inc/frontend/loader.php:27
+msgid "My Profile"
+msgstr ""
+
+#: inc/frontend/loader.php:28
+msgid "Programmes Dashboard"
+msgstr ""
+
+#: inc/frontend/loader.php:29
+#: dist/scripts/gutenberg.js:62726
+msgid "Your query yielded no results, please try again."
+msgstr ""
+
+#: inc/frontend/loader.php:30
+#: search.php:80
+msgid "Filter search results"
+msgstr ""
+
+#: inc/frontend/loader.php:31
+msgid "Filtering By"
+msgstr ""
+
+#: inc/frontend/loader.php:32
+msgid "No results found for the search term"
+msgstr ""
+
+#: inc/frontend/loader.php:33
+msgid "Searching"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-post-type-archive.php:114
+#: single-courses.php:56
+msgid "Apply Now"
+msgstr ""
+
+#. translators: e.g No Posts found, where %s = Posts.
+#: inc/gutenberg/blocks/class-post-type-archive.php:219
+msgid "No %s Found"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-post-type-archive.php:271
+#: inc/gutenberg/blocks/class-tabbed-posts.php:240
+#: inc/gutenberg/blocks/class-tabbed-posts.php:325
+msgid "View All"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:251
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:117
+msgid "Previous Posts"
+msgstr ""
+
+#: inc/gutenberg/blocks/class-tabbed-posts.php:297
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:135
+msgid "Next Posts"
+msgstr ""
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:28
+msgid "Previous Image"
+msgstr ""
+
+#: inc/gutenberg/blocks/image-slider/class-render.php:42
+msgid "Next Image"
+msgstr ""
+
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:34
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:36
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:71
+#: inc/gutenberg/blocks/post-feed/styles/class-simple.php:73
+msgid "Link to %s"
+msgstr ""
+
+#: inc/gutenberg/blocks/sub-menu/class-render.php:66
+#: inc/gutenberg/blocks/sub-menu/class-render.php:67
+#: dist/scripts/gutenberg.js:57000
+msgid "Overview"
+msgstr ""
+
+#: inc/gutenberg/class-loader.php:63
+msgid "DFF"
+msgstr ""
+
+#: inc/integrations/programs/class-cron.php:64
+msgid "Every hour"
+msgstr ""
+
+#: inc/integrations/programs/class-rest.php:26
+msgid "Successfully synchronised programs."
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:2
+msgid "Synchronise Programmes"
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:3
+msgid "The website synchronises programmes every six hours without user interaction."
+msgstr ""
+
+#: inc/integrations/programs/views/admin.php:29
+msgid "Something went wrong whilst trying to synchronise programmes, hit synchronise to try again"
+msgstr ""
+
+#: inc/navigation.php:9
+msgid "Primary Nav"
+msgstr ""
+
+#: inc/navigation.php:10
+msgid "Future ID"
+msgstr ""
+
+#: inc/navigation.php:11
+msgid "Footer #1"
+msgstr ""
+
+#: inc/navigation.php:12
+msgid "Footer #2"
+msgstr ""
+
+#: inc/navigation.php:13
+msgid "Footer #3"
+msgstr ""
+
+#: inc/navigation.php:14
+msgid "Footer Bottom"
+msgstr ""
+
+#: inc/navigation.php:15
+msgid "Footer Bottom #2"
+msgstr ""
+
+#: inc/navigation.php:97
+msgid "Site breadcrumbs"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/post-types/courses.php:16
+#: single-courses.php:29
+msgid "Courses"
+msgstr ""
+
+#: inc/post-types/courses.php:17
+msgid "Course"
+msgstr ""
+
+#: inc/post-types/courses.php:61
+#: inc/post-types/quizzes-answers.php:61
+#: inc/post-types/quizzes.php:61
+msgctxt "Taxonomy General Name"
+msgid "Categories"
+msgstr ""
+
+#: inc/post-types/courses.php:62
+#: inc/post-types/quizzes-answers.php:62
+#: inc/post-types/quizzes.php:62
+msgctxt "Taxonomy Singular Name"
+msgid "Category"
+msgstr ""
+
+#: inc/post-types/courses.php:63
+#: inc/post-types/quizzes-answers.php:63
+#: inc/post-types/quizzes.php:63
+#: dist/scripts/gutenberg.js:45826
+msgid "Category"
+msgstr ""
+
+#: inc/post-types/courses.php:64
+#: inc/post-types/quizzes-answers.php:64
+#: inc/post-types/quizzes.php:64
+msgid "All Categories"
+msgstr ""
+
+#: inc/post-types/courses.php:65
+#: inc/post-types/quizzes-answers.php:65
+#: inc/post-types/quizzes.php:65
+msgid "Parent Category"
+msgstr ""
+
+#: inc/post-types/courses.php:66
+#: inc/post-types/quizzes-answers.php:66
+#: inc/post-types/quizzes.php:66
+msgid "Parent Category:"
+msgstr ""
+
+#: inc/post-types/courses.php:67
+#: inc/post-types/quizzes-answers.php:67
+#: inc/post-types/quizzes.php:67
+msgid "New Category Name"
+msgstr ""
+
+#: inc/post-types/courses.php:68
+#: inc/post-types/quizzes-answers.php:68
+#: inc/post-types/quizzes.php:68
+msgid "Add New Category"
+msgstr ""
+
+#: inc/post-types/courses.php:69
+#: inc/post-types/quizzes-answers.php:69
+#: inc/post-types/quizzes.php:69
+msgid "Edit Category"
+msgstr ""
+
+#: inc/post-types/courses.php:70
+#: inc/post-types/quizzes-answers.php:70
+#: inc/post-types/quizzes.php:70
+msgid "Update Category"
+msgstr ""
+
+#: inc/post-types/courses.php:71
+#: inc/post-types/quizzes-answers.php:71
+#: inc/post-types/quizzes.php:71
+msgid "View Category"
+msgstr ""
+
+#: inc/post-types/courses.php:72
+#: inc/post-types/insights.php:59
+#: inc/post-types/programs.php:59
+#: inc/post-types/programs.php:105
+#: inc/post-types/quizzes-answers.php:72
+#: inc/post-types/quizzes.php:72
+msgid "Separate event categories with commas"
+msgstr ""
+
+#: inc/post-types/courses.php:73
+#: inc/post-types/insights.php:60
+#: inc/post-types/programs.php:60
+#: inc/post-types/programs.php:106
+#: inc/post-types/quizzes-answers.php:73
+#: inc/post-types/quizzes.php:73
+msgid "Add or remove event categories"
+msgstr ""
+
+#: inc/post-types/courses.php:74
+#: inc/post-types/insights.php:61
+#: inc/post-types/programs.php:61
+#: inc/post-types/programs.php:107
+#: inc/post-types/quizzes-answers.php:74
+#: inc/post-types/quizzes.php:74
+msgid "Choose from the most used"
+msgstr ""
+
+#: inc/post-types/courses.php:75
+#: inc/post-types/quizzes-answers.php:75
+#: inc/post-types/quizzes.php:75
+msgid "Popular Categories"
+msgstr ""
+
+#: inc/post-types/courses.php:76
+#: inc/post-types/quizzes-answers.php:76
+#: inc/post-types/quizzes.php:76
+msgid "Search Categories"
+msgstr ""
+
+#: inc/post-types/courses.php:77
+#: inc/post-types/insights.php:64
+#: inc/post-types/programs.php:64
+#: inc/post-types/programs.php:110
+#: inc/post-types/quizzes-answers.php:77
+#: inc/post-types/quizzes.php:77
+msgid "Not Found"
+msgstr ""
+
+#: inc/post-types/courses.php:78
+#: inc/post-types/quizzes-answers.php:78
+#: inc/post-types/quizzes.php:78
+msgid "No Categories"
+msgstr ""
+
+#: inc/post-types/courses.php:79
+#: inc/post-types/quizzes-answers.php:79
+#: inc/post-types/quizzes.php:79
+msgid "Categories list"
+msgstr ""
+
+#: inc/post-types/courses.php:80
+#: inc/post-types/quizzes-answers.php:80
+#: inc/post-types/quizzes.php:80
+msgid "Categories list navigation"
+msgstr ""
+
+#: inc/post-types/future-talks.php:16
+msgid "Future Talk"
+msgstr ""
+
+#: inc/post-types/insights.php:12
+#: inc/post-types/insights.php:13
+#: inc/post-types/insights.php:23
+#: inc/post-types/insights.php:34
+#: inc/post-types/insights.php:35
+#: search.php:5
+msgid "Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:14
+#: inc/post-types/insights.php:25
+#: inc/post-types/insights.php:26
+msgid "Add Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:15
+msgid "Tags"
+msgstr ""
+
+#: inc/post-types/insights.php:24
+#: inc/post-types/insights.php:28
+msgid "Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:27
+msgid "Edit Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:29
+msgid "View Insight"
+msgstr ""
+
+#: inc/post-types/insights.php:30
+msgid "Search Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:31
+msgid "No Insight found"
+msgstr ""
+
+#: inc/post-types/insights.php:32
+msgid "No Insight found in Trash"
+msgstr ""
+
+#: inc/post-types/insights.php:33
+msgid "All Insights"
+msgstr ""
+
+#: inc/post-types/insights.php:48
+msgctxt "Taxonomy General Name"
+msgid "Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:50
+msgid "Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:51
+msgid "All Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:52
+msgid "Parent Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:53
+msgid "Parent Article Type:"
+msgstr ""
+
+#: inc/post-types/insights.php:54
+msgid "New Article Type Name"
+msgstr ""
+
+#: inc/post-types/insights.php:55
+msgid "Add New Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:56
+msgid "Edit Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:57
+msgid "Update Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:58
+msgid "View Article Type"
+msgstr ""
+
+#: inc/post-types/insights.php:62
+msgid "Popular Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:63
+msgid "Search Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:65
+msgid "No Article Types"
+msgstr ""
+
+#: inc/post-types/insights.php:66
+msgid "Article Types list"
+msgstr ""
+
+#: inc/post-types/insights.php:67
+msgid "Article Types list navigation"
+msgstr ""
+
+#: inc/post-types/programs.php:15
+#: search.php:8
+msgid "Programmes"
+msgstr ""
+
+#: inc/post-types/programs.php:16
+msgid "Programme"
+msgstr ""
+
+#: inc/post-types/programs.php:48
+msgctxt "Taxonomy General Name"
+msgid "Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:49
+msgctxt "Taxonomy Singular Name"
+msgid "Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:50
+msgid "Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:51
+msgid "All Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:52
+msgid "Parent Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:53
+msgid "Parent Facilitator:"
+msgstr ""
+
+#: inc/post-types/programs.php:54
+msgid "New Facilitator Name"
+msgstr ""
+
+#: inc/post-types/programs.php:55
+msgid "Add New Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:56
+msgid "Edit Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:57
+msgid "Update Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:58
+msgid "View Facilitator"
+msgstr ""
+
+#: inc/post-types/programs.php:62
+msgid "Popular Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:63
+msgid "Search Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:65
+msgid "No Facilitators"
+msgstr ""
+
+#: inc/post-types/programs.php:66
+msgid "Facilitators list"
+msgstr ""
+
+#: inc/post-types/programs.php:67
+msgid "Facilitators list navigation"
+msgstr ""
+
+#: inc/post-types/programs.php:94
+msgctxt "Taxonomy General Name"
+msgid "Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:95
+msgctxt "Taxonomy Singular Name"
+msgid "Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:96
+msgid "Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:97
+msgid "All Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:98
+msgid "Parent Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:99
+msgid "Parent Challenge Owner:"
+msgstr ""
+
+#: inc/post-types/programs.php:100
+msgid "New Challenge Owner Name"
+msgstr ""
+
+#: inc/post-types/programs.php:101
+msgid "Add New Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:102
+msgid "Edit Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:103
+msgid "Update Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:104
+msgid "View Challenge Owner"
+msgstr ""
+
+#: inc/post-types/programs.php:108
+msgid "Popular Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:109
+msgid "Search Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:111
+msgid "No Challenge Owners"
+msgstr ""
+
+#: inc/post-types/programs.php:112
+msgid "Challenge Owners list"
+msgstr ""
+
+#: inc/post-types/programs.php:113
+msgid "Challenge Owners list navigation"
+msgstr ""
+
+#: inc/post-types/quizzes-answers.php:16
+msgid "Quizzes Answers"
+msgstr ""
+
+#: inc/post-types/quizzes-answers.php:17
+msgid "Quizzes Answer"
+msgstr ""
+
+#: inc/post-types/quizzes.php:16
+msgid "Quizzes"
+msgstr ""
+
+#: inc/post-types/quizzes.php:17
+msgid "Quiz"
+msgstr ""
+
+#: includes/courses.inc.php:35
+msgid "All Courses"
+msgstr ""
+
+#: includes/courses/layouts/upload-file-layout.inc.php:22
+msgid "Open"
+msgstr ""
+
+#: includes/courses/my-courses/my-courses.inc.php:15
+msgid "About"
+msgstr ""
+
+#: includes/courses/my-courses/my-courses.inc.php:16
+#: single-courses.php:69
+msgid "Modules"
+msgstr "الوحدات"
+
+#: includes/courses/my-courses/my-courses.inc.php:17
+msgid "My Progress"
+msgstr "تقدمي"
+
+#: includes/courses/my-courses/parts-course/about-course.php:54
+#: single-courses.php:64
+msgid "Description"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/about-course.php:59
+#: single-courses.php:114
+msgid "Requirments"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/about-course.php:83
+#: single-courses.php:138
+msgid "Learning Style"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/about-course.php:87
+#: single-courses.php:142
+msgid "Course format"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/about-course.php:91
+#: single-courses.php:146
+msgid "Complexities"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/lesson-content.php:9
+#: includes/functions/ajax-lessons-tab.inc.php:25
+msgid "Back"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/lesson-content.php:11
+#: includes/functions/ajax-lessons-tab.inc.php:30
+#: includes/functions/ajax-lessons-tab.inc.php:36
+msgid "Next"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/modules-course.php:63
+#: includes/courses/my-courses/parts-course/my-progress-course.php:49
+#: single-courses.php:80
+msgid "Module"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/modules-course.php:82
+msgid "Lesson"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/modules-course.php:89
+msgid "Test"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/modules-course.php:107
+#: includes/courses/my-courses/parts-course/my-progress-course.php:52
+#: includes/template-functions.php:240
+msgid "Exam"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/modules-course.php:113
+msgid "Please add a module"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:35
+msgid "General progress"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:95
+msgid "Final exam"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:110
+#: includes/courses/my-courses/parts-course/my-progress-course.php:120
+#: includes/courses/my-courses/parts-course/my-progress-course.php:147
+#: includes/courses/my-courses/parts-course/my-progress-course.php:163
+msgid "Result:"
+msgstr ""
+
+#. Template Name of the theme
+#: includes/courses/my-courses/parts-course/my-progress-course.php:150
+#: includes/user-profile.inc.php:27
+msgid "My courses"
+msgstr ""
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:166
+#: includes/template-functions.php:340
+msgid "Try again"
+msgstr ""
+
+#: includes/courses/other-course.inc.php:3
+msgid "Other courses"
+msgstr ""
+
+#: includes/courses/popular-courses.inc.php:3
+msgid "Popular courses"
+msgstr ""
+
+#: includes/courses/popup_user.inc.php:16
+msgid "Go to my courses"
+msgstr ""
+
+#: includes/courses/popup_user.inc.php:17
+msgid "Close"
+msgstr ""
+
+#: includes/courses/popup_user.inc.php:21
+msgid "Register"
+msgstr ""
+
+#: includes/courses/popup_user.inc.php:22
+msgid "Log in"
+msgstr ""
+
+#: includes/template-functions.php:238
+msgid "Mod"
+msgstr ""
+
+#: includes/user-profile.inc.php:28
+#: includes/user-profile.inc.php:79
+msgid "My certification"
+msgstr ""
+
+#: includes/user-profile.inc.php:68
+#: includes/user-profile.inc.php:80
+msgid "You have no courses. Please, check our <a href=\""
+msgstr ""
+
+#: search.php:6
+msgid "Pages"
+msgstr ""
+
+#: search.php:7
+msgid "Events"
+msgstr ""
+
+#. translators: Search results for "$query_text"
+#: search.php:30
+msgid "Showing results for \"%s\""
+msgstr ""
+
+#: search.php:42
+#: search.php:103
+msgid "Relevance"
+msgstr ""
+
+#: single-courses.php:136
+msgid "Course Details"
+msgstr ""
+
+#: single-future-talk.php:40
+#: single.php:76
+msgid "Share"
+msgstr ""
+
+#: single-future-talk.php:63
+#: single.php:103
+msgid "Related Posts"
+msgstr ""
+
+#: single.php:30
+msgid "Scroll down to post content"
+msgstr ""
+
+#: single.php:81
+msgid "Share to Facebook"
+msgstr ""
+
+#: single.php:87
+msgid "Share to Twitter"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43143
+msgid "Custom Button Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43148
+msgid "Burgundy"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43151
+#: dist/scripts/gutenberg.js:43161
+#: dist/scripts/gutenberg.js:54757
+#: dist/scripts/gutenberg.js:56266
+msgid "Black"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43154
+#: dist/scripts/gutenberg.js:54769
+#: dist/scripts/gutenberg.js:56278
+msgid "Red"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43164
+msgid "White"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43170
+#: dist/scripts/gutenberg.js:46992
+msgid "Open link in new tab"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43178
+#: dist/scripts/gutenberg.js:44965
+msgid "Button Text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43254
+#: dist/scripts/gutenberg.js:43255
+msgid "Button"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43257
+#: dist/scripts/gutenberg.js:46627
+msgid "button"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43257
+#: dist/scripts/gutenberg.js:46627
+msgid "link"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43349
+#: dist/scripts/gutenberg.js:49565
+#: dist/scripts/gutenberg.js:50377
+#: dist/scripts/gutenberg.js:54132
+#: dist/scripts/gutenberg.js:57214
+#: dist/scripts/gutenberg.js:58009
+#: dist/scripts/gutenberg.js:59871
+msgid "Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43352
+#: dist/scripts/gutenberg.js:44497
+#: dist/scripts/gutenberg.js:44519
+msgid "Layout"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43354
+#: dist/scripts/gutenberg.js:55198
+#: dist/scripts/gutenberg.js:55208
+msgid "Default"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43357
+msgid "Image Left"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43360
+msgid "Image Right"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43366
+msgid "Align content to top"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43370
+msgid "Please select a heading level: (h1 to h4)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43383
+msgid "Enable Category Icon"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43387
+msgid "Enable Category Text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43391
+msgid "Enable Button"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43395
+msgid "Padding"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43399
+msgid "Border"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43418
+msgid "(Category)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43425
+msgid "(Card Title)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43432
+#: dist/scripts/gutenberg.js:44956
+#: dist/scripts/gutenberg.js:58456
+msgid "(Content)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43439
+#: dist/scripts/gutenberg.js:53800
+msgid "(Button text)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43675
+msgid "Card"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43676
+msgid "Card block for displaying an image with content below."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43678
+msgid "card"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43678
+msgid "thumbnail"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43940
+#: dist/scripts/gutenberg.js:43941
+msgid "Column"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43946
+#: dist/scripts/gutenberg.js:44635
+msgid "columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:43946
+#: dist/scripts/gutenberg.js:44635
+msgid "column"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44483
+#: dist/scripts/gutenberg.js:44510
+#: dist/scripts/gutenberg.js:44632
+msgid "Columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44485
+msgid "Select number of columns your row requires"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44499
+msgid "Select the desired layout."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44525
+msgid "Space columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44529
+msgid "Mobile column reverse"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44536
+msgid "Vertical column alignment"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44633
+msgid "Column builder"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44944
+#: dist/scripts/gutenberg.js:46890
+#: dist/scripts/gutenberg.js:54148
+#: dist/scripts/gutenberg.js:55369
+msgid "Set Background Image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44951
+msgid "(Title)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:44992
+#: dist/scripts/gutenberg.js:49631
+#: dist/scripts/gutenberg.js:50235
+#: dist/scripts/gutenberg.js:58470
+msgid "Add Item"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45039
+#: dist/scripts/gutenberg.js:45242
+msgid "Goto Slide %d"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45079
+#: dist/scripts/gutenberg.js:45282
+msgid "Current slide is %d out of %d"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45333
+msgid "Content Slider"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45334
+msgid "Slider block for displaying content."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45336
+#: dist/scripts/gutenberg.js:50526
+msgid "slider"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45821
+msgid "Dynamic Type:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45839
+msgid "Post Type"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45849
+msgid "Preview Posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45903
+msgid "Featured Posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45904
+msgid "A grid to display a grid of posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45906
+msgid "posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45906
+msgid "feature"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:45980
+#: dist/scripts/gutenberg.js:60665
+msgid "Set Image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46088
+msgid "Full sized image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46089
+msgid "An image to fill the entire container, this is mainly used for stylistic purposes"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46091
+#: dist/scripts/gutenberg.js:50526
+msgid "image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46091
+msgid "visual"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46624
+msgid "Google Map"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46625
+msgid "A google map integration"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46854
+msgid "Style"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46881
+msgid "Show Breadcrumbs"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46885
+msgid "Background Image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46885
+msgid "Background"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46893
+msgid "Background Vertical Position"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46913
+msgid "Set Background Image for Mobile"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46928
+msgid "Selected Color"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46938
+msgid "Clear Background Color"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46942
+msgid "Set Background Video"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46946
+msgid "Dark Background"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46947
+msgid "If the background is dark toggle this to flip the colors."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46951
+msgid "Home Shape Animation"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46955
+msgid "Title Options"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46956
+msgid "Title Position"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46966
+msgid "Arrow Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46968
+msgid "Click Option"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46970
+msgid "Scroll"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46973
+msgid "Link"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46979
+msgid "Scroll To: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46981
+msgid "Below Hero"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46987
+msgid "Link To: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:46996
+msgid "Align Arrow Left"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:47079
+#: dist/scripts/gutenberg.js:47080
+msgid "Hero"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:47082
+msgid "hero"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:47082
+msgid "display"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:47328
+#: dist/scripts/gutenberg.js:48574
+#: dist/scripts/gutenberg.js:48851
+#: dist/scripts/gutenberg.js:49155
+msgid "Scroll down text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:47328
+#: dist/scripts/gutenberg.js:48574
+#: dist/scripts/gutenberg.js:48851
+#: dist/scripts/gutenberg.js:49155
+msgid "Link text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:48283
+msgid "Hero Quote"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:48289
+msgid "Hero Cite"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:48296
+msgid "Hero Cite (Job Title)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:48306
+msgid "Call to action text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49089
+msgid "Set Logo"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49552
+#: dist/scripts/gutenberg.js:55215
+msgid "None"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49555
+#: dist/scripts/gutenberg.js:55248
+#: dist/scripts/gutenberg.js:58052
+msgid "Left"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49558
+#: dist/scripts/gutenberg.js:55251
+#: dist/scripts/gutenberg.js:58055
+msgid "Center"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49561
+#: dist/scripts/gutenberg.js:55254
+#: dist/scripts/gutenberg.js:58058
+msgid "Right"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49567
+msgid "Block alignment: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49576
+msgid "Toggle Column Control"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49584
+msgid "Column Control Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49586
+msgid "Items per row: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49596
+msgid "Fix Arrow to Bottom"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49610
+#: dist/scripts/gutenberg.js:50210
+msgid "Remove Item"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49616
+msgid "List Title"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49622
+msgid "List Content"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49967
+msgid "Horizontal list"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49968
+msgid "Horizontal list."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49970
+#: dist/scripts/gutenberg.js:50328
+msgid "list"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:49970
+msgid "horizontal"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50184
+msgid "Dark Mode Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50186
+msgid "Enable Dark Mode Invert"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50187
+msgid "This will invert icon colours for dark mode only"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50195
+msgid "Show Dark Mode Preview"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50196
+msgid "A preview of how the icon will potentially look in dark mode"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50216
+msgid "Set Icon"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50223
+msgid "Title"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50229
+msgid "Content"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50325
+#: dist/scripts/gutenberg.js:50326
+msgid "Icon list"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50328
+msgid "icon"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50379
+msgid "Number of items visible"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50389
+msgid "Please select your images"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50400
+msgid "Edit Images"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50400
+msgid "Add Images"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50441
+msgid "No images selected, cannot display slider."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50524
+msgid "Image Slider"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50525
+msgid "Allows for the displaying of multiple images inline"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:50526
+msgid "scrolling"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51164
+#: dist/scripts/gutenberg.js:53565
+msgid "Post Types"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51170
+#: dist/scripts/gutenberg.js:53571
+msgid "Taxonomies"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51185
+#: dist/scripts/gutenberg.js:54163
+#: dist/scripts/gutenberg.js:58032
+msgid "Additional Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51187
+msgid "Selection Mode"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51191
+msgid "Show Preview"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51195
+msgid "Feed name for accessibility"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51198
+msgid "Please provide a title for this feed for accesibility reasons. E.g Latest from future talks."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51200
+msgid "Please select a heading tag to be used for the title."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51217
+msgid "Current Background URL"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51221
+msgid "Please choose a background image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51938
+#: dist/scripts/gutenberg.js:51939
+msgid "Post Feed"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51941
+msgid "post"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:51941
+#: dist/scripts/gutenberg.js:53708
+msgid "feed"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:52221
+msgid "Has featured post"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:52344
+msgid "Enable Slider"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53397
+msgid "Past Events"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53398
+msgid "When toggled this will only show events that have passed."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53414
+msgid "Past Programmes"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53415
+msgid "When toggled this will only show programmes that have passed their deadline."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53419
+msgid "Show Apply Now Link"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53582
+msgid "Options"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53584
+msgid "Show Category Filters"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53588
+msgid "Show Sort By Options"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53592
+msgid "Show View All Button"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53596
+msgid "View All Link"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53600
+msgid "Show Pagination"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53607
+msgid "Number of posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53610
+msgid "No Posts Found Text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53614
+msgid "Card Options"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53616
+msgid "Show Taxonomy"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53620
+msgid "Show Date"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53624
+msgid "Filters"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53636
+msgid "Archive Title"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53705
+#: dist/scripts/gutenberg.js:53706
+msgid "Post type archive"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53708
+msgid "archive"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53790
+msgid "Text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53961
+msgid "Cite"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:53965
+msgid "Cite Job"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54134
+msgid "Select banner style:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54139
+msgid "Quote"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54142
+msgid "Call To Action"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54523
+msgid "Quote Banner"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54524
+msgid "Large quote with background image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54526
+msgid "quote"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54526
+msgid "banner"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54638
+msgid "Larger content area"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54642
+msgid "Alternate Style"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54650
+#: dist/scripts/gutenberg.js:59706
+msgid "Section title"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54660
+msgid "(Section Content)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54722
+msgid "Section Header"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54723
+#: dist/scripts/gutenberg.js:59707
+msgid "Header block for a section that contains the heading and sub-content."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54725
+#: dist/scripts/gutenberg.js:56851
+#: dist/scripts/gutenberg.js:59709
+msgid "section"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54725
+#: dist/scripts/gutenberg.js:59709
+msgid "header"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54760
+#: dist/scripts/gutenberg.js:56269
+msgid "Grey Dark"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54763
+#: dist/scripts/gutenberg.js:56272
+msgid "Grey"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54766
+#: dist/scripts/gutenberg.js:56275
+msgid "Grey Light"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54772
+#: dist/scripts/gutenberg.js:56281
+msgid "Dark Green"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54775
+#: dist/scripts/gutenberg.js:56284
+msgid "Yellow"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:54778
+#: dist/scripts/gutenberg.js:56287
+msgid "Blue"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55201
+msgid "No Padding"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55204
+#: dist/scripts/gutenberg.js:55221
+msgid "Large"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55211
+msgid "Dark"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55218
+msgid "Small"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55224
+msgid "Custom"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55228
+msgid "Start"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55231
+msgid "End"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55235
+msgid "12 Columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55238
+msgid "10 Columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55241
+msgid "8 Columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55244
+msgid "6 Columns"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55305
+msgid "Content Width:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55310
+msgid "Content Alignment:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55315
+msgid "Size:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55328
+msgid "Color:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55333
+msgid "Has border"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55337
+msgid "No Padding on Mobile"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55341
+msgid "Triangle Option:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55346
+msgid "Triangle Position:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55350
+msgid "Background Colour:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55355
+msgid "Background Colour Dark Mode"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55356
+msgid "Sets a different background colour for dark theme mode."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55376
+msgid "Anchor"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55378
+msgid "Is Anchor"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55379
+msgid "Allow the hero to link to this section"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55383
+msgid "Section Name"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55384
+msgid "This will be used to identify the section within the header options"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55388
+msgid "Negative Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55390
+msgid "Enable"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55391
+msgid "This will enable the negative margin mode for this section"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55395
+msgid "Negative Space:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55401
+msgid "Triangle Images"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55406
+msgid "Set Image Triangle One"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55412
+msgid "Set Image Triangle Two"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:55418
+msgid "Set Image Triangle Three"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56848
+msgid "Section"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56849
+msgid "Section block for containing the content."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56851
+msgid "container"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56977
+msgid "Getting pages..."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56984
+msgid "Current page selected has no sub pages, please select a new page."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:56991
+msgid "Please select a page from the settings menu."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57193
+#: dist/scripts/gutenberg.js:57977
+msgid "Please select a page"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57216
+#: dist/scripts/gutenberg.js:58068
+msgid "Please select a page:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57225
+#: dist/scripts/gutenberg.js:58073
+msgid "Order by: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57249
+#: dist/scripts/gutenberg.js:58087
+msgid "Order: "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57307
+msgid "Page Sub Menu"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57308
+msgid "Sub menu page block which will display a menu of sub pages"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57310
+msgid "sub pages menu"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:57785
+msgid "Maximum of two post types can be selected"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58011
+msgid "Please select a mode type:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58022
+msgid "Enable preview"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58023
+msgid "Toggles the preview card option for the select feed."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58034
+msgid "No Sidebar "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58035
+msgid "Disables the sidebar"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58039
+msgid "Enable Meta Information "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58040
+msgid "Enables the display of meta information for each item"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58044
+msgid "Enable Call To Action "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58045
+msgid "Enables the display of an arrow icon where meta information would usually go"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58049
+msgid "Please an alignment"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58063
+msgid "Restrict To Sub Pages "
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58064
+msgid "Enables the selection of a parent page to be used."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58116
+msgid "Enter title"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58121
+msgid "Enter description"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58206
+#: dist/scripts/gutenberg.js:58207
+msgid "Tabbed Posts"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58209
+msgid "tabs"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58209
+msgid "tab"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58451
+msgid "(Year)"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58544
+msgid "Timeline"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58545
+msgid "Timeline block for displaying content."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58547
+msgid "timeline"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58547
+msgid "about"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:58619
+msgid "Has Graphic"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:59876
+msgid "Set Image Triangle Large"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:59882
+msgid "Set Image Triangle Small"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:59897
+#: dist/scripts/gutenberg.js:59908
+#: dist/scripts/gutenberg.js:59919
+msgid "Please enter your text"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:59960
+msgid "Triangle Block"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:59961
+msgid "Block for displaying stylised content with custom triangle images"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:60667
+msgid "Replace Image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:60669
+msgid "Remove Image"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62120
+msgid "Arrow Right"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62124
+msgid "Sun"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62128
+msgid "Hourglass"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62132
+msgid "People"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62136
+msgid "Moon"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62144
+msgid "Play"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62148
+msgid "Chevron Down"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62152
+msgid "Chevron Right"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62720
+msgid "Loading Posts..."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62730
+msgid "No Posts."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62816
+msgid "Please enter your search query..."
+msgstr ""
+
+#: dist/scripts/gutenberg.js:62823
+msgid "Post Type:"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63120
+msgid "Font settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63122
+msgid "Font family"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63143
+msgid "Font weight"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63228
+msgid "Stylised"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63231
+msgid "Simple"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63393
+msgid "Video Settings"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63396
+msgid "Video URL"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63401
+msgid "Video Length"
+msgstr ""
+
+#: dist/scripts/gutenberg.js:63514
+msgid "Page Theme Options"
+msgstr ""

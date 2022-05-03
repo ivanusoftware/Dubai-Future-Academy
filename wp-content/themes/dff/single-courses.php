@@ -26,7 +26,8 @@ $posttype = get_post_type();
 								<?php echo $home_icon; ?>
 							</a>
 						</li>
-						<li><a href="/courses"><?php echo _e('Courses', 'dff'); ?></a></li>
+						<li><a href="<?php echo site_url('courses')?>"><?php _e('Courses', 'dff'); ?></a></li>
+
 						<li><?php echo _e(get_the_title(), 'dff'); ?></li>
 					</ul>
 					<a class="breadcrumbs-right breadcrumb-arrow"></a>
