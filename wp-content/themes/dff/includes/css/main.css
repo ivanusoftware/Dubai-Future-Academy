@@ -803,7 +803,7 @@ button.swiper-pagination-bullet {
       line-height: 24px;
       color: #000000; }
     .modules-course .cource-content .gallery-slider .swiper-button-prev {
-      background-image: url("../../images/arrow_back_prev"); }
+      background-image: url("../../images/arrow_back_prev.svg"); }
       .modules-course .cource-content .gallery-slider .swiper-button-prev::after {
         content: unset; }
     .modules-course .cource-content .gallery-slider .swiper-button-next {
