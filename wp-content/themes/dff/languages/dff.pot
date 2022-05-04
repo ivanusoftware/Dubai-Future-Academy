@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-03T21:22:42+00:00\n"
+"POT-Creation-Date: 2022-05-04T09:36:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: dff\n"
@@ -738,7 +738,7 @@ msgid "All Courses"
 msgstr ""
 
 #: includes/courses/layouts/upload-file-layout.inc.php:22
-msgid "Open"
+msgid "Download"
 msgstr ""
 
 #: includes/courses/my-courses/my-courses.inc.php:15
@@ -885,7 +885,7 @@ msgstr ""
 #: includes/user-profile.inc.php:68
 #: includes/user-profile.inc.php:78
 msgid "You have no courses. Please, check our <a href=\"%s\">courses</a>"
-msgstr "ليس لديك دورات. من فضلك ، تحقق من <a href=\"%s\"> دوراتنا </a>"
+msgstr ""
 
 #: search.php:6
 msgid "Pages"

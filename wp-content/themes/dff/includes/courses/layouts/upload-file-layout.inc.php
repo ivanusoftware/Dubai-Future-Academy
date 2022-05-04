@@ -6,10 +6,10 @@
         if ($lesson_upload_file) :
 
             // Extract variables.
-            $url = $lesson_upload_file['url'];
-            $title = $lesson_upload_file['filename'];
+            $url      = $lesson_upload_file['url'];
+            $title    = $lesson_upload_file['filename'];
             $filesize = $lesson_upload_file['filesize'];
-            $caption = $lesson_upload_file['caption'];
+            $caption  = $lesson_upload_file['caption'];
             // $icon = $lesson_upload_file['icon'];
         ?>
             <div class="upload-file-wrap">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="file-button-open">
                     <a href="<?php echo esc_attr($url); ?>" target="_blank" class="btn-course-primary open-btn">
-                        <?php _e('Open', 'dff'); ?>
+                        <?php _e('Download', 'dff'); ?>
                     </a>
                 </div>
             </div>            
