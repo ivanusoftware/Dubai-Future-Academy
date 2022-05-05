@@ -16,6 +16,7 @@
         letter-spacing: 0.02em;
         display: flex;
         align-items: center;
+        text-transform: uppercase;
         &:after {
             content: '';
             height: 24px;
@@ -148,6 +149,9 @@
         input:checked + label:after {
             background-color: $color-black;
         }
+        input.error + label {
+            border-color: red;
+        }
     }
 
     &__radio {
@@ -199,6 +203,9 @@
         input:checked + label:before {
             opacity: 1;
         }
+        input.error + label {
+            border-color: red;
+        }
     }
 
     &__select {
@@ -215,7 +222,14 @@
             border-bottom: 1px solid $color-black;
             position: relative;
             top: -4px;
+            &.error {
+                border-color: red;
+            }
         }
+    }
+
+    label.error {
+        display: none!important;
     }
 }
 

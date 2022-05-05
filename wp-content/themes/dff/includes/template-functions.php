@@ -30,6 +30,12 @@ function dff_disable_gutenberg($gutenberg_filter, $post_type)
         case 'quizzes_answers':
             return false;
             break;
+        case 'exams':
+            return false;
+            break;
+        case 'exams_answers':
+            return false;
+            break;
     }
 
     return $gutenberg_filter;

@@ -1,18 +1,22 @@
-<?php $lesson_test_id = $_POST['lesson_test_id'];  ?>
+<?php 
+$lesson_test_id = $_POST['lesson_test_id']; 
+$module_index = $_POST['module_index'];  
+$course_id = $_POST['course_id'];
+?>
 <div class="course-quiz">
 
     <div class="course-quiz__top">
-        <div class="course-quiz__title">TEST</div>
-        <div class="course-quiz__steps">Question <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
+        <div class="course-quiz__title"><?php _e('Test', 'dff'); ?></div>
+        <div class="course-quiz__steps"><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
     </div>
     <?php
-    $quiz = $lesson_test_id;
-    if ($quiz) : $post = $quiz;
+    
+    if ($lesson_test_id) : $post = $lesson_test_id;
         setup_postdata($post);
     ?>
 
         <?php if (have_rows('quiz_steps')) : ?>
-            <form id="quiz" class="course-quiz__content" data-id="<?php echo get_the_ID(); ?>" data-user="<?php echo get_current_user_id(); ?>">
+            <form id="quiz" class="course-quiz__content" data-type="test" data-quiz-id="<?php echo $lesson_test_id; ?>" data-module-id="<?php echo $module_index; ?>" data-course-id="<?php echo $course_id; ?>" data-user-id="<?php echo get_current_user_id(); ?>">
                 <?php while (have_rows('quiz_steps')) : the_row();
                     $row_parent = get_row_index(); ?>
                     <div class="course-quiz__step-title"><?php echo get_row_index(); ?></div>
@@ -29,7 +33,7 @@
                                         <?php while (have_rows('answers_radio')) : the_row(); ?>
 
                                             <div class="course-quiz__radio">
-                                                <input type="radio" name="radio_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                <input class="required" type="radio" name="radio_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
                                                 <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
                                             </div>
 
@@ -42,7 +46,7 @@
                                         <?php while (have_rows('answers_checkbox')) : the_row(); ?>
 
                                             <div class="course-quiz__checkbox">
-                                                <input type="checkbox" name="checkbox_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>[]" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                <input class="required" type="checkbox" name="checkbox_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>[]" value="<?php the_sub_field('answer'); ?>" id="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
                                                 <label for="radio_parent_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>"><?php the_sub_field('answer'); ?></label>
                                             </div>
 
@@ -62,8 +66,8 @@
 
                                                 <?php if (get_sub_field('variant') == 'select') { ?>
 
-                                                    <select name="select_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
-                                                        <option value="" disabled="" selected="">Choose the option</option>
+                                                    <select class="required" name="select_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                        <option value="<?php _e('Choose the option', 'dff'); ?>" disabled="" selected=""><?php _e('Choose the option', 'dff'); ?></option>
                                                         <?php if (have_rows('select')) : ?>
                                                             <?php while (have_rows('select')) : the_row(); ?>
                                                                 <option value="<?php the_sub_field('answer'); ?>"><?php the_sub_field('answer'); ?></option>
@@ -74,7 +78,7 @@
                                                 <?php } ?>
 
                                                 <?php if (get_sub_field('variant') == 'input') { ?>
-                                                    <input type="text" name="fragment_text_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
+                                                    <input class="required" type="text" name="fragment_text_<?php echo $row_parent; ?>_<?php echo $layout_parent; ?>_<?php echo get_row_index(); ?>">
                                                 <?php } ?>
 
 
