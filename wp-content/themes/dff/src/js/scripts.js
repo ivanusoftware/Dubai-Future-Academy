@@ -1,6 +1,7 @@
 import "@fancyapps/fancybox";
 import 'jquery-nice-select/js/jquery.nice-select.js';
 import 'jquery-steps/build/jquery.steps.js';
+//import './scripts/jquery.validate.js';
 import './ajax/ajax-categories';
 import './ajax/tab-module';
 import './ajax/sidebar-tab-item';
@@ -58,6 +59,13 @@ const $ = jQuery.noConflict();
 
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
+
+        var form = $("#quiz");
+        form.validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+        });
+
+
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
             bodyTag: ".course-quiz__step",
@@ -65,6 +73,18 @@ const $ = jQuery.noConflict();
             //onStepChanged: function (event, currentIndex, priorIndex) { }, 
             //onCanceled: function (event) { },
             //onFinishing: function (event, currentIndex) { return true; }, 
+
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+
             onFinished: function (event, currentIndex) {
                 var quizData = {};
                 $.each($(this).serializeArray(), function(index, value) {
@@ -81,8 +101,11 @@ const $ = jQuery.noConflict();
                 });
                 var data = new FormData();
                 data.append('action', 'quiz_answers');
-                data.append('id', $(this).data('id'));
-                data.append('user', $(this).data('user'));
+                data.append('type', $(this).data('type'));
+                data.append('quiz_id', $(this).data('quiz-id'));
+                data.append('module_id', $(this).data('module-id'));
+                data.append('course_id', $(this).data('course-id'));
+                data.append('user_id', $(this).data('user-id'));
                 data.append('form', JSON.stringify(quizData));
                 $.ajax({
                     type: "POST",
