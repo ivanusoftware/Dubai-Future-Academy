@@ -1263,7 +1263,8 @@ button.swiper-pagination-bullet {
   font-weight: 500;
   letter-spacing: 0.02em;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  text-transform: uppercase; }
   .course-quiz__title:after {
     content: '';
     height: 24px;
@@ -1375,6 +1376,8 @@ button.swiper-pagination-bullet {
     opacity: 1; }
   .course-quiz__checkbox input:checked + label:after {
     background-color: #000000; }
+  .course-quiz__checkbox input.error + label {
+    border-color: red; }
 
 .course-quiz__radio {
   max-width: 400px;
@@ -1419,6 +1422,8 @@ button.swiper-pagination-bullet {
     border-color: #000000; }
   .course-quiz__radio input:checked + label:before {
     opacity: 1; }
+  .course-quiz__radio input.error + label {
+    border-color: red; }
 
 .course-quiz__select {
   line-height: 36px; }
@@ -1434,6 +1439,11 @@ button.swiper-pagination-bullet {
     border-bottom: 1px solid #000000;
     position: relative;
     top: -4px; }
+    .course-quiz__select input.error {
+      border-color: red; }
+
+.course-quiz label.error {
+  display: none !important; }
 
 .nice-select {
   font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
