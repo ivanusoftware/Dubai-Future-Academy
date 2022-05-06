@@ -257,7 +257,7 @@ function dff_general_progress_mod_result($course_id)
     if (have_rows('course_module_repeater')) :
         while (have_rows('course_module_repeater')) : the_row();
             $module_or_exam = get_sub_field('module_or_exam');
-            $module_i = get_row_index();
+            $module_i       = get_row_index();
             $result_module_key = dff_module_course_user_key($course_id, $module_i);
             $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
             if ($result_module == 1) {
@@ -290,10 +290,8 @@ function dff_format_time_bound($courses_format, $course_id)
             while (have_rows('course_time_group', $course_id)) : the_row();
                 $currentDateTime       = date('d-m-Y');
                 $current_timestamp     = strtotime($currentDateTime);
-
                 $start_date_timestamp  = strtotime(get_sub_field('course_start'));
                 $finish_date_timestamp = strtotime(get_sub_field('course_finish'));
-
                 if ($current_timestamp >= $start_date_timestamp && $current_timestamp <= $finish_date_timestamp) {
                     $disabled = '';
                 } elseif ($current_timestamp > $start_date_timestamp && $current_timestamp > $finish_date_timestamp) {
@@ -301,7 +299,6 @@ function dff_format_time_bound($courses_format, $course_id)
                 } else {
                     $disabled = 'disabled';
                 }
-                
             endwhile;
         endif;
     }
@@ -318,7 +315,7 @@ function dff_format_time_bound($courses_format, $course_id)
 function dff_open_module_by_rusult_test($course_id, $module_i)
 {
     $result_module_key = dff_module_course_user_key($course_id, $module_i - 1);
-    $result_module = get_user_meta(get_current_user_id(), $result_module_key, true);
+    $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
     if ($result_module >= 80 || $module_i == 1) {
         $module = 'open-module';
     } else {
@@ -370,7 +367,7 @@ function dff_module_course_user_key($course_id, $module_i)
  */
 function dff_show_date($date_open_module)
 {
-    $lang = get_bloginfo("language");
+    $lang               = get_bloginfo("language");
     $currentDateTime    = date('d-m-Y');
     $current_timestamp  = strtotime($currentDateTime);
     $date_timestamp     = strtotime($date_open_module);

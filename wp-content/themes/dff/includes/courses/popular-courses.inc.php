@@ -37,7 +37,8 @@
                             </div>
                             <div class="course-item-desc">
                                 <h2><?php echo get_the_title($course->ID); ?></h2>
-                                <div class="course-duration">
+                            </div>
+                            <div class="course-duration">
                                     <?php
                                     if ($courses_format_value == 'open_course') {
                                         echo '<h5>' . $courses_format_label . '</h5>';
@@ -57,7 +58,6 @@
                                     }
                                     ?>
                                 </div>
-                            </div>
                         </a>
                     </div>
                 <?php endforeach; ?>
