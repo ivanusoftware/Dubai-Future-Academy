@@ -28,7 +28,13 @@ if (!function_exists('dff_user_courses')) {
         return $course_id_to_user;
     }
 }
-
+/**
+ * dff_user_course_module_result function.
+ *
+ * @param [type] $current_user_id
+ * @param [type] $course_id
+ * @return void
+ */
 if (!function_exists('dff_user_course_module_result')) {
     function dff_user_course_module_result($current_user_id, $course_id)
     {
@@ -49,17 +55,38 @@ if (!function_exists('dff_user_course_module_result')) {
         endif;
     }
 }
-// function dff_add_user_course_module_result($user_id, $course_id, $module_i, $test_result)
-// {
-//     // $module_exam_key = 'course_' . $course_id . '_exam_result';
-//     if (have_rows('course_module_repeater', $course_id)) :
-//         while (have_rows('course_module_repeater', $course_id)) : the_row();
-//             $module_or_exam = get_sub_field('module_or_exam');            
-//             $module_key = 'course_' . $course_id . '_module_' . $module_i . '_result';            
-//             if ($module_or_exam == 'module') {
-//                 update_user_meta($user_id, $module_key, $test_result);
-//             }
-//         endwhile;
-//     else :
-//     endif;
-// }
+
+/**
+ * Returns the result exam for a given list of user certificates
+ *
+ * @param [type] $user_certificates
+ * @return void
+ */
+function dff_get_result_exam($user_certificates)
+{
+    foreach ($user_certificates as $user_certificate) {
+        if ($user_certificate['result_exam'] >= 80) {
+            $result = 'true';
+        }
+    }
+    return $result;
+}
+
+
+// Returns the user s course certificate.
+function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids)
+{
+
+    foreach ($dff_user_courses_ids as $user_courses_id) {
+        $exam_key    = 'course_' . $user_courses_id . '_exam_result';
+        $exam_result = get_user_meta($current_user_id, $exam_key, true);
+        $user_certificate[] = array(
+            'course_id'   => $user_courses_id,
+            'title'       => get_the_title($user_courses_id),
+            'result_exam' => $exam_result == 1 ? 1 : $exam_result,
+            'image_id'    => get_post_thumbnail_id($user_courses_id)
+        );
+        $certificate = update_user_meta($current_user_id, 'user_courses_certificate4', $user_certificate);
+    }
+    return $certificate;
+}

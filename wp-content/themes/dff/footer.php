@@ -93,6 +93,8 @@
 		</div>
 	</div>
 </footer>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

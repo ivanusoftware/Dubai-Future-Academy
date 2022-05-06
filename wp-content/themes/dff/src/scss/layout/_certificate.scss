@@ -1,0 +1,56 @@
+.certificate-wrap {
+    .course-item-content {
+        display: flex;
+        flex-direction: column;        
+        height: 100%;
+        .course-item-desc{
+            flex: 1;
+        } 
+        .certificate {
+            position: relative;
+            width: 100%;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: #000000;
+            margin: 0;
+            padding: 12px 0;
+            font-family: $font-family-tertiary, sans-serif;
+            display: flex;
+            align-items: center;
+            padding-left: 45px;
+            &::before {
+                content: "";
+                position: absolute;
+                background-image: url("../../images/certificate-icon.svg");
+                background-repeat: no-repeat;
+                width: 24px;
+                height: 24px;
+                left: 10px;
+                // @media screen and (min-width: 769px) {
+                //     right: 30px;
+                // }
+            }
+        }
+        .download-certificate {
+            font-family: $font-family-tertiary, sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            margin: 0 15px;
+            border: 0.870074px solid #000000;
+            box-sizing: border-box;
+        }
+    }
+}

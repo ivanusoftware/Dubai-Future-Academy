@@ -458,7 +458,7 @@
                         }
                     }
                     .accordion {
-                        &-head{
+                        &-head {
                             padding-left: 0;
                             padding-right: 17px;
                         }
@@ -476,13 +476,46 @@
                 }
                 .close-module {
                     h6 {
-                        span {                             
-                            left: 10px;   
-                            right: unset;                  
+                        span {
+                            left: 10px;
+                            right: unset;
                         }
-                    }                   
-                } 
+                    }
+                }
             }
-        } 
+            .lesson-header {
+                .next {
+                    padding-left: 25px;
+                    padding-right: 0;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+
+                        background-image: url("../../images/arrow-back.svg");
+                        background-repeat: no-repeat;
+                        left: 0;
+                    }
+                    &::after {
+                        content: unset;
+                    }
+                }
+                .back {
+                    padding-left: 0;
+                    padding-right: 25px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+
+                        background-image: url("../../images/arrow-next.svg");
+                        background-repeat: no-repeat;
+                        right: 0;
+                    }
+                }
+            }
+        }
     }
 }

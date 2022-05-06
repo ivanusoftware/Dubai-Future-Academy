@@ -8,9 +8,12 @@
 function quiz_answers_callback() {
     $json_data = array();
     $form = json_decode(stripslashes($_POST['form']), true);
-    $id = json_decode(stripslashes($_POST['id']), true);
-    $user = json_decode(stripslashes($_POST['user']), true);
-    $answers = get_field('quiz_steps', $id);
+    $type = stripslashes($_POST['type']);
+    $quiz_id = stripslashes($_POST['quiz_id']);
+    $module_id = stripslashes($_POST['module_id']);
+    $course_id = stripslashes($_POST['course_id']);
+    $user_id = stripslashes($_POST['user_id']);
+    $answers = get_field('quiz_steps', $quiz_id);
     $answers_arr = array();
     if ($answers) {
         foreach ($answers as $key_step => $step) {
@@ -78,14 +81,42 @@ function quiz_answers_callback() {
         $percentage = $percentage / count($form) * 100;
         $percentage = round($percentage, 2);
 
-        $post_id = wp_insert_post([
-            'post_title' => 'User: ' . $user . ', Date: ' . date_i18n('j F Y H:i'),
-            'post_type' => 'quizzes_answers',
-            'post_status' => 'publish',
-        ]);
 
-        update_field('percentage', $percentage, $post_id);
-        update_field('answers', $answers_acf, $post_id);
+
+        if ($type == 'exam') {
+                
+            $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Examen';
+            $post_id = get_page_by_title($post_title, $output, 'exams_answers');
+            if (!$post_id) {
+                $post_id = wp_insert_post([
+                    'post_title' => $post_title,
+                    'post_type' => 'exams_answers',
+                    'post_status' => 'publish',
+                ]);
+            }
+
+            update_field('percentage', $percentage, $post_id);
+            update_field('answers', $answers_acf, $post_id);
+            update_user_meta($user_id, 'course_' . $course_id . '_exam_result', $percentage);
+        
+        } else {
+            
+            $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Module: ' . $module_id;
+            $post_id = get_page_by_title($post_title, $output, 'quizzes_answers');
+            if (!$post_id) {
+                $post_id = wp_insert_post([
+                    'post_title' => $post_title,
+                    'post_type' => 'quizzes_answers',
+                    'post_status' => 'publish',
+                ]);
+            }
+
+            update_field('percentage', $percentage, $post_id);
+            update_field('answers', $answers_acf, $post_id);
+            update_user_meta($user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
+            
+        }
+
 
         $json_data['result'] = 1;
         $json_data['percentage'] = $percentage;
