@@ -83,6 +83,7 @@
         flex-grow: 0;
         flex-shrink: 0;
         width: 100%;
+        padding-bottom: 15px;
         @media only screen and (min-width: 566px) {
             flex-basis: 47%;
         }
@@ -96,6 +97,9 @@
         border: 0.870074px solid #f0f0f0;
         box-sizing: border-box;
         .course-item-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             .course-item-img {
                 position: relative;
                 height: 192px;
@@ -140,6 +144,7 @@
         }
         .course-item-desc {
             padding: 15px;
+            flex: 1;
             h2 {
                 font-style: normal;
                 font-weight: 500;
@@ -147,14 +152,15 @@
                 line-height: 20px;
                 margin: 0;
             }
-            .course-duration {
-                h5 {
-                    font-weight: 400;
-                    font-size: 14px;
-                    line-height: 18px;
-                    letter-spacing: 0.02em;
-                    margin: 15px 0 0 0;
-                }
+        }
+        .course-duration {
+            margin: 0 15px;
+            h5 {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.02em;
+                margin: 0;
             }
         }
     }

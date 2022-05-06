@@ -26,7 +26,8 @@ $posttype = get_post_type();
 								<?php echo $home_icon; ?>
 							</a>
 						</li>
-						<li><a href="/courses"><?php echo _e('Courses', 'dff'); ?></a></li>
+						<li><a href="<?php echo site_url('courses')?>"><?php _e('Courses', 'dff'); ?></a></li>
+
 						<li><?php echo _e(get_the_title(), 'dff'); ?></li>
 					</ul>
 					<a class="breadcrumbs-right breadcrumb-arrow"></a>
@@ -43,9 +44,9 @@ $posttype = get_post_type();
 									$course_start = get_sub_field('course_start');
 									$course_finish = get_sub_field('course_finish');
 									// Load field value and convert to numeric timestamp.                                                
-									// $date_course_start  = date_i18n("j M Y", strtotime($course_start));
-									// $date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
-									echo  '<h5 class="course-duration">' .  $course_start . ' - ' .  $course_finish . '</h5>';
+									$date_course_start  = date_i18n("j M Y", strtotime($course_start));
+									$date_course_finish = date_i18n("j M Y",  strtotime($course_finish));						
+									echo  '<h5 class="course-duration">' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
 								endwhile; ?>
 							<?php endif; ?>
 						<?php

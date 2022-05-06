@@ -1934,3 +1934,171 @@ msgstr "مشاركة على فيسبوك"
 #, 
 msgid "Share to Twitter"
 msgstr "مشاركة على تويتر"
+
+#: includes/courses.inc.php:35
+msgid "All Courses"
+msgstr "جميع الدورات"
+
+#: includes/courses/layouts/upload-file-layout.inc.php:22
+msgid "Open"
+msgstr "يفتح"
+
+#: includes/courses/my-courses/my-courses.inc.php:15
+msgid "About"
+msgstr "عن"
+
+#: includes/courses/my-courses/my-courses.inc.php:16
+#: single-courses.php:69
+msgid "Modules"
+msgstr "الوحدات"
+
+#: includes/courses/my-courses/my-courses.inc.php:17
+msgid "My Progress"
+msgstr "تقدمي"
+
+#: includes/courses/my-courses/parts-course/about-course.php:54
+#: single-courses.php:64
+msgid "Description"
+msgstr "وصف"
+
+#: includes/courses/my-courses/parts-course/about-course.php:59
+#: single-courses.php:114
+msgid "Requirments"
+msgstr "متطلبات"
+
+#: includes/courses/my-courses/parts-course/about-course.php:83
+#: single-courses.php:138
+msgid "Learning Style"
+msgstr "أسلوب التعلم"
+
+#: includes/courses/my-courses/parts-course/about-course.php:87
+#: single-courses.php:142
+msgid "Course format"
+msgstr "شكل الدورة"
+
+#: includes/courses/my-courses/parts-course/about-course.php:91
+#: single-courses.php:146
+msgid "Complexities"
+msgstr "تعقيدات"
+
+#: includes/courses/my-courses/parts-course/lesson-content.php:9
+#: includes/functions/ajax-lessons-tab.inc.php:25
+msgid "Back"
+msgstr "خلف"
+
+#: includes/courses/my-courses/parts-course/lesson-content.php:11
+#: includes/functions/ajax-lessons-tab.inc.php:30
+#: includes/functions/ajax-lessons-tab.inc.php:36
+msgid "Next"
+msgstr "التالي"
+
+#: includes/courses/my-courses/parts-course/modules-course.php:63
+#: includes/courses/my-courses/parts-course/my-progress-course.php:49
+#: single-courses.php:80
+msgid "Module"
+msgstr "وحدة"
+
+#: includes/courses/my-courses/parts-course/modules-course.php:82
+msgid "Lesson"
+msgstr "درس"
+
+#: includes/courses/my-courses/parts-course/modules-course.php:89
+msgid "Test"
+msgstr "اختبار"
+
+#: includes/courses/my-courses/parts-course/modules-course.php:107
+#: includes/courses/my-courses/parts-course/my-progress-course.php:52
+#: includes/template-functions.php:240
+msgid "Exam"
+msgstr "امتحان"
+
+#: includes/courses/my-courses/parts-course/modules-course.php:113
+msgid "Please add a module"
+msgstr "الرجاء إضافة وحدة"
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:35
+msgid "General progress"
+msgstr "التقدم العام"
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:95
+msgid "Final exam"
+msgstr "إمتحان نهائي"
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:110
+#: includes/courses/my-courses/parts-course/my-progress-course.php:120
+#: includes/courses/my-courses/parts-course/my-progress-course.php:147
+#: includes/courses/my-courses/parts-course/my-progress-course.php:163
+msgid "Result:"
+msgstr ":نتيجة"
+
+#: includes/user-profile.inc.php:27
+msgid "My courses"
+msgstr "دوراتي"
+
+#: includes/courses/my-courses/parts-course/my-progress-course.php:166
+#: includes/template-functions.php:340
+msgid "Try again"
+msgstr "حاول مرة أخري"
+
+#: includes/courses/other-course.inc.php:3
+msgid "Other courses"
+msgstr "دورات اخرى"
+
+#: includes/courses/popular-courses.inc.php:3
+msgid "Popular courses"
+msgstr "الدورات الشعبية"
+
+#: includes/courses/popup_user.inc.php:16
+msgid "Go to my courses"
+msgstr "اذهب إلى دوراتي"
+
+#: includes/courses/popup_user.inc.php:17
+msgid "Close"
+msgstr "يغلق"
+
+#: includes/courses/popup_user.inc.php:21
+msgid "Register"
+msgstr "يسجل"
+
+#: includes/courses/popup_user.inc.php:22
+msgid "Log in"
+msgstr "يسجل دخول"
+
+#: includes/template-functions.php:238
+msgid "Mod"
+msgstr "عصري"
+
+#: includes/user-profile.inc.php:28
+#: includes/user-profile.inc.php:79
+msgid "My certification"
+msgstr "شهادتي"
+
+#: includes/user-profile.inc.php:68
+#: includes/user-profile.inc.php:80
+msgid "You have no courses. Please, check our <a href=\""
+msgstr "ليس لديك دورات. من فضلك ، تحقق لدينا <a href=\""
+
+#: single-courses.php:136
+msgid "Course Details"
+msgstr "تفاصيل الدورة"
+
+#: single-courses.php:56
+msgid "Apply Now"
+msgstr "قدم الآن"
+
+#: single-courses.php:29
+msgid "Courses"
+msgstr "الدورات"
+
+#: includes/courses/my-courses/parts-course/general-progress.php:53
+msgid "Pass 80%"
+msgstr "80% يمر"
+
+#: includes/user-profile.inc.php:68
+#: includes/user-profile.inc.php:78
+msgid "You have no courses. Please, check our <a href=\"%s\">courses</a>"
+msgstr "ليس لديك دورات. من فضلك ، تحقق من <a href=\"%s\"> دوراتنا </a>"
+
+#: includes/courses/layouts/upload-file-layout.inc.php:22
+msgid "Download"
+msgstr "تحميل"

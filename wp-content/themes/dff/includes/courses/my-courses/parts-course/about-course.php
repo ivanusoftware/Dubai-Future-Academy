@@ -34,9 +34,9 @@
                                     $course_start = get_sub_field('course_start');
                                     $course_finish = get_sub_field('course_finish');
                                     // Load field value and convert to numeric timestamp.                                                
-                                    // $date_course_start  = date_i18n("j.m.Y", strtotime($course_start));
-                                    // $date_course_finish = date_i18n("j.m.Y",  strtotime($course_finish));
-                                    echo  '<h5 class="course-duration">' .  $course_start . ' - ' .  $course_finish . '</h5>';
+                                    $date_course_start  = date_i18n("j M Y", strtotime($course_start));
+									$date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
+                                    echo  '<h5 class="course-duration">' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
                                 endwhile; ?>
                             <?php endif; ?>
                         <?php
@@ -78,7 +78,7 @@
                         </main>
                         <aside class="course-sidebar">
                             <!-- <div class="single-sidebar"> -->
-                            <h2>Course Details</h2>
+                            <h2><?php _e('Course Details', 'dff'); ?></h2>
                             <div class="sidebar-info">
                                 <h3><?php _e('Learning Style', 'dff'); ?></h3>
                                 <p><?php echo $learning_style['choices'][$learning_style['value']]; ?></p>

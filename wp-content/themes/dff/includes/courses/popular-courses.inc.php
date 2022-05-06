@@ -37,7 +37,8 @@
                             </div>
                             <div class="course-item-desc">
                                 <h2><?php echo get_the_title($course->ID); ?></h2>
-                                <div class="course-duration">
+                            </div>
+                            <div class="course-duration">
                                     <?php
                                     if ($courses_format_value == 'open_course') {
                                         echo '<h5>' . $courses_format_label . '</h5>';
@@ -48,16 +49,15 @@
                                                 $course_start = get_sub_field('course_start');
                                                 $course_finish = get_sub_field('course_finish');
                                                 // Load field value and convert to numeric timestamp.                                                
-                                                // $date_course_start  = date_i18n("j M Y", strtotime($course_start));
-                                                // $date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
-                                                echo  '<h5>' .  $course_start . ' - ' .  $course_finish . '</h5>';
+                                                $date_course_start  = date_i18n("j M Y", strtotime($course_start));
+                                                $date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
+                                                echo  '<h5>' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
                                             endwhile; ?>
                                         <?php endif; ?>
                                     <?php
                                     }
                                     ?>
                                 </div>
-                            </div>
                         </a>
                     </div>
                 <?php endforeach; ?>

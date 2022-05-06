@@ -243,13 +243,9 @@
                 .course-sidebar {
                     padding-left: 0;
                     @media only screen and (min-width: 769px) {
-                        padding-right: 70px;
+                        padding-right: 0;
                     }
-                }
-                .course-requirments ul {
-                    padding-left: 0;
-                    padding-right: 18px;
-                }
+                }             
             }
         }
     }
