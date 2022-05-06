@@ -3,10 +3,16 @@ $exam_post_id = $_POST['exam_post_id'];
 $course_id = $_POST['course_id'];
 $module_or_exam = get_sub_field('module_or_exam');
 ?>
+<div class="phrases">
+    <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
+    <span class="phrase_done"><?php _e('Done', 'dff'); ?></span>
+    <span class="phrase_back"><?php _e('Back', 'dff'); ?></span>
+    <span class="phrase_next"><?php _e('Next', 'dff'); ?></span>
+</div>
 <div class="course-quiz">
 
     <div class="course-quiz__top">
-        <div class="course-quiz__title"><?php _e('Test', 'dff'); ?></div>
+        <div class="course-quiz__title"><?php _e('Exam', 'dff'); ?></div>
         <div class="course-quiz__steps"><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
     </div>
     <?php
@@ -96,6 +102,27 @@ $module_or_exam = get_sub_field('module_or_exam');
                 <?php endwhile; ?>
 
             </form>
+
+            <div class="course-quiz__progress" data-succsess="thanks">
+                <?php if (have_rows('thank_you_exam', 'option')) : ?>
+                    <?php while (have_rows('thank_you_exam', 'option')) : the_row();  ?>
+                        <div class="course-quiz__progress-title"><?php the_sub_field('title'); ?></div>
+                        <div class="course-quiz__progress-subtitle"><?php the_sub_field('content'); ?></div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                
+                 
+
+                <div class="course-quiz__buttons">
+                    <ul>
+                        <li>
+                            <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
         <?php endif; ?>
 
 
