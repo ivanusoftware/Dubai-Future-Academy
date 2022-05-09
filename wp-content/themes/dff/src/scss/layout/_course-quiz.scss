@@ -1,4 +1,6 @@
-
+.phrases {
+    display: none;
+}
 .course-quiz {
     &__top {
         border-bottom: 1px solid #CCCCCC;
@@ -10,6 +12,11 @@
         line-height: 22px;
         color: $color-black;
         padding: 18px 32px;
+        @media(max-width:767px) {
+            font-size: 13px;
+            padding: 9px 16px;
+            text-transform: uppercase;
+        }
     }
     &__title {
         font-weight: 500;
@@ -17,6 +24,9 @@
         display: flex;
         align-items: center;
         text-transform: uppercase;
+        @media(max-width:767px) {
+            display: none;
+        }
         &:after {
             content: '';
             height: 24px;
@@ -34,6 +44,10 @@
         padding: 24px;
         max-width: 550px;
         margin: 0 auto;
+        @media(max-width:767px) {
+            text-align: left;
+            padding: 12px 16px;
+        }
         h3 {
             font-family: $font-family-tertiary;
             color: rgba(0, 0, 0, 0.5);
@@ -43,57 +57,30 @@
             font-size: 12px;
             line-height: 26px;
             margin-bottom: 16px;
+            @media(max-width:767px) { 
+                font-size: 12px;
+                line-height: 16px;
+            }
         }
         p {
             font-family: $font-family-neo-sans-pro;
             font-weight: 400;
             font-size: 18px;
             line-height: 28px;
+            @media(max-width:767px) {
+                font-size: 15px;
+                line-height: 23px;
+            }
             &:last-of-type {
                 margin-bottom: 42px;
+                @media(max-width:767px) {
+                    margin-bottom: 32px;
+                }
             }
         }
 
         .steps {
             display: none;
-        }
-
-        .actions {
-            text-align: center;
-            max-width: 400px;
-            margin: 56px auto 18px auto;
-            ul {
-                list-style: none;
-                display: flex;
-                justify-content: center;
-                margin: 0 -8px;
-                padding: 0;
-                li {
-                    width: 50%;
-                    margin: 0 8px;
-                }
-                .disabled {
-                    display: none;
-                }
-                a {
-                    font-family: $font-family-tertiary;
-                    color: $color-white;
-                    font-weight: 700;
-                    font-size: 13px;
-                    line-height: 16px;
-                    letter-spacing: 0.04em;
-                    text-transform: uppercase;
-                    display: block;
-                    border: 1px solid $color-black;
-                    padding: 16px;
-                    background-color: $color-black;
-                   
-                }
-                li:first-child a {
-                    background-color: transparent;
-                    color: $color-black;
-                }
-            }
         }
     }
     &__checkbox {
@@ -149,9 +136,7 @@
         input:checked + label:after {
             background-color: $color-black;
         }
-        input.error + label {
-            border-color: red;
-        }
+
     }
 
     &__radio {
@@ -203,9 +188,6 @@
         input:checked + label:before {
             opacity: 1;
         }
-        input.error + label {
-            border-color: red;
-        }
     }
 
     &__select {
@@ -222,15 +204,142 @@
             border-bottom: 1px solid $color-black;
             position: relative;
             top: -4px;
-            &.error {
-                border-color: red;
-            }
         }
+    }
+
+    .has-error input[type="radio"] + label, 
+    .has-error input[type="checkbox"] + label {
+        border-color: red;
+    }
+    .error + input[type="text"] {
+        border-bottom: 1px solid red;
+    }
+    .error + select + .nice-select {
+        border-bottom: 1px solid red;
+    }
+    .error[style="display: none;"] + select + .nice-select {
+        border-bottom: 1px solid $color-black;
+    }
+    .error[style="display: none;"] + input[type="text"] {
+        border-bottom: 1px solid $color-black;
     }
 
     label.error {
         display: none!important;
     }
+
+
+
+    &__progress {
+        padding: 40px 30px 70px 30px;
+        text-align: center;
+        display: none;
+        font-family: $font-family-neo-sans-pro;
+        font-style: normal;
+        font-weight: 400;
+        @media(max-width:767px) {
+            padding: 32px 16px 24px 16px;
+        }
+        &.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &-title {
+            margin: 0;
+            font-size: 22px;
+            line-height: 20px;
+            color: #000000;
+            @media(max-width:767px) {
+                font-size: 20px;
+                line-height: 30px;
+            }
+        }
+        &-subtitle {
+            font-size: 16px;
+            line-height: 22px;
+            color: rgba(0, 0, 0, 0.5);
+            margin: 25px 0 0;
+            max-width: 350px;
+        }
+        &-result {
+            color: rgba(0, 0, 0, 0.5);
+            margin: 32px 0 0;
+            max-width: 350px;
+            font-size: 22px;
+            line-height: 20px;
+            @media(max-width:767px) {
+                font-size: 20px;
+            }
+            span {
+                font-weight: bold;
+                color: rgba(0, 0, 0);
+            }
+        }
+    }
+
+    .actions, &__buttons {
+        text-align: center;
+        max-width: 400px;
+        margin: 56px auto 18px auto;
+        width: 100%;
+        @media(max-width:767px) {
+            margin: 42px auto 12px auto;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0 -8px;
+            padding: 0;
+            li {
+                width: calc(50% - 16px);
+                flex: 0 0 calc(50% - 16px);
+                max-width: calc(50% - 16px);
+                margin: 0 8px;
+            }
+            .disabled {
+                display: none;
+            }
+            a {
+                font-family: $font-family-tertiary;
+                color: $color-white;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 16px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                display: block;
+                border: 1px solid $color-black;
+                padding: 16px;
+                background-color: $color-black;
+                &.failed {
+                    background-color: #959595;
+                    border: 1px solid #959595;
+                    cursor: not-allowed;
+                }
+            }
+            li:first-child a {
+                background-color: transparent;
+                color: $color-black;
+            }
+        }
+    }
+    @media(max-width:767px) {
+        .course-quiz__progress {
+            .course-quiz__buttons ul {
+                flex-wrap: wrap;
+                margin: 0;
+                li {
+                    width: 100%;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+
 }
 
 .nice-select {
@@ -323,6 +432,3 @@
 .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
     background: rgba(204, 204, 204, 0.2);
 }
-
-
-

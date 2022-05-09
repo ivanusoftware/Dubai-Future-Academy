@@ -3,11 +3,17 @@ $lesson_test_id = $_POST['lesson_test_id'];
 $module_index = $_POST['module_index'];  
 $course_id = $_POST['course_id'];
 ?>
+<div class="phrases">
+    <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
+    <span class="phrase_done"><?php _e('Done', 'dff'); ?></span>
+    <span class="phrase_back"><?php _e('Back', 'dff'); ?></span>
+    <span class="phrase_next"><?php _e('Next', 'dff'); ?></span>
+</div>
 <div class="course-quiz">
 
     <div class="course-quiz__top">
         <div class="course-quiz__title"><?php _e('Test', 'dff'); ?></div>
-        <div class="course-quiz__steps"><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
+        <div class="course-quiz__steps" data-result=""><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
     </div>
     <?php
     
@@ -94,8 +100,60 @@ $course_id = $_POST['course_id'];
                     </div>
 
                 <?php endwhile; ?>
-
             </form>
+
+
+            
+
+
+            <div class="course-quiz__progress" data-succsess="succsess">
+                <?php if (have_rows('сongratulation_group', 'option')) : ?>
+                    <?php while (have_rows('сongratulation_group', 'option')) : the_row();  ?>
+                        <div class="course-quiz__progress-title"><?php the_sub_field('сongratulation_group_title'); ?></div>
+                        <div class="course-quiz__progress-subtitle"><?php the_sub_field('сongratulation_content'); ?></div>
+                        <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                
+
+                <div class="course-quiz__buttons">
+                    <ul>
+                        <li>
+                            <a href="#"><?php _e('Try again', 'dff'); ?></a>
+                        </li>
+                        <li>
+                            <a href="#"><?php _e('Continue course', 'dff'); ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="course-quiz__progress" data-succsess="fail">
+                <?php if (have_rows('unfortunately_group', 'option')) : ?>
+                    <?php while (have_rows('unfortunately_group', 'option')) : the_row();  ?>
+                        <div class="course-quiz__progress-title"><?php the_sub_field('unfortunately_title'); ?></div>
+                        <div class="course-quiz__progress-subtitle"><?php the_sub_field('unfortunately_content'); ?></div>
+                        <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                
+                
+                <div class="course-quiz__buttons">
+                    <ul>
+                        <li>
+                            <a href="#"><?php _e('Try again', 'dff'); ?></a>
+                        </li>
+                        <li>
+                            <a href="#" class="failed" ><?php _e('Continue course', 'dff'); ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
         <?php endif; ?>
 
 

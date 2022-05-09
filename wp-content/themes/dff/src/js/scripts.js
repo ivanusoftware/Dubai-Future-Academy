@@ -62,13 +62,27 @@ const $ = jQuery.noConflict();
 
         var form = $("#quiz");
         form.validate({
-            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            errorPlacement: function(error, element) {
+                error.insertBefore(element);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).closest('.course-quiz__step').addClass("has-error");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).closest('.course-quiz__step').removeClass("has-error");
+                $(element).removeClass('error');
+            },
         });
 
 
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
             bodyTag: ".course-quiz__step",
+            labels: {
+                finish: $('.phrase_done').text(),
+                next: $('.phrase_next').text(),
+                previous: $('.phrase_back').text(),
+            },
             //onStepChanging: function (event, currentIndex, newIndex) { return true; },
             //onStepChanged: function (event, currentIndex, priorIndex) { }, 
             //onCanceled: function (event) { },
@@ -120,7 +134,17 @@ const $ = jQuery.noConflict();
                 }).done(function (response) {
                     $('#loader').hide();
                     if (response.result) {
-                      alert('Your result: ' + response.percentage + '%');
+                        var result = response.percentage;
+                        $('.course-quiz__progress-result span').text(result + '%');
+                        $('.course-quiz__steps').text($('.phrase_result').text());
+                        $('.course-quiz__content').hide();
+                        $('.course-quiz__progress').removeClass('active');
+                        $('.course-quiz__progress[data-succsess="thanks"]').addClass('active');
+                        if (result >= 80) {
+                            $('.course-quiz__progress[data-succsess="succsess"]').addClass('active');
+                        } else {
+                            $('.course-quiz__progress[data-succsess="fail"]').addClass('active');
+                        }
                     } else {
                       console.log(response);
                     }
