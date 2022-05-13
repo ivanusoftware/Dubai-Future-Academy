@@ -246,3 +246,43 @@
         }
     }
 }
+
+
+.dark-mode .archive-courses {
+    .courses-categories {
+        ul {
+            li {
+                background: $color-black;
+                &.active {
+                    background: $color-white;
+                    a {
+                        color: $color-black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.dark-mode .archive-courses-list {
+    .course-item {
+        border-color: #ffffff30;
+        background-color: $color-black;
+        .course-item-content {
+            .course-item-img {
+                .courses-item-category {
+                    h4 {
+                        color: $color-white;
+                        background: $color-black;
+                        span {
+                            img {
+                                filter: brightness(0) invert(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

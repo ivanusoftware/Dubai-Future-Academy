@@ -84,3 +84,25 @@
         }
     }
 }
+
+
+
+.dark-mode .tabs-nav {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    ul {
+        li {
+            button {
+                color: $color-white;
+            }
+            &.active {
+                color: $color-white;
+                button,
+                a {
+                    &::after {
+                        background: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
