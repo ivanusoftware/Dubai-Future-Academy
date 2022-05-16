@@ -94,3 +94,38 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+.dark-mode .accordion {
+    &-item {
+        border-bottom: 0.5px solid $color-white;
+    }
+    &-head {
+        &.active {
+            border-bottom: 0.5px solid $color-white;
+        }
+    }
+    &-content {
+        border-left-color: $color-white;
+        ul {
+            li {
+                color: $color-white;
+            }
+        }
+    }
+}
+.dark-mode .rtl {
+    .accordion {
+        &-content {
+            border-right-color: #fff;
+        }
+    }
+}

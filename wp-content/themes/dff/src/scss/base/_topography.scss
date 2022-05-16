@@ -25,6 +25,28 @@
         // padding: 0;
     }
 }
+
+.dark-mode .archive-courses,
+.dark-mode .single-course {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $color-white;
+    }
+    a {
+        color: $color-white;
+    }
+    p {
+        color: $color-white;
+    }
+}
+
 .cource-content{
     @extend .archive-courses;    
 }
+
+
+

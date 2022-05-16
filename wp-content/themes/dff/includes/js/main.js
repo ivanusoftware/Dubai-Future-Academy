@@ -8191,7 +8191,7 @@ jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
         data: data,
     }).done(function (response) {
         $(".my-courses-tabs-content .tab-wrapper ").html(response);
-        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])(); 
         (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);
 
         (0,_scripts_try_again_button__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex, lessonIndex);
@@ -8205,13 +8205,11 @@ jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
 
 jQuery(document).on('click', '.course-quiz__buttons .module-test-try-again', function (e) {
     e.preventDefault(); 
-    console.log('module-test-try-again');
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
     const lessonTestId = $(this).attr('lesson-test-id');
     const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
     const tabId = $(this).attr('tab-id');
-    console.log(tabId);
     const data = {
         action: "tabs_lesson_ajax",
         main_tab_id: tabId,
@@ -21603,21 +21601,30 @@ const $ = jQuery.noConflict();
 
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
+        
 
         var form = $("#quiz");
         form.validate({
             errorPlacement: function(error, element) {
-                error.insertBefore(element);
+                if (element.attr("type") == "checkbox") {
+                    error.insertBefore(element.parent());
+                } else {
+                    error.insertBefore(element);
+                }
             },
-            highlight: function(element, errorClass, validClass) {
+            success: function() {
+                $('a[href="#next"]').removeClass('failed');
+            },
+            /*highlight: function(element, errorClass, validClass) {
                 $(element).closest('.course-quiz__step').addClass("has-error");
+                $('a[href="#next"], a[href="#finish"]').addClass('failed');
             },
             unhighlight: function(element, errorClass, validClass) {
                 $(element).closest('.course-quiz__step').removeClass("has-error");
-                $(element).removeClass('error');
-            },
+                $('a[href="#next"], a[href="#finish"]').removeClass('failed');
+            },*/
         });
-
+        
 
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
@@ -21634,8 +21641,13 @@ const $ = jQuery.noConflict();
 
             onStepChanging: function (event, currentIndex, newIndex)
             {
+                if (currentIndex > newIndex) {
+                  return true;
+                }
+                
                 form.validate().settings.ignore = ":disabled,:hidden";
                 return form.valid();
+
             },
             onFinishing: function (event, currentIndex)
             {
@@ -21705,6 +21717,12 @@ const $ = jQuery.noConflict();
             let currentStepId = $('.course-quiz__step-title.current').text();
             $('.currentStepId').html(currentStepId);
         })
+
+        $('input[type="checkbox"]').on('keypress', function(event) {
+            if (event.which === 13) {
+              this.checked = !this.checked;  
+            }
+        });
     });
 
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {

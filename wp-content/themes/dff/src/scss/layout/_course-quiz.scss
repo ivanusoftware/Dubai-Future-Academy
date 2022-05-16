@@ -88,6 +88,7 @@
         margin: 0 auto 16px auto;
         input {
             position: absolute;
+            opacity: 0;
         } 
         label {
             font-family: $font-family-neo-sans-pro;
@@ -127,7 +128,7 @@
                 transition: all 0.3s ease;
             }
         }
-        input:checked + label {
+        input:checked + label, input:focus + label {
             border-color: $color-black;
         }
         input:checked + label:before {
@@ -136,14 +137,21 @@
         input:checked + label:after {
             background-color: $color-black;
         }
-
     }
+    .error:not(:empty) ~ .course-quiz__checkbox label {
+        border-color: red;
+    }
+    .error:not(:empty) ~ .course-quiz__checkbox input:focus + label {
+        border-color: $color-black;
+    }
+
 
     &__radio {
         max-width: 400px;
         margin: 0 auto 16px auto;
         input {
             position: absolute;
+            opacity: 0;
         } 
         label {
             font-family: $font-family-neo-sans-pro;
@@ -182,13 +190,18 @@
                 transition: all 0.3s ease;
             }
         }
-        input:checked + label {
+        input.error + label {
+            border-color: red;
+        }
+        input:checked + label, input:focus + label, input.error:focus + label {
             border-color: $color-black;
         }
         input:checked + label:before {
             opacity: 1;
         }
     }
+
+
 
     &__select {
         line-height: 36px;
@@ -205,30 +218,21 @@
             position: relative;
             top: -4px;
         }
+        input.error {
+            border-color: red;
+        }
     }
 
-    .has-error input[type="radio"] + label, 
-    .has-error input[type="checkbox"] + label {
+
+   /* .has-error input[type="radio"] ~ label,
+    .has-error input[type="checkbox"] ~ label {
         border-color: red;
-    }
-    .error + input[type="text"] {
-        border-bottom: 1px solid red;
-    }
-    .error + select + .nice-select {
-        border-bottom: 1px solid red;
-    }
-    .error[style="display: none;"] + select + .nice-select {
-        border-bottom: 1px solid $color-black;
-    }
-    .error[style="display: none;"] + input[type="text"] {
-        border-bottom: 1px solid $color-black;
-    }
+    }*/
+    
 
     label.error {
         display: none!important;
     }
-
-
 
     &__progress {
         padding: 40px 30px 70px 30px;
@@ -313,6 +317,11 @@
                 border: 1px solid $color-black;
                 padding: 16px;
                 background-color: $color-black;
+                &:focus {
+                    background-color: rgba(51, 51, 51, .1);
+                    background-color: var(--color-primary-transparent);
+                    color: var(--color-primary);
+                }
                 &.failed {
                     background-color: #959595;
                     border: 1px solid #959595;
@@ -322,6 +331,11 @@
             li:first-child a {
                 background-color: transparent;
                 color: $color-black;
+                &:focus {
+                    background-color: rgba(51, 51, 51, .1);
+                    background-color: var(--color-primary-transparent);
+                    color: var(--color-primary);
+                }
             }
         }
     }
@@ -432,3 +446,153 @@
 .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
     background: rgba(204, 204, 204, 0.2);
 }
+.error+.nice-select {
+    border-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dark-mode .course-quiz {
+    &__top {
+        color: $color-white;
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+    &__title {
+        &:after {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+    
+    &__content {
+        h3 {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+    &__checkbox {
+        label {
+            background: $color-black;
+            border-color: rgba(255, 255, 255, 0.5);
+            color: $color-white;
+            &:after {
+                border: 2px solid $color-white;
+            }
+            &:before {
+                border-bottom: 3px solid $color-white;
+                border-right: 3px solid $color-white;
+            }
+        }
+        input:checked + label, input:focus + label {
+            border-color: $color-white;
+        }
+        input:checked + label:after {
+            background-color: $color-black;
+        }
+
+    }
+
+    .error:not([style="display: none;"]) ~ .course-quiz__checkbox input:focus + label {
+        border-color: $color-white;
+    }
+
+    &__radio {
+        label {
+            background:  $color-black;
+            border-color: rgba(255, 255, 255, 0.5);
+            color: $color-white;
+            &:after {
+                border-color: $color-white;
+            }
+            &:before {
+                background-color: $color-white;
+            }
+        }
+        input:checked + label, input:focus + label {
+            border-color: $color-white;
+        }
+    }
+
+    &__select {
+        input {
+            color: $color-white;
+            border-bottom: 1px solid $color-white;
+        }
+        input.error {
+            border-color: red;
+        }
+    }
+
+    &__progress {
+        &-title {
+            color: $color-white;
+        }
+        &-subtitle {
+            color: $color-white;
+        }
+        &-result {
+            color: $color-white;
+            span {
+                color: $color-white!important;
+            }
+        }
+    }
+
+    .actions, &__buttons {
+        ul {
+            a {
+                color: $color-black;
+                border: 1px solid $color-white;
+                background-color: $color-white;
+                &.failed {
+                    background-color: #959595;
+                    border: 1px solid #959595;
+                }
+            }
+            li:first-child a {
+                background-color: $color-black;
+                color: $color-white;
+            }
+        }
+    }
+}
+.dark-mode {
+    .nice-select {
+        background-color: $color-black;
+        border-bottom: 1px solid $color-white;
+    }
+    .nice-select .current {
+        color: $color-white;
+    }
+    .nice-select .list {
+        background: $color-black;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+    }
+    
+    .nice-select:after {
+        border-bottom: 1px solid $color-white;
+        border-right: 1px solid $color-white;
+    }
+    .nice-select .option {
+        color: $color-white;
+        background-color: $color-black;
+    }
+    .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .error+.nice-select {
+        border-color: red; 
+    }
+}
+ 

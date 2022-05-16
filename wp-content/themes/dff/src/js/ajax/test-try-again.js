@@ -27,7 +27,7 @@ jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
         data: data,
     }).done(function (response) {
         $(".my-courses-tabs-content .tab-wrapper ").html(response);
-        dffAccordion();
+        dffAccordion(); 
         dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId);
 
         dffTryAgaineButton(moduleIndex, lessonIndex);
@@ -41,13 +41,11 @@ jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
 
 jQuery(document).on('click', '.course-quiz__buttons .module-test-try-again', function (e) {
     e.preventDefault(); 
-    console.log('module-test-try-again');
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
     const lessonTestId = $(this).attr('lesson-test-id');
     const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
     const tabId = $(this).attr('tab-id');
-    console.log(tabId);
     const data = {
         action: "tabs_lesson_ajax",
         main_tab_id: tabId,

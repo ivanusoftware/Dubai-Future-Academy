@@ -519,3 +519,129 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dark-mode .modules-course {
+    .cource-content {
+        .container {
+            .columns {
+                .accordion {
+                    &-item {
+                        border-bottom-color: rgba(255, 255, 255, 0.5);
+                    }
+                    &-content {
+                        border-left-color: $color-white;
+                        ul {
+                            li {
+                                color: $color-white;
+                            }
+                        }
+                    }
+                }
+                .main-content {
+                    .lesson-header {
+                        .back,
+                        .next {
+                            color: $color-white;
+                            &:disabled {
+                                color: rgba(255,255,255,0.2);
+                            }
+                        }
+                        .next {
+                            &::after {
+                                filter: invert(100%);
+                            }
+                        }
+                        .back {
+                            &::before {
+                                filter: invert(100%);
+                            }
+                        }
+                    }
+                    .lesson-inner-container {
+                        border-top-color: rgba(255, 255, 255, 0.5);
+                    }
+                    .lesson-container {
+                        background: #000000;
+                        border-color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+        }
+
+
+        .lesson-inner-container {
+            .upload-file-wrap {
+                .open-btn {
+                    color: $color-white;
+                    border: 1px solid $color-white;
+                }
+                .file-info {
+                    .file-size {
+                        color: $color-white;
+                    }
+                    &::before {
+                        filter: invert(100%);
+                    }
+                }
+            }
+        }
+        .gallery-slider {
+            .swiper-slide {
+                background: #000000;
+            }
+            .gallery-fancybox {
+                background: #000000;
+            }
+            .swiper-counter {
+                background: #f0f0f0;
+                color: #000000;
+            }
+        }
+    }
+
+}
+
+.dark-mode .rtl {
+    .modules-course {
+        .cource-content {
+            .container {
+                .columns {
+                    .accordion {
+                        &-content {
+                            border-right-color: $color-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

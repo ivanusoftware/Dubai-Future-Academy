@@ -162,3 +162,39 @@
         }
     }
 }
+
+
+
+.dark-mode .single-course-modal {
+    $color_1: #aaa;
+    $color_2: #777;
+    $background-color_1: #000;
+
+
+    .modal-wrapper {
+        background-color: $background-color_1;
+    }
+    .modal-content {
+        p {
+            color: #fff;
+        }
+        .buttons {
+            .btn-course-primary {
+                background: #fff;
+                color: #000;
+                &:hover {
+                    color: #000;
+                }
+            }
+            button.btn-course-primary,
+            .login.btn-course-primary {
+                border: 1px solid #fff;
+                background: none;
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
