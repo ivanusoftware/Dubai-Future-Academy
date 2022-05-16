@@ -117,7 +117,7 @@
                                                                     <p><?php the_sub_field('unfortunately_content'); ?></p>
                                                                 <?php endwhile; ?>
                                                             <?php endif; ?>
-                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $result_module ? $result_module . '%' : ''; ?></span></p>
+                                                            <p class="module-result"><?php _e('Result:', 'dff'); ?> <span><?php echo $result_module ? $result_module . '%' : '0%'; ?></span></p>
                                                             <div class="exam-footer">
                                                                 <?php echo dff_button_try_again_test($module_i); ?>
                                                             </div>

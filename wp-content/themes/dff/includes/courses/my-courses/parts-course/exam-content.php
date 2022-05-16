@@ -118,6 +118,9 @@ $module_or_exam = get_sub_field('module_or_exam');
                         <li>
                             <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Download', 'dff'); ?></a>
+                        </li>
                     </ul>
                 </div>
             </div>

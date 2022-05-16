@@ -8159,11 +8159,12 @@ jQuery(document).on('click', '.exam-footer .test-try-again-exam', function (e) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
 /* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
-/* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
-/* harmony import */ var _scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/try-again-active-main-tab */ "./src/js/scripts/try-again-active-main-tab.js");
-/* harmony import */ var _scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/try-again-active */ "./src/js/scripts/try-again-active.js");
+/* harmony import */ var _scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/try-again-active-main-tab */ "./src/js/scripts/try-again-active-main-tab.js");
+/* harmony import */ var _scripts_try_again_active__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/try-again-active */ "./src/js/scripts/try-again-active.js");
+/* harmony import */ var _scripts_try_again_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/try-again-button */ "./src/js/scripts/try-again-button.js");
 
 
+// import dffNextBackButtonsActive from '../scripts/next-back-buttons-active';
 
 
 
@@ -8192,9 +8193,41 @@ jQuery(document).on('click', '.exam-footer .test-try-again', function (e) {
         $(".my-courses-tabs-content .tab-wrapper ").html(response);
         (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
         (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);
-        (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_2__["default"])(moduleIndex, lessonIndex);
-        (0,_scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_3__["default"])(tabId);
-        (0,_scripts_try_again_active__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex);
+
+        (0,_scripts_try_again_button__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex, lessonIndex);
+
+        (0,_scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_2__["default"])(tabId);
+        (0,_scripts_try_again_active__WEBPACK_IMPORTED_MODULE_3__["default"])(moduleIndex);
+    }).fail(function (response) {
+        console.log(response);
+    });
+});
+
+jQuery(document).on('click', '.course-quiz__buttons .module-test-try-again', function (e) {
+    e.preventDefault(); 
+    console.log('module-test-try-again');
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const lessonTestId = $(this).attr('lesson-test-id');
+    const courseId = $("#content").find(".my-courses-tabs").attr('course-id');
+    const tabId = $(this).attr('tab-id');
+    console.log(tabId);
+    const data = {
+        action: "tabs_lesson_ajax",
+        main_tab_id: tabId,
+        course_id: courseId,
+    };
+    $.ajax({
+        type: "POST", 
+        url: courses_ajax.url,
+        data: data,
+    }).done(function (response) {
+        $(".my-courses-tabs-content .tab-wrapper ").html(response);
+        (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId);   
+        (0,_scripts_try_again_button__WEBPACK_IMPORTED_MODULE_4__["default"])(moduleIndex, lessonIndex);
+        (0,_scripts_try_again_active_main_tab__WEBPACK_IMPORTED_MODULE_2__["default"])(tabId);
+        (0,_scripts_try_again_active__WEBPACK_IMPORTED_MODULE_3__["default"])(moduleIndex);
     }).fail(function (response) {
         console.log(response);
     });
@@ -8340,16 +8373,22 @@ __webpack_require__.r(__webpack_exports__);
 function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
     const $ = jQuery.noConflict();
     const tabAccordionItem = $('.accordion-content ul li');
+    console.log();
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');
         const accordionLessonIndex = $(this).attr('lesson-index');
         if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
+            console.log('Tetsts');
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');
         }
     });
 }
+
+
+
+
 
 
 /***/ }),
@@ -8467,6 +8506,42 @@ __webpack_require__.r(__webpack_exports__);
             $(this).toggleClass('active');
         }
     });
+}
+
+/***/ }),
+
+/***/ "./src/js/scripts/try-again-button.js":
+/*!********************************************!*\
+  !*** ./src/js/scripts/try-again-button.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dffTryAgaineButton)
+/* harmony export */ });
+/**
+    * Add class active to sidebar tab item 
+    * when clicking on next or back buttons.
+    * @param {*} moduleIndex 
+    * @param {*} lessonIndex 
+    */
+function dffTryAgaineButton(moduleIndex, lessonIndex) {
+    const $ = jQuery.noConflict();
+    const tabAccordionItem = $('.accordion-item.module_' + moduleIndex + ' .accordion-content ul li');
+    const accordionModuleIndex = $('.accordion-item.module_' + moduleIndex).attr('module-i');
+    const lessonModileIndex = [];
+    tabAccordionItem.each(function () {
+        lessonModileIndex.push($(this).attr('lesson-index'));
+    });
+
+    if (accordionModuleIndex === moduleIndex && $.inArray(lessonIndex, lessonModileIndex)) {
+        $(".accordion-item.module_" + moduleIndex + " .accordion-content ul li[lesson-index*=" + lessonIndex + "]").addClass('active');
+    }
+    if ($(".accordion-item.module_1 .accordion-content ul li[lesson-index*=1]").hasClass('active')) {
+        $(".accordion-item.module_1 .accordion-content ul li[lesson-index*=1]").removeClass('active');
+    }
 }
 
 /***/ }),
