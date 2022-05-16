@@ -9,6 +9,8 @@ include(get_template_directory() . '/includes/functions/user-functions.inc.php')
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-quiz.inc.php');
+include(get_template_directory() . '/includes/functions/pdf-function.inc.php');
+
 
 /**
  * Add disable Gutenberg filter for a given post type.
@@ -65,6 +67,20 @@ if (function_exists('acf_add_options_page')) {
     //     'parent_slug' => 'edit.php?post_type=vacancies'
     // ));
 }
+function get_display_name($user_id)
+{
+   
+    $first_name = get_user_meta($user_id, 'first_name', true);
+    $last_name = get_user_meta($user_id, 'last_name', true);
+    if ($first_name || $last_name) {
+        $user_name = $first_name . ' ' . $last_name;
+    } else {
+        $user = get_userdata($user_id);
+        $user_name = $user->data->display_name;
+    }
+    return $user_name;
+}
+
 
 // Adds the mejs container class to the script if it is done.
 function dff_mejs_add_container_class()
