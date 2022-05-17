@@ -2,6 +2,7 @@
 $exam_post_id = $_POST['exam_post_id']; 
 $course_id = $_POST['course_id'];
 $module_or_exam = get_sub_field('module_or_exam');
+$module_i = get_row_index();
 ?>
 <div class="phrases">
     <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
@@ -103,7 +104,8 @@ $module_or_exam = get_sub_field('module_or_exam');
 
             </form>
 
-            <div class="course-quiz__progress" data-succsess="thanks">
+
+            <div class="course-quiz__progress" data-success="thanks">
                 <?php if (have_rows('thank_you_exam', 'option')) : ?>
                     <?php while (have_rows('thank_you_exam', 'option')) : the_row();  ?>
                         <div class="course-quiz__progress-title"><?php the_sub_field('title'); ?></div>
@@ -117,6 +119,27 @@ $module_or_exam = get_sub_field('module_or_exam');
                     <ul>
                         <li>
                             <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-quiz__progress" data-success="fail">
+                <?php if (have_rows('unfortunately_group_exam', 'option')) : ?>
+                    <?php while (have_rows('unfortunately_group_exam', 'option')) : the_row();  ?>
+                        <div class="course-quiz__progress-title"><?php the_sub_field('unfortunately_title_exam'); ?></div>
+                        <div class="course-quiz__progress-subtitle"><?php the_sub_field('unfortunately_content_exam'); ?></div>
+                        <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                
+                
+                <div class="course-quiz__buttons">
+                    <ul>
+                        <li>
+                            
+                            <?php echo '<a href="#" class="btn-course-primary test-try-again-exam" tab-id="tab-2"
+                                                                 module-type="' . $module_or_exam . '" module-index="' . $module_i . '" exam-post-id="' .  $exam_post_id . '" >' . __('Try again', 'dff') . '</a>'; ?>
                         </li>
                     </ul>
                 </div>

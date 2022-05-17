@@ -69,7 +69,10 @@ const $ = jQuery.noConflict();
                 } else {
                     error.insertBefore(element);
                 }
+                
+                $('a[href="#next"]').addClass('failed');
             },
+
             success: function() {
                 $('a[href="#next"]').removeClass('failed');
             },
@@ -82,6 +85,7 @@ const $ = jQuery.noConflict();
                 $('a[href="#next"], a[href="#finish"]').removeClass('failed');
             },*/
         });
+        
         
 
         $("#quiz").steps({
@@ -110,6 +114,42 @@ const $ = jQuery.noConflict();
             onFinishing: function (event, currentIndex)
             {
                 form.validate().settings.ignore = ":disabled";
+                if ( !form.valid() ) {
+                    $('a[href="#finish"]').addClass('failed');
+                }
+                
+                var allSelect = false;
+                var allInput = false;
+
+                var select_count = 0;
+                $("select").on('change', function(event) {
+                    $(this).removeClass('error');
+                    select_count++;
+                    if($("select").length == select_count){
+                        allSelect = true;
+                        if (allSelect && allInput) {
+                            $('a[href="#finish"]').removeClass('failed');
+                        }
+                    }
+                });
+                $('input[type="text"]').each(function() {
+                    $(this).on('change paste keyup', function(event) {
+                        if ( $(this).hasClass('valid') ) {
+                            allInput = true;
+                            console.log('ss');
+                            if (allSelect && allInput) {
+                                $('a[href="#finish"]').removeClass('failed');
+                            }
+                        }
+                    })
+                });
+                $('input[type="radio"]').on('change', function(event) {
+                    $('a[href="#finish"]').removeClass('failed');
+                });
+                $('input[type="checkbox"]').on('change', function(event) {
+                    $('a[href="#finish"]').removeClass('failed');
+                });
+
                 return form.valid();
             },
 
@@ -153,11 +193,13 @@ const $ = jQuery.noConflict();
                         $('.course-quiz__steps').text($('.phrase_result').text());
                         $('.course-quiz__content').hide();
                         $('.course-quiz__progress').removeClass('active');
-                        $('.course-quiz__progress[data-succsess="thanks"]').addClass('active');
+                        
                         if (result >= 80) {
-                            $('.course-quiz__progress[data-succsess="succsess"]').addClass('active');
+                            
+                            $('.course-quiz__progress[data-success="thanks"]').addClass('active');
+                            $('.course-quiz__progress[data-success="success"]').addClass('active');
                         } else {
-                            $('.course-quiz__progress[data-succsess="fail"]').addClass('active');
+                            $('.course-quiz__progress[data-success="fail"]').addClass('active');
                         }
                     } else {
                       console.log(response);

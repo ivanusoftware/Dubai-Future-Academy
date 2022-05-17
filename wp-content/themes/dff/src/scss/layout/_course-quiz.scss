@@ -277,7 +277,6 @@
             }
             span {
                 font-weight: bold;
-                color: rgba(0, 0, 0, 0.6) !important;
             }
         }
     }
@@ -543,7 +542,7 @@
         &-result {
             color: $color-white;
             span {
-                color: $color-white!important;
+                color: $color-white;
             }
         }
     }

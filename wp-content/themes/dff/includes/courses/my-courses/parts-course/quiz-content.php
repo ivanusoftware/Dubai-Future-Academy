@@ -106,7 +106,7 @@ $course_id = $_POST['course_id'];
             
 
 
-            <div class="course-quiz__progress" data-succsess="succsess">
+            <div class="course-quiz__progress" data-success="success">
                 <?php if (have_rows('сongratulation_group', 'option')) : ?>
                     <?php while (have_rows('сongratulation_group', 'option')) : the_row();  ?>
                         <div class="course-quiz__progress-title"><?php the_sub_field('сongratulation_group_title'); ?></div>
@@ -129,7 +129,7 @@ $course_id = $_POST['course_id'];
             </div>
 
 
-            <div class="course-quiz__progress" data-succsess="fail">
+            <div class="course-quiz__progress" data-success="fail">
                 <?php if (have_rows('unfortunately_group', 'option')) : ?>
                     <?php while (have_rows('unfortunately_group', 'option')) : the_row();  ?>
                         <div class="course-quiz__progress-title"><?php the_sub_field('unfortunately_title'); ?></div>

@@ -1980,7 +1980,6 @@ button.swiper-pagination-bullet {
 }
 .course-quiz__progress-result span {
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.6) !important;
 }
 .course-quiz .actions, .course-quiz__buttons {
   text-align: center;
@@ -2218,7 +2217,7 @@ button.swiper-pagination-bullet {
   color: #ffffff;
 }
 .dark-mode .course-quiz__progress-result span {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 .dark-mode .course-quiz .actions ul a, .dark-mode .course-quiz__buttons ul a {
   color: #000000;
