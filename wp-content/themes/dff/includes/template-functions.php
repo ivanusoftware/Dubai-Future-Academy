@@ -450,3 +450,27 @@ function dff_courses_nav_class($classes, $item)
     return $classes;
 }
 add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
+
+
+/**
+ * Define the action and give functionality to the action.
+ */
+function tutsplus_action() {
+    do_action( 'tutsplus_action' );
+  }
+  
+/**
+  * Register the action with WordPress.
+  */
+  add_action( 'tutsplus_action', 'tutsplus_action_example' );
+  function tutsplus_action_example() {
+    // dff_user_courses_certificate($user_id, $dff_user_courses);
+    echo 'This is a custom action hook.';
+  }
+
+// add_action( 'init', 'tutsplus_register_post_type' );
+// function tutsplus_register_post_type($user_id, $dff_user_courses) {
+ 
+//     dff_user_courses_certificate($user_id, $dff_user_courses);
+ 
+// }

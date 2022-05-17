@@ -21597,22 +21597,22 @@ const $ = jQuery.noConflict();
         }
     });
 
-
+ 
 
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
-        
+
 
         var form = $("#quiz");
         form.validate({
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 if (element.attr("type") == "checkbox") {
                     error.insertBefore(element.parent());
                 } else {
                     error.insertBefore(element);
                 }
             },
-            success: function() {
+            success: function () {
                 $('a[href="#next"]').removeClass('failed');
             },
             /*highlight: function(element, errorClass, validClass) {
@@ -21624,7 +21624,7 @@ const $ = jQuery.noConflict();
                 $('a[href="#next"], a[href="#finish"]').removeClass('failed');
             },*/
         });
-        
+
 
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
@@ -21639,35 +21639,33 @@ const $ = jQuery.noConflict();
             //onCanceled: function (event) { },
             //onFinishing: function (event, currentIndex) { return true; }, 
 
-            onStepChanging: function (event, currentIndex, newIndex)
-            {
+            onStepChanging: function (event, currentIndex, newIndex) {
                 if (currentIndex > newIndex) {
-                  return true;
+                    return true;
                 }
-                
+
                 form.validate().settings.ignore = ":disabled,:hidden";
                 return form.valid();
 
             },
-            onFinishing: function (event, currentIndex)
-            {
+            onFinishing: function (event, currentIndex) {
                 form.validate().settings.ignore = ":disabled";
                 return form.valid();
             },
 
             onFinished: function (event, currentIndex) {
                 var quizData = {};
-                $.each($(this).serializeArray(), function(index, value) {
-                  if (value['name'].endsWith('[]')) {
-                      var name = value['name'];
-                      name = name.substring(0, name.length - 2);
-                      if (!(name in quizData)) {
-                          quizData[name] = [];
-                      }
-                      quizData[name].push(value['value']);
-                  } else {
-                      quizData[value['name']] = value['value'];
-                  }
+                $.each($(this).serializeArray(), function (index, value) {
+                    if (value['name'].endsWith('[]')) {
+                        var name = value['name'];
+                        name = name.substring(0, name.length - 2);
+                        if (!(name in quizData)) {
+                            quizData[name] = [];
+                        }
+                        quizData[name].push(value['value']);
+                    } else {
+                        quizData[value['name']] = value['value'];
+                    }
                 });
                 var data = new FormData();
                 data.append('action', 'quiz_answers');
@@ -21701,8 +21699,9 @@ const $ = jQuery.noConflict();
                         } else {
                             $('.course-quiz__progress[data-succsess="fail"]').addClass('active');
                         }
+
                     } else {
-                      console.log(response);
+                        console.log(response);
                     }
                 }).fail(function (response) {
                     console.log(response);
@@ -21718,9 +21717,9 @@ const $ = jQuery.noConflict();
             $('.currentStepId').html(currentStepId);
         })
 
-        $('input[type="checkbox"]').on('keypress', function(event) {
+        $('input[type="checkbox"]').on('keypress', function (event) {
             if (event.which === 13) {
-              this.checked = !this.checked;  
+                this.checked = !this.checked;
             }
         });
     });
