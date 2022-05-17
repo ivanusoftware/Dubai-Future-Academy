@@ -120,6 +120,11 @@ $module_i = get_row_index();
                         <li>
                             <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
                         </li>
+                        <!-- <li>
+
+                            <a href="#" class="download-certificate" course-id="<?php echo $course_id; ?>"><?php _e('Download', 'dff'); ?></a>
+                            
+                        </li> -->
                     </ul>
                 </div>
             </div>

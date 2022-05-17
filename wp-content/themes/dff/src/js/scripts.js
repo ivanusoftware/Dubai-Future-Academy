@@ -9,7 +9,7 @@ import './ajax/test-try-again';
 import './ajax/test-try-again-exam';
 import './ajax/back-next-buttons';
 
-console.log('I am testing!!!');
+console.log('I am testing!!!');git
 const $ = jQuery.noConflict();
 // const chart = null;
 (function ($) {
@@ -55,15 +55,15 @@ const $ = jQuery.noConflict();
         }
     });
 
-
+ 
 
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
-        
+
 
         var form = $("#quiz");
         form.validate({
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 if (element.attr("type") == "checkbox") {
                     error.insertBefore(element.parent());
                 } else {
@@ -76,18 +76,7 @@ const $ = jQuery.noConflict();
             success: function() {
                 $('a[href="#next"]').removeClass('failed');
             },
-            /*highlight: function(element, errorClass, validClass) {
-                $(element).closest('.course-quiz__step').addClass("has-error");
-                $('a[href="#next"], a[href="#finish"]').addClass('failed');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).closest('.course-quiz__step').removeClass("has-error");
-                $('a[href="#next"], a[href="#finish"]').removeClass('failed');
-            },*/
         });
-        
-        
-
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
             bodyTag: ".course-quiz__step",
@@ -101,18 +90,16 @@ const $ = jQuery.noConflict();
             //onCanceled: function (event) { },
             //onFinishing: function (event, currentIndex) { return true; }, 
 
-            onStepChanging: function (event, currentIndex, newIndex)
-            {
+            onStepChanging: function (event, currentIndex, newIndex) {
                 if (currentIndex > newIndex) {
-                  return true;
+                    return true;
                 }
-                
+
                 form.validate().settings.ignore = ":disabled,:hidden";
                 return form.valid();
 
             },
-            onFinishing: function (event, currentIndex)
-            {
+            onFinishing: function (event, currentIndex) {
                 form.validate().settings.ignore = ":disabled";
                 if ( !form.valid() ) {
                     $('a[href="#finish"]').addClass('failed');
@@ -155,17 +142,17 @@ const $ = jQuery.noConflict();
 
             onFinished: function (event, currentIndex) {
                 var quizData = {};
-                $.each($(this).serializeArray(), function(index, value) {
-                  if (value['name'].endsWith('[]')) {
-                      var name = value['name'];
-                      name = name.substring(0, name.length - 2);
-                      if (!(name in quizData)) {
-                          quizData[name] = [];
-                      }
-                      quizData[name].push(value['value']);
-                  } else {
-                      quizData[value['name']] = value['value'];
-                  }
+                $.each($(this).serializeArray(), function (index, value) {
+                    if (value['name'].endsWith('[]')) {
+                        var name = value['name'];
+                        name = name.substring(0, name.length - 2);
+                        if (!(name in quizData)) {
+                            quizData[name] = [];
+                        }
+                        quizData[name].push(value['value']);
+                    } else {
+                        quizData[value['name']] = value['value'];
+                    }
                 });
                 var data = new FormData();
                 data.append('action', 'quiz_answers');
@@ -201,8 +188,9 @@ const $ = jQuery.noConflict();
                         } else {
                             $('.course-quiz__progress[data-success="fail"]').addClass('active');
                         }
+
                     } else {
-                      console.log(response);
+                        console.log(response);
                     }
                 }).fail(function (response) {
                     console.log(response);
@@ -218,9 +206,9 @@ const $ = jQuery.noConflict();
             $('.currentStepId').html(currentStepId);
         })
 
-        $('input[type="checkbox"]').on('keypress', function(event) {
+        $('input[type="checkbox"]').on('keypress', function (event) {
             if (event.which === 13) {
-              this.checked = !this.checked;
+                this.checked = !this.checked;
             }
         });
     });

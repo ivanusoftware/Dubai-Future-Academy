@@ -14,7 +14,7 @@ $current_user_id  = get_current_user_id();
 
 $dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
 // print_r($dff_user_courses);
-dff_user_courses_certificate($current_user_id, $dff_user_courses, $pdf_certificate_url);
+dff_user_courses_certificate($current_user_id, $dff_user_courses);
 if (!is_user_logged_in()) {
     wp_redirect(site_url('courses'));
 };
