@@ -21551,7 +21551,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-console.log('I am testing!!!');git
+console.log('I am testing!!!');
 const $ = jQuery.noConflict();
 // const chart = null;
 (function ($) {

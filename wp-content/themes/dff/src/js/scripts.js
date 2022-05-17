@@ -9,7 +9,7 @@ import './ajax/test-try-again';
 import './ajax/test-try-again-exam';
 import './ajax/back-next-buttons';
 
-console.log('I am testing!!!');git
+console.log('I am testing!!!');
 const $ = jQuery.noConflict();
 // const chart = null;
 (function ($) {
