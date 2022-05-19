@@ -116,7 +116,7 @@ $course_id     = $_POST['course_id'];
                 <div class="course-quiz__buttons">                    
                     <ul>
                         <li>
-                            <a href="#"><?php _e('Try again', 'dff'); ?></a>
+                            <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
                         <li>
                             <a href="#"><?php _e('Continue course', 'dff'); ?></a>

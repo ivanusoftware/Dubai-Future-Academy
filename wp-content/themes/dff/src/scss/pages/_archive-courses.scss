@@ -79,6 +79,10 @@
     }
 }
 .archive-courses-list {
+    p a::before {
+        background-color: var(--color-primary);
+        bottom: 2px;
+    }
     .course-item {
         flex-grow: 0;
         flex-shrink: 0;
