@@ -10,6 +10,7 @@ include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-quiz.inc.php');
 include(get_template_directory() . '/includes/functions/pdf-function.inc.php');
+include(get_template_directory() . '/includes/test.inc.php');
 
 
 /**
@@ -69,7 +70,7 @@ if (function_exists('acf_add_options_page')) {
 }
 function get_display_name($user_id)
 {
-   
+
     $first_name = get_user_meta($user_id, 'first_name', true);
     $last_name = get_user_meta($user_id, 'last_name', true);
     if ($first_name || $last_name) {
@@ -450,3 +451,74 @@ function dff_courses_nav_class($classes, $item)
     return $classes;
 }
 add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
+
+
+/**
+ * Define the action and give functionality to the action.
+ */
+function tutsplus_action()
+{
+    do_action('tutsplus_action');
+}
+
+/**
+ * Register the action with WordPress.
+ */
+add_action('tutsplus_action', 'tutsplus_action_example');
+function tutsplus_action_example()
+{
+    // dff_user_courses_certificate($user_id, $dff_user_courses);
+    echo 'This is a custom action hook.';
+}
+
+// add_action( 'init', 'tutsplus_register_post_type' );
+// function tutsplus_register_post_type($user_id, $dff_user_courses) {
+
+//     dff_user_courses_certificate($user_id, $dff_user_courses);
+
+// }
+
+/**
+ * Updates the rewrite => slug argument when registering a post type.
+ *
+ * Will use the option from the "Post Type Slugs" tab the 
+ * Network Settings of a website, in case it’s not empty.
+ *
+ * @see register_post_type()
+ *
+ * @param array $args An array of arguments that will be passed to register_post_type().
+ * @param string $postType The name/slug of the post type.
+ *
+ * @return array Updated arguments.
+ */
+add_filter('register_post_type_args', function ($args, $postType) {
+
+    if ((isset($args['_builtin']) && $args['_builtin'])
+        || (isset($args['public']) && !$args['public'])
+    ) {
+        return $args;
+    }
+
+    $slugSettings = get_network_option(
+        0,
+        \Inpsyde\MultilingualPress\Core\Admin\PostTypeSlugsSettingsRepository::OPTION,
+        []
+    );
+
+    $siteId = get_current_blog_id();
+
+    if (empty($slugSettings[$siteId][$postType])) {
+        return $args;
+    }
+
+    $args = array_merge($args, [
+        'rewrite' => [
+            'slug' => $slugSettings[$siteId][$postType]
+        ],
+    ]);
+
+    return $args;
+}, 10, 2);
+
+
+

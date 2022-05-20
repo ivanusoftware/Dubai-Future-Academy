@@ -93,7 +93,7 @@
 		</div>
 	</div>
 </footer>
-
+<?php include(get_template_directory() . '/dff-popup.inc.php'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

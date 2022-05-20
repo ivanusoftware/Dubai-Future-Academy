@@ -75,7 +75,7 @@ function dff_get_result_exam($user_certificates)
 
 
 // Returns the user s course certificate.
-function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids, $pdf_certificate_url)
+function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids)
 {
 
     foreach ($dff_user_courses_ids as $user_courses_id) {
@@ -96,7 +96,7 @@ function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids, $
             'title'                 => get_the_title($user_courses_id),
             'result_exam'           => $exam_result == 1 ? 1 : $exam_result,
             'image_id'              => get_post_thumbnail_id($user_courses_id),
-            'pdf_certificate_url'   => $pdf_certificate_url,
+            'pdf_certificate_url'   => $pdf_certificate_url ? $pdf_certificate_url : '',
             'lenghts'               => $lenghts,
             'exam_date'             => $exam_date,
         );
@@ -104,3 +104,5 @@ function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids, $
     }
     return $certificate;
 }
+
+

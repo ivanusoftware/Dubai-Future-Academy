@@ -1,20 +1,51 @@
-.single-course-modal {
+.rtl {
+    .modal-popup {
+        .modal-close {
+            &::after {
+                left: 6px;
+                right: unset;
+            }
+        }
+    }
+}
+
+.dark-mode .modal-popup {
+    $color_1: #aaa;
+    $color_2: #777;
+    $background-color_1: #000;
+
+    .modal-wrapper {
+        background-color: $background-color_1;
+    }
+    .modal-content {
+        p {
+            color: #fff;
+        }
+        .buttons {
+            .btn-course-primary {
+                background: #fff;
+                color: #000;
+                &:hover {
+                    color: #000;
+                }
+            }
+            button.btn-course-primary,
+            .login.btn-course-primary {
+                border: 1px solid #fff;
+                background: none;
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.modal-popup {
     $color_1: #aaa;
     $color_2: #777;
     $background-color_1: #fff;
-
-    /* Icons */
-    /**
-   * Modals ($modals)
-   */
-    /* 1. Ensure this sits above everything when visible */
-    // .icon {
-    //     display: inline-block;
-    //     width: 16px;
-    //     height: 16px;
-    //     vertical-align: middle;
-    //     fill: currentcolor;
-    // }
     .modal {
         position: fixed;
         z-index: 10000;
@@ -28,7 +59,7 @@
         visibility: visible;
         .modal-overlay {
             opacity: 1;
-            visibility: visible;
+            visibility: visible; 
             transition-delay: 0s;
         }
         .modal-transition {
@@ -150,51 +181,5 @@
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
-}
-.rtl {
-    .single-course-modal {
-        .modal-close {
-            &::after {
-                left: 6px;
-                right: unset;
-            }
-        }
-    }
-}
-
-
-
-.dark-mode .single-course-modal {
-    $color_1: #aaa;
-    $color_2: #777;
-    $background-color_1: #000;
-
-
-    .modal-wrapper {
-        background-color: $background-color_1;
-    }
-    .modal-content {
-        p {
-            color: #fff;
-        }
-        .buttons {
-            .btn-course-primary {
-                background: #fff;
-                color: #000;
-                &:hover {
-                    color: #000;
-                }
-            }
-            button.btn-course-primary,
-            .login.btn-course-primary {
-                border: 1px solid #fff;
-                background: none;
-                color: #fff;
-                &:hover {
-                    color: #fff;
-                }
-            }
-        }
     }
 }

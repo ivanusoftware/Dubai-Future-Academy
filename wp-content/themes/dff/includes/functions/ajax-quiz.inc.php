@@ -5,7 +5,8 @@
  *
  * @return void
  */
-function quiz_answers_callback() {
+function quiz_answers_callback()
+{
     $json_data = array();
     $form = json_decode(stripslashes($_POST['form']), true);
     $type = stripslashes($_POST['type']);
@@ -28,7 +29,7 @@ function quiz_answers_callback() {
                                 $answers_arr[$answers_key] = $answers_radio['answer'];
                             }
                         }
-                    break;
+                        break;
                     case 'checkbox':
                         $answers_key = 'checkbox_' . $key_step . '_' . $key_step_inputs;
                         foreach ($step_inputs['answers_checkbox'] as $answers_checkbox) {
@@ -36,7 +37,7 @@ function quiz_answers_callback() {
                                 $answers_arr[$answers_key][] = $answers_checkbox['answer'];
                             }
                         }
-                    break;
+                        break;
                     case 'text_with_select':
                         foreach ($step_inputs['answer_fragments'] as $key_answer_fragments => $answer_fragments) {
                             $key_answer_fragments++;
@@ -44,17 +45,17 @@ function quiz_answers_callback() {
                             switch ($answer_fragments['variant']) {
                                 case 'input':
                                     $answers_arr[$answers_key] = $answer_fragments['input'];
-                                break;
+                                    break;
                                 case 'select':
                                     foreach ($answer_fragments['select'] as $select) {
                                         if ($select['correct'] == 'true') {
                                             $answers_arr[$answers_key] = $select['answer'];
                                         }
                                     }
-                                break;
+                                    break;
                             }
                         }
-                    break;
+                        break;
                 }
             }
         }
@@ -64,9 +65,9 @@ function quiz_answers_callback() {
             if (strpos($key, 'checkbox') !== false && is_array($value)) {
                 $value = implode(', ', $value);
                 $answers_arr[$key] = implode(', ', $answers_arr[$key]);
-            } elseif (strpos($key, 'fragment_text') !== false ) {
+            } elseif (strpos($key, 'fragment_text') !== false) {
                 $key = str_replace('fragment_text', 'text_with_select', $key);
-            } elseif (strpos($key, 'select') !== false ) {
+            } elseif (strpos($key, 'select') !== false) {
                 $key = str_replace('select', 'text_with_select', $key);
             }
             $answers_acf[] = array(
@@ -84,13 +85,13 @@ function quiz_answers_callback() {
 
 
         if ($type == 'exam') {
-                
+
             $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Examen';
             $post_id = get_page_by_title($post_title, $output, 'exams_answers');
             if (!$post_id) {
                 $post_id = wp_insert_post([
-                    'post_title' => $post_title,
-                    'post_type' => 'exams_answers',
+                    'post_title'  => $post_title,
+                    'post_type'   => 'exams_answers',
                     'post_status' => 'publish',
                 ]);
             }
@@ -98,15 +99,15 @@ function quiz_answers_callback() {
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
             update_user_meta($user_id, 'course_' . $course_id . '_exam_result', $percentage);
-        
+
         } else {
-            
+
             $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Module: ' . $module_id;
             $post_id = get_page_by_title($post_title, $output, 'quizzes_answers');
             if (!$post_id) {
                 $post_id = wp_insert_post([
-                    'post_title' => $post_title,
-                    'post_type' => 'quizzes_answers',
+                    'post_title'  => $post_title,
+                    'post_type'   => 'quizzes_answers',
                     'post_status' => 'publish',
                 ]);
             }
@@ -114,7 +115,6 @@ function quiz_answers_callback() {
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
             update_user_meta($user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
-            
         }
 
 
