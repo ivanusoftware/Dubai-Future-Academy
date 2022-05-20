@@ -1,4 +1,4 @@
-<div class="single-course-modal">
+<div class="single-course-modal modal-popup">
 	<div class="modal">
 		<div class="modal-overlay modal-toggle"></div>
 		<div class="modal-wrapper modal-transition">

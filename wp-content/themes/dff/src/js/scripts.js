@@ -55,7 +55,28 @@ const $ = jQuery.noConflict();
         }
     });
 
- 
+    $('.open-auth-popup').on('click', function (e) {
+        e.preventDefault();
+        console.log('open-auth-popup')
+        const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
+        if (isVisible.hasClass('is-visible')) {
+            $('html').css('overflow', 'hidden');
+        } else {
+            $('html').css('overflow', 'auto');
+        }
+    });
+
+    $('.register-login-module .register-login-tab .tabs-nav a').on('click', function () {
+        // Check for active
+        $('.register-login-module .register-login-tab .tabs-nav li').removeClass('active');
+        $(this).parent().addClass('active');
+
+        // Display active tab
+        const currentTab = $(this).attr('href');
+        $('.register-login-module .register-login-tab .tabs-content .tab-wrapper').hide();
+        $(currentTab).show();
+        return false;
+    });
 
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
