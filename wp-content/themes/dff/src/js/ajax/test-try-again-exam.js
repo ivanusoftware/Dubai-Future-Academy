@@ -8,7 +8,7 @@ import dffTryAgainActive from '../scripts/try-again-active';
    * to pass the Exam for the course.
    */
   const $ = jQuery.noConflict();
-jQuery(document).on('click', '.exam-footer .test-try-again-exam', function (e) {
+jQuery(document).on('click', '.exam-footer .test-try-again-exam, .course-quiz__buttons .test-try-again-exam', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const examPostId = $(this).attr('exam-post-id');

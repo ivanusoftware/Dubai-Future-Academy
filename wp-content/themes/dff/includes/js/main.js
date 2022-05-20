@@ -8110,7 +8110,7 @@ __webpack_require__.r(__webpack_exports__);
    * to pass the Exam for the course.
    */
   const $ = jQuery.noConflict();
-jQuery(document).on('click', '.exam-footer .test-try-again-exam', function (e) {
+jQuery(document).on('click', '.exam-footer .test-try-again-exam, .course-quiz__buttons .test-try-again-exam', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const examPostId = $(this).attr('exam-post-id');
@@ -21584,9 +21584,9 @@ const $ = jQuery.noConflict();
     });
 
     /**
-    * Open modal window.
-    * toggle the visibility of the course modal.
-    */
+     * Open modal window.
+     * toggle the visibility of the course modal.
+     */
     $('.modal-toggle').on('click', function (e) {
         e.preventDefault();
         const isVisible = $('.single-course-modal .modal').toggleClass('is-visible');
@@ -21620,6 +21620,126 @@ const $ = jQuery.noConflict();
         return false;
     });
 
+    function checkInputs(e, step, init = false) {
+        var allSelect = false;
+        var allInput = false;
+        var select_count = 0;
+
+        if (!init) {
+            if (isStepValid(e, step)) {
+                $('a[href="#finish"], a[href="#next"]').removeClass('failed');
+            } else {
+                $('a[href="#finish"], a[href="#next"]').addClass('failed');
+            }
+        } else {
+            $('input[type="text"]').each(function () {
+                $(this).on('change paste keyup', function (event) {
+                    let step = event.target.closest('.course-quiz__step').getAttribute('data-step')
+                    if (isStepValid(event, step, false, true)) {
+                        $('a[href="#finish"], a[href="#next"]').removeClass('failed');
+                    } else {
+                        $('a[href="#finish"], a[href="#next"]').addClass('failed');
+                    }
+                })
+            });
+
+            $('input[type="checkbox"], select, input[type="radio"]').on('change', function (event) {
+                $('.nice-select').niceSelect('reset')
+                let step = event.target.closest('.course-quiz__step').getAttribute('data-step')
+                if (isStepValid(event, step, false, true)) {
+                    $('a[href="#finish"], a[href="#next"]').removeClass('failed');
+                } else {
+                    $('a[href="#finish"], a[href="#next"]').addClass('failed');
+                }
+            });
+        }
+
+    }
+
+
+    function isStepValid(e, step, init = false, isEvent = false) {
+        let isValid = true
+        let quize = e.target.closest('.course-quiz')
+        console.log(step);
+        if (!isEvent) {
+            step = step + 1
+        }
+        console.log(step);
+        let stepWrap = quize.querySelectorAll(`.course-quiz__step`)
+
+        for (const wr of stepWrap) {
+
+            if (wr.getAttribute('data-step') === (step).toString()) {
+                console.log(wr.getAttribute('data-step'));
+                console.log((step).toString());
+                stepWrap = Element
+                stepWrap = wr
+                console.log(stepWrap);
+            }
+        }
+
+
+
+
+        if (!stepWrap.length && stepWrap) {
+            let inputsRad = stepWrap.querySelectorAll('[type=radio]')
+            let res = {}
+            if (inputsRad && inputsRad.length) {
+                res.isRadValid = false
+                for (const rad of inputsRad) {
+
+                    if (rad.checked) {
+                        res.isRadValid = true
+                    }
+                }
+            }
+            let inputsCheck = stepWrap.querySelectorAll('[type=checkbox]')
+            if (inputsCheck && inputsCheck.length) {
+                res.isCheckValid = false
+                for (const ch of inputsCheck) {
+                    if (ch.checked) {
+                        res.isCheckValid = true
+                    }
+                }
+            }
+            let inputsText = stepWrap.querySelectorAll('[type=text], textarea')
+            if (inputsText && inputsText.length) {
+                res.isTextValid = false
+                for (const tx of inputsText) {
+                    if (tx.value.length) {
+                        res.isTextValid = true
+                    }
+                }
+            }
+
+            let inputsSelects = stepWrap.querySelectorAll('select')
+            if (inputsSelects && inputsSelects.length) {
+                res.isslValid = false
+                let subRes = true
+                for (const sl of inputsSelects) {
+                    let option = sl.querySelector('option')
+                    console.log(option.value);
+                    if (sl.value === option.value) {
+                        subRes = false
+
+                    }
+                }
+                if (subRes) {
+                    res.isslValid = true
+                }
+
+            }
+            for (const iterator of Object.values(res)) {
+                if (!iterator) {
+                    isValid = false
+                }
+            }
+        } else {
+            return false
+        }
+        return isValid
+    }
+
     $(document).ajaxComplete(function () {
         $('.course-quiz select').niceSelect();
 
@@ -21632,21 +21752,10 @@ const $ = jQuery.noConflict();
                 } else {
                     error.insertBefore(element);
                 }
+
+                $('a[href="#next"]').addClass('failed');
             },
-            success: function () {
-                $('a[href="#next"]').removeClass('failed');
-            },
-            /*highlight: function(element, errorClass, validClass) {
-                $(element).closest('.course-quiz__step').addClass("has-error");
-                $('a[href="#next"], a[href="#finish"]').addClass('failed');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).closest('.course-quiz__step').removeClass("has-error");
-                $('a[href="#next"], a[href="#finish"]').removeClass('failed');
-            },*/
         });
-
-
         $("#quiz").steps({
             headerTag: ".course-quiz__step-title",
             bodyTag: ".course-quiz__step",
@@ -21655,26 +21764,27 @@ const $ = jQuery.noConflict();
                 next: $('.phrase_next').text(),
                 previous: $('.phrase_back').text(),
             },
-            //onStepChanging: function (event, currentIndex, newIndex) { return true; },
-            //onStepChanged: function (event, currentIndex, priorIndex) { }, 
-            //onCanceled: function (event) { },
-            //onFinishing: function (event, currentIndex) { return true; }, 
-
+            onInit: function (e, step) {
+                $('a[href="#next"]').addClass('failed');
+                checkInputs(e, step, true);
+            },
             onStepChanging: function (event, currentIndex, newIndex) {
+                checkInputs(event, newIndex);
                 if (currentIndex > newIndex) {
                     return true;
                 }
 
                 form.validate().settings.ignore = ":disabled,:hidden";
-                return form.valid();
 
+                return form.valid();
             },
-            onFinishing: function (event, currentIndex) {
+            onFinishing: function (event, currentIndex, newIndex) {
                 form.validate().settings.ignore = ":disabled";
                 return form.valid();
             },
 
             onFinished: function (event, currentIndex) {
+
                 var quizData = {};
                 $.each($(this).serializeArray(), function (index, value) {
                     if (value['name'].endsWith('[]')) {
@@ -21714,11 +21824,13 @@ const $ = jQuery.noConflict();
                         $('.course-quiz__steps').text($('.phrase_result').text());
                         $('.course-quiz__content').hide();
                         $('.course-quiz__progress').removeClass('active');
-                        $('.course-quiz__progress[data-succsess="thanks"]').addClass('active');
+
                         if (result >= 80) {
-                            $('.course-quiz__progress[data-succsess="succsess"]').addClass('active');
+
+                            $('.course-quiz__progress[data-success="thanks"]').addClass('active');
+                            $('.course-quiz__progress[data-success="success"]').addClass('active');
                         } else {
-                            $('.course-quiz__progress[data-succsess="fail"]').addClass('active');
+                            $('.course-quiz__progress[data-success="fail"]').addClass('active');
                         }
 
                     } else {
@@ -21749,8 +21861,7 @@ const $ = jQuery.noConflict();
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
-        }
-        else {
+        } else {
             $('.accordion-content').slideUp();
             $('.accordion-head').removeClass('active');
             $(this).siblings('.accordion-content').slideToggle();
@@ -21786,7 +21897,6 @@ const $ = jQuery.noConflict();
 
 
 })(jQuery);
-
 })();
 
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.

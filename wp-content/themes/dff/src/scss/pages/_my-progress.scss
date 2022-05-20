@@ -281,3 +281,74 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+.dark-mode {
+    .my-progress-content {
+        .my-progres-modules {
+            ul {
+                li {
+                    border-bottom-color:rgba(255, 255, 255, 0.5);
+                    &.active,
+                    &:hover {
+                        color: #fff;
+                        &::before {
+                            background: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .tabs-content {
+            .progress-wrapper {
+                .progress-content {
+                    h5 {
+                        color: #fff;
+                    }
+                    p {
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+        }
+        .columns {
+            .main-content {
+                @media only screen and (min-width: 993px) {
+                    border-right-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+            .course-sidebar {
+                border-bottom-color: rgba(255,255, 255, 0.5);
+            }
+            .main-content {
+                .content {
+                    .progress-wrapper {
+                        .module-header {
+                            border-bottom-color: rgba(255, 255, 255, 0.1);
+                            h2 {
+                                color: #fff;
+                            }
+                        }
+                        background: #000000;
+                        border-color:  rgba(255, 255, 255, 0.1);
+                        .exam-footer {
+                            button,
+                            a {
+                                background-color: #fff;
+                                color: #000;
+                                border-color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

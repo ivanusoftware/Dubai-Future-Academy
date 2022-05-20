@@ -117,9 +117,9 @@
                 content: '';
                 position: absolute;
                 left: 21px;
-                top: 15px;
                 opacity: 0;
                 z-index: 1;
+                margin-top: -3px;
                 transform: rotate(45deg);
                 height: 14px;
                 width: 7px;
@@ -181,7 +181,6 @@
                 content: '';
                 position: absolute;
                 left: 19px;
-                top: 18px;
                 opacity: 0;
                 height: 10px;
                 width: 10px;
@@ -222,13 +221,6 @@
             border-color: red;
         }
     }
-
-
-   /* .has-error input[type="radio"] ~ label,
-    .has-error input[type="checkbox"] ~ label {
-        border-color: red;
-    }*/
-    
 
     label.error {
         display: none!important;
@@ -277,7 +269,6 @@
             }
             span {
                 font-weight: bold;
-                color: rgba(0, 0, 0, 0.6) !important;
             }
         }
     }
@@ -326,6 +317,7 @@
                     background-color: #959595;
                     border: 1px solid #959595;
                     cursor: not-allowed;
+                    color: #fff;
                 }
             }
             li:first-child a {
@@ -459,7 +451,60 @@
 
 
 
+.rtl {
+    .nice-select {
+        text-align: right;
+        padding: 0px 5px 0px 45px;
+    }
 
+    .nice-select .list {
+        left: inherit;
+        right: 0;
+    }
+
+    .nice-select:after {
+        left: 10px;
+        right: inherit;
+    }
+
+
+
+
+    .course-quiz {
+        &__content {
+            @media(max-width:767px) {
+                text-align: right;
+            }
+        }
+        &__checkbox {
+            label {
+                text-align: right;
+                &:after {
+                    left: initial;
+                    right: 15px;
+                }
+                &:before {
+                    left: initial;
+                    right: 21px;
+                }
+            }
+        }
+        &__radio {
+            label {
+                text-align: right;
+                &:after {
+                    left: initial;
+                    right: 15px;
+                }
+                &:before {
+                    left: initial;
+                    right: 19px;
+                }
+            }
+        }
+
+    }
+}
 
 
 
@@ -538,12 +583,12 @@
             color: $color-white;
         }
         &-subtitle {
-            color: $color-white;
+            color: rgba(255, 255, 255, 0.5);
         }
         &-result {
-            color: $color-white;
+            color: rgba(255, 255, 255, 0.5);
             span {
-                color: $color-white!important;
+                color: $color-white;
             }
         }
     }
