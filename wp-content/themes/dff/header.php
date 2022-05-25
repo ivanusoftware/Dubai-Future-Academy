@@ -142,7 +142,22 @@
 						<?php dff_asset('img/futureid-icon.svg'); ?> 2
 						<ul class="futureId">
 							<li><a href="http://dubaifuture.loc/future-id/">About Future ID</a></li>
-							<li><a href="#" class="open-auth-popup">Login / Register</a></li>
+							<?php
+							if (!is_user_logged_in()) {
+							?>
+								<li><a href="#" class="open-auth-popup">
+										<a href="#" class="open-auth-popup">Login / Register</a>
+								</li>
+							<?php
+							} else {
+							?>
+								<li><a href="https://dev.id.dubaifuture.ae/">My Profile</a></li>
+								<li><a href="https://dev.programs.dubaifuture.ae/">Programmes Dashboard</a></li>					
+								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout">My Cources</a></li>
+								<li><a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Logout">Logout</a></li>
+							<?php
+							}
+							?>
 						</ul>
 					</button>
 					<button class="button is-icon" data-toggle-darkmode>

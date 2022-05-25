@@ -21608,14 +21608,14 @@ const $ = jQuery.noConflict();
         }
     });
 
-    $('.register-login-module .register-login-tab .tabs-nav a').on('click', function () {
+    $('.register-login-module .register-login-tab .register-login-tabs-nav a').on('click', function () {
         // Check for active
-        $('.register-login-module .register-login-tab .tabs-nav li').removeClass('active');
+        $('.register-login-module .register-login-tab .register-login-tabs-nav li').removeClass('active');
         $(this).parent().addClass('active');
 
         // Display active tab
         const currentTab = $(this).attr('href');
-        $('.register-login-module .register-login-tab .tabs-content .tab-wrapper').hide();
+        $('.register-login-module .register-login-tab .register-login-tabs-content .register-login-tab-wrapper').hide();
         $(currentTab).show();
         return false;
     });
