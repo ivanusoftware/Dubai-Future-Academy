@@ -74,6 +74,11 @@
 
                                     </ul>
                                 </div>
+
+                                <div class="course-leaving">
+									<div class="course-leaving__title"><?php echo _e('If you want to leave the course, you can do it here.', 'dff'); ?></div>
+									<a href="#" class="dff-btn"><?php echo _e('Leave course', 'dff'); ?></a>
+								</div>
                             </div>
                         </main>
                         <aside class="course-sidebar">

@@ -228,6 +228,29 @@
             }
         }
     }
+
+    .course-leaving {
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        margin-top: 56px;
+        padding-top: 32px;
+        &__title {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 16px;
+            color: $color-black;
+        }
+    }
+}
+
+.dark-mode {
+    .cource-content {
+        .course-leaving {
+            border-top-color: rgba(255, 255, 255, 0.2);
+            &__title {
+                color: $color-white;
+            }
+        }
+    }
 }
 
 .rtl {

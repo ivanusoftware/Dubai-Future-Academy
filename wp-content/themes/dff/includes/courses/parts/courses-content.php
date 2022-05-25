@@ -45,4 +45,14 @@ $courses_tax_obj_list = get_the_terms($courses->ID, "courses-categories");
     <?php
     }
     ?>
+
+    <div class="course-duration__status">
+        <?php echo _e('Completed Course', 'dff'); ?>
+    </div>    
+</div>
+<div class="course-progress">
+    <div class="course-progress__wrap">
+        <div class="course-progress__line" style="width:15%"></div>
+    </div>
+    <div class="course-progress__value">15%</div>
 </div>
