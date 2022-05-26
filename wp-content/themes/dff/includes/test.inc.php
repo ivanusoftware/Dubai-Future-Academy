@@ -41,8 +41,8 @@ add_action( 'init', 'njengah_add_login_shortcode' );
 // $body   = array(
 //     'data_send' => $data_send,
 //     "email" => "ivanko.vano2010@gmail.com",
-//     "password" => "sdfyxevfr",
-//     "token" => "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyN2NmNjVmMDRiODg5MDAyOTBkMjZkYiJ9.bqu2Jt1dBC-bRBhhJWt6lTbT0huqweAm0AgNQZ6cMdQ"
+//     "password" => "sdfyxevfr5",
+//     // "token" => "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyN2NmNjVmMDRiODg5MDAyOTBkMjZkYiJ9.bqu2Jt1dBC-bRBhhJWt6lTbT0huqweAm0AgNQZ6cMdQ"
 // );
 // $result = wp_remote_post('https://dev-auth.id.dubaifuture.ae/api/v1/auth/login', array(
 //     'method'      => 'POST',

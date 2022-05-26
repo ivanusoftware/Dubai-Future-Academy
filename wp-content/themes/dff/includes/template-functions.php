@@ -478,47 +478,8 @@ function tutsplus_action_example()
 
 // }
 
-/**
- * Updates the rewrite => slug argument when registering a post type.
- *
- * Will use the option from the "Post Type Slugs" tab the 
- * Network Settings of a website, in case it’s not empty.
- *
- * @see register_post_type()
- *
- * @param array $args An array of arguments that will be passed to register_post_type().
- * @param string $postType The name/slug of the post type.
- *
- * @return array Updated arguments.
- */
-add_filter('register_post_type_args', function ($args, $postType) {
 
-    if ((isset($args['_builtin']) && $args['_builtin'])
-        || (isset($args['public']) && !$args['public'])
-    ) {
-        return $args;
-    }
 
-    $slugSettings = get_network_option(
-        0,
-        \Inpsyde\MultilingualPress\Core\Admin\PostTypeSlugsSettingsRepository::OPTION,
-        []
-    );
-
-    $siteId = get_current_blog_id();
-
-    if (empty($slugSettings[$siteId][$postType])) {
-        return $args;
-    }
-
-    $args = array_merge($args, [
-        'rewrite' => [
-            'slug' => $slugSettings[$siteId][$postType]
-        ],
-    ]);
-
-    return $args;
-}, 10, 2);
 
 
 

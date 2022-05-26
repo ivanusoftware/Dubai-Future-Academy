@@ -7,19 +7,19 @@
 			</div>
 			<div class="modal-body">
 				<div class="modal-content register-login-tab">
-					<header class="tabs-nav">
+					<header class="register-login-tabs-nav">
 						<ul>
 							<li class="active"><a href="#tab1"><?php _e('Login', 'dff'); ?></a></li>
 							<li><a href="#tab2"><?php _e('Register', 'dff'); ?></a></li>
 						</ul>
 					</header>
 					<h2 class="modal-heading"><?php _e('Future ID', 'dff'); ?></h2>
-					<div class="tabs-content">
-						<div class="tab-wrapper" id="tab1">
-							<?php echo do_shortcode("[login_form]"); ?>
+					<div class="register-login-tabs-content">
+						<div class="register-login-tab-wrapper" id="tab1">
+							<?php echo do_shortcode("[dff_login_form]"); ?>
 						</div>
-						<div id="tab2" class="tab-wrapper">
-							<?php echo do_shortcode("[register_form]");	?>
+						<div id="tab2" class="register-login-tab-wrapper">
+							<?php echo do_shortcode("[dff_register_form]");	?>
 						</div>
 					</div>
 					<?php

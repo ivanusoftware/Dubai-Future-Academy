@@ -166,6 +166,40 @@
                 letter-spacing: 0.02em;
                 margin: 0;
             }
+            &__status {
+                font-size: 14px;
+                line-height: 14px;
+                letter-spacing: 0.02em;
+                color: $color-black;
+                padding-left: 20px;
+                position: relative;
+                &:before {
+                    content: "";
+                    background: url(../../images/complete-icon.svg) no-repeat;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+            
+        }
+
+        .course-progress {
+            margin: 18px 15px 0px 15px;
+            &__wrap {
+                background-color: #E5E5E5;
+            }
+            &__line {
+                height:4px;
+                background-color: #000;
+            }
+            &__value {
+                margin-top: 4px;
+                color: rgba(0, 0, 0, 0.7);
+                font-size: 12px;
+                line-height: 14px;
+            }
         }
     }
 }
@@ -210,10 +244,29 @@
             h2 {
                 color: $color-white;
             }
-            .course-duration {
-                h5 {
-                    color: $color-white;
-                }
+        }
+        .course-duration {
+            h5 {
+                color: $color-white;
+            }
+        }
+        .course-duration__status {
+            color: $color-white;
+            &:before {
+                filter: invert(100%);
+                -webkit-filter: invert(100%);
+            }
+        }
+        .course-progress {
+            &__wrap {
+                background-color: #000;
+                box-shadow: 0px 0px 2px 0px #ffffff87;
+            }
+            &__line {
+                background-color: #E5E5E5;
+            }
+            &__value {
+                color: rgba(255, 255, 255, 0.7);
             }
         }
     }
@@ -232,6 +285,15 @@
                         }
                     }
                 }
+            }
+        }
+
+        .course-duration__status {
+            padding-left: 0;
+            padding-right: 20px;
+            &:before {
+                left: initial;
+                right: 0;
             }
         }
     }
@@ -287,6 +349,26 @@
                     }
                 }
             }
+        }
+    }
+
+    .course-duration__status {
+        color: $color-white;
+        &:before {
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
+        }
+    }
+    .course-progress {
+        &__wrap {
+            background-color: #000;
+            box-shadow: 0px 0px 2px 0px #ffffff87;
+        }
+        &__line {
+            background-color: #E5E5E5;
+        }
+        &__value {
+            color: rgba(255, 255, 255, 0.7);
         }
     }
 }
