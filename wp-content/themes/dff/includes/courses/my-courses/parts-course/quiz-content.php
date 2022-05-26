@@ -1,8 +1,9 @@
-<?php 
-$lesson_test_id = $_POST['lesson_test_id']; 
-$module_index  = $_POST['module_index'];  
-$lesson_index  = $_POST['lesson_index'];
-$course_id     = $_POST['course_id'];
+<?php
+$exam_post_id   = $_POST['exam_post_id'];
+$lesson_test_id = $_POST['lesson_test_id'];
+$module_index   = $_POST['module_index'];
+$lesson_index   = $_POST['lesson_index'];
+$course_id      = $_POST['course_id'];
 ?>
 <div class="phrases">
     <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
@@ -17,7 +18,7 @@ $course_id     = $_POST['course_id'];
         <div class="course-quiz__steps" data-result=""><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
     </div>
     <?php
-    
+
     if ($lesson_test_id) : $post = $lesson_test_id;
         setup_postdata($post);
     ?>
@@ -29,7 +30,7 @@ $course_id     = $_POST['course_id'];
                     <div class="course-quiz__step-title"><?php echo get_row_index(); ?></div>
                     <div class="course-quiz__step" data-step="<?php echo get_row_index(); ?>">
                         <?php if (have_rows('quiz_step_inputs')) : ?>
-                            <?php while (have_rows('quiz_step_inputs')) : the_row(); 
+                            <?php while (have_rows('quiz_step_inputs')) : the_row();
                                 $layout_parent = get_row_index(); ?>
 
                                 <?php if (get_row_layout() == 'radio') : ?>
@@ -101,7 +102,7 @@ $course_id     = $_POST['course_id'];
                     </div>
 
                 <?php endwhile; ?>
-            </form>         
+            </form>
 
             <div class="course-quiz__progress" data-success="success">
                 <?php if (have_rows('сongratulation_group', 'option')) : ?>
@@ -111,15 +112,15 @@ $course_id     = $_POST['course_id'];
                         <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                
 
-                <div class="course-quiz__buttons">                    
+
+                <div class="course-quiz__buttons">
                     <ul>
                         <li>
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
                         <li>
-                            <a href="#"><?php _e('Continue course', 'dff'); ?></a>
+                            <a href="#" class="continue-course-module" module-index="<?php echo $module_index + 1; ?>" lesson-index="1" lesson-test-id="<?php echo $lesson_test_id; ?>" exam-post-id="<?php echo $exam_post_id; ?>"><?php _e('Continue course', 'dff'); ?></a>
                         </li>
                     </ul>
                 </div>
@@ -134,15 +135,15 @@ $course_id     = $_POST['course_id'];
                         <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                
-                
+
+
                 <div class="course-quiz__buttons">
                     <ul>
                         <li>
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
                         <li>
-                            <a href="#" class="failed" ><?php _e('Continue course', 'dff'); ?></a>
+                            <a href="#" class="failed"><?php _e('Continue course', 'dff'); ?></a>
                         </li>
                     </ul>
                 </div>

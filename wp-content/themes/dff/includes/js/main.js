@@ -7930,6 +7930,63 @@ var defaults = $.fn.steps.defaults = {
 
 /***/ }),
 
+/***/ "./src/js/ajax/ajax-continue-course.js":
+/*!*********************************************!*\
+  !*** ./src/js/ajax/ajax-continue-course.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
+/* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
+/* harmony import */ var _scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/upload-exam */ "./src/js/scripts/upload-exam.js");
+/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
+
+
+
+
+/** 
+   * The functionality for the 
+   * back button on the lesson. 
+   */
+const $ = jQuery.noConflict();
+
+$(document).on('click', '.course-quiz__buttons .continue-course-module', function (e) {
+    console.log('continue-course-module');
+    e.preventDefault();
+    const moduleIndex = $(this).attr('module-index');
+    const lessonIndex = $(this).attr('lesson-index');
+    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
+    const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
+    const indexPrev = moduleIndex - 1;
+    const headPrev = $('.accordion .accordion-item.module_' + indexPrev + ' .accordion-head');
+    const headNext = $('.accordion .accordion-item.module_' + moduleIndex + ' .accordion-head');
+    if (headPrev.hasClass('active')) {
+        headPrev.siblings('.accordion-content').slideUp();
+        headPrev.removeClass('active');
+        headNext.siblings('.accordion-content').slideToggle();
+        headNext.toggleClass('active');
+    }
+
+    if (moduleIndex - 1 === countLessonRow - 1) {
+        const examPostId = $(".modules-course .my-single-modules").find(".exam-tab-item").attr('exam-post-id');
+        console.log('exam');
+        console.log(examPostId);
+        (0,_scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__["default"])(examPostId, 'exam');
+    } else {
+        (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow);
+    }
+    // dffTryAgaineButton(moduleIndex, lessonIndex);
+    (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
+});
+
+
+
+/***/ }),
+
 /***/ "./src/js/ajax/back-next-buttons.js":
 /*!******************************************!*\
   !*** ./src/js/ajax/back-next-buttons.js ***!
@@ -21540,10 +21597,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ajax_test_try_again__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ajax/test-try-again */ "./src/js/ajax/test-try-again.js");
 /* harmony import */ var _ajax_test_try_again_exam__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ajax/test-try-again-exam */ "./src/js/ajax/test-try-again-exam.js");
 /* harmony import */ var _ajax_back_next_buttons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ajax/back-next-buttons */ "./src/js/ajax/back-next-buttons.js");
+/* harmony import */ var _ajax_ajax_continue_course__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ajax/ajax-continue-course */ "./src/js/ajax/ajax-continue-course.js");
 
 
 
 //import './scripts/jquery.validate.js';
+
 
 
 
@@ -21597,6 +21656,7 @@ const $ = jQuery.noConflict();
         }
     });
 
+    // Shows the open - auth popup
     $('.open-auth-popup').on('click', function (e) {
         e.preventDefault();
         console.log('open-auth-popup')
@@ -21608,6 +21668,7 @@ const $ = jQuery.noConflict();
         }
     });
 
+    // Register the login tab
     $('.register-login-module .register-login-tab .register-login-tabs-nav a').on('click', function () {
         // Check for active
         $('.register-login-module .register-login-tab .register-login-tabs-nav li').removeClass('active');
@@ -21619,6 +21680,8 @@ const $ = jQuery.noConflict();
         $(currentTab).show();
         return false;
     });
+
+ 
 
     function checkInputs(e, step, init = false) {
         var allSelect = false;
@@ -21660,21 +21723,21 @@ const $ = jQuery.noConflict();
     function isStepValid(e, step, init = false, isEvent = false) {
         let isValid = true
         let quize = e.target.closest('.course-quiz')
-        console.log(step);
+        // console.log(step);
         if (!isEvent) {
             step = step + 1
         }
-        console.log(step);
+        // console.log(step);
         let stepWrap = quize.querySelectorAll(`.course-quiz__step`)
 
         for (const wr of stepWrap) {
 
             if (wr.getAttribute('data-step') === (step).toString()) {
-                console.log(wr.getAttribute('data-step'));
-                console.log((step).toString());
+                // console.log(wr.getAttribute('data-step'));
+                // console.log((step).toString());
                 stepWrap = Element
                 stepWrap = wr
-                console.log(stepWrap);
+                // console.log(stepWrap);
             }
         }
 
@@ -21895,6 +21958,10 @@ const $ = jQuery.noConflict();
         return false;
     });
 
+    // $(document).on('click',  '.course-quiz__buttons .continue-course-module', function () {
+    //     console.log('continue-course-module');
+
+    // });
 
 })(jQuery);
 })();
