@@ -50,3 +50,27 @@
 
 
 
+.dff-btn {
+    font-family: $font-family-tertiary;
+    color: $color-black;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 15px;
+    display: inline-block;
+    border: 2px solid $color-black;
+    &:focus {
+        background-color: rgba(51, 51, 51, .1);
+        background-color: var(--color-primary-transparent);
+        color: var(--color-primary);
+    }
+}
+
+.dark-mode {
+    .dff-btn, a.dff-btn {
+        color: $color-black;
+        border: 1px solid $color-white;
+        background-color: $color-white;
+    }
+}

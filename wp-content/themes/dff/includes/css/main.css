@@ -419,6 +419,26 @@ button.swiper-pagination-bullet {
 .dark-mode .single-course p {
   color: #ffffff; }
 
+.dff-btn {
+  font-family: "Gilroy", Helvetica, Arial, sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 15px;
+  display: inline-block;
+  border: 2px solid #000000; }
+  .dff-btn:focus {
+    background-color: rgba(51, 51, 51, 0.1);
+    background-color: var(--color-primary-transparent);
+    color: var(--color-primary); }
+
+.dark-mode .dff-btn, .dark-mode a.dff-btn {
+  color: #000000;
+  border: 1px solid #ffffff;
+  background-color: #ffffff; }
+
 .single-modules {
   padding-bottom: 30px; }
 
@@ -2156,6 +2176,32 @@ button.swiper-pagination-bullet {
       line-height: 18px;
       letter-spacing: 0.02em;
       margin: 0; }
+    .archive-courses-list .course-item .course-duration__status {
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0.02em;
+      color: #000000;
+      padding-left: 20px;
+      position: relative; }
+      .archive-courses-list .course-item .course-duration__status:before {
+        content: "";
+        background: url(../../images/complete-icon.svg) no-repeat;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        left: 0; }
+  .archive-courses-list .course-item .course-progress {
+    margin: 18px 15px 0px 15px; }
+    .archive-courses-list .course-item .course-progress__wrap {
+      background-color: #E5E5E5; }
+    .archive-courses-list .course-item .course-progress__line {
+      height: 4px;
+      background-color: #000; }
+    .archive-courses-list .course-item .course-progress__value {
+      margin-top: 4px;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 12px;
+      line-height: 14px; }
 
 /************************************************************
             Popular Courses
@@ -2191,14 +2237,33 @@ button.swiper-pagination-bullet {
     background: #000000; }
     .other-course .course-item .course-item-desc h2 {
       color: #ffffff; }
-    .other-course .course-item .course-item-desc .course-duration h5 {
+    .other-course .course-item .course-duration h5 {
       color: #ffffff; }
+    .other-course .course-item .course-duration__status {
+      color: #ffffff; }
+      .other-course .course-item .course-duration__status:before {
+        filter: invert(100%);
+        -webkit-filter: invert(100%); }
+    .other-course .course-item .course-progress__wrap {
+      background-color: #000;
+      box-shadow: 0px 0px 2px 0px #ffffff87; }
+    .other-course .course-item .course-progress__line {
+      background-color: #E5E5E5; }
+    .other-course .course-item .course-progress__value {
+      color: rgba(255, 255, 255, 0.7); }
 
 .rtl .archive-courses-list .course-item .course-item-img .courses-item-category {
   right: 15px; }
   .rtl .archive-courses-list .course-item .course-item-img .courses-item-category h4 span {
     margin-left: 5px;
     margin-right: 0; }
+
+.rtl .archive-courses-list .course-duration__status {
+  padding-left: 0;
+  padding-right: 20px; }
+  .rtl .archive-courses-list .course-duration__status:before {
+    left: initial;
+    right: 0; }
 
 .rtl .courses-categories ul li {
   margin-bottom: 15px; }
@@ -2224,6 +2289,22 @@ button.swiper-pagination-bullet {
     background: #000000; }
     .dark-mode .archive-courses-list .course-item .course-item-content .course-item-img .courses-item-category h4 span img {
       filter: brightness(0) invert(1); }
+
+.dark-mode .archive-courses-list .course-duration__status {
+  color: #ffffff; }
+  .dark-mode .archive-courses-list .course-duration__status:before {
+    filter: invert(100%);
+    -webkit-filter: invert(100%); }
+
+.dark-mode .archive-courses-list .course-progress__wrap {
+  background-color: #000;
+  box-shadow: 0px 0px 2px 0px #ffffff87; }
+
+.dark-mode .archive-courses-list .course-progress__line {
+  background-color: #E5E5E5; }
+
+.dark-mode .archive-courses-list .course-progress__value {
+  color: rgba(255, 255, 255, 0.7); }
 
 .single-course .breadcrumbs-container {
   display: none; }
@@ -2416,6 +2497,20 @@ button.swiper-pagination-bullet {
             .cource-content .container .columns .course-requirments ul li {
               font-size: 16px;
               line-height: 22px; } }
+  .cource-content .course-leaving {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 56px;
+    padding-top: 32px; }
+    .cource-content .course-leaving__title {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 16px;
+      color: #000000; }
+
+.dark-mode .cource-content .course-leaving {
+  border-top-color: rgba(255, 255, 255, 0.2); }
+  .dark-mode .cource-content .course-leaving__title {
+    color: #ffffff; }
 
 .rtl .cource-content .container .columns .main-content {
   padding-right: 0;

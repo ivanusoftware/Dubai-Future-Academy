@@ -21945,7 +21945,7 @@ const $ = jQuery.noConflict();
         return false;
     });
 
-    // Creates a progress tab on the my course page 
+    // Creates a progress tab on the my course page  
     $(document).on('click', '.my-progres-modules li a', function (e) {
         e.preventDefault();
         // Check for active
