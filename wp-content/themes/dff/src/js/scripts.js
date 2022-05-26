@@ -8,6 +8,7 @@ import './ajax/sidebar-tab-item';
 import './ajax/test-try-again';
 import './ajax/test-try-again-exam';
 import './ajax/back-next-buttons';
+import './ajax/ajax-continue-course';
 
 console.log('I am testing!!!');
 const $ = jQuery.noConflict();
@@ -55,6 +56,7 @@ const $ = jQuery.noConflict();
         }
     });
 
+    // Shows the open - auth popup
     $('.open-auth-popup').on('click', function (e) {
         e.preventDefault();
         console.log('open-auth-popup')
@@ -66,6 +68,7 @@ const $ = jQuery.noConflict();
         }
     });
 
+    // Register the login tab
     $('.register-login-module .register-login-tab .register-login-tabs-nav a').on('click', function () {
         // Check for active
         $('.register-login-module .register-login-tab .register-login-tabs-nav li').removeClass('active');
@@ -77,6 +80,8 @@ const $ = jQuery.noConflict();
         $(currentTab).show();
         return false;
     });
+
+ 
 
     function checkInputs(e, step, init = false) {
         var allSelect = false;
@@ -118,21 +123,21 @@ const $ = jQuery.noConflict();
     function isStepValid(e, step, init = false, isEvent = false) {
         let isValid = true
         let quize = e.target.closest('.course-quiz')
-        console.log(step);
+        // console.log(step);
         if (!isEvent) {
             step = step + 1
         }
-        console.log(step);
+        // console.log(step);
         let stepWrap = quize.querySelectorAll(`.course-quiz__step`)
 
         for (const wr of stepWrap) {
 
             if (wr.getAttribute('data-step') === (step).toString()) {
-                console.log(wr.getAttribute('data-step'));
-                console.log((step).toString());
+                // console.log(wr.getAttribute('data-step'));
+                // console.log((step).toString());
                 stepWrap = Element
                 stepWrap = wr
-                console.log(stepWrap);
+                // console.log(stepWrap);
             }
         }
 
@@ -353,5 +358,9 @@ const $ = jQuery.noConflict();
         return false;
     });
 
+    // $(document).on('click',  '.course-quiz__buttons .continue-course-module', function () {
+    //     console.log('continue-course-module');
+
+    // });
 
 })(jQuery);
