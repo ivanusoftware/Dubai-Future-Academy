@@ -32,8 +32,10 @@
                         <aside class="course-sidebar" course-id="<?php echo $course_id; ?>">
                             <div class="single-modules my-single-modules">
                                 <!-- Accordion -->
-                                <div class="accordion">
+                                <?php $count_course_modules = dff_count_course_modules(get_the_ID()); ?>
+                                <div class="accordion" count-lesson-row="<?php echo $count_course_modules ? $count_course_modules : ''; ?>">
                                     <?php
+                                    
                                     if (have_rows('course_module_repeater')) :
                                         $row_count = count(get_field('course_module_repeater'));
 
@@ -57,9 +59,9 @@
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>" module-i="<?php echo $module_i; ?>">
                                                 <?php
                                                 if ($module_or_exam == 'module') {
-                                                    $count_lessons = count(get_sub_field('course_lesson_repeater'));
+                                                  
                                                 ?>
-                                                    <div class="accordion-head" count-lesson-row="<?php echo $count_lessons ? $count_lessons : ''; ?>">
+                                                    <div class="accordion-head">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
                                                     </div>
                                                     <?php if ($type_course == 'open-module') { ?>

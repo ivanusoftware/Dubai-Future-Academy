@@ -297,6 +297,30 @@ function dff_general_progress_mod_result($course_id)
     return  implode(",", $mod_result_arr);
 }
 
+
+/**
+ * The function show progres bar cource
+ * dff_general_progress_bar function
+ *
+ * @param [type] $course_id
+ * @return void
+ */
+function dff_progress_bar($course_id)
+{
+    $cource_result = dff_general_progress_mod_result($course_id);
+    $array_result = explode(",", $cource_result);
+    $progress_bar = 0;
+    $count_arr = count($array_result);
+    foreach ($array_result as $item) {
+        if ($item >= 80) {
+            $progress_bar++;
+        }
+    }
+    $progress_bar_result = $progress_bar / $count_arr * 100;
+    return  ceil($progress_bar_result);
+}
+
+
 //
 /**
  *  Determines if a time group is disabled or not.
@@ -345,6 +369,24 @@ function dff_open_module_by_rusult_test($course_id, $module_i)
         $module = 'close-module';
     }
     return $module;
+}
+
+
+/**
+ *  Count the number of course modules repeaters.
+ *
+ * @param [type] $coutce_id
+ * @return void
+ */
+function dff_count_course_modules($coutce_id)
+{
+    if (have_rows('course_module_repeater', $coutce_id)) :
+        while (have_rows('course_module_repeater', $coutce_id)) : the_row();
+            $count_course_modules = count(get_field('course_module_repeater'));
+        endwhile;
+    else :
+    endif;
+    return $count_course_modules;
 }
 
 /**
@@ -456,20 +498,20 @@ add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
 /**
  * Define the action and give functionality to the action.
  */
-function tutsplus_action()
-{
-    do_action('tutsplus_action');
-}
+// function tutsplus_action()
+// {
+//     do_action('tutsplus_action');
+// }
 
-/**
- * Register the action with WordPress.
- */
-add_action('tutsplus_action', 'tutsplus_action_example');
-function tutsplus_action_example()
-{
-    // dff_user_courses_certificate($user_id, $dff_user_courses);
-    echo 'This is a custom action hook.';
-}
+// 
+//  Register the action with WordPress.
+//  
+// add_action('tutsplus_action', 'tutsplus_action_example');
+// function tutsplus_action_example()
+// {
+//     // dff_user_courses_certificate($user_id, $dff_user_courses);
+//     echo 'This is a custom action hook.';
+// }
 
 // add_action( 'init', 'tutsplus_register_post_type' );
 // function tutsplus_register_post_type($user_id, $dff_user_courses) {
@@ -477,9 +519,3 @@ function tutsplus_action_example()
 //     dff_user_courses_certificate($user_id, $dff_user_courses);
 
 // }
-
-
-
-
-
-

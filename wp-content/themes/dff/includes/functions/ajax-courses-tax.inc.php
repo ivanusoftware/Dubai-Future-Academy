@@ -35,7 +35,10 @@ function courses_tax_ajax_callback()
     ?>
             <div class="course-item">
                 <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">
-                    <?php get_template_part('includes/courses/parts/courses', 'content'); ?>
+                    <?php
+                    include(get_template_directory() . '/includes/courses/parts/courses-content.php');
+                    include(get_template_directory() . '/includes/courses/parts/course-duration.php');
+                    ?>
                 </a>
             </div>
 <?php

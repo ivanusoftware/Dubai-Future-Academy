@@ -8,6 +8,8 @@ const dffAccordion = () => {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
+            $(this).siblings('.accordion-content').slideToggle();
+            $(this).toggleClass('active');
         }
         else {
             $('.accordion-content').slideUp();

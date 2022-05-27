@@ -7957,7 +7957,8 @@ $(document).on('click', '.course-quiz__buttons .continue-course-module', functio
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
-    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
+    console.log(countLessonRow);
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     const indexPrev = moduleIndex - 1;
@@ -7969,7 +7970,13 @@ $(document).on('click', '.course-quiz__buttons .continue-course-module', functio
         headNext.siblings('.accordion-content').slideToggle();
         headNext.toggleClass('active');
     }
-
+    // else{
+    //     headPrev.siblings('.accordion-content').slideUp();
+    //     headPrev.removeClass('active');
+    //     headNext.siblings('.accordion-content').slideToggle();
+    //     headNext.toggleClass('active'); 
+    // }
+ 
     if (moduleIndex - 1 === countLessonRow - 1) {
         const examPostId = $(".modules-course .my-single-modules").find(".exam-tab-item").attr('exam-post-id');
         console.log('exam');
@@ -8024,13 +8031,13 @@ $(document).on('click', '.lesson-header .next', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
-    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
     (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
     (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow)
-});
+}); 
 
 /***/ }),
 
@@ -8311,6 +8318,8 @@ const dffAccordion = () => {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
+            $(this).siblings('.accordion-content').slideToggle();
+            $(this).toggleClass('active');
         }
         else {
             $('.accordion-content').slideUp();
