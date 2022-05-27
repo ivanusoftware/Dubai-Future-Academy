@@ -5,6 +5,8 @@
  */
 get_header();
 $image_main_courses = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
+// echo get_page_template();
+
 ?>
 <main>
     <section class="hero hero--sbu-archive is-dark" style="background-image:url(<?php echo $image_main_courses[0]; ?>)">
@@ -67,8 +69,11 @@ $image_main_courses = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_
                         $courses->the_post();
                 ?>
                         <div class="course-item">
-                            <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">                                
-                                <?php include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
+                            <a href="<?php echo get_the_permalink($courses->ID); ?>" class="course-item-content">
+                                <?php
+                                include(get_template_directory() . '/includes/courses/parts/courses-content.php');
+                                include(get_template_directory() . '/includes/courses/parts/course-duration.php');
+                                ?>
                             </a>
                         </div>
                 <?php

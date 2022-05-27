@@ -51,14 +51,25 @@ if (!is_user_logged_in()) {
                     // The Loop
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
-                            $courses->the_post();                            
+                            $courses->the_post();
+                            $exem_result = get_user_meta($current_user_id, 'course_' . get_the_ID() . '_exam_result', true);
                     ?>
                             <div class="course-item">
                                 <a href="<?php echo site_url('my-courses') . '/' . get_the_ID(); ?>" class="course-item-content">
                                     <?php
                                     // dff_user_course_module_result($current_user_id,  get_the_ID());
-                                    include(get_template_directory() . '/includes/courses/parts/courses-content.php'); ?>
-
+                                    include(get_template_directory() . '/includes/courses/parts/courses-content.php');
+                                    if ($exem_result >= 80 && $exem_result != 1) {
+                                    ?>
+                                        <div class="course-duration__status">
+                                            <?php echo _e('Completed Course', 'dff'); ?>
+                                        </div>
+                                    <?php
+                                    } else {
+                                        include(get_template_directory() . '/includes/courses/parts/course-duration.php');
+                                    }
+                                    include(get_template_directory() . '/includes/courses/parts/course-progress-bar.php');
+                                    ?>
                                 </a>
                             </div>
                         <?php

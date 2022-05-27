@@ -173,6 +173,7 @@
                 color: $color-black;
                 padding-left: 20px;
                 position: relative;
+                margin: 0 15px;
                 &:before {
                     content: "";
                     background: url(../../images/complete-icon.svg) no-repeat;
@@ -254,7 +255,7 @@
             color: $color-white;
             &:before {
                 filter: invert(100%);
-                -webkit-filter: invert(100%);
+                -webkit-filter: invert(100%); 
             }
         }
         .course-progress {
@@ -290,7 +291,7 @@
 
         .course-duration__status {
             padding-left: 0;
-            padding-right: 20px;
+            padding-right: 20px;            
             &:before {
                 left: initial;
                 right: 0;
