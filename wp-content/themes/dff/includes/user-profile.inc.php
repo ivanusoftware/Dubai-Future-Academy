@@ -52,12 +52,11 @@ if (!is_user_logged_in()) {
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
                             $courses->the_post();
-                            $exem_result = get_user_meta($current_user_id, 'course_' . get_the_ID() . '_exam_result', true);
+                            $exem_result = get_user_meta(get_current_user_id(), 'course_' . get_the_ID() . '_exam_result', true);
                     ?>
                             <div class="course-item">
                                 <a href="<?php echo site_url('my-courses') . '/' . get_the_ID(); ?>" class="course-item-content">
-                                    <?php
-                                    // dff_user_course_module_result($current_user_id,  get_the_ID());
+                                    <?php                                    
                                     include(get_template_directory() . '/includes/courses/parts/courses-content.php');
                                     if ($exem_result >= 80 && $exem_result != 1) {
                                     ?>
@@ -92,10 +91,10 @@ if (!is_user_logged_in()) {
             </div>
         </div>
 
-        <span>User: <b><?php echo $current_user->user_login ?></b></span>
+        <!-- <span>User: <b><?php echo $current_user->user_login ?></b></span>
         <?php if (is_user_logged_in()) : ?>
             <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
-        <?php endif; ?>
+        <?php endif; ?> -->
     </div> <!-- END tabs -->
 </section>
 
