@@ -9,6 +9,7 @@ include(get_template_directory() . '/includes/functions/user-functions.inc.php')
 include(get_template_directory() . '/includes/functions/ajax-courses-tax.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-quiz.inc.php');
+include(get_template_directory() . '/includes/functions/ajax-leave-course.php');
 include(get_template_directory() . '/includes/functions/pdf-function.inc.php');
 include(get_template_directory() . '/includes/test.inc.php');
 

@@ -43,6 +43,31 @@ const $ = jQuery.noConflict();
     });
 
     /**
+    * Ajax to delete a course from user profile.
+    * 
+    */
+    $('.course-leaving .leave-course').on('click', function (e) {
+        e.preventDefault();
+        const courseId = $(this).attr('course-id');
+        const data = {
+            action: "leave_course_ajax",
+            course_id: courseId,
+        };
+        $.ajax({
+            type: "POST",
+            url: courses_ajax.url,
+            data: data,
+            dataType: 'JSON',
+        }).done(function (response) {
+            if (response.success) {
+                window.location.replace(phpParams.site_url + '/my-courses/');
+            }
+        }).fail(function (response) {
+            console.log(response);
+        });
+    });
+
+    /**
      * Open modal window.
      * toggle the visibility of the course modal.
      */
@@ -81,7 +106,7 @@ const $ = jQuery.noConflict();
         return false;
     });
 
- 
+
 
     function checkInputs(e, step, init = false) {
         var allSelect = false;
