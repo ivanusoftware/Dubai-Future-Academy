@@ -58,11 +58,11 @@ $posttype = get_post_type();
 						$dff_user_courses = unserialize(get_user_meta(get_current_user_id(), 'course_id_to_user', true));						
 						if (!empty($dff_user_courses) && in_array(get_the_ID(), $dff_user_courses) && is_user_logged_in()) {
 						?>
-							<a href="<?php echo site_url('my-courses/') . get_the_ID(); ?>" class="btn-course-primary  apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
+							<a href="<?php echo site_url('my-courses/') . get_the_ID(); ?>" class="btn-course-primary apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
 						<?php
 						} else {
 						?>
-							<button class="btn-course-primary apply-now modal-toggle"><?php echo _e('Apply Now', 'dff'); ?></button>
+							<a href="#" class="btn-course-primary apply-now <?php echo is_user_logged_in() ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
 						<?php
 						}
 					?>

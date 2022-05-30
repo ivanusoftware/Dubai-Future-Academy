@@ -20,7 +20,7 @@ const $ = jQuery.noConflict();
      * Add a new course to the user.
      * ajax.
      */
-    $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
+    $('.modal-toggle.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
         const data = {
@@ -34,8 +34,14 @@ const $ = jQuery.noConflict();
             data: data,
             dataType: 'JSON',
         }).done(function (response) {
+            console.log(response);
             if (response.success) {
-                window.location.replace(phpParams.site_url + '/my-courses/');
+                console.log(response.success);
+                // $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('go-to-courses modal-toggle');
+                $('.go-to-courses.modal-toggle').remove()
+                $( '.course-header-content').append( $( '<a href="'+ phpParams.site_url + '/my-courses/'+ courseId+'" class="btn-course-primary apply-now">Go to my courses</a>' ) );
+                // location.reload();
+            //     window.location.replace(phpParams.site_url + '/my-courses/');
             }
         }).fail(function (response) {
             console.log(response);

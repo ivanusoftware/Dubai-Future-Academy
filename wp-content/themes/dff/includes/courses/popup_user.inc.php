@@ -13,7 +13,7 @@
 						<?php
 						if (is_user_logged_in()) {
 						?>
-							<a href="<?php echo site_url('my-courses') ?>" class="btn-course-primary go-to-courses" course_id="<?php echo get_the_ID(); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
+							<a href="<?php echo site_url('my-courses') ?>" class="btn-course-primary" ><?php _e('Go to my courses', 'dff'); ?></a>
 							<button class="modal-toggle btn-course-primary"><?php _e('Close', 'dff'); ?></button>
 						<?php
 						} else {

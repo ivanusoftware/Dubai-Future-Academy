@@ -8,10 +8,12 @@ const dffAccordion = () => {
         if ($(this).hasClass('active')) {
             $(this).siblings('.accordion-content').slideUp();
             $(this).removeClass('active');
-            $(this).siblings('.accordion-content').slideToggle();
-            $(this).toggleClass('active');
+            // $(this).siblings('.accordion-content').slideToggle();
+            // $(this).toggleClass('active');
+            console.log('active1');
         }
         else {
+            console.log('active2');
             $('.accordion-content').slideUp();
             $('.accordion-head').removeClass('active');
             $(this).siblings('.accordion-content').slideToggle();
