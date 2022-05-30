@@ -1,6 +1,6 @@
 <section class="about-course">
-    <?php    
-    $course_id = get_query_var( 'course_id' ) ? get_query_var( 'course_id' ) : $_POST['course_id'];    
+    <?php
+    $course_id = get_query_var('course_id') ? get_query_var('course_id') : $_POST['course_id'];
     // WP_Query arguments
     $args = array(
         'post_type'      => array('courses'),
@@ -35,7 +35,7 @@
                                     $course_finish = get_sub_field('course_finish');
                                     // Load field value and convert to numeric timestamp.                                                
                                     $date_course_start  = date_i18n("j M Y", strtotime($course_start));
-									$date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
+                                    $date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
                                     echo  '<h5 class="course-duration">' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
                                 endwhile; ?>
                             <?php endif; ?>
@@ -54,7 +54,7 @@
                                 <h2><?php echo _e('Description', 'dff'); ?></h2>
                                 <div class="desc">
                                     <?php the_content(); ?>
-                                </div>                               
+                                </div>
                                 <div class="course-requirments">
                                     <h2><?php echo _e('Requirments', 'dff'); ?></h2>
                                     <ul>
@@ -71,14 +71,19 @@
                                         // Do something...
                                         endif;
                                         ?>
-
                                     </ul>
                                 </div>
-
-                                <div class="course-leaving">
-									<div class="course-leaving__title"><?php echo _e('If you want to leave the course, you can do it here.', 'dff'); ?></div>
-									<a href="#" class="dff-btn"><?php echo _e('Leave course', 'dff'); ?></a>
-								</div>
+                                <?php
+                                $exem_result = get_user_meta(get_current_user_id(), 'course_' . $course_id . '_exam_result', true);
+                                if ($exem_result < 80) {
+                                ?>
+                                    <div class="course-leaving leave-course-popup">
+                                        <div class="course-leaving__title"><?php echo _e('If you want to leave the course, you can do it here.', 'dff'); ?></div>
+                                        <a href="#" class="dff-btn modal-toggle"><?php echo _e('Leave course', 'dff'); ?></a>
+                                    </div>
+                                <?php 
+                                } 
+                                ?>
                             </div>
                         </main>
                         <aside class="course-sidebar">
@@ -106,5 +111,6 @@
         } // end while
     } // end if
     wp_reset_postdata();
+    include(get_template_directory() . '/includes/courses/popup_leave_course.php');
     ?>
 </section>

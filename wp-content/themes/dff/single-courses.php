@@ -26,7 +26,7 @@ $posttype = get_post_type();
 								<?php echo $home_icon; ?>
 							</a>
 						</li>
-						<li><a href="<?php echo site_url('courses')?>"><?php _e('Courses', 'dff'); ?></a></li>
+						<li><a href="<?php echo site_url('courses') ?>"><?php _e('Courses', 'dff'); ?></a></li>
 
 						<li><?php echo _e(get_the_title(), 'dff'); ?></li>
 					</ul>
@@ -45,7 +45,7 @@ $posttype = get_post_type();
 									$course_finish = get_sub_field('course_finish');
 									// Load field value and convert to numeric timestamp.                                                
 									$date_course_start  = date_i18n("j M Y", strtotime($course_start));
-									$date_course_finish = date_i18n("j M Y",  strtotime($course_finish));						
+									$date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
 									echo  '<h5 class="course-duration">' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
 								endwhile; ?>
 							<?php endif; ?>
@@ -54,7 +54,18 @@ $posttype = get_post_type();
 						?>
 					</div>
 					<h1><?php the_title(); ?></h1>
-					<button class="btn-course-primary apply-now modal-toggle"><?php echo _e('Apply Now', 'dff'); ?></button>
+					<?php
+						$dff_user_courses = unserialize(get_user_meta(get_current_user_id(), 'course_id_to_user', true));						
+						if (!empty($dff_user_courses) && in_array(get_the_ID(), $dff_user_courses) && is_user_logged_in()) {
+						?>
+							<a href="<?php echo site_url('my-courses/') . get_the_ID(); ?>" class="btn-course-primary apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
+						<?php
+						} else {
+						?>
+							<a href="#" class="btn-course-primary apply-now <?php echo is_user_logged_in() ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
+						<?php
+						}
+					?>
 				</div>
 			</section>
 			<section class="cource-content">

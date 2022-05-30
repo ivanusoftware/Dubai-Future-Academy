@@ -11,8 +11,7 @@ export default function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');
         const accordionLessonIndex = $(this).attr('lesson-index');
-        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
-            console.log('Tetsts');
+        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {            
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');

@@ -7941,8 +7941,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
 /* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
 /* harmony import */ var _scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/upload-exam */ "./src/js/scripts/upload-exam.js");
-/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
-
 
 
 
@@ -7953,33 +7951,29 @@ __webpack_require__.r(__webpack_exports__);
 const $ = jQuery.noConflict();
 
 $(document).on('click', '.course-quiz__buttons .continue-course-module', function (e) {
-    console.log('continue-course-module');
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
-    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     const indexPrev = moduleIndex - 1;
     const headPrev = $('.accordion .accordion-item.module_' + indexPrev + ' .accordion-head');
     const headNext = $('.accordion .accordion-item.module_' + moduleIndex + ' .accordion-head');
+
     if (headPrev.hasClass('active')) {
         headPrev.siblings('.accordion-content').slideUp();
         headPrev.removeClass('active');
-        headNext.siblings('.accordion-content').slideToggle();
+        headNext.next().slideToggle();
         headNext.toggleClass('active');
     }
 
     if (moduleIndex - 1 === countLessonRow - 1) {
         const examPostId = $(".modules-course .my-single-modules").find(".exam-tab-item").attr('exam-post-id');
-        console.log('exam');
-        console.log(examPostId);
         (0,_scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__["default"])(examPostId, 'exam');
     } else {
         (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow);
     }
-    // dffTryAgaineButton(moduleIndex, lessonIndex);
-    (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
 });
 
@@ -8024,13 +8018,13 @@ $(document).on('click', '.lesson-header .next', function (e) {
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
-    const countLessonRow = $(".modules-course").find(".accordion-head.active").attr('count-lesson-row');
+    const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     $(".course-sidebar").find(".accordion-head.active").parent().addClass('active-btn');
     (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
     (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow)
-});
+}); 
 
 /***/ }),
 
@@ -8308,16 +8302,27 @@ __webpack_require__.r(__webpack_exports__);
 const dffAccordion = () => {
     const $ = jQuery.noConflict();
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
-        if ($(this).hasClass('active')) {
-            $(this).siblings('.accordion-content').slideUp();
-            $(this).removeClass('active');
-        }
-        else {
+        const $this = $(this);
+        if (!$this.hasClass('active')) {
             $('.accordion-content').slideUp();
             $('.accordion-head').removeClass('active');
-            $(this).siblings('.accordion-content').slideToggle();
-            $(this).toggleClass('active');
         }
+        $this.toggleClass('active');
+        $this.next().slideToggle();
+        // if ($(this).hasClass('active')) {
+        //     $(this).siblings('.accordion-content').slideUp();
+        //     $(this).removeClass('active');
+        //     $(this).siblings('.accordion-content').slideToggle();
+        //     $(this).toggleClass('active');
+        //     console.log('active1');
+        // }
+        // else {
+        //     console.log('active2');
+        //     $('.accordion-content').slideUp();
+        //     $('.accordion-head').removeClass('active');
+        //     $(this).siblings('.accordion-content').slideToggle();
+        //     $(this).toggleClass('active');
+        // }
     });
 }
 
@@ -8432,8 +8437,7 @@ function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');
         const accordionLessonIndex = $(this).attr('lesson-index');
-        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
-            console.log('Tetsts');
+        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {            
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');
@@ -21615,12 +21619,30 @@ const $ = jQuery.noConflict();
 // const chart = null;
 (function ($) {
     const phpParams = php_params;
+    const modal = $('.modal-frame');
+    const overlay = $('.modal-overlay');
 
+    /* Need this to clear out the keyframe classes so they dont clash with each other between ener/leave. Cheers. */
+    modal.bind('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+        if (modal.hasClass('state-leave')) {
+            $modal.removeClass('state-leave');
+        }
+    });
+
+    $('.close').on('click', function () {
+        overlay.removeClass('state-show');
+        modal.removeClass('state-appear').addClass('state-leave');
+    });
+
+    $('.open').on('click', function () {
+        overlay.addClass('state-show');
+        modal.removeClass('state-leave').addClass('state-appear');
+    });
     /**
      * Add a new course to the user.
      * ajax.
      */
-    $('.single-course-modal .buttons a.go-to-courses').on('click', function (e) {
+    $('.modal-toggle.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
         const data = {
@@ -21628,6 +21650,37 @@ const $ = jQuery.noConflict();
             course_id: courseId,
         };
         // console.log(data);
+        $.ajax({
+            type: "POST",
+            url: courses_ajax.url,
+            data: data,
+            dataType: 'JSON',
+        }).done(function (response) {
+            console.log(response);
+            if (response.success) {
+                console.log(response.success);
+                // $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('go-to-courses modal-toggle');
+                $('.go-to-courses.modal-toggle').remove()
+                $('.course-header-content').append($('<a href="' + phpParams.site_url + '/my-courses/' + courseId + '" class="btn-course-primary apply-now">Go to my courses</a>'));
+                // location.reload();
+                //     window.location.replace(phpParams.site_url + '/my-courses/');
+            }
+        }).fail(function (response) {
+            console.log(response);
+        });
+    });
+
+    /**
+    * Ajax to delete a course from user profile.
+    * 
+    */
+    $('.leave-course-popup .buttons .leave-course').on('click', function (e) {
+        e.preventDefault();
+        const courseId = $(this).attr('course-id');
+        const data = {
+            action: "leave_course_ajax",
+            course_id: courseId,
+        };
         $.ajax({
             type: "POST",
             url: courses_ajax.url,
@@ -21651,16 +21704,36 @@ const $ = jQuery.noConflict();
         const isVisible = $('.single-course-modal .modal').toggleClass('is-visible');
         if (isVisible.hasClass('is-visible')) {
             $('html').css('overflow', 'hidden');
+
         } else {
             $('html').css('overflow', 'auto');
         }
     });
+
+    $('.close-popup').on('click', function (e) {
+        e.preventDefault();
+        $('.single-course-modal .modal').removeClass('is-visible');
+        $('html').css('overflow', 'auto');
+        location.reload();
+    });
+
 
     // Shows the open - auth popup
     $('.open-auth-popup').on('click', function (e) {
         e.preventDefault();
         console.log('open-auth-popup')
         const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
+        if (isVisible.hasClass('is-visible')) {
+            $('html').css('overflow', 'hidden');
+        } else {
+            $('html').css('overflow', 'auto');
+        }
+    });
+
+      // Shows the open - auth popup
+      $('.leave-course-popup .modal-toggle').on('click', function (e) {
+        e.preventDefault();        
+        const isVisible = $('.leave-course-popup .modal').toggleClass('is-visible');
         if (isVisible.hasClass('is-visible')) {
             $('html').css('overflow', 'hidden');
         } else {
@@ -21681,7 +21754,7 @@ const $ = jQuery.noConflict();
         return false;
     });
 
- 
+
 
     function checkInputs(e, step, init = false) {
         var allSelect = false;
@@ -21962,6 +22035,10 @@ const $ = jQuery.noConflict();
     //     console.log('continue-course-module');
 
     // });
+
+
+
+
 
 })(jQuery);
 })();

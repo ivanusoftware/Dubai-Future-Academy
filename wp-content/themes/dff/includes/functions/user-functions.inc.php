@@ -28,6 +28,25 @@ if (!function_exists('dff_user_courses')) {
         return $course_id_to_user;
     }
 }
+
+// Returns the user meta for a given course.
+if (!function_exists('dff_delete_course_from_user')) {
+    function dff_delete_course_from_user($course_id)
+    {
+        $current_user_id = get_current_user_id();
+        $course_id_to_user = get_user_meta($current_user_id, 'course_id_to_user', true);
+        $exem_result = get_user_meta($current_user_id, 'course_' . $course_id . '_exam_result', true);
+        if (!empty($course_id_to_user)) {
+            $check_course_id_to_array = unserialize($course_id_to_user);
+            if (in_array($course_id, $check_course_id_to_array) && $exem_result < 80) {
+                $check_course_id_to_array = array_diff($check_course_id_to_array, [$course_id]);
+                update_user_meta(get_current_user_id(), 'course_id_to_user', serialize($check_course_id_to_array));
+            }
+        }
+        return $course_id_to_user;
+    }
+}
+
 /**
  * dff_user_course_module_result function.
  *
