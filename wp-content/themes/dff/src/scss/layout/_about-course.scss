@@ -1,0 +1,16 @@
+.leave-course-popup {
+    &.modal-popup {
+        .modal-wrapper {
+            width: 573px;
+        }
+        .modal-body {
+            text-align: center;
+            .modal-content {
+                max-width: 390px;
+                h2 {                
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}
