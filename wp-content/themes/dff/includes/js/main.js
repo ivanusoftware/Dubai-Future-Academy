@@ -21626,7 +21626,25 @@ const $ = jQuery.noConflict();
 // const chart = null;
 (function ($) {
     const phpParams = php_params;
+    const modal = $('.modal-frame');
+    const overlay = $('.modal-overlay');
 
+    /* Need this to clear out the keyframe classes so they dont clash with each other between ener/leave. Cheers. */
+    modal.bind('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+        if (modal.hasClass('state-leave')) {
+            $modal.removeClass('state-leave');
+        }
+    });
+
+    $('.close').on('click', function () {
+        overlay.removeClass('state-show');
+        modal.removeClass('state-appear').addClass('state-leave');
+    });
+
+    $('.open').on('click', function () {
+        overlay.addClass('state-show');
+        modal.removeClass('state-leave').addClass('state-appear');
+    });
     /**
      * Add a new course to the user.
      * ajax.
@@ -21650,9 +21668,9 @@ const $ = jQuery.noConflict();
                 console.log(response.success);
                 // $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('go-to-courses modal-toggle');
                 $('.go-to-courses.modal-toggle').remove()
-                $( '.course-header-content').append( $( '<a href="'+ phpParams.site_url + '/my-courses/'+ courseId+'" class="btn-course-primary apply-now">Go to my courses</a>' ) );
+                $('.course-header-content').append($('<a href="' + phpParams.site_url + '/my-courses/' + courseId + '" class="btn-course-primary apply-now">Go to my courses</a>'));
                 // location.reload();
-            //     window.location.replace(phpParams.site_url + '/my-courses/');
+                //     window.location.replace(phpParams.site_url + '/my-courses/');
             }
         }).fail(function (response) {
             console.log(response);
@@ -21663,7 +21681,7 @@ const $ = jQuery.noConflict();
     * Ajax to delete a course from user profile.
     * 
     */
-    $('.course-leaving .leave-course').on('click', function (e) {
+    $('.leave-course-popup .buttons .leave-course').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course-id');
         const data = {
@@ -21693,16 +21711,36 @@ const $ = jQuery.noConflict();
         const isVisible = $('.single-course-modal .modal').toggleClass('is-visible');
         if (isVisible.hasClass('is-visible')) {
             $('html').css('overflow', 'hidden');
+
         } else {
             $('html').css('overflow', 'auto');
         }
     });
+
+    $('.close-popup').on('click', function (e) {
+        e.preventDefault();
+        $('.single-course-modal .modal').removeClass('is-visible');
+        $('html').css('overflow', 'auto');
+        location.reload();
+    });
+
 
     // Shows the open - auth popup
     $('.open-auth-popup').on('click', function (e) {
         e.preventDefault();
         console.log('open-auth-popup')
         const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
+        if (isVisible.hasClass('is-visible')) {
+            $('html').css('overflow', 'hidden');
+        } else {
+            $('html').css('overflow', 'auto');
+        }
+    });
+
+      // Shows the open - auth popup
+      $('.leave-course-popup .modal-toggle').on('click', function (e) {
+        e.preventDefault();        
+        const isVisible = $('.leave-course-popup .modal').toggleClass('is-visible');
         if (isVisible.hasClass('is-visible')) {
             $('html').css('overflow', 'hidden');
         } else {
@@ -22004,6 +22042,10 @@ const $ = jQuery.noConflict();
     //     console.log('continue-course-module');
 
     // });
+
+
+
+
 
 })(jQuery);
 })();

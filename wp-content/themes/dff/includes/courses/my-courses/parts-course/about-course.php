@@ -71,16 +71,15 @@
                                         // Do something...
                                         endif;
                                         ?>
-
                                     </ul>
                                 </div>
                                 <?php
                                 $exem_result = get_user_meta(get_current_user_id(), 'course_' . $course_id . '_exam_result', true);
                                 if ($exem_result < 80) {
                                 ?>
-                                    <div class="course-leaving">
+                                    <div class="course-leaving leave-course-popup">
                                         <div class="course-leaving__title"><?php echo _e('If you want to leave the course, you can do it here.', 'dff'); ?></div>
-                                        <a href="#" class="dff-btn leave-course" course-id="<?php echo get_the_ID(); ?>"><?php echo _e('Leave course', 'dff'); ?></a>
+                                        <a href="#" class="dff-btn modal-toggle"><?php echo _e('Leave course', 'dff'); ?></a>
                                     </div>
                                 <?php 
                                 } 
@@ -112,5 +111,6 @@
         } // end while
     } // end if
     wp_reset_postdata();
+    include(get_template_directory() . '/includes/courses/popup_leave_course.php');
     ?>
 </section>
