@@ -75,7 +75,7 @@ function quiz_answers_callback()
                 'answer' => $value,
                 'correct_answer' => $answers_arr[$key]
             );
-            if ($value == $answers_arr[$key]) {
+            if ( strtolower($value) == strtolower($answers_arr[$key]) ) {
                 $percentage++;
             }
         }
