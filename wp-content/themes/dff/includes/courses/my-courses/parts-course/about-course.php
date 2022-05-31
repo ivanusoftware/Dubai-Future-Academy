@@ -54,6 +54,8 @@
                                 <h2><?php echo _e('Description', 'dff'); ?></h2>
                                 <div class="desc">
                                     <?php the_content(); ?>
+                                    <a class="show-more"><?php echo _e('Show more', 'dff'); ?><span class="chevron bottom"></span></a>
+									<a class="show-less" style="display: none;"><?php echo _e('Show less', 'dff'); ?><span class="chevron"></span></a>
                                 </div>
                                 <div class="course-requirments">
                                     <h2><?php echo _e('Requirments', 'dff'); ?></h2>

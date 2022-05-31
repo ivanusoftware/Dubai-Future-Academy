@@ -21983,6 +21983,8 @@ const $ = jQuery.noConflict();
                     console.log(response);
                 });
             },
+
+            
         });
 
         let lastStepId = $('.course-quiz__step:last-child').attr("data-step");
@@ -21998,6 +22000,10 @@ const $ = jQuery.noConflict();
                 this.checked = !this.checked;
             }
         });
+
+        if ($(window).width() < 768) {
+            showLess();
+        }
     });
 
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
@@ -22044,8 +22050,27 @@ const $ = jQuery.noConflict();
     // });
 
 
+    if ($(window).width() < 768) {
+        showLess();
+    }
 
-
+    function showLess() {
+        $('.show-more').show(); 
+        $('.show-more').click(function(){
+            $(this).closest('.desc').children().slideDown(300);
+            $('.show-more').hide();
+            $('.show-less').show();
+        })
+        $('.show-less').click(function(){
+            
+            $(this).closest('.desc').children().not(":first-child").slideUp(300);
+            $('html, body').animate({
+                scrollTop: $(".main-content").offset().top - 71
+            }, 500);
+            $('.show-less').hide();
+            $('.show-more').show();
+        })
+    }
 
 })(jQuery);
 })();
