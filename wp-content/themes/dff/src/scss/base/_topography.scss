@@ -66,6 +66,30 @@
         color: var(--color-primary);
     }
 }
+.chevron {
+    margin-left: 8px;
+    position: relative;
+    top: 13px;
+    &:before {
+        content: "";
+        border-style: solid;
+        border-width: 1px 1px 0 0;
+        display: inline-block;
+        height: 6px;
+        left: 0;
+        position: relative;
+        top: 0;
+        transform: rotate(-45deg);
+        vertical-align: top;
+        width: 6px;
+    }
+    &.bottom {
+        top: 8px;
+    }
+    &.bottom:before {
+        transform: rotate(135deg);
+    }
+}
 
 .dark-mode {
     .dff-btn, a.dff-btn {

@@ -509,6 +509,31 @@ button.swiper-pagination-bullet {
   color: var(--color-primary);
 }
 
+.chevron {
+  margin-left: 8px;
+  position: relative;
+  top: 13px;
+}
+.chevron:before {
+  content: "";
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  display: inline-block;
+  height: 6px;
+  left: 0;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 6px;
+}
+.chevron.bottom {
+  top: 8px;
+}
+.chevron.bottom:before {
+  transform: rotate(135deg);
+}
+
 .dark-mode .dff-btn, .dark-mode a.dff-btn {
   color: #000000;
   border: 1px solid #ffffff;
@@ -2960,6 +2985,11 @@ button.swiper-pagination-bullet {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
+@media (max-width: 767px) {
+  .cource-content .container .columns .main-content {
+    padding-bottom: 6px;
+  }
+}
 @media only screen and (min-width: 769px) {
   .cource-content .container .columns .main-content .content {
     max-width: 620px;
@@ -2970,6 +3000,14 @@ button.swiper-pagination-bullet {
 }
 .cource-content .container .columns .main-content .content .desc p {
   margin-top: 16px;
+}
+@media (max-width: 767px) {
+  .cource-content .container .columns .main-content .content .desc > * {
+    display: none;
+  }
+  .cource-content .container .columns .main-content .content .desc > *:first-child {
+    display: block;
+  }
 }
 .cource-content .container .columns h2 {
   font-weight: 500;
@@ -3054,6 +3092,28 @@ button.swiper-pagination-bullet {
   line-height: 22px;
   margin-bottom: 16px;
   color: #000000;
+}
+@media (max-width: 767px) {
+  .cource-content .course-leaving {
+    margin-top: 48px;
+    padding-top: 12px;
+  }
+  .cource-content .course-leaving__title {
+    margin-bottom: 24px;
+  }
+  .cource-content .course-leaving .dff-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+.cource-content .show-more, .cource-content .show-less {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  display: none;
 }
 
 .dark-mode .cource-content .course-leaving {
@@ -3191,6 +3251,11 @@ button.swiper-pagination-bullet {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 767px) {
+  .my-progress-content .tabs-content .progress-wrapper .progress-content {
+    padding: 32px 16px 70px 16px;
+  }
+}
 .my-progress-content .tabs-content .progress-wrapper .progress-content h5 {
   font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
   margin: 0;
@@ -3199,6 +3264,12 @@ button.swiper-pagination-bullet {
   font-size: 22px;
   line-height: 20px;
   color: #000000;
+}
+@media (max-width: 767px) {
+  .my-progress-content .tabs-content .progress-wrapper .progress-content h5 {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 .my-progress-content .tabs-content .progress-wrapper .progress-content p {
   font-family: "Neo Sans Pro", Helvetica, Arial, sans-serif;
@@ -3215,6 +3286,11 @@ button.swiper-pagination-bullet {
 }
 .my-progress-content .tabs-content .progress-wrapper .progress-content .module-result span {
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  .my-progress-content .tabs-content .progress-wrapper .progress-content .module-result {
+    font-size: 20px;
+  }
 }
 .my-progress-content .columns {
   display: flex;
@@ -3356,6 +3432,12 @@ button.swiper-pagination-bullet {
   padding: 17px 30px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 767px) {
+  .my-progress-content .columns .main-content .content .progress-wrapper .module-header {
+    padding: 9px 16px;
+    text-transform: uppercase;
+  }
+}
 .my-progress-content .columns .main-content .content .progress-wrapper .module-header h2 {
   font-style: normal;
   font-weight: 400;
@@ -3363,10 +3445,20 @@ button.swiper-pagination-bullet {
   line-height: 22px;
   color: #000000;
 }
+@media (max-width: 767px) {
+  .my-progress-content .columns .main-content .content .progress-wrapper .module-header h2 {
+    font-size: 13px;
+  }
+}
 .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer {
   display: flex;
   flex-direction: column;
   margin-top: 55px;
+}
+@media (max-width: 767px) {
+  .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer {
+    margin-top: 27px;
+  }
 }
 .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer button,
 .my-progress-content .columns .main-content .content .progress-wrapper .exam-footer a {
