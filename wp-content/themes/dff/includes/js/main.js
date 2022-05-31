@@ -7941,8 +7941,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/next-back-buttons-active */ "./src/js/scripts/next-back-buttons-active.js");
 /* harmony import */ var _scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/ajax-lessons */ "./src/js/scripts/ajax-lessons.js");
 /* harmony import */ var _scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/upload-exam */ "./src/js/scripts/upload-exam.js");
-/* harmony import */ var _scripts_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/accordion */ "./src/js/scripts/accordion.js");
-
 
 
 
@@ -7953,40 +7951,29 @@ __webpack_require__.r(__webpack_exports__);
 const $ = jQuery.noConflict();
 
 $(document).on('click', '.course-quiz__buttons .continue-course-module', function (e) {
-    console.log('continue-course-module');
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
     const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
-    console.log(countLessonRow);
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
     const indexPrev = moduleIndex - 1;
     const headPrev = $('.accordion .accordion-item.module_' + indexPrev + ' .accordion-head');
     const headNext = $('.accordion .accordion-item.module_' + moduleIndex + ' .accordion-head');
+
     if (headPrev.hasClass('active')) {
         headPrev.siblings('.accordion-content').slideUp();
         headPrev.removeClass('active');
-        headNext.siblings('.accordion-content').slideToggle();
+        headNext.next().slideToggle();
         headNext.toggleClass('active');
     }
-    // else{
-    //     headPrev.siblings('.accordion-content').slideUp();
-    //     headPrev.removeClass('active');
-    //     headNext.siblings('.accordion-content').slideToggle();
-    //     headNext.toggleClass('active'); 
-    // }
- 
+
     if (moduleIndex - 1 === countLessonRow - 1) {
         const examPostId = $(".modules-course .my-single-modules").find(".exam-tab-item").attr('exam-post-id');
-        console.log('exam');
-        console.log(examPostId);
         (0,_scripts_upload_exam__WEBPACK_IMPORTED_MODULE_2__["default"])(examPostId, 'exam');
     } else {
         (0,_scripts_ajax_lessons__WEBPACK_IMPORTED_MODULE_1__["default"])(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow);
     }
-    // dffTryAgaineButton(moduleIndex, lessonIndex);
-    (0,_scripts_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])();
     (0,_scripts_next_back_buttons_active__WEBPACK_IMPORTED_MODULE_0__["default"])(moduleIndex, lessonIndex);
 });
 
@@ -8315,20 +8302,27 @@ __webpack_require__.r(__webpack_exports__);
 const dffAccordion = () => {
     const $ = jQuery.noConflict();
     $('.accordion .open-module .accordion-head').add('.single-course .accordion .accordion-head').on('click', function () {
-        if ($(this).hasClass('active')) {
-            $(this).siblings('.accordion-content').slideUp();
-            $(this).removeClass('active');
-            // $(this).siblings('.accordion-content').slideToggle();
-            // $(this).toggleClass('active');
-            console.log('active1');
-        }
-        else {
-            console.log('active2');
+        const $this = $(this);
+        if (!$this.hasClass('active')) {
             $('.accordion-content').slideUp();
             $('.accordion-head').removeClass('active');
-            $(this).siblings('.accordion-content').slideToggle();
-            $(this).toggleClass('active');
         }
+        $this.toggleClass('active');
+        $this.next().slideToggle();
+        // if ($(this).hasClass('active')) {
+        //     $(this).siblings('.accordion-content').slideUp();
+        //     $(this).removeClass('active');
+        //     $(this).siblings('.accordion-content').slideToggle();
+        //     $(this).toggleClass('active');
+        //     console.log('active1');
+        // }
+        // else {
+        //     console.log('active2');
+        //     $('.accordion-content').slideUp();
+        //     $('.accordion-head').removeClass('active');
+        //     $(this).siblings('.accordion-content').slideToggle();
+        //     $(this).toggleClass('active');
+        // }
     });
 }
 
@@ -8443,8 +8437,7 @@ function dffNextBackButtonsActive(moduleIndex, lessonIndex) {
     tabAccordionItem.each(function () {
         const accordionModuleIndex = $(this).attr('module-index');
         const accordionLessonIndex = $(this).attr('lesson-index');
-        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {
-            console.log('Tetsts');
+        if (accordionModuleIndex === moduleIndex && accordionLessonIndex === lessonIndex) {            
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');
@@ -22070,7 +22063,7 @@ const $ = jQuery.noConflict();
             $('.show-less').hide();
             $('.show-more').show();
         })
-    }
+    } 
 
 })(jQuery);
 })();

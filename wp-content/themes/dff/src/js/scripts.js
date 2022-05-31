@@ -459,6 +459,6 @@ const $ = jQuery.noConflict();
             $('.show-less').hide();
             $('.show-more').show();
         })
-    }
+    } 
 
 })(jQuery);
