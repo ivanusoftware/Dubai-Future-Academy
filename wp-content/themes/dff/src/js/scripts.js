@@ -392,6 +392,12 @@ const $ = jQuery.noConflict();
 
         if ($(window).width() < 768) {
             showLess();
+
+            $('.accordion-content li, .my-progres-modules li').click(function () {
+                $('html, body').animate({
+                    scrollTop: $(".main-content").offset().top - 71
+                }, 500);
+            })
         }
     });
 

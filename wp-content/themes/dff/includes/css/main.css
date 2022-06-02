@@ -512,7 +512,6 @@ button.swiper-pagination-bullet {
 .chevron {
   margin-left: 8px;
   position: relative;
-  top: 13px;
 }
 .chevron:before {
   content: "";
@@ -522,16 +521,13 @@ button.swiper-pagination-bullet {
   height: 6px;
   left: 0;
   position: relative;
-  top: 0;
   transform: rotate(-45deg);
-  vertical-align: top;
   width: 6px;
-}
-.chevron.bottom {
-  top: 8px;
+  top: 0px;
 }
 .chevron.bottom:before {
   transform: rotate(135deg);
+  top: -3px;
 }
 
 .dark-mode .dff-btn, .dark-mode a.dff-btn {
@@ -595,6 +591,7 @@ button.swiper-pagination-bullet {
   border: none;
   background: none;
   cursor: pointer;
+  color: #000000;
 }
 
 .tabs-content {
@@ -931,6 +928,11 @@ button.swiper-pagination-bullet {
   background: none;
   border: none;
   cursor: pointer;
+  color: #000000;
+}
+.modules-course .cource-content .lesson-header .back:disabled,
+.modules-course .cource-content .lesson-header .next:disabled {
+  color: rgba(16, 16, 16, 0.3);
 }
 .modules-course .cource-content .lesson-header .back:disabled::after, .modules-course .cource-content .lesson-header .back:disabled::before,
 .modules-course .cource-content .lesson-header .next:disabled::after,
@@ -1309,10 +1311,14 @@ button.swiper-pagination-bullet {
   border-radius: 50%;
   width: 38px;
   height: 38px;
+  text-align: center;
+  line-height: 38px;
 }
 .lesson-audio-container .mejs-button.mejs-pause > button, .lesson-audio-container .mejs-button.mejs-play > button {
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0;
+  padding: 0;
 }
 .lesson-audio-container .mejs-button.mejs-play > button {
   background-image: url("../../images/play-arrow.svg");
@@ -1969,6 +1975,10 @@ button.swiper-pagination-bullet {
   border-bottom: 1px solid #000000;
   position: relative;
   top: -4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
 }
 .course-quiz__select input.error {
   border-color: red;
@@ -2137,9 +2147,9 @@ button.swiper-pagination-bullet {
   -webkit-transform-origin: 50% 0;
   -ms-transform-origin: 50% 0;
   transform-origin: 50% 0;
-  -webkit-transform: scale(0.75) translateY(-21px);
-  -ms-transform: scale(0.75) translateY(-21px);
-  transform: scale(0.75) translateY(-21px);
+  -webkit-transform: translateY(-21px);
+  -ms-transform: translateY(-21px);
+  transform: translateY(-21px);
   -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   z-index: 9;
@@ -2203,6 +2213,11 @@ button.swiper-pagination-bullet {
   border-color: red;
 }
 
+@media (max-width: 1200px) {
+  .nice-select:active, .nice-select:focus, .nice-select:hover, .nice-select .list:active, .nice-select .list:focus, .nice-select .list:hover {
+    outline: none;
+  }
+}
 .rtl .nice-select {
   text-align: right;
   padding: 0px 5px 0px 45px;
