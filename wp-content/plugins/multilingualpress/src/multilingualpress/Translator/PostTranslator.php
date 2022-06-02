@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -234,13 +236,14 @@ final class PostTranslator implements Translator
         $struct = (string)get_option('permalink_structure', '');
         $postType = get_post_type($postId);
         $expected = $this->expectedBase($postType);
+        $rewrite = get_post_type_object($postType)->rewrite;
 
         if (!$struct) {
             $expected = '';
         }
 
-        if ($struct && !$expected) {
-            $expected = (string)get_post_type_object($postType)->rewrite['slug'];
+        if ($struct && !$expected && !empty($rewrite)) {
+            $expected = (string)$rewrite['slug'];
         }
 
         $this->ensurePermastruct($struct);

@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -57,7 +59,7 @@ class RelationshipPermission
         $relatedPost = $this->relatedPost($post, $relatedSiteId);
         $isPostEditable = $relatedPost
             ? current_user_can_for_blog($relatedSiteId, $postType->cap->edit_post, $relatedPost->ID)
-            : current_user_can_for_blog($relatedSiteId, $postType->cap->edit_others_posts);
+            : current_user_can_for_blog($relatedSiteId, $postType->cap->create_posts);
 
         /**
          * Filters if the related post of the given post in the given site is editable.

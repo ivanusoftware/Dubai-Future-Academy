@@ -102,6 +102,7 @@ function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids)
         foreach ($dff_user_courses_ids as $user_courses_id) {
             $exam_key    = 'course_' . $user_courses_id . '_exam_result';
             $exam_result = get_user_meta($current_user_id, $exam_key, true);
+            // echo dff_get_translation_ids( $user_courses_id);
             if ($exam_result >= 80) {
                 // $user = get_user_by( 'id', $current_user_id );
                 // print_r($user);
@@ -109,7 +110,8 @@ function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids)
                 $name =  get_display_name($current_user_id);
                 $event = get_the_title($user_courses_id);
                 $lenghts = get_field('course_lenghts', $user_courses_id);
-                $pdf_certificate_url = make_participation_certificate($name, $event, $user_courses_id, $current_user_id, $exam_date, $lenghts);
+                $cat_name = pdf_return_courses_taxonomy($user_courses_id);
+                $pdf_certificate_url = make_participation_certificate($name, $event, $user_courses_id, $current_user_id, $cat_name, $exam_date, $lenghts);
             }
 
             $user_certificate[] = array(
@@ -120,6 +122,7 @@ function dff_user_courses_certificate($current_user_id, $dff_user_courses_ids)
                 'pdf_certificate_url'   => $pdf_certificate_url ? $pdf_certificate_url : '',
                 'lenghts'               => $lenghts,
                 'exam_date'             => $exam_date,
+                'tax_name'              => $cat_name,
             );
             $certificate = update_user_meta($current_user_id, 'user_courses_certificate4', $user_certificate);
         }
