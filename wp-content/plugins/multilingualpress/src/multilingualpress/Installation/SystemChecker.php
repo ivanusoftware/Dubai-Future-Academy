@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -208,7 +210,7 @@ class SystemChecker
 
         $message .= sprintf(
             '<a href="%s">%s</a>',
-            'http://make.multilingualpress.org/2014/02/how-to-install-multi-site/',
+            'https://multilingualpress.org/docs/how-to-install-wordpress-multisite/',
             esc_html__(
                 'Please convert this WordPress installation to multisite.',
                 'multilingualpress'

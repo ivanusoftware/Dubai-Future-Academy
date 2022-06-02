@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -350,7 +352,7 @@ function allDefaultLanguages(): array
             continue;
         }
         $language = EmbeddedLanguage::fromJsonData($languageData);
-        if ($language->type() === EmbeddedLanguage::TYPE_LOCALE) {
+        if ($language->type() !== EmbeddedLanguage::TYPE_LANGUAGE) {
             $main[$language->parentLanguageTag()] = 1;
         }
         $languages[$bcp47] = $language;

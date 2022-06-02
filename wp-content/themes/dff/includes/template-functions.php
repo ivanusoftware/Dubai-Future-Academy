@@ -149,6 +149,17 @@ function get_ids_courses_category($tax_courses_name)
     return $ids;
 }
 
+function pdf_return_courses_taxonomy($user_courses_id)
+{
+    $taxonomy_names = wp_get_object_terms($user_courses_id, 'courses-categories',  array("fields" => "names"));
+    if (!empty($taxonomy_names)) :
+        foreach ($taxonomy_names as $tax_name) :
+            $taxonomy_name = $tax_name;
+        endforeach;
+    endif;
+    return $taxonomy_name;
+}
+
 
 // Adds the rewrite rules for the user and course.
 add_action('init', function () {
@@ -445,6 +456,22 @@ function dff_show_date($date_open_module)
     return $show_date;
 }
 
+
+// function dff_get_translation_ids($course_id)
+// {
+//     $translations = \Inpsyde\MultilingualPress\translationIds($course_id, 'post', 1);
+//     if($translations) {
+//         // print_r($translations);
+    
+//         foreach($translations as $siteId => $postId) {
+//         //    echo 'Site ID: ' . $siteId . ' Post ID: ' . $postId . '<br>';
+//         //    echo get_the_title($postId);
+//            $course_id_translation = $postId;
+//         }
+//      }
+//     return $course_id_translation;
+// }
+// echo dff_get_translation_ids(10447);
 /**
  * php to js
  *
@@ -520,3 +547,52 @@ add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
 //     dff_user_courses_certificate($user_id, $dff_user_courses);
 
 // }
+// add_filter('the_content', function ($content) {
+//     $args =
+//         \Inpsyde\MultilingualPress\Framework\Api\TranslationSearchArgs::forContext(
+//             new \Inpsyde\MultilingualPress\Framework\WordpressContext()
+//         )->forSiteId(get_current_blog_id())->includeBase();
+
+//     $translations = \Inpsyde\MultilingualPress\resolve(
+//         \Inpsyde\MultilingualPress\Framework\Api\Translations::class
+//     )->searchTranslations($args);
+
+//     foreach ($translations as $translation) {
+//         $postId = $translation->remoteContentId();
+//         $title = $translation->remoteTitle();
+//         $url = $translation->remoteUrl();
+
+//         $language = $translation->language();
+//         $bcp47tag = $language->bcp47tag();
+//         $englishName = $language->englishName();
+//         $isoCode = $language->isoCode();
+//         $locale = $language->locale();
+//         $name = $language->name();
+//     }
+
+//     return $content;
+// });
+
+// $args =
+//         \Inpsyde\MultilingualPress\Framework\Api\TranslationSearchArgs::forContext(
+//             new \Inpsyde\MultilingualPress\Framework\WordpressContext()
+//         )->forSiteId(get_current_blog_id())->includeBase();
+
+//     $translations = \Inpsyde\MultilingualPress\resolve(
+//         \Inpsyde\MultilingualPress\Framework\Api\Translations::class
+//     )->searchTranslations($args);
+//     // print_r($translations);
+//     foreach ($translations as $translation) {
+//        echo  $postId = $translation->remoteContentId();
+//        echo $title = $translation->remoteTitle();
+//         $url = $translation->remoteUrl();
+
+//         // $language = $translation->language();
+//         // $bcp47tag = $language->bcp47tag();
+//         // $englishName = $language->englishName();
+//         // $isoCode = $language->isoCode();
+//         // $locale = $language->locale();
+//         // $name = $language->name();
+//     }
+
+

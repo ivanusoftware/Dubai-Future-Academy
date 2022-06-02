@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -83,6 +85,7 @@ class Db
     {
         $query = $this->wpdb->prepare(
             // phpcs:disable Inpsyde.CodeQuality.LineLength.TooLong
+            //phpcs:disable WordPress.DB.PreparedSQLPlaceholders.QuotedSimplePlaceholder
             "SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = '%s' AND table_schema = DATABASE()",
             // phpcs:enable
             [
@@ -90,7 +93,9 @@ class Db
             ]
         );
 
+        //phpcs:disable WordPress.DB.PreparedSQL.NotPrepared
         return (int)$this->wpdb->get_var($query);
+        // phpcs:enable
     }
 
     /**
