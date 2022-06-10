@@ -114,17 +114,17 @@ const $ = jQuery.noConflict();
     });
 
 
-    // Shows the open - auth popup
-    $('.open-auth-popup').on('click', function (e) {
-        e.preventDefault();
-        console.log('open-auth-popup')
-        const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
-        if (isVisible.hasClass('is-visible')) {
-            $('html').css('overflow', 'hidden');
-        } else {
-            $('html').css('overflow', 'auto');
-        }
-    });
+    // // Shows the open - auth popup
+    // $('.open-auth-popup').on('click', function (e) {
+    //     e.preventDefault();
+    //     console.log('open-auth-popup')
+    //     const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
+    //     if (isVisible.hasClass('is-visible')) {
+    //         $('html').css('overflow', 'hidden');
+    //     } else {
+    //         $('html').css('overflow', 'auto');
+    //     }
+    // });
 
       // Shows the open - auth popup
       $('.leave-course-popup .modal-toggle').on('click', function (e) {
