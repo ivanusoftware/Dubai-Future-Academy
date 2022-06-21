@@ -13,8 +13,10 @@ get_header(); // Loads the header.php template.
 $current_user_id  = get_current_user_id();
 
 $dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
-// print_r($dff_user_courses);
-dff_user_courses_certificate($current_user_id, $dff_user_courses);
+
+
+dff_user_courses_certificate($current_user_id);
+
 if (!is_user_logged_in()) {
     wp_redirect(site_url('courses'));
 };
@@ -53,9 +55,12 @@ if (!is_user_logged_in()) {
                         while ($courses->have_posts()) {
                             $courses->the_post();
                             $exem_result = get_user_meta(get_current_user_id(), 'course_' . get_the_ID() . '_exam_result', true);
+                            $slug = get_post_field( 'post_name', get_the_ID() );
+                          
+                            
                     ?>
                             <div class="course-item">
-                                <a href="<?php echo site_url('my-courses') . '/' . get_the_ID(); ?>" class="course-item-content">
+                                <a href="<?php echo site_url('my-courses') . '/' . $slug; ?>" class="course-item-content">
                                     <?php                                    
                                     include(get_template_directory() . '/includes/courses/parts/courses-content.php');
                                     if ($exem_result >= 80 && $exem_result != 1) {
@@ -86,8 +91,6 @@ if (!is_user_logged_in()) {
             </div>
             <div id="tab2" class="tab-wrapper">
                 <?php include(get_template_directory() . '/includes/courses/my-courses/my-certification.inc.php'); ?>
-
-
             </div>
         </div>
 

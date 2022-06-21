@@ -165,13 +165,16 @@ function pdf_return_courses_taxonomy($user_courses_id)
 add_action('init', function () {
     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
-    add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
-    add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+
+    add_rewrite_rule('my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+    add_rewrite_rule('ar/my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+    // add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+    // add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
 });
 
 // Adds the filter to the course_id.
 add_filter('query_vars', function ($query_vars) {
-    $query_vars[] = 'course_id';
+    $query_vars[] = 'course_slug';
     // $query_vars[] = 'id';
     return $query_vars;
 });
@@ -183,11 +186,14 @@ add_action('template_include', function ($template) {
     //     get_template_part(404);
     //     exit();
     // }
-    if (get_query_var('course_id') == false || get_query_var('course_id') == '') {
+ 
+    if (get_query_var('course_slug') == false || get_query_var('course_slug') == '') {
         return $template;
     }
     return get_template_directory() . '/includes/courses/my-courses/my-courses.inc.php';
 });
+
+
 
 /**
  * Formats a size unit in a human readable format
@@ -462,7 +468,7 @@ function dff_show_date($date_open_module)
 //     $translations = \Inpsyde\MultilingualPress\translationIds($course_id, 'post', 1);
 //     if($translations) {
 //         // print_r($translations);
-    
+
 //         foreach($translations as $siteId => $postId) {
 //         //    echo 'Site ID: ' . $siteId . ' Post ID: ' . $postId . '<br>';
 //         //    echo get_the_title($postId);
@@ -596,3 +602,103 @@ add_filter('nav_menu_css_class', 'dff_courses_nav_class', 10, 2);
 //     }
 
 
+// $translations = \Inpsyde\MultilingualPress\translationIds(10410, 'post', 1);
+// print_r($translations);
+// if($translations) {
+
+//     foreach($translations as $siteId => $postId) {
+//        echo 'Site ID: ' . $siteId . ' Post ID: ' . $postId . '<br>';
+//     }
+//  }
+
+//  echo $lang = get_bloginfo("language");
+
+
+function dff_get_id_parrent_lang($current_id_post)
+{
+    $lang = get_bloginfo('language');
+    if ($lang == 'ar') {
+        $site_number = 3;
+    } else {
+        $site_number = 1;
+    }
+    $translations = \Inpsyde\MultilingualPress\translationIds($current_id_post, 'post', $site_number);
+
+    if ($translations) {
+        if ($lang == 'ar') {
+            $post_id_lang = $translations[1];
+        } else {
+            $post_id_lang = $translations[3];
+        }
+        return $post_id_lang;
+    }
+}
+
+
+function get_page_by_slug($page_slug, $output = OBJECT, $post_type = 'page')
+{
+    global $wpdb;
+
+    if (is_array($post_type)) {
+        $post_type = esc_sql($post_type);
+        $post_type_in_string = "'" . implode("','", $post_type) . "'";
+        $sql = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type IN ($post_type_in_string)", $page_slug);
+    } else {
+        $sql = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type = %s", $page_slug, $post_type);
+    }
+
+    $page = $wpdb->get_var($sql);
+
+    if ($page)
+        return get_post($page, $output);
+
+    return null;
+}
+
+function dff_get_url_pdf_certificate($course_id, $user_certificates)
+{
+   
+    foreach($user_certificates as $user_certificate){
+        if($user_certificate['course_id'] === $course_id){
+            $pdf_certificate_url = $user_certificate['pdf_certificate_url'];
+        }
+    }
+    return $pdf_certificate_url;
+}
+
+
+
+
+// function dff_get_meta_value_for_ar_lang($meta_key, $post_id)
+// {
+//     global $wpdb;
+//     $row = $wpdb->get_row("SELECT meta_value FROM wp_postmeta WHERE meta_key = '$meta_key' AND post_id = $post_id",  ARRAY_A);
+//     return $row['meta_value'];
+// }
+// function dff_get_meta_key_for_ar_lang($meta_value, $post_id)
+// {
+//     global $wpdb;
+//     $row = $wpdb->get_row("SELECT meta_key FROM wp_postmeta WHERE meta_value = '$meta_value' AND post_id = $post_id",  ARRAY_A);
+//     return $row['meta_key'];
+// }
+
+
+// $translations = \Inpsyde\MultilingualPress\translationIds(10410, 'post', 1);
+// print_r($translations);
+// if($translations) {
+
+//     foreach($translations as $siteId => $postId) {
+//        echo 'Site ID: ' . $siteId . ' Post ID: ' . $postId . '<br>';
+//     }
+//  }
+
+// $api = \Inpsyde\MultilingualPress\resolve(
+//     \Inpsyde\MultilingualPress\Framework\Api\ContentRelations::class
+// );
+
+// $contentIds = [
+//     1 => 10410,    
+//     3 => 8421,
+// ];
+
+// echo $api->createRelationship($contentIds, 'post');

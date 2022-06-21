@@ -98,7 +98,9 @@ function quiz_answers_callback()
 
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
+
             update_user_meta($user_id, 'course_' . $course_id . '_exam_result', $percentage);
+            update_user_meta($user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_exam_result', $percentage);
 
         } else {
 
@@ -114,7 +116,10 @@ function quiz_answers_callback()
 
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
+
             update_user_meta($user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
+            update_user_meta($user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_module_' . $module_id . '_result', $percentage);
+
         }
 
 

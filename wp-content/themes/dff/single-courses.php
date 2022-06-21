@@ -1,9 +1,16 @@
 <?php
 get_header();
 $posttype = get_post_type();
+echo get_current_user_id();
 ?>
 <article class="single-course">
 	<?php
+	// $lang = get_bloginfo('language');
+	// if ($lang == 'ar') {
+	// 	include(get_template_directory() . '/includes/languages/ar/single-course-ar.inc.php');
+	// } else {
+	// 	include(get_template_directory() . '/includes/languages/en/single-course-en.inc.php');
+	// }
 	if (have_posts()) {
 		while (have_posts()) {
 			the_post();
@@ -61,8 +68,10 @@ $posttype = get_post_type();
 							<a href="<?php echo site_url('my-courses/') . get_the_ID(); ?>" class="btn-course-primary apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
 						<?php
 						} else {
+							$post_id_lang =  dff_get_id_parrent_lang(get_the_ID());
 						?>
-							<a href="#" class="btn-course-primary apply-now <?php echo is_user_logged_in() ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
+						
+							<a href="#" class="btn-course-primary apply-now <?php echo is_user_logged_in() ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
 						<?php
 						}
 					?>
@@ -168,7 +177,9 @@ $posttype = get_post_type();
 	<?php
 		} // end while
 	} // end if
+
 	?>
+
 </article>
 <?php include(get_template_directory() . '/includes/courses/popup_user.inc.php'); ?>
 <?php include(get_template_directory() . '/includes/courses/other-course.inc.php'); ?>
