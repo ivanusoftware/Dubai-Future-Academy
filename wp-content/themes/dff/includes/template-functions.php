@@ -168,6 +168,8 @@ add_action('init', function () {
 
     add_rewrite_rule('my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
     add_rewrite_rule('ar/my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+
+
     // add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
     // add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
 });
@@ -186,14 +188,14 @@ add_action('template_include', function ($template) {
     //     get_template_part(404);
     //     exit();
     // }
- 
+
     if (get_query_var('course_slug') == false || get_query_var('course_slug') == '') {
         return $template;
     }
     return get_template_directory() . '/includes/courses/my-courses/my-courses.inc.php';
 });
 
-
+add_filter('flush_rewrite_rules_hard', '__return_false');
 
 /**
  * Formats a size unit in a human readable format
@@ -657,16 +659,76 @@ function get_page_by_slug($page_slug, $output = OBJECT, $post_type = 'page')
 
 function dff_get_url_pdf_certificate($course_id, $user_certificates)
 {
-   
-    foreach($user_certificates as $user_certificate){
-        if($user_certificate['course_id'] === $course_id){
+
+    foreach ($user_certificates as $user_certificate) {
+        if ($user_certificate['course_id'] === $course_id) {
             $pdf_certificate_url = $user_certificate['pdf_certificate_url'];
         }
     }
     return $pdf_certificate_url;
 }
 
+/**
+ * Updates the rewrite => slug argument when registering a post type.
+ *
+ * Will use the option from the "Post Type Slugs" tab the 
+ * Network Settings of a website, in case it’s not empty.
+ *
+ * @see register_post_type()
+ *
+ * @param array $args An array of arguments that will be passed to register_post_type().
+ * @param string $postType The name/slug of the post type.
+ *
+ * @return array Updated arguments.
+ */
+add_filter('register_post_type_args', function ($args, $postType) {
 
+    if ((isset($args['_builtin']) && $args['_builtin'])
+        || (isset($args['public']) && !$args['public'])
+    ) {
+        return $args;
+    }
+
+    $slugSettings = get_network_option(
+        0,
+        \Inpsyde\MultilingualPress\Core\Admin\PostTypeSlugsSettingsRepository::OPTION,
+        []
+    );
+
+    $siteId = get_current_blog_id();
+
+    if (empty($slugSettings[$siteId][$postType])) {
+        return $args;
+    }
+
+    $args = array_merge($args, [
+        'rewrite' => [
+            'slug' => $slugSettings[$siteId][$postType]
+        ],
+    ]);
+
+    return $args;
+}, 10, 2);
+
+
+// Parse a dff url and return the host.
+function dff_url_lang($url)
+{
+    $result = parse_url($url);
+    return $result['scheme'] . "://" . $result['host'];
+}
+
+function dff_courses_switcher_lang($course_slug)
+{
+    $url = site_url();
+    $lang = get_bloginfo('language');
+    if ($lang == 'ar') {
+        $lang_name = '<a class="button button button--ghost is-icon is-language" href="' . dff_url_lang($url) . '/my-courses/' . $course_slug . '">EN</a>';
+    } else {
+        $lang_name =  '<a class="button button button--ghost is-icon is-language" href="' . dff_url_lang($url) . '/ar/my-courses/' . $course_slug . '">ع</a>';
+    }
+    return  $lang_name;
+}  
 
 
 // function dff_get_meta_value_for_ar_lang($meta_key, $post_id)
