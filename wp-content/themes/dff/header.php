@@ -116,35 +116,21 @@
 				</nav>
 				<div class="page-headActions">
 					<?php
-					// $course_slug = get_query_var('course_slug');
-					// if($course_slug){
-					// 	echo 'Yes';
-					// 	if (count($languages) > 0) {
-					// 		foreach ($languages as $language) {
-					// 			print_r($language);
-					// 			if (!$language['is_current']) {
-					// 				printf(
-					// 					'<a class="button button--ghost is-icon is-language" href="%s">%s</a>',
-					// 					esc_url($language['site']),
-					// 					esc_html($language['name'] ?? '')
-					// 				);
-					// 				break;
-					// 			}
-					// 		}
-					// 	}
-					// }else{
-					// 	echo 'No';
-					// }
-					if (count($languages) > 0) {
-						foreach ($languages as $language) {
-							// print_r($language);
-							if (!$language['is_current']) {
-								printf(
-									'<a class="button button--ghost is-icon is-language" href="%s">%s</a>',
-									esc_url($language['site']),
-									esc_html($language['name'] ?? '')
-								);
-								break;
+					$course_slug = get_query_var('course_slug');
+					if ($course_slug) {
+						echo dff_courses_switcher_lang($course_slug);
+					} else {						
+						if (count($languages) > 0) {
+							foreach ($languages as $language) {
+								// print_r($language);
+								if (!$language['is_current']) {
+									printf(
+										'<a class="button button--ghost is-icon is-language" href="%s">%s</a>',
+										esc_url($language['site']),
+										esc_html($language['name'] ?? '')
+									);
+									break;
+								}
 							}
 						}
 					}
