@@ -1,6 +1,6 @@
 <?php
 get_header();
-$posttype = get_post_type();
+echo $posttype = get_post_type(); 
 ?>
 <article class="single-course">
 	<?php
