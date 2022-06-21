@@ -1,11 +1,11 @@
 .certificate-wrap {
     .course-item-content {
         display: flex;
-        flex-direction: column;        
+        flex-direction: column;
         height: 100%;
-        .course-item-desc{
+        .course-item-desc {
             flex: 1;
-        } 
+        }
         .certificate {
             position: relative;
             width: 100%;
@@ -51,6 +51,20 @@
             margin: 0 15px;
             border: 0.870074px solid #000000;
             box-sizing: border-box;
+        }
+    }
+}
+.rtl {
+    .certificate-wrap {
+        .course-item-content {
+            .certificate {
+                padding-right: 45px;
+                padding-left: 0;
+                &::before {
+                    content: "";
+                    right: 10px;                    
+                }
+            }
         }
     }
 }

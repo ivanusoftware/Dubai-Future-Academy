@@ -36,7 +36,7 @@ function dff_login_form_fields()
             </div>
         </fieldset>
     </form>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -69,7 +69,7 @@ function dff_login_member()
         );
 
         $request = wp_remote_post($url, $args);
-
+        // print_r($request);
         // if (is_wp_error($request) || wp_remote_retrieve_response_code($request) != 200) {
         if (is_wp_error($request)) {
             // error_log(print_r($request, true));
@@ -89,9 +89,35 @@ function dff_login_member()
             $token =  $response['token'];
 
             $token2 = wp_remote_retrieve_cookie_value($request, 'token');
+            // "<script>document.write(localStorage.setItem('auth_Token', '" . $token . "'))</script>";
 
+            // echo $phpvariable = "<script>document.write(localStorage.getItem('auth_Token'))</script>";
 
-
+            // setcookie("TestCookie", $token, time()+3600, "/", "dubaifuture.loc");
+    ?>
+            <script>
+                function createItem() {
+                    // localStorage.setItem('auth_Token', <?php echo $token; ?>);
+                    window.localStorage.setItem('auth_Token', <?php $token; ?>);
+                    // window.localStorage.setItem(auth_Token, value);
+                    console.log(window.localStorage.getItem('auth_Token'));
+                }
+                // createItem();
+                window.localStorage.setItem('auth_Token', '<?php echo $token; ?>');
+                // window.localStorage.setItem(auth_Token, value);
+                console.log(window.localStorage.getItem('auth_Token'));
+            </script>
+            <!-- <script>
+                var auth_Token = localStorage.getItem('auth_Token');
+                $.POST('login_response.php', {
+                            'auth_Token': auth_Token,                            
+                        }, function(data) {
+                            alert('Login Successful.  Redirect to a different page or something here.');
+                        }); -->
+                        <!-- window.localStorage.getItem('auth_Token') -->
+            </script>
+<?php
+            echo $phpvariable = "<script>window.localStorage.getItem('auth_Token')</script>";
             // echo $retrieve_cookies = wp_remote_retrieve_cookies( $request );
             $retrieve_cookies = wp_remote_retrieve_cookie($request, 'logins');
 
@@ -100,16 +126,16 @@ function dff_login_member()
             // $response_header = wp_remote_retrieve_headers($request);
 
             // $set_cookie_logins = wp_remote_retrieve_header( $request, 'set-cookie' );
-            $url_redirect = $array_options['dff_api_url'] . 'api/v1/auth/set-auth-cookies';
-            $data = array(
-                'token'     => $token,
-                'logins'    => $logins2,
-                'url_next'  => wp_get_current_url()
-                // 'token'     => '123',
-                // 'logins'    => '321',
-                // 'url_next'  => 'http://dubaifuture.loc/initiatives'
-            );
-            $query_url = $url_redirect . '?' . http_build_query($data);
+            // $url_redirect = $array_options['dff_api_url'] . 'api/v1/auth/set-auth-cookies';
+            // $data = array(
+            //     'token'     => $token,
+            //     'logins'    => $logins2,
+            //     'url_next'  => wp_get_current_url()
+            //     // 'token'     => '123',
+            //     // 'logins'    => '321',
+            //     // 'url_next'  => 'http://dubaifuture.loc/initiatives'
+            // );
+            // $query_url = $url_redirect . '?' . http_build_query($data);
 
             $user = get_user_by('email', $_POST['dff_email_log']);
             $errors = dff_custom_errors()->get_error_messages();
@@ -118,7 +144,7 @@ function dff_login_member()
             $data_user_firstName = $data_user['firstName'];
             $data_user_lastName = $data_user['lastName'];
 
-            
+
             if (empty($errors) && $user) {
 
                 // wp_setcookie($_POST['custom_user_login'], $_POST['dff_user_pwd'], true);
@@ -130,8 +156,8 @@ function dff_login_member()
                 wp_set_auth_cookie($user->ID, true);
                 do_action('wp_login', $_POST['dff_email_log']);
 
-                // wp_redirect(home_url());
-                wp_redirect($query_url);
+                wp_redirect(home_url());
+                // wp_redirect($query_url);
                 exit;
             } else {
                 // echo 'test';
@@ -164,7 +190,7 @@ function dff_login_member()
 
                     // send the newly created user to the home page after logging them in
                     // wp_redirect(site_url('/'));
-                    wp_redirect($query_url);
+                    // wp_redirect($query_url);
                     exit;
                 }
             }

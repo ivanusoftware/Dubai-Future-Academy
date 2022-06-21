@@ -2415,6 +2415,15 @@ button.swiper-pagination-bullet {
   box-sizing: border-box;
 }
 
+.rtl .certificate-wrap .course-item-content .certificate {
+  padding-right: 45px;
+  padding-left: 0;
+}
+.rtl .certificate-wrap .course-item-content .certificate::before {
+  content: "";
+  right: 10px;
+}
+
 .page-template-courses-inc .breadcrumb br {
   display: none;
 }
@@ -3095,6 +3104,9 @@ button.swiper-pagination-bullet {
     margin-left: 0;
     margin-right: 50px;
   }
+}
+.rtl .course-requirments ul {
+  padding-right: 18px;
 }
 
 .my-courses-tabs .container {

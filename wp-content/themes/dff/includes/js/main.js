@@ -21645,9 +21645,11 @@ const $ = jQuery.noConflict();
     $('.modal-toggle.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
+        const courseIdLang = $(this).attr('course_id_lang');
         const data = {
             action: "add_lesson_to_user_ajax",
             course_id: courseId,
+            course_id_lang: courseIdLang,
         };
         // console.log(data);
         $.ajax({
@@ -21677,9 +21679,11 @@ const $ = jQuery.noConflict();
     $('.leave-course-popup .buttons .leave-course').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course-id');
+        const courseIdLang = $(this).attr('course_id_lang');
         const data = {
             action: "leave_course_ajax",
             course_id: courseId,
+            course_id_lang: courseIdLang,
         };
         $.ajax({
             type: "POST",
