@@ -121,8 +121,21 @@ add_action('wp_ajax_nopriv_tabs_lesson_ajax', 'tabs_lesson_ajax_callback');
 function add_lesson_to_user_ajax_callback()
 {
     $course_id       = $_POST['course_id'];
+    $course_id_lang  = $_POST['course_id_lang'];
     $current_user_id =  get_current_user_id();
+    $course_id_cer = get_the_ID();
     dff_user_courses($current_user_id, $course_id);
+    dff_user_courses_lang($current_user_id, $course_id_lang);
+    $lang = get_bloginfo('language');
+    if ($lang == 'ar') {
+        dff_user_courses_ar($current_user_id, $course_id);
+        dff_user_courses_en($current_user_id, dff_get_id_parrent_lang($course_id));
+    }else{
+        dff_user_courses_en($current_user_id, $course_id);
+        dff_user_courses_ar($current_user_id, dff_get_id_parrent_lang($course_id));
+    }
+    // dff_user_courses_certificate_ids($current_user_id, $course_id_cer);
+
     dff_user_course_module_result($current_user_id,  $course_id);
     wp_send_json_success();
     wp_die();

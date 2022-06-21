@@ -58,10 +58,10 @@ if (!function_exists('dff_register_courses_taxonomy')) {
 	function dff_register_courses_taxonomy()
 	{
 		$labels = array(
-			'name'                       => _x('Categories', 'Taxonomy General Name', 'dff'),
+			'name'                       => _x('Courses Categories', 'Taxonomy General Name', 'dff'),
 			'singular_name'              => _x('Category', 'Taxonomy Singular Name', 'dff'),
 			'menu_name'                  => __('Category', 'dff'),
-			'all_items'                  => __('All Categories', 'dff'),
+			'all_items'                  => __('All Courses Categories', 'dff'),
 			'parent_item'                => __('Parent Category', 'dff'),
 			'parent_item_colon'          => __('Parent Category:', 'dff'),
 			'new_item_name'              => __('New Category Name', 'dff'),
@@ -69,15 +69,15 @@ if (!function_exists('dff_register_courses_taxonomy')) {
 			'edit_item'                  => __('Edit Category', 'dff'),
 			'update_item'                => __('Update Category', 'dff'),
 			'view_item'                  => __('View Category', 'dff'),
-			'separate_items_with_commas' => __('Separate event categories with commas', 'dff'),
-			'add_or_remove_items'        => __('Add or remove event categories', 'dff'),
+			'separate_items_with_commas' => __('Separate event courses categories with commas', 'dff'),
+			'add_or_remove_items'        => __('Add or remove event Courses Categories', 'dff'),
 			'choose_from_most_used'      => __('Choose from the most used', 'dff'),
-			'popular_items'              => __('Popular Categories', 'dff'),
-			'search_items'               => __('Search Categories', 'dff'),
+			'popular_items'              => __('Popular Courses Categories', 'dff'),
+			'search_items'               => __('Search Courses Categories', 'dff'),
 			'not_found'                  => __('Not Found', 'dff'),
-			'no_terms'                   => __('No Categories', 'dff'),
-			'items_list'                 => __('Categories list', 'dff'),
-			'items_list_navigation'      => __('Categories list navigation', 'dff'),
+			'no_terms'                   => __('No Courses Categories', 'dff'),
+			'items_list'                 => __('Courses Categories list', 'dff'),
+			'items_list_navigation'      => __('Courses Categories list navigation', 'dff'),
 		);
 		$args   = array(
 			'labels'            => $labels,

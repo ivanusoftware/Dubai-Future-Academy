@@ -190,7 +190,10 @@
                 background: none;
                 border: none;
                 cursor: pointer;
+                color: $color-black;
                 &:disabled {
+                    color: rgba(16, 16, 16, 0.3);
+
                     &::after,
                     &::before {
                         opacity: 0.2;

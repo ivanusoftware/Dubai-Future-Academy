@@ -1,5 +1,5 @@
-=== Custom Registration and Custom Login Forms with New Recaptcha ===
-Contributors: Commercepundit
+=== Custom Registration and Custom Login Forms  ===
+Contributors: Ivan Chumak
 Tags: custom forms
 Requires at least: 4.0
 Tested up to: 4.3
@@ -11,9 +11,7 @@ Just another Custom Registration and Login Forms plugin with New Recaptcha. Simp
 
 == Description ==
 
-Custom Registration and Custom Login Forms with New Recaptcha plugin is simple plugin to show custom registration and custom login on any post or pages with just short code like [crlfwnr_login_form] and [crlfwnr_register_form] and to show recaptcha , click at leftside menu 'Register Plugin' at there generate and add public , private keys to configure New Google Recaptcha on custom Login or Custom register forms.
-to generate public and private key click on this link https://www.google.com/recaptcha/admin
-
+Custom Registration and Custom Login Forms plugin is simple plugin to show custom registration and custom login on any post or pages with just short code like [dff_login_form] and [dff_register_form].
 
 == Installation ==
 
@@ -29,6 +27,3 @@ You will find 'Register Plugin' section at leftside in your WordPress admin pane
 2. create page for register and add sortcode
 3. Register page at frontside with recaptcha
 4. Login page at frontside with recaptcha
-
-
-

@@ -1,4 +1,6 @@
-<?php # -*- coding: utf-8 -*-
+<?php
+
+# -*- coding: utf-8 -*-
 /*
  * This file is part of the MultilingualPress package.
  *
@@ -23,6 +25,7 @@ class SiteSettingsUpdater implements SiteSettingsUpdatable
     const ACTION_DEFINE_INITIAL_SETTINGS = 'multilingualpress.define_initial_site_settings';
     const ACTION_UPDATE_SETTINGS = 'multilingualpress.update_site_settings';
     const VALUE_LANGUAGE_NONE = '-1';
+    const NAME_SEARCH_ENGINE_VISIBILITY = 'mlp_search_engine_visibility';
 
     /**
      * @var SiteSettingsRepository
@@ -35,13 +38,20 @@ class SiteSettingsUpdater implements SiteSettingsUpdatable
     private $request;
 
     /**
+     * @var LanguageInstaller
+     */
+    private $languageInstaller;
+
+    /**
      * @param SiteSettingsRepository $repository
      * @param Request $request
+     * @param LanguageInstaller $languageInstaller
      */
-    public function __construct(SiteSettingsRepository $repository, Request $request)
+    public function __construct(SiteSettingsRepository $repository, Request $request, LanguageInstaller $languageInstaller)
     {
         $this->repository = $repository;
         $this->request = $request;
+        $this->languageInstaller = $languageInstaller;
     }
 
     /**
@@ -57,6 +67,7 @@ class SiteSettingsUpdater implements SiteSettingsUpdatable
         $this->updateLanguage($siteId);
         $this->updateRelationships($siteId);
         $this->updateXDefault($siteId);
+        $this->handleSearchEngineVisibility($siteId);
 
         /**
          * Fires right after the initial settings of a new site have been defined.
@@ -72,6 +83,7 @@ class SiteSettingsUpdater implements SiteSettingsUpdatable
     public function updateSettings(int $siteId)
     {
         $this->updateLanguage($siteId);
+        $this->updateWpLang($siteId);
         $this->updateRelationships($siteId);
         $this->updateXDefault($siteId);
 
@@ -159,8 +171,27 @@ class SiteSettingsUpdater implements SiteSettingsUpdatable
             FILTER_SANITIZE_STRING
         );
 
-        if (in_array($wplang, get_available_languages(), true)) {
-            update_blog_option($siteId, 'WPLANG', $wplang);
+        if (!in_array($wplang, get_available_languages(), true)) {
+            $this->languageInstaller->install($wplang);
         }
+
+        switch_to_locale($wplang);
+        update_blog_option($siteId, 'WPLANG', $wplang);
+    }
+
+    /**
+     * Adapts the search engine visibility according to the setting included in the request.
+     *
+     * @param int $siteId
+     */
+    private function handleSearchEngineVisibility(int $siteId)
+    {
+        $isSiteVisible = $this->request->bodyValue(
+            static::NAME_SEARCH_ENGINE_VISIBILITY,
+            INPUT_POST,
+            FILTER_SANITIZE_NUMBER_INT
+        ) ?? '1';
+
+        update_blog_option($siteId, 'blog_public', $isSiteVisible);
     }
 }

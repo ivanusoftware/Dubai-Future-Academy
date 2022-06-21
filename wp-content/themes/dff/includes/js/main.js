@@ -21645,9 +21645,11 @@ const $ = jQuery.noConflict();
     $('.modal-toggle.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
+        const courseIdLang = $(this).attr('course_id_lang');
         const data = {
             action: "add_lesson_to_user_ajax",
             course_id: courseId,
+            course_id_lang: courseIdLang,
         };
         // console.log(data);
         $.ajax({
@@ -21677,9 +21679,11 @@ const $ = jQuery.noConflict();
     $('.leave-course-popup .buttons .leave-course').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course-id');
+        const courseIdLang = $(this).attr('course_id_lang');
         const data = {
             action: "leave_course_ajax",
             course_id: courseId,
+            course_id_lang: courseIdLang,
         };
         $.ajax({
             type: "POST",
@@ -21718,17 +21722,17 @@ const $ = jQuery.noConflict();
     });
 
 
-    // Shows the open - auth popup
-    $('.open-auth-popup').on('click', function (e) {
-        e.preventDefault();
-        console.log('open-auth-popup')
-        const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
-        if (isVisible.hasClass('is-visible')) {
-            $('html').css('overflow', 'hidden');
-        } else {
-            $('html').css('overflow', 'auto');
-        }
-    });
+    // // Shows the open - auth popup
+    // $('.open-auth-popup').on('click', function (e) {
+    //     e.preventDefault();
+    //     console.log('open-auth-popup')
+    //     const isVisible = $('.register-login-module .modal').toggleClass('is-visible');
+    //     if (isVisible.hasClass('is-visible')) {
+    //         $('html').css('overflow', 'hidden');
+    //     } else {
+    //         $('html').css('overflow', 'auto');
+    //     }
+    // });
 
       // Shows the open - auth popup
       $('.leave-course-popup .modal-toggle').on('click', function (e) {
@@ -21996,6 +22000,12 @@ const $ = jQuery.noConflict();
 
         if ($(window).width() < 768) {
             showLess();
+
+            $('.accordion-content li, .my-progres-modules li').click(function () {
+                $('html, body').animate({
+                    scrollTop: $(".main-content").offset().top - 71
+                }, 500);
+            })
         }
     });
 

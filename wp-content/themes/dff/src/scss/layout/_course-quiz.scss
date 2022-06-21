@@ -216,6 +216,10 @@
             border-bottom: 1px solid $color-black;
             position: relative;
             top: -4px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-border-radius: 0;
         }
         input.error {
             border-color: red;
@@ -348,6 +352,10 @@
 
 }
 
+
+ 
+
+
 .nice-select {
     font-family: $font-family-neo-sans-pro;
     background-color: #fff;
@@ -382,9 +390,9 @@
     -webkit-transform-origin: 50% 0;
     -ms-transform-origin: 50% 0;
     transform-origin: 50% 0;
-    -webkit-transform: scale(0.75) translateY(-21px);
-    -ms-transform: scale(0.75) translateY(-21px);
-    transform: scale(0.75) translateY(-21px);
+    -webkit-transform: translateY(-21px);
+    -ms-transform: translateY(-21px);
+    transform: translateY(-21px);
     -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
     transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
     z-index: 9;
@@ -442,9 +450,13 @@
     border-color: red;
 }
 
-
-
-
+@media (max-width: 1200px) {
+    .nice-select, .nice-select .list {
+        &:active, &:focus, &:hover {
+            outline: none;
+        }
+    }
+}
 
 
 

@@ -1,6 +1,9 @@
 <section class="about-course">
     <?php
-    $course_id = get_query_var('course_id') ? get_query_var('course_id') : $_POST['course_id'];
+    $course_slug = get_query_var('course_slug') ? get_query_var('course_slug') : $_POST['course_slug'];
+    $post_obj    = get_page_by_slug($course_slug, OBJECT, 'courses');
+    $course_id   = $post_obj ? $post_obj->ID : $_POST['course_id'];
+    // $course_id = get_query_var('course_id') ? get_query_var('course_id') : $_POST['course_id'];
     // WP_Query arguments
     $args = array(
         'post_type'      => array('courses'),
@@ -55,7 +58,7 @@
                                 <div class="desc">
                                     <?php the_content(); ?>
                                     <a class="show-more"><?php echo _e('Show more', 'dff'); ?><span class="chevron bottom"></span></a>
-									<a class="show-less" style="display: none;"><?php echo _e('Show less', 'dff'); ?><span class="chevron"></span></a>
+                                    <a class="show-less" style="display: none;"><?php echo _e('Show less', 'dff'); ?><span class="chevron"></span></a>
                                 </div>
                                 <div class="course-requirments">
                                     <h2><?php echo _e('Requirments', 'dff'); ?></h2>
@@ -83,8 +86,8 @@
                                         <div class="course-leaving__title"><?php echo _e('If you want to leave the course, you can do it here.', 'dff'); ?></div>
                                         <a href="#" class="dff-btn modal-toggle"><?php echo _e('Leave course', 'dff'); ?></a>
                                     </div>
-                                <?php 
-                                } 
+                                <?php
+                                }
                                 ?>
                             </div>
                         </main>

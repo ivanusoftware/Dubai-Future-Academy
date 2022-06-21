@@ -1,12 +1,14 @@
 <?php
 
 get_header();
-$course_id       = get_query_var('course_id');
+$course_slug = get_query_var('course_slug');
+$post_obj    = get_page_by_slug($course_slug, OBJECT, 'courses');
+$course_id   = $post_obj->ID;
 $current_user_id = get_current_user_id();
 $courses_array   = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
 
 if (in_array($course_id, $courses_array)) {
-    $courses_format = get_field_object('courses_format', $course_id);    
+    $courses_format = get_field_object('courses_format', $course_id);
 ?>
     <section class="my-courses-tabs" course-id="<?php echo $course_id; ?>">
         <div class="container">

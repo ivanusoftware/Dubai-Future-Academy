@@ -116,8 +116,28 @@
 				</nav>
 				<div class="page-headActions">
 					<?php
+					// $course_slug = get_query_var('course_slug');
+					// if($course_slug){
+					// 	echo 'Yes';
+					// 	if (count($languages) > 0) {
+					// 		foreach ($languages as $language) {
+					// 			print_r($language);
+					// 			if (!$language['is_current']) {
+					// 				printf(
+					// 					'<a class="button button--ghost is-icon is-language" href="%s">%s</a>',
+					// 					esc_url($language['site']),
+					// 					esc_html($language['name'] ?? '')
+					// 				);
+					// 				break;
+					// 			}
+					// 		}
+					// 	}
+					// }else{
+					// 	echo 'No';
+					// }
 					if (count($languages) > 0) {
 						foreach ($languages as $language) {
+							// print_r($language);
 							if (!$language['is_current']) {
 								printf(
 									'<a class="button button--ghost is-icon is-language" href="%s">%s</a>',
@@ -145,14 +165,14 @@
 							<?php
 							if (!is_user_logged_in()) {
 							?>
-								<li><a href="#" class="open-auth-popup">
-										<a href="#" class="open-auth-popup">Login / Register</a>
+								<li class="open-auth-popup">
+									<a href="#" class="modal-toggle">Login / Register</a>
 								</li>
 							<?php
 							} else {
 							?>
 								<li><a href="https://dev.id.dubaifuture.ae/">My Profile</a></li>
-								<li><a href="https://dev.programs.dubaifuture.ae/">Programmes Dashboard</a></li>					
+								<li><a href="https://dev.programs.dubaifuture.ae/">Programmes Dashboard</a></li>
 								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout">My Cources</a></li>
 								<li><a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Logout">Logout</a></li>
 							<?php
