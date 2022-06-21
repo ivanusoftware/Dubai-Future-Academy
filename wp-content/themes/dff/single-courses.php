@@ -1,16 +1,9 @@
 <?php
 get_header();
 $posttype = get_post_type();
-echo get_current_user_id();
 ?>
 <article class="single-course">
 	<?php
-	// $lang = get_bloginfo('language');
-	// if ($lang == 'ar') {
-	// 	include(get_template_directory() . '/includes/languages/ar/single-course-ar.inc.php');
-	// } else {
-	// 	include(get_template_directory() . '/includes/languages/en/single-course-en.inc.php');
-	// }
 	if (have_posts()) {
 		while (have_posts()) {
 			the_post();
