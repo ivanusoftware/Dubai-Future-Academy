@@ -1,21 +1,37 @@
 <?php
 // For generating pdf
-// require(get_template_directory() . '/includes/fpdf/fpdf.php');
-// require(get_template_directory() . '/includes/fpdf/fpdf.php');
 require_once(get_template_directory() . '/includes/tcpdf/tcpdf.php');
-// function pixel_to_pt($px)
-// {
-//     return round(0.75 * $px);
-// }
-
-// function pt_to_pixel($pt)
-// {
-//     return round(4 * $pt / 3);
-// }
-
-// Create a certificate for a participant.
-function make_participation_certificate($name, $title_en, $title_ar, $cource_id, $user_id, $cat_name_en, $cat_name_ar)
+function make_participation_certificate($cource_id, $user_id)
 {
+  
+    $name = dff_get_future_user_name($user_id);
+
+
+    $lang = get_bloginfo('language');
+    global $wpdb;
+    $table_name_ar = $wpdb->base_prefix . '3_posts';
+    $table_name_en = $wpdb->base_prefix . 'posts';
+    if ($lang == 'ar') {
+        $cource_id_en = dff_get_id_parrent_lang($cource_id);
+        $post_cat_name_en = $wpdb->get_row("SELECT t.name FROM wp_terms t LEFT JOIN wp_term_relationships tr ON (t.term_id = tr.term_taxonomy_id) WHERE tr.object_id = $cource_id_en");
+        $title_ar = get_the_title($cource_id);
+        $title_en_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_en WHERE ID = '$cource_id_en'"));
+        $title_en = $title_en_result->post_title;
+
+        $cat_name_en = $post_cat_name_en->name;
+        $cat_name_ar = pdf_return_courses_taxonomy($cource_id);
+    } else {
+        $cource_id_ar = dff_get_id_parrent_lang($cource_id);
+        $post_cat_name_ar = $wpdb->get_row("SELECT t.name FROM wp_3_terms t LEFT JOIN wp_3_term_relationships tr ON (t.term_id = tr.term_taxonomy_id) WHERE tr.object_id = $cource_id_ar");
+        $title_en = get_the_title($cource_id);
+        $title_ar_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_ar WHERE ID = '$cource_id_ar'"));
+        $title_ar = $title_ar_result->post_title;
+        $cat_name_en = pdf_return_courses_taxonomy($cource_id);
+        $cat_name_ar = $post_cat_name_ar->name;
+    }
+
+    // $cat_name_ar = '';
+
     $certificate_template = esc_url(get_template_directory_uri()) . "/images/pdf-certificate1.png";
     $slug = get_post_field('post_name', $cource_id);
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -102,21 +118,21 @@ function make_participation_certificate($name, $title_en, $title_ar, $cource_id,
     // $pdf->writeHTML($html, true, false, true, false, '');
 
     //Close and output PDF document
- 
+
     $path = $_SERVER['DOCUMENT_ROOT'];
-    $filename = $path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug . '.pdf';
+    // $filename = $path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug . '.pdf';
     $url = '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug . '.pdf';
-    if (file_exists($filename)) {
-        $url_file = $url;
-    } else {
-        $pdf->Output($path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug  . '.pdf', 'F');
-    $url_file = $url;
-    }
+    // if (file_exists($filename)) {
+    //     $url_file = $url;
+    // } else {
+    //     $pdf->Output($path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug  . '.pdf', 'F');
+    // $url_file = $url;
+    // }
     // ob_end_clean();
-    // $pdf->Output($path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug  . '.pdf', 'F');
+    $pdf->Output($path . '/wp-content/uploads/certificates/' . 'U' . $user_id . '_' . $slug  . '.pdf', 'F');
     // $url_file = $url;
 
-    return $url_file;
-   
+    return $url;
+
     // // echo "<script>window.location.href='$url';</script>";
 }

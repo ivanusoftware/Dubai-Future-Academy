@@ -21651,7 +21651,7 @@ const $ = jQuery.noConflict();
             course_id: courseId,
             course_id_lang: courseIdLang,
         };
-        // console.log(data);
+        console.log(data);
         $.ajax({
             type: "POST",
             url: courses_ajax.url,
@@ -21661,11 +21661,11 @@ const $ = jQuery.noConflict();
             console.log(response);
             if (response.success) {
                 console.log(response.success);
-                // $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('go-to-courses modal-toggle');
+                $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('.go-to-courses.modal-toggle');
                 $('.go-to-courses.modal-toggle').remove()
                 $('.course-header-content').append($('<a href="' + phpParams.site_url + '/my-courses/' + courseId + '" class="btn-course-primary apply-now">Go to my courses</a>'));
                 // location.reload();
-                //     window.location.replace(phpParams.site_url + '/my-courses/');
+                    // window.location.replace(phpParams.site_url + '/my-courses/');
             }
         }).fail(function (response) {
             console.log(response);

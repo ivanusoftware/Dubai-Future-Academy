@@ -14,6 +14,19 @@
  */
 session_start();
 
+register_activation_hook(__FILE__, 'dff_login_register_activate_plugin');
+function dff_login_register_activate_plugin()
+{
+    // if (!class_exists('WPCF7_ContactForm')) {
+
+    //     wp_die('Please activate <a href="https://wordpress.org/plugins/contact-form-7/" target="_blank">contact form 7</a> plugin.');
+    // }
+    //create custom DB tables
+    require('inc/create_db.php');
+    flush_rewrite_rules();
+}
+
+
 require_once plugin_dir_path(__FILE__) . 'admin/dff-option-admin.php';
 require_once plugin_dir_path(__FILE__) . 'admin/enqueue-admin-scripts.php';
 require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-shortcodes.php';

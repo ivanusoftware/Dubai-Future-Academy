@@ -69,14 +69,13 @@ function dff_login_member()
         );
 
         $request = wp_remote_post($url, $args);
-        // print_r($request);
+
         // if (is_wp_error($request) || wp_remote_retrieve_response_code($request) != 200) {
         if (is_wp_error($request)) {
             // error_log(print_r($request, true));
             $error_message = $request->get_error_message();
             echo "Something went wrong: $error_message";
         } else {
-
 
 
 
@@ -87,42 +86,39 @@ function dff_login_member()
             // echo 'response_cookie: ' .$response_cookie = wp_remote_retrieve_cookie($request, true);
             // $sess_cookie = wp_remote_retrieve_cookie($request, 'PHPSESSID');
             $token =  $response['token'];
+            $future_user_id =  $response['user']['id'];
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'dff_future_users';
+            create_future_user($future_user_id);
+            // echo 'testtsst: ' .$wpdb->get_row("SELECT future_user_id FROM $table_name WHERE future_user_id == $future_user_id" );
+            // print_r($res );
+            // echo 'ddd' .$res = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE `future_user_id` = '%d' ", $future_user_id));
+
+            // $data = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
+            // echo $data->future_user_id;
+            wp_redirect(site_url('courses'));
+            // print_r($data);
+            // echo 'Response:<pre>';
+            // print_r($response);
+            // echo '</pre>';
+
+
 
             $token2 = wp_remote_retrieve_cookie_value($request, 'token');
             // "<script>document.write(localStorage.setItem('auth_Token', '" . $token . "'))</script>";
 
             // echo $phpvariable = "<script>document.write(localStorage.getItem('auth_Token'))</script>";
 
-            // setcookie("TestCookie", $token, time()+3600, "/", "dubaifuture.loc");
-    ?>
-            <script>
-                function createItem() {
-                    // localStorage.setItem('auth_Token', <?php echo $token; ?>);
-                    window.localStorage.setItem('auth_Token', <?php $token; ?>);
-                    // window.localStorage.setItem(auth_Token, value);
-                    console.log(window.localStorage.getItem('auth_Token'));
-                }
-                // createItem();
-                window.localStorage.setItem('auth_Token', '<?php echo $token; ?>');
-                // window.localStorage.setItem(auth_Token, value);
-                console.log(window.localStorage.getItem('auth_Token'));
-            </script>
-            <!-- <script>
-                var auth_Token = localStorage.getItem('auth_Token');
-                $.POST('login_response.php', {
-                            'auth_Token': auth_Token,                            
-                        }, function(data) {
-                            alert('Login Successful.  Redirect to a different page or something here.');
-                        }); -->
-                        <!-- window.localStorage.getItem('auth_Token') -->
-            </script>
-<?php
-            echo $phpvariable = "<script>window.localStorage.getItem('auth_Token')</script>";
-            // echo $retrieve_cookies = wp_remote_retrieve_cookies( $request );
-            $retrieve_cookies = wp_remote_retrieve_cookie($request, 'logins');
+            // dff_set_cookie($future_user_id);
+            setcookie("auth_Token", $token, time() + 3600, "/", $_SERVER['HTTP_HOST']);
+            setcookie("future_ID", $future_user_id, time() + 3600, "/", $_SERVER['HTTP_HOST']);
+   
+            // $phpvariable = "<script>window.localStorage.getItem('auth_Token')</script>";
+            // // echo $retrieve_cookies = wp_remote_retrieve_cookies( $request );
+            // $retrieve_cookies = wp_remote_retrieve_cookie($request, 'logins');
 
-            $retrieve_cookies = wp_remote_retrieve_cookie_value($request, 'logins');
-            $logins2 = substr(strstr($retrieve_cookies, ':'), 1, strlen($retrieve_cookies));
+            // $retrieve_cookies = wp_remote_retrieve_cookie_value($request, 'logins');
+            // $logins2 = substr(strstr($retrieve_cookies, ':'), 1, strlen($retrieve_cookies));
             // $response_header = wp_remote_retrieve_headers($request);
 
             // $set_cookie_logins = wp_remote_retrieve_header( $request, 'set-cookie' );
@@ -137,63 +133,63 @@ function dff_login_member()
             // );
             // $query_url = $url_redirect . '?' . http_build_query($data);
 
-            $user = get_user_by('email', $_POST['dff_email_log']);
-            $errors = dff_custom_errors()->get_error_messages();
-            $data_user = $response['user'];
+            // $user = get_user_by('email', $_POST['dff_email_log']);
+            // $errors = dff_custom_errors()->get_error_messages();
+            // $data_user = $response['user'];
             // $data_user_email = $response['email'];
-            $data_user_firstName = $data_user['firstName'];
-            $data_user_lastName = $data_user['lastName'];
+            // $data_user_firstName = $data_user['firstName'];
+            // $data_user_lastName = $data_user['lastName'];
 
 
-            if (empty($errors) && $user) {
+            // if (empty($errors) && $user) {
 
-                // wp_setcookie($_POST['custom_user_login'], $_POST['dff_user_pwd'], true);
-                // wp_set_auth_cookie($user->ID, $_POST['custom_user_login'], $_POST['dff_user_pwd'], true);
+            //     // wp_setcookie($_POST['custom_user_login'], $_POST['dff_user_pwd'], true);
+            //     // wp_set_auth_cookie($user->ID, $_POST['custom_user_login'], $_POST['dff_user_pwd'], true);
 
-                wp_set_current_user($user->ID, $_POST['dff_email_log']);
-                nocache_headers();
-                wp_clear_auth_cookie();
-                wp_set_auth_cookie($user->ID, true);
-                do_action('wp_login', $_POST['dff_email_log']);
+            //     wp_set_current_user($user->ID, $_POST['dff_email_log']);
+            //     nocache_headers();
+            //     wp_clear_auth_cookie();
+            //     wp_set_auth_cookie($user->ID, true);
+            //     do_action('wp_login', $_POST['dff_email_log']);
 
-                wp_redirect(home_url());
-                // wp_redirect($query_url);
-                exit;
-            } else {
-                // echo 'test';
-                // $user_login       = $_POST["custom_user_login"];
-                $user_login  = dff_email_sanitize_username($_POST['dff_email_log']);
-                $new_user_id = wp_insert_user(
-                    array(
-                        'user_login'        => $user_login,
-                        'user_pass'         => $_POST['dff_user_pwd'],
-                        'user_email'        => $_POST['dff_email_log'],
-                        // 'first_name'        => $user_first,
-                        // 'last_name'         => $user_last,
-                        'user_registered'   => date('Y-m-d H:i:s'),
-                        'role'              => 'subscriber'
-                    )
-                );
-                if ($new_user_id) {
-                    // send an email to the admin alerting them of the registration
-                    wp_new_user_notification($new_user_id);
+            //     // wp_redirect(home_url());
+            //     // wp_redirect($query_url);
+            //     exit;
+            // } else {
+            //     // echo 'test';
+            //     // $user_login       = $_POST["custom_user_login"];
+            //     $user_login  = dff_email_sanitize_username($_POST['dff_email_log']);
+            //     $new_user_id = wp_insert_user(
+            //         array(
+            //             'user_login'        => $user_login,
+            //             'user_pass'         => $_POST['dff_user_pwd'],
+            //             'user_email'        => $_POST['dff_email_log'],
+            //             // 'first_name'        => $user_first,
+            //             // 'last_name'         => $user_last,
+            //             'user_registered'   => date('Y-m-d H:i:s'),
+            //             'role'              => 'subscriber'
+            //         )
+            //     );
+            //     if ($new_user_id) {
+            //         // send an email to the admin alerting them of the registration
+            //         wp_new_user_notification($new_user_id);
 
-                    // log the new user in
-                    // wp_setcookie($user_login, $user_pass, true);
-                    wp_set_current_user($new_user_id, $user_login);
-                    update_user_meta($new_user_id, 'first_name', $data_user_firstName);
-                    update_user_meta($new_user_id, 'last_name', $data_user_lastName);
-                    nocache_headers();
-                    wp_clear_auth_cookie();
-                    wp_set_auth_cookie($user->ID, true);
-                    do_action('wp_login', $user_login);
+            //         // log the new user in
+            //         // wp_setcookie($user_login, $user_pass, true);
+            //         wp_set_current_user($new_user_id, $user_login);
+            //         update_user_meta($new_user_id, 'first_name', $data_user_firstName);
+            //         update_user_meta($new_user_id, 'last_name', $data_user_lastName);
+            //         nocache_headers();
+            //         wp_clear_auth_cookie();
+            //         wp_set_auth_cookie($user->ID, true);
+            //         do_action('wp_login', $user_login);
 
-                    // send the newly created user to the home page after logging them in
-                    // wp_redirect(site_url('/'));
-                    // wp_redirect($query_url);
-                    exit;
-                }
-            }
+            //         // send the newly created user to the home page after logging them in
+            //         // wp_redirect(site_url('/'));
+            //         // wp_redirect($query_url);
+            //         exit;
+            //     }
+            // }
         }
     }
 
