@@ -13,8 +13,9 @@ function dff_register_login_init()
     // $custom_load_css = true;
     $dff_reg_options = get_option('dff_reg_options'); //captcha_login
     $dff_api_url    = isset($dff_reg_options['dff_api_url']) ? $dff_reg_options['dff_api_url'] : '';
+    $dff_api_url_future_user    = isset($dff_reg_options['dff_api_url_future_user']) ? $dff_reg_options['dff_api_url_future_user'] : '';
     $language      = isset($dff_reg_options['dff_language']) ? $dff_reg_options['dff_language'] : '';
-    
+
     // call to save the setting options
     dff_login_register_save_options();
 
@@ -114,12 +115,21 @@ function dff_register_login_init()
                             </table> -->
                             <table class="form-table">
                                 <tr>
-                                    <th scope="row"><label for="site-key"><?php _e('DFF API Url', 'reg-captcha'); ?></label></th>
+                                    <th scope="row"><label for="site-key"><?php _e('DFF API Url', 'dff-login-register'); ?></label></th>
                                     <td>
 
                                         <input id="dff-api-url" type="text" name="dff_reg_options[dff_api_url]" value="<?php echo $dff_api_url; ?>">
                                         <p class="description">
                                             <?php _e('Future ID API URL', 'dff-login-register'); ?>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="site-key"><?php _e('DFF API Url Future ID', 'dff-login-register'); ?></label></th>
+                                    <td>
+                                        <input id="dff-api-url" type="text" name="dff_reg_options[dff_api_url_future_user]" value="<?php echo $dff_api_url_future_user; ?>">
+                                        <p class="description">
+                                            <?php _e('API URL get user data from Future Id', 'dff-login-register'); ?>
                                         </p>
                                     </td>
                                 </tr>

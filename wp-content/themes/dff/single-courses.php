@@ -1,6 +1,6 @@
 <?php
 get_header();
-$posttype = get_post_type(); 
+$posttype = get_post_type();
 ?>
 <article class="single-course">
 	<?php
@@ -17,6 +17,7 @@ $posttype = get_post_type();
 			$home_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="17.333" height="16" viewBox="0 0 17.333 16">
 			<path fill="currentColor" id="Icon_ionic-md-home" data-name="Icon ionic-md-home" d="M10.042,20.5V15.167h4V20.5h4.067v-8h2.6l-8.667-8-8.667,8h2.6v8Z" transform="translate(-3.375 -4.5)"></path>
 		  </svg>';
+			echo $current_user_id =  get_current_user_id();
 	?>
 			<section class="course-header-wrapper" style="background-image:url(<?php echo $src; ?>)">
 				<div class="breadcrumbs-container">
@@ -54,20 +55,31 @@ $posttype = get_post_type();
 						?>
 					</div>
 					<h1><?php the_title(); ?></h1>
-					<?php
-						$dff_user_courses = unserialize(get_user_meta(get_current_user_id(), 'course_id_to_user', true));						
-						if (!empty($dff_user_courses) && in_array(get_the_ID(), $dff_user_courses) && is_user_logged_in()) {
-						?>
-							<a href="<?php echo site_url('my-courses/') . get_the_ID(); ?>" class="btn-course-primary apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
-						<?php
-						} else {
-							$post_id_lang =  dff_get_id_parrent_lang(get_the_ID());
-						?>
-						
-							<a href="#" class="btn-course-primary apply-now <?php echo is_user_logged_in() ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
-						<?php
-						}
+					<?php 
+					$slug = get_post(get_the_ID());
+					if($_COOKIE['future_ID']){
+						$future_user_id = $_COOKIE['future_ID'];
+					 }
+										 
+					$future_courses_ids = future_user_courses_ids($future_user_id);
+
+					if (!empty($future_courses_ids) && in_array(get_the_ID(), $future_courses_ids)) {
+
 					?>
+						<a href="<?php echo site_url('my-courses/') . $slug->post_name; ?>" class="btn-course-primary apply-now"><?php _e('Go to my courses', 'dff'); ?></a>
+					<?php
+					} else {
+						$post_id_lang =  dff_get_id_parrent_lang(get_the_ID());
+					?>
+
+						<a href="#" class="btn-course-primary apply-now <?php echo $future_user_id ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
+					<?php
+					}
+				
+					?>
+
+
+
 				</div>
 			</section>
 			<section class="cource-content">

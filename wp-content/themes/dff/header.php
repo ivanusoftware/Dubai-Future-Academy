@@ -148,11 +148,12 @@
 						<?php dff_asset('img/futureid-icon.svg'); ?> 2
 						<ul class="futureId">
 							<li><a href="http://dubaifuture.loc/future-id/">About Future ID</a></li>
-							<?php
-							if (!is_user_logged_in()) {
+							<?php		
+							// echo 'test'. $_COOKIE['future_ID'];					
+							if (!$_COOKIE['future_ID']) {
 							?>
 								<li class="open-auth-popup">
-									<a href="#" class="modal-toggle">Login / Register</a>
+									<a href="<?php echo site_url('login'); ?>">Login / Register</a>
 								</li>
 							<?php
 							} else {
@@ -161,6 +162,7 @@
 								<li><a href="https://dev.programs.dubaifuture.ae/">Programmes Dashboard</a></li>
 								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout">My Cources</a></li>
 								<li><a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Logout">Logout</a></li>
+								<!-- <li><a href="https://dev-auth.id.dubaifuture.ae/api/v1/oauth2/logout?client_id=<?php echo $_COOKIE['future_ID']; ?>&redirect_uri=http://dubaifuture.loc/login/&accessToken=<?php echo $_COOKIE['auth_Token']; ?>" title="Logout">Logout</a></li> -->
 							<?php
 							}
 							?>

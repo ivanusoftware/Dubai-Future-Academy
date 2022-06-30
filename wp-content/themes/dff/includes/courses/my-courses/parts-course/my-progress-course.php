@@ -2,6 +2,10 @@
     <div class="container">
         <?php
         // WP_Query arguments
+        // $future_user_id = '627cf5d504b88900290d26da';
+        if($_COOKIE['future_ID']){
+            $future_user_id = $_COOKIE['future_ID'];
+         }
         $course_id = $_POST['course_id'];
         $args = array(
             'post_type'      => array('courses'),
@@ -79,14 +83,18 @@
                                     // $row_count         = count(get_field('course_module_repeater'));
                                     // $second_last = $row_count - 1;
                                     $exam_key    = 'course_' . $course_id . '_exam_result';
-                                    $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
+                                    // $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
+                                    $exam_result = get_exam_result($future_user_id, $exam_key);
+
+
                                     if (have_rows('course_module_repeater')) :
                                         while (have_rows('course_module_repeater')) : the_row();
                                             $module_i = get_row_index();
                                             $module_or_exam    = get_sub_field('module_or_exam');
                                             $exam_post_id      = get_sub_field('exam_block');
                                             $result_module_key = dff_module_course_user_key($course_id, $module_i);
-                                            $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+                                            // $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+                                            $result_module     = get_test_result($future_user_id, $result_module_key);
                                             $module_name       = get_sub_field('module_name');
                                     ?>
                                             <div class="progress-wrapper" id="tab<?php echo $module_i + 1; ?>">
@@ -184,7 +192,7 @@
                                             </div>
                                     <?php
                                         endwhile;
-                                    else :
+                                    // else :
                                     endif;
                                     ?>
                                 </div>
