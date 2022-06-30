@@ -11,7 +11,8 @@ include(get_template_directory() . '/includes/functions/ajax-lessons-tab.inc.php
 include(get_template_directory() . '/includes/functions/ajax-quiz.inc.php');
 include(get_template_directory() . '/includes/functions/ajax-leave-course.php');
 include(get_template_directory() . '/includes/functions/pdf-function.inc.php');
-include(get_template_directory() . '/includes/test.inc.php');
+include(get_template_directory() . '/includes/functions/future_id_users.php');
+
 
 
 /**
@@ -288,13 +289,12 @@ function dff_general_progress_mod()
     return  json_encode($mod_arr);
 }
 
-// dff_general_progress_mod_result
-function dff_general_progress_mod_result($course_id)
+function dff_general_progress_mod_result($future_user_id, $course_id)
 {
     $mod_result_arr = array();
     $exam_key    = 'course_' . $course_id . '_exam_result';
-    $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
-    if ($exam_result == 1) {
+    $exam_result = get_exam_result($future_user_id, $exam_key);
+    if ($exam_result == null) {
         $exam_result = 0;
     }
     if (have_rows('course_module_repeater')) :
@@ -302,8 +302,8 @@ function dff_general_progress_mod_result($course_id)
             $module_or_exam = get_sub_field('module_or_exam');
             $module_i       = get_row_index();
             $result_module_key = dff_module_course_user_key($course_id, $module_i);
-            $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
-            if ($result_module == 1) {
+            $result_module     = get_exam_result($future_user_id, $result_module_key);
+            if ($result_module == null) {
                 $result_module = 0;
             }
             if ($module_or_exam == 'module') {
@@ -317,17 +317,9 @@ function dff_general_progress_mod_result($course_id)
     return  implode(",", $mod_result_arr);
 }
 
-
-/**
- * The function show progres bar cource
- * dff_general_progress_bar function
- *
- * @param [type] $course_id
- * @return void
- */
-function dff_progress_bar($course_id)
+function dff_progress_bar($future_user_id, $course_id)
 {
-    $cource_result = dff_general_progress_mod_result($course_id);
+    $cource_result = dff_general_progress_mod_result($future_user_id, $course_id);
     $array_result = explode(",", $cource_result);
     $progress_bar = 0;
     $count_arr = count($array_result);
@@ -728,7 +720,15 @@ function dff_courses_switcher_lang($course_slug)
         $lang_name =  '<a class="button button button--ghost is-icon is-language" href="' . dff_url_lang($url) . '/ar/my-courses/' . $course_slug . '">ع</a>';
     }
     return  $lang_name;
-}  
+}
+function dff_create_array($response)
+{
+    $count_modules = array();
+    for ($i = 1; $i <= $response; $i++) {
+        $count_modules[] = $i;
+    }
+    return  $count_modules;
+}
 
 
 // function dff_get_meta_value_for_ar_lang($meta_key, $post_id)
@@ -764,3 +764,33 @@ function dff_courses_switcher_lang($course_slug)
 // ];
 
 // echo $api->createRelationship($contentIds, 'post');
+
+// if (!function_exists('add_courses_future_user')) {
+//     function add_courses_future_user($future_user_id, $course_en_id, $course_ar_id)
+//     {
+//         // echo 'test';
+//         // global $wpdb;
+//         // $table_name = $wpdb->prefix . 'dff_future_users';
+//         // $data = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE future_user_id = '$future_user_id'"));
+//         // // echo $data->future_user_id;
+//         // // if (!$data ) { 
+//         //     //if post id not already added
+//         //     $wpdb->update(
+//         //         $table_name,
+//         //         array(
+//         //             'course_en_id' => serialize($course_en_id),         
+//         //             'course_ar_id' => serialize($course_ar_id),         
+//         //             'user_date' => current_time('Y-m-d H:i:s'),        
+//         //             'user_date_gmt' => current_time('Y-m-d H:i:s')        
+//         //         )
+//         //     );     
+//         //  }
+//         //  $wpdb->query( "INSERT INTO $table_name (rated_post_id)
+//         //             SELECT future_user_id
+//         //             FROM table_name as user
+//         //             LEFT JOIN $table_name as dup_check
+//         //             ON dup_check.future_user_id = posts.ID
+//         //             WHERE dup_check.rated_post_id IS NULL" ); 
+//     }
+// }
+

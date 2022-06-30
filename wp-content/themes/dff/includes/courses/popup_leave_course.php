@@ -18,13 +18,13 @@
 					?>
 					<div class="buttons">
 						<?php
-						if (is_user_logged_in()) {
+						// if (is_user_logged_in()) {
 							$post_id_lang =  dff_get_id_parrent_lang($course_id);
 						?>
 							<a href="<?php echo site_url('my-courses') ?>" class="btn-course-primary leave-course" course-id="<?php echo $course_id; ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php _e('Leave course', 'dff'); ?></a>
 							<button class="btn-course-primary modal-toggle"><?php _e('Cancel', 'dff'); ?></button>
 						<?php
-						} 
+						// } 
                         ?>
 					</div>
 				</div>

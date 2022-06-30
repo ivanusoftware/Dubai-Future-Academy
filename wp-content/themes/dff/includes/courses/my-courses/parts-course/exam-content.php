@@ -1,8 +1,11 @@
-<?php 
-$exam_post_id = $_POST['exam_post_id']; 
+<?php
+$exam_post_id = $_POST['exam_post_id'];
 $course_id = $_POST['course_id'];
 $module_or_exam = get_sub_field('module_or_exam');
 $module_i = get_row_index();
+if ($_COOKIE['future_ID']) {
+    $future_user_id = $_COOKIE['future_ID'];
+}
 ?>
 <div class="phrases">
     <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
@@ -17,7 +20,7 @@ $module_i = get_row_index();
         <div class="course-quiz__steps"><?php _e('Question', 'dff'); ?> <span class="currentStepId">1</span>/<span class="lastStepId"></span></div>
     </div>
     <?php
-    
+
     if ($exam_post_id) : $post = $exam_post_id;
         setup_postdata($post);
     ?>
@@ -29,7 +32,7 @@ $module_i = get_row_index();
                     <div class="course-quiz__step-title"><?php echo get_row_index(); ?></div>
                     <div class="course-quiz__step" data-step="<?php echo get_row_index(); ?>">
                         <?php if (have_rows('quiz_step_inputs')) : ?>
-                            <?php while (have_rows('quiz_step_inputs')) : the_row(); 
+                            <?php while (have_rows('quiz_step_inputs')) : the_row();
                                 $layout_parent = get_row_index(); ?>
 
                                 <?php if (get_row_layout() == 'radio') : ?>
@@ -112,19 +115,23 @@ $module_i = get_row_index();
                         <div class="course-quiz__progress-subtitle"><?php the_sub_field('content'); ?></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                
-                 
+
+
 
                 <div class="course-quiz__buttons">
                     <ul>
                         <li>
                             <a href="<?php echo site_url('my-courses'); ?>"><?php _e('Go to my courses', 'dff'); ?></a>
                         </li>
-                        <!-- <li>
+                        <?php
+                        $certificate_key = 'course_' . $course_id . '_certificate';
+                        $array_data = get_future_user_course_certificate($future_user_id, $certificate_key);
+                        ?>
+                        <li>
+                            <a href="<?php echo site_url($array_data[0]['pdf_certificate_url']); ?>" class="download-certificate" course-id="<?php echo $course_id; ?>"><?php _e('Download', 'dff'); ?></a>
+                        </li>
 
-                            <a href="#" class="download-certificate" course-id="<?php echo $course_id; ?>"><?php _e('Download', 'dff'); ?></a>
-                            
-                        </li> -->
+
                     </ul>
                 </div>
             </div>
@@ -137,23 +144,19 @@ $module_i = get_row_index();
                         <div class="course-quiz__progress-result"><?php _e('Result:', 'dff'); ?> <span></span></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                
-                
+
+
                 <div class="course-quiz__buttons">
                     <ul>
                         <li>
-                            
+
                             <?php echo '<a href="#" class="btn-course-primary test-try-again-exam" tab-id="tab-2"
                                                                  module-type="' . $module_or_exam . '" module-index="' . $module_i . '" exam-post-id="' .  $exam_post_id . '" >' . __('Try again', 'dff') . '</a>'; ?>
                         </li>
                     </ul>
                 </div>
-            </div>
-
-
+            </div>          
         <?php endif; ?>
-
-
     <?php endif;
     wp_reset_postdata();
     ?>

@@ -7,13 +7,18 @@
  */
 function quiz_answers_callback()
 {
+    // $future_user_id = '627cf5d504b88900290d26da';
+    if ($_COOKIE['future_ID']) {
+        $future_user_id = $_COOKIE['future_ID'];
+    }
     $json_data = array();
     $form = json_decode(stripslashes($_POST['form']), true);
     $type = stripslashes($_POST['type']);
     $quiz_id = stripslashes($_POST['quiz_id']);
     $module_id = stripslashes($_POST['module_id']);
     $course_id = stripslashes($_POST['course_id']);
-    $user_id = stripslashes($_POST['user_id']);
+    // $user_id = stripslashes($_POST['user_id']);
+    $user_id = $future_user_id;
     $answers = get_field('quiz_steps', $quiz_id);
     $answers_arr = array();
     if ($answers) {
@@ -75,7 +80,7 @@ function quiz_answers_callback()
                 'answer' => $value,
                 'correct_answer' => $answers_arr[$key]
             );
-            if ( strtolower($value) == strtolower($answers_arr[$key]) ) {
+            if (strtolower($value) == strtolower($answers_arr[$key])) {
                 $percentage++;
             }
         }
@@ -86,7 +91,7 @@ function quiz_answers_callback()
 
         if ($type == 'exam') {
 
-            $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Examen';
+            $post_title = 'User Future ID: ' . $user_id . ', Course: ' . $course_id . ', Exam';
             $post_id = get_page_by_title($post_title, $output, 'exams_answers');
             if (!$post_id) {
                 $post_id = wp_insert_post([
@@ -98,13 +103,16 @@ function quiz_answers_callback()
 
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
-
-            update_user_meta($user_id, 'course_' . $course_id . '_exam_result', $percentage);
-            update_user_meta($user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_exam_result', $percentage);
-
+            // dff_user_courses_certificate(44);
+            update_exam_result($future_user_id, 'course_' . $course_id . '_exam_result', $percentage);
+            update_exam_result($future_user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_exam_result', $percentage);
+            if ($percentage >= 80) {
+                $certificate_key = 'course_' . $course_id . '_certificate';
+                future_user_course_module_certificate($future_user_id, $certificate_key, $course_id);
+            }
         } else {
 
-            $post_title = 'User: ' . $user_id . ', Course: ' . $course_id . ', Module: ' . $module_id;
+            $post_title = 'User Future ID: ' . $user_id . ', Course: ' . $course_id . ', Module: ' . $module_id;
             $post_id = get_page_by_title($post_title, $output, 'quizzes_answers');
             if (!$post_id) {
                 $post_id = wp_insert_post([
@@ -117,9 +125,8 @@ function quiz_answers_callback()
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
 
-            update_user_meta($user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
-            update_user_meta($user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_module_' . $module_id . '_result', $percentage);
-
+            update_tests_result($future_user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
+            update_tests_result($future_user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_module_' . $module_id . '_result', $percentage);
         }
 
 

@@ -1,6 +1,7 @@
 <?php
+
 $mod          = dff_general_progress_mod();
-$mod_result   = dff_general_progress_mod_result($course_id);
+$mod_result   = dff_general_progress_mod_result($future_user_id, $course_id);
 $choose_сhart = get_field('choose_сhart', 'option');
 ?>
 <div id="container-highcharts"></div>
