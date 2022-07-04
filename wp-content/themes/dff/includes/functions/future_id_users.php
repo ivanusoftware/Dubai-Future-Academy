@@ -322,7 +322,7 @@ if (!function_exists('get_exam_result')) {
         $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
 
         $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$exam_key'"));
-        return $response_usmeta->dff_meta_value;
+        return !empty($response_usmeta->dff_meta_value);
     }
 }
 
