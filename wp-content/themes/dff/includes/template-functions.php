@@ -312,7 +312,6 @@ function dff_general_progress_mod_result($future_user_id, $course_id)
                 $mod_result_arr[] = $exam_result;
             }
         endwhile;
-    else :
     endif;
     return  implode(",", $mod_result_arr);
 }
@@ -793,4 +792,3 @@ function dff_create_array($response)
 //         //             WHERE dup_check.rated_post_id IS NULL" ); 
 //     }
 // }
-
