@@ -133,13 +133,11 @@ function add_lesson_to_user_ajax_callback()
     if ($lang == 'ar') {
         add_course_id_future_user_ar($future_user_id, $course_id);
         add_course_id_future_user_en($future_user_id, $course_id_lang);    
-
         dff_user_course_module_result($future_user_id, $course_id);
         dff_user_course_module_result_lang($future_user_id, $course_id_lang);
     } else {
         add_course_id_future_user_en($future_user_id, $course_id);
-        // add_course_id_future_user_ar($future_user_id, $course_id_lang);
-        
+        add_course_id_future_user_ar($future_user_id, $course_id_lang);
         dff_user_course_module_result($future_user_id, $course_id);
         dff_user_course_module_result_lang($future_user_id, $course_id_lang);        
     }

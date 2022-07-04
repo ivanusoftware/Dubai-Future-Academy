@@ -30,13 +30,14 @@ if (!function_exists('add_course_id_future_user_en')) {
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
         $course_en_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_en_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
+        // print_r( $course_en_id_to_user);
         // $course_en_id_array = unserialize($course_en_id_to_user);
-        if (!empty($course_en_id_to_user)) {
-            $course_en_id_array = unserialize($course_en_id_to_user->course_en_id);
-            // Check if value exists
-            echo $course_en_id;
+        $course_en_id_array = unserialize($course_en_id_to_user->course_en_id);
+        if (!empty($course_en_id_array)) {
+
+            // Check if value exists            
             if (in_array($course_en_id, $course_en_id_array)) {
-                // echo 'Already exists course with ID: ' . $course_id;
+                // echo 'Already exists course with ID: ' . $course_en_id;
             } else {
                 $course_en_id_array[] = $course_en_id;
                 $wpdb->update(
@@ -47,7 +48,7 @@ if (!function_exists('add_course_id_future_user_en')) {
                     array('future_user_id' => $future_user_id)
                 );
             }
-        } else {
+        } else {            
             $wpdb->update(
                 $table_name,
                 array(
@@ -69,8 +70,8 @@ if (!function_exists('add_course_id_future_user_ar')) {
 
         $course_ar_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_ar_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
         // $course_en_id_array = unserialize($course_en_id_to_user);
-        if (!empty($course_ar_id_to_user)) {
-            $course_ar_id_array = unserialize($course_ar_id_to_user->course_ar_id);
+        $course_ar_id_array = unserialize($course_ar_id_to_user->course_ar_id);
+        if (!empty($course_ar_id_array)) {
             // Check if value exists
             if (in_array($course_ar_id, $course_ar_id_array)) {
                 // echo 'Already exists course with ID: ' . $course_id;
