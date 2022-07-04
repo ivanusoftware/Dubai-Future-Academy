@@ -34,6 +34,7 @@ if (!function_exists('add_course_id_future_user_en')) {
         if (!empty($course_en_id_to_user)) {
             $course_en_id_array = unserialize($course_en_id_to_user->course_en_id);
             // Check if value exists
+            echo $course_en_id;
             if (in_array($course_en_id, $course_en_id_array)) {
                 // echo 'Already exists course with ID: ' . $course_id;
             } else {
