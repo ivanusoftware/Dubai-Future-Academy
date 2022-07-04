@@ -28,6 +28,7 @@ msgid "White"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/button/containers/Edit.js:54
+#: src/dff/gutenberg/blocks/button/containers/Edit.js:37
 #: src/dff/gutenberg/blocks/hero/containers/Edit.js:232
 msgid "Open link in new tab"
 msgstr ""
@@ -80,8 +81,9 @@ msgstr ""
 #: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:51
 #: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:116
 #: src/dff/gutenberg/blocks/sub-menu/components/Settings.js:67
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:28
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:58
 #: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:355
-#: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:229
 #: src/dff/gutenberg/blocks/triangle-block/containers/Edit.js:39
 msgid "Settings"
 msgstr ""
@@ -93,6 +95,7 @@ msgid "Layout"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/card/containers/Edit.js:37
+#: src/dff/gutenberg/blocks/card/containers/Edit.js:19
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:53
 msgid "Default"
 msgstr ""
@@ -194,9 +197,11 @@ msgid "Column builder"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:142
+#: src/dff/gutenberg/blocks/content-slider/containers/Edit.js:90
 #: src/dff/gutenberg/blocks/hero/containers/Edit.js:130
-#: src/dff/gutenberg/blocks/hero/containers/Edit.js:87
 #: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:67
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:48
+#: src/dff/gutenberg/blocks/hero/containers/Edit.js:87
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:214
 msgid "Set Background Image"
 msgstr ""
@@ -294,6 +299,7 @@ msgid ""
 msgstr ""
 
 #: src/dff/gutenberg/blocks/google-map/containers/Edit.js:238
+#: src/dff/gutenberg/blocks/google-map/containers/Edit.js:154
 #: src/dff/gutenberg/blocks/post-type-archive/containers/Edit.js:283
 msgid "Options"
 msgstr ""
@@ -443,6 +449,7 @@ msgid "Set Logo"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:102
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:50
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:99
 #: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:404
 msgid "Right"
@@ -482,17 +489,20 @@ msgid "List Content"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:93
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:38
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:60
 msgid "None"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:96
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:42
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:93
 #: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:398
 msgid "Left"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:99
+#: src/dff/gutenberg/blocks/horizontal-list/containers/Edit.js:46
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:96
 #: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:401
 msgid "Center"
@@ -602,6 +612,7 @@ msgstr ""
 #: src/dff/gutenberg/blocks/post-feed/components/Options.js:175
 #: src/dff/gutenberg/blocks/post-feed/components/Options.js:116
 #: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:82
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:63
 #: src/dff/gutenberg/blocks/tabbed-posts/containers/Edit.js:378
 msgid "Additional Settings"
 msgstr ""
@@ -782,6 +793,7 @@ msgid "Call To Action"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:74
+#: src/dff/gutenberg/blocks/quote-banner/containers/Edit.js:57
 #: src/dff/gutenberg/blocks/section/containers/Edit.js:165
 msgid "Section margins"
 msgstr ""
@@ -821,6 +833,7 @@ msgid "(Section Content)"
 msgstr ""
 
 #: src/dff/gutenberg/blocks/section-header/index.js:11
+#: src/dff/gutenberg/blocks/section-header/index.js:14
 #: src/dff/gutenberg/blocks/section/index.js:12
 #: src/dff/gutenberg/blocks/title/index.js:11
 msgid "section"

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Group_239" data-name="Group 239" transform="translate(-1591 -62)">
+    <g id="Ellipse_25" data-name="Ellipse 25" transform="translate(1599 70)" fill="none" stroke="#111" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="Group_235" data-name="Group 235">
+      <rect id="Rectangle_114" data-name="Rectangle 114" width="5" height="2" rx="1" transform="translate(1612 74)" fill="#111"/>
+      <rect id="Rectangle_115" data-name="Rectangle 115" width="5" height="2" rx="1" transform="translate(1591 74)" fill="#111"/>
+    </g>
+    <g id="Group_238" data-name="Group 238" transform="translate(522.834 -1112.232) rotate(45)">
+      <rect id="Rectangle_114-2" data-name="Rectangle 114" width="5" height="2" rx="1" transform="translate(1612 74)" fill="#111"/>
+      <rect id="Rectangle_115-2" data-name="Rectangle 115" width="5" height="2" rx="1" transform="translate(1591 74)" fill="#111"/>
+    </g>
+    <g id="Group_236" data-name="Group 236" transform="translate(1529 1679) rotate(-90)">
+      <rect id="Rectangle_114-3" data-name="Rectangle 114" width="5" height="2" rx="1" transform="translate(1612 74)" fill="#111"/>
+      <rect id="Rectangle_115-3" data-name="Rectangle 115" width="5" height="2" rx="1" transform="translate(1591 74)" fill="#111"/>
+    </g>
+    <g id="Group_237" data-name="Group 237" transform="translate(416.768 1156.166) rotate(-45)">
+      <rect id="Rectangle_114-4" data-name="Rectangle 114" width="5" height="2" rx="1" transform="translate(1612 74)" fill="#111"/>
+      <rect id="Rectangle_115-4" data-name="Rectangle 115" width="5" height="2" rx="1" transform="translate(1591 74)" fill="#111"/>
+    </g>
+  </g>
+</svg>

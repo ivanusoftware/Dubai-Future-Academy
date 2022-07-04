@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="156.986" height="118.194" viewBox="0 0 156.986 118.194">
+  <g id="Gruppe_598" data-name="Gruppe 598" transform="translate(-761 -408)">
+    <g id="Gruppe_593" data-name="Gruppe 593" transform="translate(5.272)">
+      <g id="Gruppe_303" data-name="Gruppe 303" transform="translate(755.728 427.396)" opacity="0.5">
+        <path id="Polygon_39" data-name="Polygon 39" d="M57.631,0l57.631,98.8H0Z" transform="translate(115.263 98.797) rotate(180)" opacity="0.102"/>
+        <path id="Polygon_58" data-name="Polygon 58" d="M28.755,0,57.51,49.165H0Z" transform="translate(57.753 49.632)" opacity="0.197"/>
+      </g>
+    </g>
+    <g id="services" transform="translate(814.5 400.5)">
+      <path id="Pfad_1122" data-name="Pfad 1122" d="M74.966,83.833H13.852c-4.482,0-8.352-3.667-8.352-7.945V29.645A8.052,8.052,0,0,1,13.852,21.7h60.91c4.482,0,8.352,3.667,8.352,7.945V75.888A8.133,8.133,0,0,1,74.966,83.833ZM13.852,25.774a4.242,4.242,0,0,0-4.278,3.871V75.888a3.975,3.975,0,0,0,4.278,3.871h60.91a4.242,4.242,0,0,0,4.278-3.871V29.645a3.975,3.975,0,0,0-4.278-3.871Z" transform="translate(0 14.727)"/>
+      <rect id="Rechteck_349" data-name="Rechteck 349" width="73.337" height="4.074" transform="translate(7.741 50.687)"/>
+      <g id="Gruppe_595" data-name="Gruppe 595" transform="translate(13.649 43.761)">
+        <circle id="Ellipse_182" data-name="Ellipse 182" cx="2.037" cy="2.037" r="2.037"/>
+        <circle id="Ellipse_183" data-name="Ellipse 183" cx="2.037" cy="2.037" r="2.037" transform="translate(6.926)"/>
+        <circle id="Ellipse_184" data-name="Ellipse 184" cx="2.037" cy="2.037" r="2.037" transform="translate(13.649)"/>
+      </g>
+      <path id="Pfad_1123" data-name="Pfad 1123" d="M79.763,76.633H75.892V72.558h3.871a4.242,4.242,0,0,0,4.278-3.871V22.445a3.975,3.975,0,0,0-4.278-3.871H18.852a4.242,4.242,0,0,0-4.278,3.871V30.8H10.5V22.445A8.052,8.052,0,0,1,18.852,14.5h60.91c4.482,0,8.352,3.667,8.352,7.945V68.688A8.181,8.181,0,0,1,79.763,76.633Z" transform="translate(5.186 7.26)"/>
+      <rect id="Rechteck_350" data-name="Rechteck 350" width="72" height="4" transform="translate(18.5 36.5)"/>
+      <g id="Gruppe_596" data-name="Gruppe 596" transform="translate(23.834 29.094)">
+        <circle id="Ellipse_185" data-name="Ellipse 185" cx="2.037" cy="2.037" r="2.037" transform="translate(0)"/>
+        <circle id="Ellipse_186" data-name="Ellipse 186" cx="2.037" cy="2.037" r="2.037" transform="translate(6.723)"/>
+        <circle id="Ellipse_187" data-name="Ellipse 187" cx="2.037" cy="2.037" r="2.037" transform="translate(13.649)"/>
+      </g>
+      <path id="Pfad_1124" data-name="Pfad 1124" d="M84.763,69.429H80.892V65.355h3.871a4.242,4.242,0,0,0,4.278-3.871V15.445a3.975,3.975,0,0,0-4.278-3.871H23.852a4.242,4.242,0,0,0-4.278,3.871V23.8H15.5V15.445A8.052,8.052,0,0,1,23.852,7.5h60.91c4.482,0,8.352,3.667,8.352,7.945V61.484A8.052,8.052,0,0,1,84.763,69.429Z" transform="translate(10.371 0)"/>
+      <rect id="Rechteck_351" data-name="Rechteck 351" width="73.337" height="4.074" transform="translate(28.112 21.76)"/>
+      <g id="Gruppe_597" data-name="Gruppe 597" transform="translate(34.02 14.834)">
+        <circle id="Ellipse_188" data-name="Ellipse 188" cx="2.037" cy="2.037" r="2.037" transform="translate(0)"/>
+        <circle id="Ellipse_189" data-name="Ellipse 189" cx="2.037" cy="2.037" r="2.037" transform="translate(6.926)"/>
+        <circle id="Ellipse_190" data-name="Ellipse 190" cx="2.037" cy="2.037" r="2.037" transform="translate(13.649)"/>
+      </g>
+    </g>
+  </g>
+</svg>

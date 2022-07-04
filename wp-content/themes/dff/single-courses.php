@@ -56,11 +56,11 @@ $posttype = get_post_type();
 					</div>
 					<h1><?php the_title(); ?></h1>
 					<?php 
-					$slug = get_post(get_the_ID());
-					if($_COOKIE['future_ID']){
-						$future_user_id = $_COOKIE['future_ID'];
-					 }
-										 
+					$slug = get_post(get_the_ID());				
+					 if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+						$dff_get_future_user_data = dff_get_future_user_data();
+						$future_user_id = $dff_get_future_user_data->id;
+					}				 
 					$future_courses_ids = future_user_courses_ids($future_user_id);
 
 					if (!empty($future_courses_ids) && in_array(get_the_ID(), $future_courses_ids)) {

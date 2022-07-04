@@ -9,9 +9,11 @@ $course_id   = $post_obj->ID;
 // $courses_array   = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
 // echo 'test courses';
 
-if ($_COOKIE['future_ID']) {
-    $future_user_id = $_COOKIE['future_ID'];
+if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+    $dff_get_future_user_data = dff_get_future_user_data();
+    $future_user_id = $dff_get_future_user_data->id;
 }
+
 $future_courses_ids = future_user_courses_ids($future_user_id);
 
 if (in_array($course_id, $future_courses_ids)) {
