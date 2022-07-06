@@ -17,7 +17,7 @@ function make_participation_certificate($cource_id, $user_id)
         $cource_id_en = dff_get_id_parrent_lang($cource_id);
         $post_cat_name_en = $wpdb->get_row("SELECT t.name FROM wp_terms t LEFT JOIN wp_term_relationships tr ON (t.term_id = tr.term_taxonomy_id) WHERE tr.object_id = $cource_id_en");
         $title_ar = get_the_title($cource_id);
-        $title_en_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_en WHERE ID = '$cource_id_en'"));
+        $title_en_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_en WHERE ID = %s", $cource_id_en));
         $title_en = $title_en_result->post_title;
 
         $cat_name_en = $post_cat_name_en->name;
@@ -26,7 +26,7 @@ function make_participation_certificate($cource_id, $user_id)
         $cource_id_ar = dff_get_id_parrent_lang($cource_id);
         $post_cat_name_ar = $wpdb->get_row("SELECT t.name FROM wp_3_terms t LEFT JOIN wp_3_term_relationships tr ON (t.term_id = tr.term_taxonomy_id) WHERE tr.object_id = $cource_id_ar");
         $title_en = get_the_title($cource_id);
-        $title_ar_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_ar WHERE ID = '$cource_id_ar'"));
+        $title_ar_result = $wpdb->get_row($wpdb->prepare("SELECT post_title FROM $table_name_ar WHERE ID = %s", $cource_id_ar));
         $title_ar = $title_ar_result->post_title;
         $cat_name_en = pdf_return_courses_taxonomy($cource_id);
         $cat_name_ar = $post_cat_name_ar->name;

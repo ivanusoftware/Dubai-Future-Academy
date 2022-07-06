@@ -53,12 +53,12 @@ if (!function_exists('dff_user_course_module_result_lang')) {
             $table_name = $wpdb->base_prefix . '3_postmeta';
         }
         $module_exam_key = 'course_' . $course_id . '_exam_result';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT meta_value FROM $table_name WHERE meta_key LIKE 'course_module_repeater' AND post_id = '$course_id'")); 
+        $response = $wpdb->get_row($wpdb->prepare("SELECT meta_value FROM $table_name WHERE meta_key LIKE 'course_module_repeater' AND post_id = %s", $course_id)); 
 
         foreach (dff_create_array($response->meta_value) as $k => $item) {            
             $module_key = 'course_' . $course_id . '_module_' . $item . '_result';
             $module_key_module_or_exam = 'course_module_repeater_' . $k . '_module_or_exam';
-            $module_or_exam = $wpdb->get_row($wpdb->prepare("SELECT meta_value FROM $table_name WHERE meta_key LIKE '$module_key_module_or_exam' AND post_id = '$course_id'"));
+            $module_or_exam = $wpdb->get_row($wpdb->prepare("SELECT meta_value FROM $table_name WHERE meta_key LIKE %s AND post_id = %s", $module_key_module_or_exam, $course_id));
 
             if ($module_or_exam->meta_value == 'module') {
                 future_user_course_module_test_results($future_user_id, $module_key);
