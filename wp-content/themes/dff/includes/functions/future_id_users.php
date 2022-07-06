@@ -371,7 +371,8 @@ if (!function_exists('dff_certificate_info')) {
             foreach ($future_courses_ids as $item) {
                 $certificate_key = 'course_' . $item . '_certificate';
                 $array_data = get_future_user_course_certificate($future_user_id, $certificate_key);
-                return $array_data[0]['course_id'];
+
+                return $array_data ? $array_data[0]['course_id'] : '';
             }
         }
     }
