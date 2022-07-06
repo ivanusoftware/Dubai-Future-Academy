@@ -139,30 +139,33 @@
 						<span class="u-hiddenVisually"><?php _e('Open Search', 'dff'); ?></span>
 						<?php dff_asset('img/ico-search.svg'); ?>
 					</button>
+					<!-- <button class="button button--ghost button--futureId is-icon">
+						<span class="u-hiddenVisually"><?php _e('Future ID menu', 'dff'); ?></span>
+						<?php //dff_asset('img/futureid-icon.svg'); ?>
+					</button> -->
 					<button class="button button--ghost button--futureId is-icon">
 						<span class="u-hiddenVisually"><?php _e('Future ID menu', 'dff'); ?></span>
 						<?php dff_asset('img/futureid-icon.svg'); ?>
-					</button>
-					<button class="button button--ghost button--futureId is-icon">
-						<span class="u-hiddenVisually"><?php _e('Future ID menu', 'dff'); ?></span>
-						<?php dff_asset('img/futureid-icon.svg'); ?> 2
 						<ul class="futureId">
 							<li><a href="http://dubaifuture.loc/future-id/">About Future ID</a></li>
 							<?php		
-							// echo 'test'. $_COOKIE['future_ID'];					
-							if (!$_COOKIE['future_ID']) {
+							// echo 'test'. $_COOKIE['future_ID'];	
+											
+							if (!$_COOKIE['user'] && !$_COOKIE['fid-is-loggedin']) {
+								;
 							?>
 								<li class="open-auth-popup">
 									<a href="<?php echo site_url('login'); ?>">Login / Register</a>
 								</li>
 							<?php
 							} else {
+								// $future_ID = dff_get_future_user_data();
 							?>
-								<li><a href="https://dev.id.dubaifuture.ae/">My Profile</a></li>
-								<li><a href="https://dev.programs.dubaifuture.ae/">Programmes Dashboard</a></li>
-								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout">My Cources</a></li>
-								<li><a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Logout">Logout</a></li>
-								<!-- <li><a href="https://dev-auth.id.dubaifuture.ae/api/v1/oauth2/logout?client_id=<?php echo $_COOKIE['future_ID']; ?>&redirect_uri=http://dubaifuture.loc/login/&accessToken=<?php echo $_COOKIE['auth_Token']; ?>" title="Logout">Logout</a></li> -->
+								<li><a href="<?php echo site_url('dashboard'); ?>"><?php _e('My Profile', 'dff' ); ?></a></li>
+								<li><a href="https://dev.programs.dubaifuture.ae/"><?php _e('Programmes Dashboard', 'dff' ); ?></a></li>
+								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout"><?php _e('My Cources', 'dff' ); ?></a></li>
+								<li><a href="<?php //echo wp_logout_url(get_permalink()); ?>" title="Logout" class="logout"><?php _e('Logout', 'dff' ); ?></a></li>
+								<!-- <li><a href="https://dev-auth.id.dubaifuture.ae/api/v1/oauth2/logout?client_id=<?php echo $future_ID->id; ?>&redirect_uri=http://dubaifuture.loc/login/&accessToken=<?php echo $_COOKIE['token']; ?>" title="Logout">Logout</a></li> -->
 							<?php
 							}
 							?>

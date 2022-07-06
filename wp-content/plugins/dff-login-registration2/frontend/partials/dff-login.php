@@ -9,6 +9,15 @@ function dff_email_sanitize_username($username)
     return $username;
 }
 
+function dff_react_login_form_fields()
+{
+
+    ob_start();
+    require_once plugin_dir_url( __FILE__ ) . 'build/index.html';
+    // echo 'test'. plugin_dir_url( __FILE__ ) . 'build/index.html';
+    return ob_get_clean();
+}
+// echo plugin_dir_url( __FILE__ );
 // login form fields
 function dff_login_form_fields()
 {
@@ -40,7 +49,7 @@ function dff_login_form_fields()
     return ob_get_clean();
 }
 
-// logs a member in after submitting a form
+//logs a member in after submitting a form
 function dff_login_member()
 {
 
@@ -89,7 +98,7 @@ function dff_login_member()
             $future_user_id =  $response['user']['id'];
             global $wpdb;
             $table_name = $wpdb->prefix . 'dff_future_users';
-            create_future_user($future_user_id);
+            // create_future_user($future_user_id);
             // echo 'testtsst: ' .$wpdb->get_row("SELECT future_user_id FROM $table_name WHERE future_user_id == $future_user_id" );
             // print_r($res );
             // echo 'ddd' .$res = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE `future_user_id` = '%d' ", $future_user_id));

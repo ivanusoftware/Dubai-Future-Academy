@@ -37,6 +37,7 @@ function dff_login_form()
         $custom_load_css = true;
 
         $output = dff_login_form_fields();
+        
     } else {
         // could show some logged in user info here
         // $output = 'user info here';
@@ -44,3 +45,25 @@ function dff_login_form()
     return $output;
 }
 add_shortcode('dff_login_form', 'dff_login_form');
+
+// user login form
+function dff_react_login_form()
+{
+
+    // if (!is_user_logged_in()) {
+
+    //     global $custom_load_css;
+
+    //     // set this to true so the CSS is loaded
+    //     $custom_load_css = true;
+
+    //     $output = dff_react_login_form_fields();
+
+    // } else {
+    //     // could show some logged in user info here
+    //     // $output = 'user info here';
+    // }
+    $output = dff_react_login_form_fields();
+    return $output;
+}
+add_shortcode('dff_react_login_form', 'dff_react_login_form');

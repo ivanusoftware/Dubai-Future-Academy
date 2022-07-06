@@ -8,26 +8,22 @@
  **/
 get_header(); // Loads the header.php template.
 // Get user info
-// global $wp_roles;
-// $current_user     = wp_get_current_user();
-$current_user_id  = get_current_user_id();
 
-// $dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
-// print_r($dff_user_courses);
 
-// $future_user_id = '628b65ec50c67e00289e9b89';
-// $future_user_id = '627cf5d504b88900290d26da';
-// echo $_COOKIE['future_ID'];
-if($_COOKIE['future_ID']){
-   $future_user_id = $_COOKIE['future_ID'];
-}
+// if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+//     $dff_get_future_user_data = dff_get_future_user_data();
+//     $future_user_id = $dff_get_future_user_data->id;
+// }
 
-$future_courses_ids = future_user_courses_ids($future_user_id);
 // dff_user_courses_certificate($current_user_id);
 
-if (!$_COOKIE['future_ID']) {
+if (!$_COOKIE['user'] && !$_COOKIE['fid-is-loggedin']) {
     wp_redirect(site_url('courses'));
+}else{
+    $dff_get_future_user_data = dff_get_future_user_data();
+    $future_user_id = $dff_get_future_user_data->id;
 };
+$future_courses_ids = future_user_courses_ids($future_user_id);
 
 ?>
 <section class="my-courses-tabs my-course-tab" id="post-<?php the_ID(); ?>">
@@ -43,7 +39,7 @@ if (!$_COOKIE['future_ID']) {
         <div class="tabs-content">
             <div class="tab-wrapper" id="tab1">
 
-                <article class="archive-courses-list">                    
+                <article class="archive-courses-list">
                     <?php
                     $ratings = array();
                     // WP_Query arguments                 
@@ -58,20 +54,20 @@ if (!$_COOKIE['future_ID']) {
                         'ignore_sticky_posts' => 0
                     );
                     // The Query
-                    $courses = new WP_Query(!empty($future_courses_ids) ? $args : '');                    
+                    $courses = new WP_Query(!empty($future_courses_ids) ? $args : '');
                     // The Loop
                     if ($courses->have_posts()) {
                         while ($courses->have_posts()) {
                             $courses->the_post();
                             // $exem_result = get_user_meta(get_current_user_id(), 'course_' . get_the_ID() . '_exam_result', true);
-                            $slug = get_post_field( 'post_name', get_the_ID() );
-                            
+                            $slug = get_post_field('post_name', get_the_ID());
+
                             $exam_key = 'course_' . get_the_ID() . '_exam_result';
                             $exem_result = get_exam_result($future_user_id, $exam_key);
                     ?>
                             <div class="course-item">
                                 <a href="<?php echo site_url('my-courses') . '/' . $slug; ?>" class="course-item-content">
-                                    <?php                                    
+                                    <?php
                                     include(get_template_directory() . '/includes/courses/parts/courses-content.php');
                                     // if ($exem_result >= 80 && $exem_result != 1) {
                                     if ($exem_result >= 80) {

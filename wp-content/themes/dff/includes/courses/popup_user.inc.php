@@ -8,7 +8,8 @@
 			<div class="modal-body">
 				<div class="modal-content">
 					<?php
-					if ($_COOKIE['future_ID']) {
+					
+					if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
 					?>
 						<h2 class="modal-heading"><?php echo get_field('popup_modal_title', 'option'); ?></h2>
 						<p><?php echo get_field('popup_modal_content', 'option'); ?></p>
@@ -17,7 +18,7 @@
 					?>
 					<div class="buttons">
 						<?php
-						if ($_COOKIE['future_ID']) {
+						if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
 						?>
 							<a href="<?php echo site_url('my-courses') ?>" class="btn-course-primary"><?php _e('Go to my courses', 'dff'); ?></a>
 							<button class="btn-course-primary close-popup"><?php _e('Close', 'dff'); ?></button>

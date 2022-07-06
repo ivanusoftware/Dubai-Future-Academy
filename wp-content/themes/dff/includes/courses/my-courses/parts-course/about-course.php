@@ -1,9 +1,11 @@
 <section class="about-course">
     <?php
     // $future_user_id = '627cf5d504b88900290d26da';
-    if ($_COOKIE['future_ID']) {
-        $future_user_id = $_COOKIE['future_ID'];
+    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+        $dff_get_future_user_data = dff_get_future_user_data();
+        $future_user_id = $dff_get_future_user_data->id;
     }
+    
     $course_slug = get_query_var('course_slug') ? get_query_var('course_slug') : $_POST['course_slug'];
     $post_obj    = get_page_by_slug($course_slug, OBJECT, 'courses');
     $course_id   = $post_obj ? $post_obj->ID : $_POST['course_id'];

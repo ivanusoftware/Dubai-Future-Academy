@@ -4,7 +4,9 @@ require_once(get_template_directory() . '/includes/tcpdf/tcpdf.php');
 function make_participation_certificate($cource_id, $user_id)
 {
   
-    $name = dff_get_future_user_name($user_id);
+    // $name = dff_get_future_user_name($user_id);
+    $name_date = dff_get_future_user_data();
+    $name = $name_date->displayName;
 
 
     $lang = get_bloginfo('language');

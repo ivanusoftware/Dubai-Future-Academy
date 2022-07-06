@@ -2,7 +2,7 @@
     <?php
     $future_courses_ids = future_user_courses_ids($future_user_id);
     $lang = get_bloginfo('language');      
-    if (in_array(dff_certificate_info($future_courses_ids), $future_courses_ids)) {
+    if (!empty($future_courses_ids) && in_array(dff_certificate_info($future_courses_ids), $future_courses_ids)) {
         if ($lang == 'ar') {
             if (is_array($future_courses_ids) || is_object($future_courses_ids)) {
                 foreach ($future_courses_ids as $future_courses_id) {

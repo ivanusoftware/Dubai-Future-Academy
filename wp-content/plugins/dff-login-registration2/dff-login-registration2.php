@@ -29,10 +29,10 @@ function dff_login_register_activate_plugin()
 
 require_once plugin_dir_path(__FILE__) . 'admin/dff-option-admin.php';
 require_once plugin_dir_path(__FILE__) . 'admin/enqueue-admin-scripts.php';
-require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-shortcodes.php';
-require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-login.php';
-require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-register.php';
-require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-errors.php';
+// require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-shortcodes.php';
+// require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-login.php';
+// require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-register.php';
+// require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-errors.php';
 require_once plugin_dir_path(__FILE__) . 'frontend/enqueue-frontend-scripts.php';
 require_once plugin_dir_path(__FILE__) . 'frontend/dff-functions.php';
 

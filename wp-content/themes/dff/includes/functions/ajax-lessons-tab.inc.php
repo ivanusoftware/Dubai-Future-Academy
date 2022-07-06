@@ -122,29 +122,27 @@ function add_lesson_to_user_ajax_callback()
 {
     $course_id       = $_POST['course_id'];
     $course_id_lang  = $_POST['course_id_lang'];
-    // $current_user_id =  get_current_user_id();
 
-    // $future_user_id = '628b65ec50c67e00289e9b89';
-    // $future_user_id = '627cf5d504b88900290d26da';
-    if($_COOKIE['future_ID']){
-       $future_user_id = $_COOKIE['future_ID'];
-     }
+
+    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+        $dff_get_future_user_data = dff_get_future_user_data();
+        $future_user_id = $dff_get_future_user_data->id;
+    }
+
     $lang = get_bloginfo('language');
     if ($lang == 'ar') {
         add_course_id_future_user_ar($future_user_id, $course_id);
-        add_course_id_future_user_en($future_user_id, $course_id_lang);    
+        add_course_id_future_user_en($future_user_id, $course_id_lang);
         dff_user_course_module_result($future_user_id, $course_id);
         dff_user_course_module_result_lang($future_user_id, $course_id_lang);
     } else {
         add_course_id_future_user_en($future_user_id, $course_id);
         add_course_id_future_user_ar($future_user_id, $course_id_lang);
         dff_user_course_module_result($future_user_id, $course_id);
-        dff_user_course_module_result_lang($future_user_id, $course_id_lang);        
+        dff_user_course_module_result_lang($future_user_id, $course_id_lang);
     }
     wp_send_json_success();
     wp_die();
 }
 add_action('wp_ajax_add_lesson_to_user_ajax', 'add_lesson_to_user_ajax_callback');
 add_action('wp_ajax_nopriv_add_lesson_to_user_ajax', 'add_lesson_to_user_ajax_callback');
-
-

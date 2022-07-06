@@ -3,9 +3,11 @@ $exam_post_id = $_POST['exam_post_id'];
 $course_id = $_POST['course_id'];
 $module_or_exam = get_sub_field('module_or_exam');
 $module_i = get_row_index();
-if ($_COOKIE['future_ID']) {
-    $future_user_id = $_COOKIE['future_ID'];
+if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+    $dff_get_future_user_data = dff_get_future_user_data();
+    $future_user_id = $dff_get_future_user_data->id;
 }
+
 ?>
 <div class="phrases">
     <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
@@ -127,9 +129,9 @@ if ($_COOKIE['future_ID']) {
                         $certificate_key = 'course_' . $course_id . '_certificate';
                         $array_data = get_future_user_course_certificate($future_user_id, $certificate_key);
                         ?>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo site_url($array_data[0]['pdf_certificate_url']); ?>" class="download-certificate" course-id="<?php echo $course_id; ?>"><?php _e('Download', 'dff'); ?></a>
-                        </li>
+                        </li> -->
 
 
                     </ul>

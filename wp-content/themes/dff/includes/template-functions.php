@@ -729,6 +729,9 @@ function dff_create_array($response)
     return  $count_modules;
 }
 
+// print_r(json_encode($_COOKIE['user']));
+// $future_ID = json_decode(stripslashes($_COOKIE['user']));
+// print_r($future_ID->id);
 
 // function dff_get_meta_value_for_ar_lang($meta_key, $post_id)
 // {

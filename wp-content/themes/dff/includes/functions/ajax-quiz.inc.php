@@ -7,10 +7,11 @@
  */
 function quiz_answers_callback()
 {
-    // $future_user_id = '627cf5d504b88900290d26da';
-    if ($_COOKIE['future_ID']) {
-        $future_user_id = $_COOKIE['future_ID'];
+    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+        $dff_get_future_user_data = dff_get_future_user_data();
+        $future_user_id = $dff_get_future_user_data->id;
     }
+    
     $json_data = array();
     $form = json_decode(stripslashes($_POST['form']), true);
     $type = stripslashes($_POST['type']);

@@ -1,27 +1,5 @@
 <?php
-function create_future_user($future_user_id)
-{
-    global $wpdb;
-    $table_name = $wpdb->base_prefix . 'dff_future_users';
-    // $user_id = $wpdb->get_results("SELECT ID FROM $table_name WHERE future_user_id = $future_user_id");
-    // $user_count = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
 
-
-    // $res = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_name} WHERE `future_user_id` = %s",$future_user_id));
-    $res = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
-    // print_r($user_id);
-    if (!$res) {
-        //if post id not already added
-        $wpdb->insert(
-            $table_name,
-            array(
-                'future_user_id' => $future_user_id,
-                'user_date' => current_time('Y-m-d H:i:s'),
-                'user_date_gmt' => current_time('Y-m-d H:i:s')
-            )
-        );
-    }
-}
 
 if (!function_exists('add_course_id_future_user_en')) {
     // Adds a new post id to a course.
@@ -384,9 +362,10 @@ if (!function_exists('dff_delete_course_from_user_ar')) {
 
 if (!function_exists('dff_certificate_info')) {
     function dff_certificate_info($future_courses_ids)
-    {
-        if ($_COOKIE['future_ID']) {
-            $future_user_id = $_COOKIE['future_ID'];
+    {        
+        if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+            $dff_get_future_user_data = dff_get_future_user_data();
+            $future_user_id = $dff_get_future_user_data->id;
         }
         if (is_array($future_courses_ids) || is_object($future_courses_ids)) {
             foreach ($future_courses_ids as $item) {
