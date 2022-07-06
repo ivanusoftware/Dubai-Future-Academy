@@ -15,8 +15,9 @@ $courses_tax_obj_list = get_the_terms($courses->ID, "courses-categories");
         if (is_array($courses_tax_obj_list) || is_object($courses_tax_obj_list)) {
             foreach ($courses_tax_obj_list as $courses_tax) {
                 // $term = get_queried_object();                    
-                $course_category_icon = get_field('course_category_icon', $courses_tax->taxonomy . '_' . $courses_tax->term_id);
-                echo '<h4><span><img src="' . isset($course_category_icon['url']) . '" /></span>' . $courses_tax->name .  '</h4>';
+                $course_category_icon = get_field('course_category_icon', $courses_tax->taxonomy . '_' . $courses_tax->term_id);            
+                $url_icon = $course_category_icon ? $course_category_icon['url'] : '';
+                echo '<h4><span><img src="' . $url_icon .'" /></span>' . $courses_tax->name .  '</h4>';
             }
         }
         ?>
