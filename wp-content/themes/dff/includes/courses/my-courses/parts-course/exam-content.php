@@ -129,9 +129,9 @@ if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
                         $certificate_key = 'course_' . $course_id . '_certificate';
                         $array_data = get_future_user_course_certificate($future_user_id, $certificate_key);
                         ?>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo site_url($array_data[0]['pdf_certificate_url']); ?>" class="download-certificate" course-id="<?php echo $course_id; ?>"><?php _e('Download', 'dff'); ?></a>
-                        </li>
+                        </li> -->
 
 
                     </ul>

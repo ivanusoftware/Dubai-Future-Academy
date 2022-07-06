@@ -12,3 +12,17 @@ function dff_frontend_register_js() {
 }
 // Register dff - frontend. css scripts
 add_action( 'wp_enqueue_scripts', 'dff_frontend_register_js' );
+
+add_action('wp_enqueue_scripts', 'dff_ajax_data', 99);
+function dff_ajax_data()
+{
+    global $wp_query;
+    wp_localize_script(
+        'dff-frontend-js',
+        'dff_ajax_data',
+        array(
+            'url' => admin_url('admin-ajax.php'),
+
+        )
+    );
+}

@@ -8,28 +8,22 @@
  **/
 get_header(); // Loads the header.php template.
 // Get user info
-// global $wp_roles;
-// $current_user     = wp_get_current_user();
-$current_user_id  = get_current_user_id();
-
-// $dff_user_courses = unserialize(get_user_meta($current_user_id, 'course_id_to_user', true));
-// print_r($dff_user_courses);
-
-// $future_user_id = '628b65ec50c67e00289e9b89';
-// $future_user_id = '627cf5d504b88900290d26da';
 
 
-if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
-    $dff_get_future_user_data = dff_get_future_user_data();
-    $future_user_id = $dff_get_future_user_data->id;
-}
+// if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+//     $dff_get_future_user_data = dff_get_future_user_data();
+//     $future_user_id = $dff_get_future_user_data->id;
+// }
 
-$future_courses_ids = future_user_courses_ids($future_user_id);
 // dff_user_courses_certificate($current_user_id);
 
-if (!$_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+if (!$_COOKIE['user'] && !$_COOKIE['fid-is-loggedin']) {
     wp_redirect(site_url('courses'));
+}else{
+    $dff_get_future_user_data = dff_get_future_user_data();
+    $future_user_id = $dff_get_future_user_data->id;
 };
+$future_courses_ids = future_user_courses_ids($future_user_id);
 
 ?>
 <section class="my-courses-tabs my-course-tab" id="post-<?php the_ID(); ?>">
