@@ -232,7 +232,7 @@ if (!function_exists('future_user_courses_ids')) {
     {
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
-        $user_courses =  $wpdb->get_row("SELECT course_en_id, course_ar_id FROM $table_name WHERE future_user_id = %s", $future_user_id);
+        $user_courses =  $wpdb->get_row("SELECT course_en_id, course_ar_id FROM $table_name WHERE future_user_id = '$future_user_id'");
         $future_user_courses_ids_array = $user_courses;
         $course_en_id = unserialize($future_user_courses_ids_array->course_en_id);
         $course_ar_id = unserialize($future_user_courses_ids_array->course_ar_id);
