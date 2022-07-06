@@ -7,7 +7,7 @@ if (!function_exists('add_course_id_future_user_en')) {
     {
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
-        $course_en_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_en_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
+        $course_en_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_en_id FROM $table_name WHERE future_user_id = %s", $future_user_id));
         // print_r( $course_en_id_to_user);
         // $course_en_id_array = unserialize($course_en_id_to_user);
         $course_en_id_array = unserialize($course_en_id_to_user->course_en_id);
@@ -46,7 +46,7 @@ if (!function_exists('add_course_id_future_user_ar')) {
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
 
-        $course_ar_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_ar_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
+        $course_ar_id_to_user =  $wpdb->get_row($wpdb->prepare("SELECT course_ar_id FROM $table_name WHERE future_user_id = %s", $future_user_id));
         // $course_en_id_array = unserialize($course_en_id_to_user);
         $course_ar_id_array = unserialize($course_ar_id_to_user->course_ar_id);
         if (!empty($course_ar_id_array)) {
