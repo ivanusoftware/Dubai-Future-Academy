@@ -110,7 +110,7 @@ function create_future_user()
     // echo $_GET['dashboard'];
     // if ( did_action( 'init' ) >= 2 )
     //     return;
-    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+    if (isset($_COOKIE['user']) && isset($_COOKIE['fid-is-loggedin'])) {
         $dff_get_future_user_data = dff_get_future_user_data();
         $future_user_id = $dff_get_future_user_data->id;
         global $wpdb;
