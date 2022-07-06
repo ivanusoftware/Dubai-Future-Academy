@@ -151,7 +151,7 @@
 							<?php		
 							// echo 'test'. $_COOKIE['future_ID'];	
 											
-							if (!$_COOKIE['user'] && !$_COOKIE['fid-is-loggedin']) {
+							if (!isset($_COOKIE['user']) && !isset($_COOKIE['fid-is-loggedin'])) {
 								;
 							?>
 								<li class="open-auth-popup">
