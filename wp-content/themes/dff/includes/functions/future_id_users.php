@@ -85,9 +85,9 @@ if (!function_exists('future_user_course_module_test_results')) {
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
 
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$module_key'"));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $module_key));
 
         if (!$response_usmeta->dff_meta_key) {
             // if (empty($response_usmeta)) {
@@ -149,8 +149,8 @@ if (!function_exists('future_user_course_module_exem_result')) {
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$exem_module_key'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $exem_module_key));
         if (!$response_usmeta) {
             //if post id not already added
             $wpdb->insert(
@@ -176,8 +176,8 @@ if (!function_exists('future_user_course_module_certificate')) {
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$certificate_key'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s' AND dff_meta_key = %s", $response->ID, $certificate_key));
         $pdf_certificate_url = make_participation_certificate($courses_id, $future_user_id);
 
         $user_certificate_en[] = array(
@@ -219,8 +219,8 @@ if (!function_exists('get_future_user_course_certificate')) {
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$certificate_key'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $certificate_key));
         return unserialize($response_usmeta->dff_meta_value);
     }
 }
@@ -232,7 +232,7 @@ if (!function_exists('future_user_courses_ids')) {
     {
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
-        $user_courses =  $wpdb->get_row("SELECT course_en_id, course_ar_id FROM $table_name WHERE future_user_id = '$future_user_id'");
+        $user_courses =  $wpdb->get_row("SELECT course_en_id, course_ar_id FROM $table_name WHERE future_user_id = %s", $future_user_id);
         $future_user_courses_ids_array = $user_courses;
         $course_en_id = unserialize($future_user_courses_ids_array->course_en_id);
         $course_ar_id = unserialize($future_user_courses_ids_array->course_ar_id);
@@ -249,7 +249,7 @@ if (!function_exists('update_tests_result')) {
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
 
         // $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_key FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$module_key'"));
         // //         echo $module_key;
@@ -273,7 +273,7 @@ if (!function_exists('update_exam_result')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
         $wpdb->update(
             $table_name_dff_future_usemeta,
             array(
@@ -291,9 +291,9 @@ if (!function_exists('get_exam_result')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
 
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$exam_key'"));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $exam_key));
         return $response_usmeta->dff_meta_value;
     }
 }
@@ -304,9 +304,9 @@ if (!function_exists('get_test_result')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
 
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$module_key'"));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $module_key));
         return $response_usmeta->dff_meta_value;
     }
 }
@@ -319,7 +319,7 @@ if (!function_exists('dff_delete_course_from_user_en')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         // $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT course_en_id FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT course_en_id FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
         if (!empty($response->course_en_id)) {
             $check_course_id_to_array = unserialize($response->course_en_id);
             if (in_array($course_id, $check_course_id_to_array)) {
@@ -342,7 +342,7 @@ if (!function_exists('dff_delete_course_from_user_ar')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         // $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-        $response = $wpdb->get_row($wpdb->prepare("SELECT course_ar_id FROM $table_name_dff_future_users WHERE future_user_id = '$future_user_id'"));
+        $response = $wpdb->get_row($wpdb->prepare("SELECT course_ar_id FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
         if (!empty($response->course_ar_id)) {
             $check_course_id_to_array = unserialize($response->course_ar_id);
             if (in_array($course_id, $check_course_id_to_array)) {
