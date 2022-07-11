@@ -87,8 +87,6 @@
                                     $exam_key    = 'course_' . $course_id . '_exam_result';
                                     // $exam_result = get_user_meta(get_current_user_id(), $exam_key, true);
                                     $exam_result = get_exam_result($future_user_id, $exam_key);
-
-
                                     if (have_rows('course_module_repeater')) :
                                         while (have_rows('course_module_repeater')) : the_row();
                                             $module_i = get_row_index();
@@ -106,7 +104,7 @@
                                                 </div>
 
                                                 <?php
-                                                if ($module_or_exam == 'module') {
+                                                if ($module_or_exam == 'module') { 
                                                 ?>
                                                     <div class="progress-content">
                                                         <?php
@@ -119,7 +117,7 @@
                                                             <?php endif; ?>
                                                             <p class="module-result"><?php _e('Result:', 'dff'); ?><span> <?php echo $result_module; ?>%</span></p>
                                                         <?php
-                                                        } elseif ($result_module < 80 && $result_module != 1) {
+                                                        } elseif ($result_module < 80 && !empty($result_module)) {
                                                         ?>
                                                             <?php if (have_rows('unfortunately_group', 'option')) : ?>
                                                                 <?php while (have_rows('unfortunately_group', 'option')) : the_row();  ?>
@@ -132,7 +130,7 @@
                                                                 <?php echo dff_button_try_again_test($module_i); ?>
                                                             </div>
                                                         <?php
-                                                        } elseif ($result_module == 1 && $result_module < 80) {
+                                                        } elseif (empty($result_module)) {
                                                         ?>
                                                             <?php if (have_rows('before_test_group', 'option')) : ?>
                                                                 <?php while (have_rows('before_test_group', 'option')) : the_row();  ?>
@@ -162,7 +160,7 @@
                                                                 <?php endwhile; ?>
                                                             <?php endif; ?>
                                                         <?php
-                                                        } elseif ($exam_result < 80 && $exam_result != 1) {
+                                                        } elseif ($exam_result < 80 && !empty($exam_result)) {
                                                         ?>
                                                             <?php if (have_rows('unfortunately_group_exam', 'option')) : ?>
                                                                 <?php while (have_rows('unfortunately_group_exam', 'option')) : the_row();  ?>
@@ -177,7 +175,7 @@
 
                                                             </div>
                                                         <?php
-                                                        } elseif ($exam_result == 1) {
+                                                        } elseif (empty($exam_result)) {
                                                         ?>
                                                             <?php if (have_rows('before_test_group_exam', 'option')) : ?>
                                                                 <?php while (have_rows('before_test_group_exam', 'option')) : the_row();  ?>

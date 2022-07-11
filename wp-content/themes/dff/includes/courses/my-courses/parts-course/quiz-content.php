@@ -120,7 +120,7 @@ $course_id      = $_POST['course_id'];
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
                         <li>
-                            <a href="#" class="continue-course-module" module-index="<?php echo $module_index + 1; ?>" lesson-index="1" lesson-test-id="<?php echo $lesson_test_id; ?>" exam-post-id="<?php echo $exam_post_id; ?>"><?php _e('Continue course', 'dff'); ?></a>
+                            <a href="#" class="continue-course-module" tab-id="tab-2" module-index="<?php echo $module_index + 1; ?>" lesson-index="1" lesson-test-id="<?php echo $lesson_test_id; ?>" exam-post-id="<?php echo $exam_post_id; ?>"><?php _e('Continue course 1', 'dff'); ?></a>
                         </li>
                     </ul>
                 </div>
@@ -142,9 +142,11 @@ $course_id      = $_POST['course_id'];
                         <li>
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
+
                         <li>
                             <a href="#" class="failed"><?php _e('Continue course', 'dff'); ?></a>
                         </li>
+
                     </ul>
                 </div>
             </div>

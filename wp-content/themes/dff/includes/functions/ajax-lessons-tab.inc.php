@@ -40,7 +40,8 @@ function upload_lesson_ajax_callback()
                             ?>
                         </div>
     <?php
-                        get_template_part('includes/courses/my-courses/parts-course/lesson-inner', 'content');
+                        // get_template_part('includes/courses/my-courses/parts-course/lesson-inner', 'content');
+                        include(get_template_directory() . '/includes/courses/my-courses/parts-course/lesson-inner-content.php');
                     } elseif ($model_i == $module_index && $lesson_i == $lesson_index && $lesson_or_test == 'lesson_test') {
                         get_template_part('includes/courses/my-courses/parts-course/quiz', 'content');
                     }
@@ -99,7 +100,7 @@ function tabs_lesson_ajax_callback()
 {
     $tab_id    = $_POST['main_tab_id'];
     // $course_id = $_POST['course_id'];
-    if ($tab_id == 'tab-1') {
+    if ($tab_id == 'tab-1') {        
         include(get_template_directory() . '/includes/courses/my-courses/parts-course/about-course.php');
     } else if ($tab_id == 'tab-2') {
         include(get_template_directory() . '/includes/courses/my-courses/parts-course/modules-course.php');

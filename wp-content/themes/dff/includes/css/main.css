@@ -406,6 +406,10 @@ button.swiper-pagination-bullet {
   cursor: pointer;
 }
 
+html {
+  scroll-padding-top: 350px;
+}
+
 .archive-courses h1, .other-course h1, .popular-courses h1, .cource-content h1,
 .archive-courses h2,
 .other-course h2,
@@ -541,6 +545,7 @@ button.swiper-pagination-bullet {
 }
 .tabs-nav {
   border-bottom: 1.05536px solid rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
 }
 .tabs-nav ul {
   padding: 0;
@@ -553,6 +558,7 @@ button.swiper-pagination-bullet {
   display: flex;
   align-items: center;
   list-style: none;
+  margin-bottom: 10px;
 }
 @media only screen and (min-width: 546px) {
   .tabs-nav ul li {
@@ -577,7 +583,7 @@ button.swiper-pagination-bullet {
   height: 4px;
   background: #000000;
   width: 100%;
-  bottom: -2px;
+  bottom: -12px;
   left: 0;
 }
 .tabs-nav ul button,
@@ -592,6 +598,10 @@ button.swiper-pagination-bullet {
   background: none;
   cursor: pointer;
   color: #000000;
+}
+.tabs-nav ul button:disabled,
+.tabs-nav ul a:disabled {
+  opacity: 0.4;
 }
 
 .tabs-content {
@@ -2903,6 +2913,36 @@ button.swiper-pagination-bullet {
     text-align: center;
   }
 }
+.course-header-wrapper.course-header-my-tabs .course-header-content {
+  flex-direction: column;
+  max-width: 800px;
+}
+@media only screen and (min-width: 769px) {
+  .course-header-wrapper.course-header-my-tabs .course-header-content {
+    flex-direction: row;
+  }
+}
+.course-header-wrapper.course-header-my-tabs .course-header-content h1 {
+  margin-bottom: 0 !important;
+}
+.course-header-wrapper.course-header-my-tabs .course-header-content .course-title-wrap .course-format {
+  display: block;
+}
+.course-header-wrapper.course-header-my-tabs .course-header-content .hero-side-course {
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (min-width: 769px) {
+  .course-header-wrapper.course-header-my-tabs .course-header-content .hero-side-course {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 35px;
+    margin-bottom: 8px;
+  }
+}
+.course-header-wrapper.course-header-my-tabs .course-header-content .hero-side-course .hero-scrollToIcon {
+  background: #ffffff;
+}
 
 .cource-content {
   padding-top: 50px;
@@ -3058,7 +3098,8 @@ button.swiper-pagination-bullet {
     text-align: center;
   }
 }
-.cource-content .show-more, .cource-content .show-less {
+.cource-content .show-more,
+.cource-content .show-less {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;

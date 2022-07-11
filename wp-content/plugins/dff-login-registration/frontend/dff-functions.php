@@ -1,49 +1,36 @@
 <?php
 
+// function dff_logout_action()
+// {
+//     if (isset($_COOKIE['token'])) {
+//         unset($_COOKIE['token']);
+//         setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//     }
+//     if (isset($_COOKIE['user'])) {
+//         unset($_COOKIE['user']);
+//         setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//     }
+//     if (isset($_COOKIE['fid-is-loggedin'])) {
+//         unset($_COOKIE['fid-is-loggedin']);
+//         setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//     }
 
-/* ------------------------------------------------------------------------- */
-// Disable Admin Bar for All Users Except for Administrators
-/* ------------------------------------------------------------------------- */
-add_action('after_setup_theme', 'remove_admin_bar');
-function remove_admin_bar()
-{
-    if (!current_user_can('administrator') && !is_admin()) {
-        show_admin_bar(false);
-    }
-}
+//     <script type="text/javascript">
+//         jQuery(function($) {
+//             if (localStorage.length > 0) {
+//                 console.log(localStorage);
+//                 localStorage.clear();
+//             }
+//         });
+//         if (localStorage.length > 0 ) {
+//             console.log(localStorage);
+//             localStorage.clear();
+//         }
+//     </script>
 
-
-function dff_logout_action()
-{
-    if (isset($_COOKIE['token'])) {
-        unset($_COOKIE['token']);
-        setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-    }
-    if (isset($_COOKIE['user'])) {
-        unset($_COOKIE['user']);
-        setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-    }
-    if (isset($_COOKIE['fid-is-loggedin'])) {
-        unset($_COOKIE['fid-is-loggedin']);
-        setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-    }
-?>
-    <script type="text/javascript">
-        jQuery(function($) {
-            if (localStorage.length > 0) {
-                console.log(localStorage);
-                localStorage.clear();
-            }
-        });
-        if (localStorage.length > 0 ) {
-            console.log(localStorage);
-            localStorage.clear();
-        }
-    </script>
-
-<?php wp_redirect(site_url('/'));
-}
-add_action('wp_logout', 'dff_logout_action');
+// <?php// wp_redirect(site_url('/'));
+// }
+// add_action('wp_logout', 'dff_logout_action');
 
 
 // if (!function_exists('dff_get_future_user_name')) {
@@ -74,56 +61,15 @@ if (!function_exists('dff_get_future_user_data')) {
     }
 }
 
-// function create_future_user()
-// {
-
-//     global $wpdb;
-//     if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
-//         $dff_get_future_user_data = dff_get_future_user_data();
-//         $future_user_id = $dff_get_future_user_data->id;
-//         $table_name = $wpdb->base_prefix . 'dff_future_users';
-
-//         // $user_id = $wpdb->get_results("SELECT ID FROM $table_name WHERE future_user_id = $future_user_id");
-//         // $user_count = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
-
-
-//         // $res = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_name} WHERE `future_user_id` = %s",$future_user_id));
-//         $res = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
-//         // print_r($user_id);
-//         if (!$res) {
-//             //if post id not already added
-//             $wpdb->insert(
-//                 $table_name,
-//                 array(
-//                     'future_user_id' => $future_user_id,
-//                     'user_date' => current_time('Y-m-d H:i:s'),
-//                     'user_date_gmt' => current_time('Y-m-d H:i:s')
-//                 )
-//             );
-//         }
-//     }
-// }
-
 
 function create_future_user()
-{
-    // echo $_GET['dashboard'];
-    // if ( did_action( 'init' ) >= 2 )
-    //     return;
+{    
     if (isset($_COOKIE['user']) && isset($_COOKIE['fid-is-loggedin'])) {
         $dff_get_future_user_data = dff_get_future_user_data();
         $future_user_id = $dff_get_future_user_data->id;
         global $wpdb;
-
-
         $table_name = $wpdb->base_prefix . 'dff_future_users';
-
-        // $user_id = $wpdb->get_results("SELECT ID FROM $table_name WHERE future_user_id = $future_user_id");
-        // $user_count = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
-
-
-        // $res = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_name} WHERE `future_user_id` = %s",$future_user_id));
-        $res = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = '$future_user_id'"));
+        $res = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = %s", $future_user_id));
         // print_r($user_id);
         if (!$res) {
             //if post id not already added
@@ -167,9 +113,9 @@ function dff_add_template_to_select($post_templates, $wp_theme, $post, $post_typ
 {
 
     // Add custom template named template-custom.php to select dropdown 
-    $post_templates['template-login.php'] = __('Login Future ID');
-    $post_templates['template-register.php'] = __('Register Future ID');
-    $post_templates['template-dashboard.php'] = __('Dashboard Future ID');
+    $post_templates['template-login.php'] = __('Login Future ID', 'dff-plugin');
+    $post_templates['template-register.php'] = __('Register Future ID', 'dff-plugin');
+    $post_templates['template-dashboard.php'] = __('Dashboard Future ID', 'dff-plugin');
 
     return $post_templates;
 }
@@ -196,3 +142,24 @@ function dff_logout_user_ajax_callback()
 }
 add_action('wp_ajax_dff_logout_user_ajax', 'dff_logout_user_ajax_callback');
 add_action('wp_ajax_nopriv_dff_logout_user_ajax', 'dff_logout_user_ajax_callback');
+
+
+// if (has_nav_menu('future-id')) {
+//     wp_nav_menu(
+//         array(
+//             'theme_location' => 'future-id',
+//             'menu_class'     => 'future-id',
+//             // 'container'      => true,
+//             // 'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+//             // 'walker'         => new Nav_MegaMenu_Walker(),
+//         )
+//     );
+// }
+
+if ( ! function_exists( 'register_future_id_nav' ) ) {
+	function register_future_id_nav() {		
+		register_nav_menu( 'future-logged-in-menu', __( 'Future logged in menu', 'dff-plugin' ) );
+		register_nav_menu( 'future-logged-out-menu', __( 'Future logged out menu', 'dff-plugin' ) );
+	}
+}
+add_action( 'init', 'register_future_id_nav' );

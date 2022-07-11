@@ -1,7 +1,7 @@
 <?php
 
 /** 
- * Plugin Name: DFF Login & Registration 2
+ * Plugin Name: DFF Login & Registration
  * Plugin URI: dff-login-and-register
  * Description: Plugin that create custom login and registration forms that can be implemented using a shortcode for Future ID.
  * Version:           1.0.0

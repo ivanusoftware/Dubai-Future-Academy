@@ -38,10 +38,11 @@ const $ = jQuery.noConflict();
      * Add a new course to the user.
      * ajax.
      */
-    $('.modal-toggle.go-to-courses').on('click', function (e) {
+    $('.go-to-courses').on('click', function (e) {
         e.preventDefault();
         const courseId = $(this).attr('course_id');
         const courseIdLang = $(this).attr('course_id_lang');
+        const slug = $(this).attr('slug');
         const data = {
             action: "add_lesson_to_user_ajax",
             course_id: courseId,
@@ -57,11 +58,7 @@ const $ = jQuery.noConflict();
             console.log(response);
             if (response.success) {
                 console.log(response.success);
-                $(".btn-course-primary.apply-now").text('Go to my courses').attr('href', phpParams.site_url + '/my-courses/'+ courseId).removeClass('.go-to-courses.modal-toggle');
-                $('.go-to-courses.modal-toggle').remove()
-                $('.course-header-content').append($('<a href="' + phpParams.site_url + '/my-courses/' + courseId + '" class="btn-course-primary apply-now">Go to my courses</a>'));
-                // location.reload();
-                    // window.location.replace(phpParams.site_url + '/my-courses/');
+                window.location.replace(phpParams.site_url + '/my-courses/' + slug);
             }
         }).fail(function (response) {
             console.log(response);
@@ -130,9 +127,9 @@ const $ = jQuery.noConflict();
     //     }
     // });
 
-      // Shows the open - auth popup
-      $('.leave-course-popup .modal-toggle').on('click', function (e) {
-        e.preventDefault();        
+    // Shows the open - auth popup
+    $('.leave-course-popup .modal-toggle').on('click', function (e) {
+        e.preventDefault();
         const isVisible = $('.leave-course-popup .modal').toggleClass('is-visible');
         if (isVisible.hasClass('is-visible')) {
             $('html').css('overflow', 'hidden');
@@ -377,7 +374,7 @@ const $ = jQuery.noConflict();
                 });
             },
 
-            
+
         });
 
         let lastStepId = $('.course-quiz__step:last-child').attr("data-step");
@@ -454,14 +451,14 @@ const $ = jQuery.noConflict();
     }
 
     function showLess() {
-        $('.show-more').show(); 
-        $('.show-more').click(function(){
+        $('.show-more').show();
+        $('.show-more').click(function () {
             $(this).closest('.desc').children().slideDown(300);
             $('.show-more').hide();
             $('.show-less').show();
         })
-        $('.show-less').click(function(){
-            
+        $('.show-less').click(function () {
+
             $(this).closest('.desc').children().not(":first-child").slideUp(300);
             $('html, body').animate({
                 scrollTop: $(".main-content").offset().top - 71
@@ -469,6 +466,70 @@ const $ = jQuery.noConflict();
             $('.show-less').hide();
             $('.show-more').show();
         })
-    } 
+    }
+    $(".course-header-wrapper.course-header-my-tabs .hero-side-course").on('click', function () {
+        $('html, body').animate({
+            scrollTop: $("#tabs-content").offset().top - 60
+        }, 1000);
+    });
 
+    // Checks the checkbox
+    // $("#lesson-complete").on('change', function () {
+    //     console.log('check test');
+    //     if ($('#lesson-complete').is(':checked')) {
+    //         alert("Checkbox Is checked");
+    //     }
+    //     else {
+    //         alert("Checkbox Is not checked");
+    //     }
+    // });
+
+    // $('.lesson-complete input[type=checkbox][name=lesson-complete]').change(function() {
+    $(document).on('change', '.lesson-complete input[type=checkbox][name=lesson-complete]', function (e) {
+        console.log('check test');
+        const moduleIndex = $(this).attr('module-index');
+        const lessonIndex = $(this).attr('lesson-index');
+        console.log(moduleIndex);
+        console.log("----------------");
+        console.log(lessonIndex);
+
+
+        // const data = {
+        //     action: "add_lesson_to_user_ajax",
+        //     course_id: courseId,
+        //     course_id_lang: courseIdLang,
+        // };
+        // console.log(data);
+        // $.ajax({
+        //     type: "POST",
+        //     url: courses_ajax.url,
+        //     data: data,
+        //     dataType: 'JSON',
+        // }).done(function (response) {
+        //     console.log(response);
+
+        //     if ($(this).is(':checked')) {
+        //         // alert(`${this.value} is checked`);
+        //     //   $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").addClass('complete');
+        //     // }
+        //     // else {
+        //     //     $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").removeClass('complete');
+        //     // }
+
+        //     if (response.success) {
+        //         console.log(response.success);
+        //         // window.location.replace(phpParams.site_url + '/my-courses/' + slug);
+        //     }
+        // }).fail(function (response) {
+        //     console.log(response);
+        // });
+        $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").toggleClass('complete');
+        // if ($(this).is(':checked')) {
+        //     // alert(`${this.value} is checked`);
+        //   $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").addClass('complete');
+        // }
+        // else {
+        //     $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").removeClass('complete');
+        // }
+    });
 })(jQuery);

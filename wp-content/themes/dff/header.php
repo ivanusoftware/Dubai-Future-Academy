@@ -145,31 +145,24 @@
 					</button> -->
 					<button class="button button--ghost button--futureId is-icon">
 						<span class="u-hiddenVisually"><?php _e('Future ID menu', 'dff'); ?></span>
-						<?php dff_asset('img/futureid-icon.svg'); ?>
-						<ul class="futureId">
-							<li><a href="http://dubaifuture.loc/future-id/">About Future ID</a></li>
-							<?php		
-							// echo 'test'. $_COOKIE['future_ID'];	
-											
-							if (!isset($_COOKIE['user']) && !isset($_COOKIE['fid-is-loggedin'])) {
-								;
-							?>
-								<li class="open-auth-popup">
-									<a href="<?php echo site_url('login'); ?>">Login / Register</a>
-								</li>
-							<?php
-							} else {
-								// $future_ID = dff_get_future_user_data();
-							?>
-								<li><a href="<?php echo site_url('dashboard'); ?>"><?php _e('My Profile', 'dff' ); ?></a></li>
-								<li><a href="https://dev.programs.dubaifuture.ae/"><?php _e('Programmes Dashboard', 'dff' ); ?></a></li>
-								<li><a id="dff_logout" href="<?php echo site_url('my-courses'); ?>" title="Logout"><?php _e('My Cources', 'dff' ); ?></a></li>
-								<li><a href="<?php //echo wp_logout_url(get_permalink()); ?>" title="Logout" class="logout"><?php _e('Logout', 'dff' ); ?></a></li>
-								<!-- <li><a href="https://dev-auth.id.dubaifuture.ae/api/v1/oauth2/logout?client_id=<?php echo $future_ID->id; ?>&redirect_uri=http://dubaifuture.loc/login/&accessToken=<?php echo $_COOKIE['token']; ?>" title="Logout">Logout</a></li> -->
-							<?php
-							}
-							?>
-						</ul>
+
+						<?php dff_asset('img/futureid-icon.svg'); 
+						
+						if (has_nav_menu('future-logged-in-menu') || has_nav_menu('future-logged-out-menu')) {
+							wp_nav_menu(
+								array(
+									'theme_location' => isset($_COOKIE['user']) && isset($_COOKIE['fid-is-loggedin']) ? 'future-logged-in-menu' : 'future-logged-out-menu',
+									'menu_class'     => 'future_id_menu',
+									// 'container'      => true,
+									'items_wrap'     => '<ul id="%1$s" class="futureId">%3$s</ul>',
+									// 'walker'         => new Nav_MegaMenu_Walker(),
+								)
+							);
+						}
+						?>
+						
+						
+
 					</button>
 					<button class="button is-icon" data-toggle-darkmode>
 						<div class="hide-dark">

@@ -1,6 +1,10 @@
 import dffNextBackButtonsActive from '../scripts/next-back-buttons-active';
 import dffAjaxLessons from '../scripts/ajax-lessons';
 import uploadExam from '../scripts/upload-exam';
+import dffAccordion from '../scripts/accordion';
+import dffTryAgainActive from '../scripts/try-again-active';
+import dffTryAgaineButton from '../scripts/try-again-button';
+import dffTryAgainActiveMainTab from '../scripts/try-again-active-main-tab';
 /** 
    * The functionality for the 
    * back button on the lesson. 
@@ -11,6 +15,8 @@ $(document).on('click', '.course-quiz__buttons .continue-course-module', functio
     e.preventDefault();
     const moduleIndex = $(this).attr('module-index');
     const lessonIndex = $(this).attr('lesson-index');
+    const tabId = $(this).attr('tab-id');
+    console.log(tabId);
     const countLessonRow = $(".modules-course").find(".accordion").attr('count-lesson-row');
     const lessonTestId = $(".course-sidebar").find(".accordion-item.module_" + moduleIndex + " .module-lesson-test").attr('lesson-test-id');
     const courseId = $(".modules-course").find(".course-sidebar").attr('course-id');
@@ -21,6 +27,8 @@ $(document).on('click', '.course-quiz__buttons .continue-course-module', functio
     if (headPrev.hasClass('active')) {
         headPrev.siblings('.accordion-content').slideUp();
         headPrev.removeClass('active');
+        headNext.parent().removeClass('close-module');
+        headNext.parent().addClass('open-module');
         headNext.next().slideToggle();
         headNext.toggleClass('active');
     }
@@ -29,8 +37,17 @@ $(document).on('click', '.course-quiz__buttons .continue-course-module', functio
         const examPostId = $(".modules-course .my-single-modules").find(".exam-tab-item").attr('exam-post-id');
         uploadExam(examPostId, 'exam');
     } else {
+        dffAccordion();
         dffAjaxLessons(moduleIndex, lessonIndex, lessonTestId, courseId, countLessonRow);
+        // dffTryAgaineButton(moduleIndex, lessonIndex);
+        // dffTryAgainActiveMainTab(tabId);
+        // dffTryAgainActive(moduleIndex);
     }
     dffNextBackButtonsActive(moduleIndex, lessonIndex);
+
+  
+    // dffTryAgaineButton(moduleIndex, lessonIndex);
+    // dffTryAgainActiveMainTab(tabId);
+    // dffTryAgainActive(moduleIndex);
 });
 

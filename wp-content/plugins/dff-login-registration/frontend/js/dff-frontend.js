@@ -1,5 +1,5 @@
 jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined" error
-    $('li a.logout').on('click', function (e) {
+    $('.futureId li.logout a').on('click', function (e) {
         e.preventDefault();
 
         console.log('logout');

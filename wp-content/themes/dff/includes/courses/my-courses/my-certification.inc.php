@@ -1,8 +1,14 @@
 <article class="archive-courses-list certificate-wrap">
     <?php
     $future_courses_ids = future_user_courses_ids($future_user_id);
-    $lang = get_bloginfo('language');      
-    if (!empty($future_courses_ids) && in_array(dff_certificate_info($future_courses_ids), $future_courses_ids)) {
+    $lang = get_bloginfo('language');   
+    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+        $dff_get_future_user_data = dff_get_future_user_data();
+        $future_user_id = $dff_get_future_user_data->id;
+    }   
+    // print_r(dff_certificate_info($future_courses_ids, $future_user_id));
+    if (!empty($future_courses_ids) && in_array(dff_certificate_info($future_courses_ids, $future_user_id), $future_courses_ids)) {
+
         if ($lang == 'ar') {
             if (is_array($future_courses_ids) || is_object($future_courses_ids)) {
                 foreach ($future_courses_ids as $future_courses_id) {

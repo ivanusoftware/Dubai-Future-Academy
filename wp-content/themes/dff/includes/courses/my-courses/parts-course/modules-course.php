@@ -1,5 +1,9 @@
 <section class="modules-course">
     <?php
+    if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+        $dff_get_future_user_data = dff_get_future_user_data();
+        $future_user_id = $dff_get_future_user_data->id;
+    };
     // WP_Query arguments
     $course_id = $_POST['course_id'];
     $args = array(
@@ -47,11 +51,10 @@
                                             $choose_date_open_module = get_sub_field('choose_date_open_module');
                                             $date_open_module = $choose_date_open_module == 'open-module' ? date("d-m-Y", strtotime(get_sub_field('date_open_module'))) : '';
                                             if ($learning_style['value'] == 'timed_progression') {
-
                                                 $type_course   = dff_open_module_by_date($date_open_module);
                                                 $dff_show_date = dff_show_date($date_open_module);
                                             } elseif ($learning_style['value'] == 'progressive') {
-                                                $type_course = dff_open_module_by_rusult_test($course_id, $module_i);
+                                                $type_course = dff_open_module_by_rusult_test($course_id, $module_i, $future_user_id);
                                             } else {
                                                 $type_course = 'open-module';
                                             }
@@ -95,8 +98,7 @@
                                                                     endwhile;
                                                                     ?>
                                                                 </ul>
-                                                            <?php
-                                                            else :
+                                                            <?php                                                            
                                                             endif;
                                                             ?>
                                                         </div>
@@ -120,7 +122,6 @@
                                             </div>
                                     <?php
                                         endwhile;
-                                    else :
                                     endif;
                                     ?>
                                 </div>

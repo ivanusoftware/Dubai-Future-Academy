@@ -1,14 +1,15 @@
 <section class="about-course">
     <?php
+    $course_slug = get_query_var('course_slug') ? get_query_var('course_slug') : $_POST['course_slug'];
+    $post_obj    = get_page_by_slug($course_slug, OBJECT, 'courses');
+    $course_id   = $_POST['course_id'] ? $_POST['course_id'] : $post_obj->ID;
     // $future_user_id = '627cf5d504b88900290d26da';
     if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
         $dff_get_future_user_data = dff_get_future_user_data();
         $future_user_id = $dff_get_future_user_data->id;
     }
-    
-    $course_slug = get_query_var('course_slug') ? get_query_var('course_slug') : $_POST['course_slug'];
-    $post_obj    = get_page_by_slug($course_slug, OBJECT, 'courses');
-    $course_id   = $post_obj ? $post_obj->ID : $_POST['course_id'];
+
+
     // $course_id = get_query_var('course_id') ? get_query_var('course_id') : $_POST['course_id'];
     // WP_Query arguments
     $args = array(
@@ -29,32 +30,7 @@
             $course_complexities = get_field_object('course_complexities');
             if ($img = get_image_by_id($about_course->ID)) $src = $img[0];
             else $src = '';
-    ?>
-            <section class="course-header-wrapper" style="background-image:url(<?php echo $src; ?>)">
-                <div class="course-header-content">
-                    <div class="course-format">
-                        <?php
-                        if ($courses_format_value == 'open_course') {
-                            echo '<h5>' . $courses_format_label . '</h5>';
-                        } else {
-                        ?>
-                            <?php if (have_rows('course_time_group')) : ?>
-                                <?php while (have_rows('course_time_group')) : the_row();
-                                    $course_start = get_sub_field('course_start');
-                                    $course_finish = get_sub_field('course_finish');
-                                    // Load field value and convert to numeric timestamp.                                                
-                                    $date_course_start  = date_i18n("j M Y", strtotime($course_start));
-                                    $date_course_finish = date_i18n("j M Y",  strtotime($course_finish));
-                                    echo  '<h5 class="course-duration">' .  $date_course_start . ' - ' .  $date_course_finish . '</h5>';
-                                endwhile; ?>
-                            <?php endif; ?>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                    <h1><?php the_title(); ?></h1>
-                </div>
-            </section>
+    ?>            
             <section class="cource-content">
                 <div class="container">
                     <div class="columns">

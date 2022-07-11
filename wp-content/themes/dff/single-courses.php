@@ -55,12 +55,12 @@ $posttype = get_post_type();
 						?>
 					</div>
 					<h1><?php the_title(); ?></h1>
-					<?php 
-					$slug = get_post(get_the_ID());				
-					 if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+					<?php
+					$slug = get_post(get_the_ID());
+					if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
 						$dff_get_future_user_data = dff_get_future_user_data();
 						$future_user_id = $dff_get_future_user_data->id;
-					}				 
+					}
 					$future_courses_ids = future_user_courses_ids($future_user_id);
 
 					if (!empty($future_courses_ids) && in_array(get_the_ID(), $future_courses_ids)) {
@@ -72,10 +72,10 @@ $posttype = get_post_type();
 						$post_id_lang =  dff_get_id_parrent_lang(get_the_ID());
 					?>
 
-						<a href="#" class="btn-course-primary apply-now <?php echo $future_user_id ? 'go-to-courses' : ''; ?> modal-toggle" course_id="<?php echo get_the_ID(); ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Apply Now', 'dff'); ?></a>
+						<a href="#" class="btn-course-primary apply-now <?php echo $future_user_id ? 'go-to-courses' : ''; ?>" course_id="<?php echo get_the_ID(); ?>" slug="<?php echo $slug->post_name; ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Join the course', 'dff'); ?></a>
 					<?php
 					}
-				
+
 					?>
 
 

@@ -343,6 +343,7 @@ function dff_progress_bar($future_user_id, $course_id)
 function dff_format_time_bound($courses_format, $course_id)
 {
     $courses_format_value = $courses_format['value'];
+    $disabled = '';
     if ($courses_format_value == 'time_bound_course') {
         if (have_rows('course_time_group', $course_id)) :
             while (have_rows('course_time_group', $course_id)) : the_row();
@@ -370,10 +371,14 @@ function dff_format_time_bound($courses_format, $course_id)
  * @param [type] $module_i
  * @return void
  */
-function dff_open_module_by_rusult_test($course_id, $module_i)
+function dff_open_module_by_rusult_test($course_id, $module_i, $future_user_id)
 {
     $result_module_key = dff_module_course_user_key($course_id, $module_i - 1);
-    $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+
+    // $result_module     = get_user_meta(get_current_user_id(), $result_module_key, true);
+    $result_module     = get_test_result($future_user_id, $result_module_key);
+
+
     if ($result_module >= 80 || $module_i == 1) {
         $module = 'open-module';
     } else {

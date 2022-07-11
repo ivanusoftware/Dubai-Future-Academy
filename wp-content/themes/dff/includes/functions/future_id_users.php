@@ -177,7 +177,8 @@ if (!function_exists('future_user_course_module_certificate')) {
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
 
         $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
-        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s' AND dff_meta_key = %s", $response->ID, $certificate_key));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $certificate_key));
+        // print_r($response_usmeta);
         $pdf_certificate_url = make_participation_certificate($courses_id, $future_user_id);
 
         $user_certificate_en[] = array(
@@ -207,6 +208,7 @@ if (!function_exists('future_user_course_module_certificate')) {
                 array('dff_future_user_id' => $response->ID, 'dff_meta_key' => $certificate_key)
             );
         }
+        // return $response_usmeta;
     }
 }
 
@@ -361,26 +363,28 @@ if (!function_exists('dff_delete_course_from_user_ar')) {
 }
 
 if (!function_exists('dff_certificate_info')) {
-    function dff_certificate_info($future_courses_ids)
-    {        
-        if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
-            $dff_get_future_user_data = dff_get_future_user_data();
-            $future_user_id = $dff_get_future_user_data->id;
-        }
-        if (is_array($future_courses_ids) || is_object($future_courses_ids)) {
-            foreach ($future_courses_ids as $item) {
-                $certificate_key = 'course_' . $item . '_certificate';
-                $array_data = get_future_user_course_certificate($future_user_id, $certificate_key);
-
-                return $array_data ? $array_data[0]['course_id'] : '';
+    function dff_certificate_info($future_courses_ids, $future_user_id)
+    {
+        $value = "";
+        foreach ($future_courses_ids as $future_courses_id) {
+            $certificate_key = 'course_' . $future_courses_id . '_certificate';
+            if ($certificate_key) {
+                $tmp_arr = get_future_user_course_certificate($future_user_id, $certificate_key);
+                if (is_array($tmp_arr) || is_object($tmp_arr)) {
+                    foreach ($tmp_arr as $item) {
+                        $value =  $future_courses_id;
+                    }
+                }
             }
         }
+        return $value;
     }
 }
+
 // if (!function_exists('get_pdf_certificate_url')) {
 //     function get_pdf_certificate_url($future_user_id, $course_id)
 //     {
 //         $certificate_key = 'course_' . $course_id . '_certificate';
-//         return get_future_user_course_certificate($future_user_id, $certificate_key);        
+//         return get_future_user_course_certificate($future_user_id, $certificate_key);
 //     }
 // }

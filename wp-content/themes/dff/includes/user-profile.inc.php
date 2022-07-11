@@ -70,7 +70,7 @@ $future_courses_ids = future_user_courses_ids($future_user_id);
                                     <?php
                                     include(get_template_directory() . '/includes/courses/parts/courses-content.php');
                                     // if ($exem_result >= 80 && $exem_result != 1) {
-                                    if ($exem_result >= 80) {
+                                    if ($exem_result->dff_meta_value >= 80) {
                                     ?>
                                         <div class="course-duration__status">
                                             <?php echo _e('Completed Course', 'dff'); ?>
