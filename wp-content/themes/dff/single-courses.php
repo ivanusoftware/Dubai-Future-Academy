@@ -72,7 +72,7 @@ $posttype = get_post_type();
 						$post_id_lang =  dff_get_id_parrent_lang(get_the_ID());
 					?>
 
-						<a href="#" class="btn-course-primary apply-now <?php echo $future_user_id ? 'go-to-courses' : ''; ?>" course_id="<?php echo get_the_ID(); ?>" slug="<?php echo $slug->post_name; ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Join the course', 'dff'); ?></a>
+						<a href="#" class="btn-course-primary apply-now <?php echo $future_user_id ? 'go-to-courses' : 'modal-toggle'; ?> " course_id="<?php echo get_the_ID(); ?>" slug="<?php echo $slug->post_name; ?>" course_id_lang="<?php echo $post_id_lang; ?>"><?php echo _e('Join the course', 'dff'); ?></a>
 					<?php
 					}
 
