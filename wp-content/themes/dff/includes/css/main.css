@@ -3089,8 +3089,9 @@ html {
 .course-header-wrapper.course-header-my-tabs .course-header-content h1 {
   margin-bottom: 0 !important;
 }
-.course-header-wrapper.course-header-my-tabs .course-header-content .course-title-wrap .course-format {
-  display: block;
+.course-header-wrapper.course-header-my-tabs .course-header-content .course-title-wrap {
+  display: flex;
+  flex-direction: column;
 }
 .course-header-wrapper.course-header-my-tabs .course-header-content .hero-side-course {
   display: flex;

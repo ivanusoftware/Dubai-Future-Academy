@@ -170,13 +170,24 @@ function state_lesson_ajax_callback()
     if ($lang == 'ar') {
         $state_key_ar = 'course_' . $course_id . '_status_module_' .$module_index. '_lesson_'.$lesson_index;
         $state_key_en = 'course_' . $course_id_lang . '_status_module_' .$module_index. '_lesson_'.$lesson_index;
-        state_course_to_user($future_user_id, $state_key_ar,  $checked_box_value);
-        state_course_to_user($future_user_id, $state_key_en,  $checked_box_value);
+        if($course_id_lang){
+            state_course_to_user($future_user_id, $state_key_en,  $checked_box_value);
+        }
+        if($course_id){
+            state_course_to_user($future_user_id, $state_key_ar,  $checked_box_value);
+        }
+        
     }else{
         $state_key_en = 'course_' . $course_id . '_status_module_' .$module_index. '_lesson_'.$lesson_index;
         $state_key_ar = 'course_' . $course_id_lang . '_status_module_' .$module_index. '_lesson_'.$lesson_index;
-        state_course_to_user($future_user_id, $state_key_ar,  $checked_box_value);
-        state_course_to_user($future_user_id, $state_key_en,  $checked_box_value);
+        if($course_id_lang){
+            state_course_to_user($future_user_id, $state_key_ar,  $checked_box_value);
+        }
+        if($course_id){
+            state_course_to_user($future_user_id, $state_key_en,  $checked_box_value);
+        }
+        // state_course_to_user($future_user_id, $state_key_ar,  $checked_box_value);
+        // state_course_to_user($future_user_id, $state_key_en,  $checked_box_value);
     }
    
 

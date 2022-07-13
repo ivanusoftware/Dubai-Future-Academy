@@ -142,8 +142,10 @@
             }
             .course-title-wrap {
                 // position: relative;
+                display: flex;
+                flex-direction: column;
                 .course-format {
-                    display: block;
+                    // display: block;
                 }
             }
             .hero-side-course {

@@ -167,8 +167,8 @@ add_action('init', function () {
     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
 
-    add_rewrite_rule('my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
-    add_rewrite_rule('ar/my-courses/([a-z0-9-]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+    add_rewrite_rule('my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+    add_rewrite_rule('ar/my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
 
 
     // add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
