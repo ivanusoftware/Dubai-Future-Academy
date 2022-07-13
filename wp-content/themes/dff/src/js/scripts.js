@@ -58,7 +58,7 @@ const $ = jQuery.noConflict();
             console.log(response);
             if (response.success) {
                 console.log(response.success);
-                window.location.replace(phpParams.site_url + '/my-courses/' + slug);
+                // window.location.replace(phpParams.site_url + '/my-courses/' + slug);
             }
         }).fail(function (response) {
             console.log(response);
@@ -338,7 +338,10 @@ const $ = jQuery.noConflict();
                 data.append('module_id', $(this).data('module-id'));
                 data.append('course_id', $(this).data('course-id'));
                 data.append('user_id', $(this).data('user-id'));
-                data.append('form', JSON.stringify(quizData));
+                data.append('form', JSON.stringify(quizData));                
+                const moduleId = $(this).data('module-id');
+                const type = $(this).data('type');
+                console.log($(this).data('type'));
                 $.ajax({
                     type: "POST",
                     enctype: 'multipart/form-data',
@@ -358,12 +361,20 @@ const $ = jQuery.noConflict();
                         $('.course-quiz__content').hide();
                         $('.course-quiz__progress').removeClass('active');
 
-                        if (result >= 80) {
-
+                        if (result >= 80) {    
+                            console.log('I am exam!!!!');                       
+                            $(".module_" + moduleId + " .accordion-content ul li.module-lesson-test").add($(".module_" + moduleId + " .accordion-head")).addClass('complete');                               
+                            if(type == 'exam'){                             
+                                $(".exam-tab-item").addClass('complete');                                                                             
+                            }
                             $('.course-quiz__progress[data-success="thanks"]').addClass('active');
                             $('.course-quiz__progress[data-success="success"]').addClass('active');
                         } else {
                             $('.course-quiz__progress[data-success="fail"]').addClass('active');
+                            $(".module_" + moduleId + " .accordion-content ul li.module-lesson-test").add($(".module_" + moduleId + " .accordion-head")).removeClass('complete');                            
+                            if(type == 'exam'){                                
+                                $(".exam-tab-item").removeClass('complete');                                                                             
+                            }
                         }
 
                     } else {
@@ -473,63 +484,35 @@ const $ = jQuery.noConflict();
         }, 1000);
     });
 
-    // Checks the checkbox
-    // $("#lesson-complete").on('change', function () {
-    //     console.log('check test');
-    //     if ($('#lesson-complete').is(':checked')) {
-    //         alert("Checkbox Is checked");
-    //     }
-    //     else {
-    //         alert("Checkbox Is not checked");
-    //     }
-    // });
-
-    // $('.lesson-complete input[type=checkbox][name=lesson-complete]').change(function() {
-    $(document).on('change', '.lesson-complete input[type=checkbox][name=lesson-complete]', function (e) {
-        console.log('check test');
+    $(document).on('click', '.lesson-complete input[type=checkbox][name=lesson-complete]', function (e) {
         const moduleIndex = $(this).attr('module-index');
         const lessonIndex = $(this).attr('lesson-index');
-        console.log(moduleIndex);
-        console.log("----------------");
-        console.log(lessonIndex);
+        const courseId = $(this).attr('course-id');
+        const courseIdLang = $(this).attr('course-id-lang');
+        const state = ($(this).is(':checked')) ? '1' : '0';
+        const data = {
+            action: "state_lesson_ajax",
+            course_id: courseId,
+            lesson_index: lessonIndex,
+            module_index: moduleIndex,
+            course_id_lang: courseIdLang,
+            checked_box: state,
+            // course_id_lang: courseIdLang,
+        };
+        $.ajax({
+            type: "POST",
+            url: courses_ajax.url,
+            data: data,
+            dataType: 'JSON',
+        }).done(function (response) {
+            if (response.success) {
+                // console.log(response.success);
+                // window.location.replace(phpParams.site_url + '/my-courses/' + slug);
+            }
+        }).fail(function (response) {
+            console.log(response);
+        });
 
-
-        // const data = {
-        //     action: "add_lesson_to_user_ajax",
-        //     course_id: courseId,
-        //     course_id_lang: courseIdLang,
-        // };
-        // console.log(data);
-        // $.ajax({
-        //     type: "POST",
-        //     url: courses_ajax.url,
-        //     data: data,
-        //     dataType: 'JSON',
-        // }).done(function (response) {
-        //     console.log(response);
-
-        //     if ($(this).is(':checked')) {
-        //         // alert(`${this.value} is checked`);
-        //     //   $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").addClass('complete');
-        //     // }
-        //     // else {
-        //     //     $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").removeClass('complete');
-        //     // }
-
-        //     if (response.success) {
-        //         console.log(response.success);
-        //         // window.location.replace(phpParams.site_url + '/my-courses/' + slug);
-        //     }
-        // }).fail(function (response) {
-        //     console.log(response);
-        // });
         $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").toggleClass('complete');
-        // if ($(this).is(':checked')) {
-        //     // alert(`${this.value} is checked`);
-        //   $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").addClass('complete');
-        // }
-        // else {
-        //     $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").removeClass('complete');
-        // }
     });
 })(jQuery);

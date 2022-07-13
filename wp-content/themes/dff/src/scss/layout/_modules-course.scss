@@ -74,6 +74,20 @@
                                 // opacity: 0.4;
                             }
                         }
+                        &.complete {
+                            h6 {
+                                position: relative;
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    background-image: url(../../images/certificate-icon-black.svg);
+                                    background-repeat: no-repeat;
+                                    width: 24px;
+                                    height: 24px;
+                                    right: -30px;
+                                }
+                            }
+                        }
                     }
                     &-content {
                         border-left: 6px solid #000000;
@@ -94,6 +108,18 @@
                                 cursor: pointer;
                                 &:hover {
                                     font-weight: 700;
+                                }
+                                &.complete {
+                                    position: relative;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        background-image: url(../../images/certificate-icon-black.svg);
+                                        background-repeat: no-repeat;
+                                        width: 24px;
+                                        height: 24px;
+                                        right: 15px;
+                                    }
                                 }
                             }
                             .active {
@@ -464,6 +490,15 @@
                         &-head {
                             padding-left: 0;
                             padding-right: 17px;
+                            &.complete {
+                                h6 {
+                                    position: relative;
+                                    &::after {
+                                        left: -30px;
+                                        right: unset;
+                                    }
+                                }
+                            }
                         }
                         &-content {
                             display: none;
@@ -473,6 +508,14 @@
                             ul {
                                 padding-left: 0;
                                 padding-right: 5px;
+                                li {
+                                    &.complete {
+                                        &:before {
+                                            left: 5px;
+                                            right: unset;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -519,23 +562,17 @@
                     }
                 }
             }
+            .lesson-complete {
+                .control {
+                    padding-right: 30px;
+                }
+                .control_indicator {
+                    right: 0;
+                }
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .dark-mode .modules-course {
     .cource-content {
@@ -550,6 +587,17 @@
                         ul {
                             li {
                                 color: $color-white;
+                                &.complete {
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        background-image: url(../../images/certificate-icon.svg);
+                                        background-repeat: no-repeat;
+                                        width: 24px;
+                                        height: 24px;
+                                        right: 15px;
+                                    }
+                                }
                             }
                         }
                     }
@@ -560,7 +608,7 @@
                         .next {
                             color: $color-white;
                             &:disabled {
-                                color: rgba(255,255,255,0.2);
+                                color: rgba(255, 255, 255, 0.2);
                             }
                         }
                         .next {
@@ -584,7 +632,6 @@
                 }
             }
         }
-
 
         .lesson-inner-container {
             .upload-file-wrap {
@@ -615,17 +662,50 @@
             }
         }
     }
-
-}
-
-.dark-mode .rtl {
-    .modules-course {
-        .cource-content {
-            .container {
-                .columns {
-                    .accordion {
-                        &-content {
-                            border-right-color: $color-white;
+    .lesson-complete {
+        .control {
+            input {
+                &:checked {
+                    & ~ .control_indicator {
+                        background: #000000;
+                    }
+                }
+                &:disabled {
+                    & ~ .control_indicator {
+                        background: #e6e6e6;
+                    }
+                }
+            }
+        }
+        .control_indicator {
+            background: #000000;
+            border: 1px solid #ffffff;
+        }
+        .control:hover input ~ .control_indicator,
+        .control input:focus ~ .control_indicator {
+            background: #000000;
+        }
+        .control:hover input:not([disabled]):checked ~ .control_indicator,
+        .control input:checked:focus ~ .control_indicator {
+            background: #ffffff;
+        }
+        .control-checkbox {
+            .control_indicator {
+                &:after {
+                    left: 7px;
+                    top: 2px;
+                    width: 3px;
+                    height: 10px;
+                    border: solid #000000;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                }
+            }
+            input {
+                &:disabled {
+                    & ~ .control_indicator {
+                        &:after {
+                            border-color: #7b7b7b;
                         }
                     }
                 }
@@ -634,17 +714,124 @@
     }
 }
 
+.dark-mode .rtl {
+    .modules-course {
+        .cource-content {
+            .container {
+                .columns {
+                    .accordion {
+                        &-head {
+                            &.complete {
+                                h6 {
+                                    position: relative;
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        background-image: url(../../images/certificate-icon.svg);
+                                        background-repeat: no-repeat;
+                                        width: 24px;
+                                        height: 24px;
+                                        left: -30px;
+                                    }
+                                }
+                            }
+                        }
+                        &-content {
+                            border-right-color: $color-white;
+                            ul {
+                                li {
+                                    color: $color-white;
+                                    &.complete {
+                                        &:before {
+                                            left: 5px;
+                                            right: unset;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.lesson-complete {
+    .control {
+        display: block;
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 5px;
+        // padding-top: 3px;
+        cursor: pointer;
+        font-size: 16px;
+        input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            &:checked {
+                & ~ .control_indicator {
+                    background: #000000;
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+            &:disabled {
+                & ~ .control_indicator {
+                    background: #e6e6e6;
+                    opacity: 0.6;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+    .control_indicator {
+        position: absolute;
+        top: 3px;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        background: #f8f8f8;
+        border: 1px solid #000000;
+        border-radius: 0px;
+        border-radius: 0px;
+        &:after {
+            box-sizing: unset;
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+    .control:hover input ~ .control_indicator,
+    .control input:focus ~ .control_indicator {
+        background: #ffffff;
+    }
+    .control:hover input:not([disabled]):checked ~ .control_indicator,
+    .control input:checked:focus ~ .control_indicator {
+        background: #000000;
+    }
+    .control-checkbox {
+        .control_indicator {
+            &:after {
+                left: 6px;
+                top: 1px;
+                width: 3px;
+                height: 10px;
+                border: solid #ffffff;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+        input {
+            &:disabled {
+                & ~ .control_indicator {
+                    &:after {
+                        border-color: #7b7b7b;
+                    }
+                }
+            }
+        }
+    }
+}

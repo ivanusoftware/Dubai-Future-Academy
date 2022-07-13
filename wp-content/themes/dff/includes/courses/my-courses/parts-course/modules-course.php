@@ -39,7 +39,7 @@
                                 <?php $count_course_modules = dff_count_course_modules(get_the_ID()); ?>
                                 <div class="accordion" count-lesson-row="<?php echo $count_course_modules ? $count_course_modules : ''; ?>">
                                     <?php
-                                    
+
                                     if (have_rows('course_module_repeater')) :
                                         $row_count = count(get_field('course_module_repeater'));
 
@@ -58,13 +58,17 @@
                                             } else {
                                                 $type_course = 'open-module';
                                             }
+                                            $module_key = 'course_' . $course_id . '_module_' . $module_i . '_result';
+                                            $get_test_result = get_test_result($future_user_id, $module_key);
+                                            $exam_key = 'course_' . $course_id . '_exam_result';
+                                            $get_exam_result = get_exam_result($future_user_id, $exam_key);
                                     ?>
                                             <div class="accordion-item <?php echo $type_course; ?> <?php echo ($module_or_exam == 'exam') ? 'accordion-item-exam ' : ''; ?>module_<?php echo $module_i; ?>" module-i="<?php echo $module_i; ?>">
                                                 <?php
                                                 if ($module_or_exam == 'module') {
-                                                  
+
                                                 ?>
-                                                    <div class="accordion-head">
+                                                    <div class="accordion-head <?php echo $get_test_result >= 80 ? 'complete' : ''; ?>">
                                                         <h6><?php _e('Module', 'dff'); ?> <?php echo $module_i . $dff_show_date; ?></h6>
                                                     </div>
                                                     <?php if ($type_course == 'open-module') { ?>
@@ -82,15 +86,18 @@
                                                                         $lesson_test_id = get_sub_field('lesson_test_id');
                                                                         $lesson_i = get_row_index();
                                                                         if ($lesson_or_test == 'lesson') {
+                                                                            $state_key = 'course_' . $course_id . '_status_module_' . $module_i . '_lesson_' . $lesson_i;
+                                                                            $status = get_state_lesson_user($future_user_id, $state_key);
                                                                     ?>
-                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> <?php echo $status->dff_meta_value == 1 ? 'complete' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>">
                                                                                 <?php _e('Lesson', 'dff'); ?>
                                                                                 <?php echo $lesson_i; ?>
                                                                             </li>
                                                                         <?php
                                                                         } elseif ($lesson_or_test == 'lesson_test') {
+
                                                                         ?>
-                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>" lesson-test-id="<?php echo $lesson_test_id; ?>">
+                                                                            <li class="tab-item <?php echo $lesson_i == 1 && $module_i == 1 ? 'active' : ''; ?> module-lesson-test <?php echo $get_test_result >= 80 ? 'complete' : ''; ?>" module-index="<?php echo $module_i; ?>" lesson-index="<?php echo $lesson_i; ?>" lesson-test-id="<?php echo $lesson_test_id; ?>">
                                                                                 <?php _e('Test', 'dff'); ?>
                                                                             </li>
                                                                     <?php
@@ -98,7 +105,7 @@
                                                                     endwhile;
                                                                     ?>
                                                                 </ul>
-                                                            <?php                                                            
+                                                            <?php
                                                             endif;
                                                             ?>
                                                         </div>
@@ -107,7 +114,7 @@
                                                 } elseif ($module_or_exam == 'exam') {
                                                     $exam_post_id = get_sub_field('exam_block');
                                                     ?>
-                                                    <div class="accordion-head <?php echo $type_course == 'open-module' ? 'exam-tab-item' : ''; ?>" exam-post-id="<?php echo $exam_post_id; ?>" module-type="<?php echo $module_or_exam; ?>">
+                                                    <div class="accordion-head <?php echo $type_course == 'open-module' ? 'exam-tab-item' : ''; ?> <?php echo $get_exam_result >= 80 ? 'complete' : ''; ?>" exam-post-id="<?php echo $exam_post_id; ?>" module-type="<?php echo $module_or_exam; ?>">
                                                         <h6><?php _e('Exam', 'dff'); ?> <?php echo $dff_show_date; ?></h6>
                                                     </div>
                                                 <?php

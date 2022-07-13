@@ -732,6 +732,9 @@ html {
 .dark-mode .accordion-head.active {
   border-bottom: 0.5px solid #ffffff;
 }
+.dark-mode .accordion-head::after {
+  background-image: url("../../images/accordion-arrow-white.svg");
+}
 .dark-mode .accordion-content {
   border-left-color: #ffffff;
 }
@@ -825,6 +828,18 @@ html {
 .modules-course .cource-content .container .columns .accordion-head.exam-tab-item::after {
   content: unset;
 }
+.modules-course .cource-content .container .columns .accordion-head.complete h6 {
+  position: relative;
+}
+.modules-course .cource-content .container .columns .accordion-head.complete h6::after {
+  content: "";
+  position: absolute;
+  background-image: url(../../images/certificate-icon-black.svg);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  right: -30px;
+}
 .modules-course .cource-content .container .columns .accordion-content {
   border-left: 6px solid #000000;
   padding: 0px 0 15px 8px;
@@ -849,6 +864,18 @@ html {
 }
 .modules-course .cource-content .container .columns .accordion-content ul li:hover {
   font-weight: 700;
+}
+.modules-course .cource-content .container .columns .accordion-content ul li.complete {
+  position: relative;
+}
+.modules-course .cource-content .container .columns .accordion-content ul li.complete:before {
+  content: "";
+  position: absolute;
+  background-image: url(../../images/certificate-icon-black.svg);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  right: 15px;
 }
 .modules-course .cource-content .container .columns .accordion-content ul .active {
   font-weight: 700;
@@ -1182,6 +1209,13 @@ html {
   padding-left: 0;
   padding-right: 17px;
 }
+.rtl .modules-course .cource-content .container .columns .accordion-head.complete h6 {
+  position: relative;
+}
+.rtl .modules-course .cource-content .container .columns .accordion-head.complete h6::after {
+  left: -30px;
+  right: unset;
+}
 .rtl .modules-course .cource-content .container .columns .accordion-content {
   display: none;
   border-left: unset;
@@ -1191,6 +1225,10 @@ html {
 .rtl .modules-course .cource-content .container .columns .accordion-content ul {
   padding-left: 0;
   padding-right: 5px;
+}
+.rtl .modules-course .cource-content .container .columns .accordion-content ul li.complete:before {
+  left: 5px;
+  right: unset;
 }
 .rtl .modules-course .cource-content .container .close-module h6 span {
   left: 10px;
@@ -1225,6 +1263,12 @@ html {
   background-repeat: no-repeat;
   right: 0;
 }
+.rtl .modules-course .cource-content .lesson-complete .control {
+  padding-right: 30px;
+}
+.rtl .modules-course .cource-content .lesson-complete .control_indicator {
+  right: 0;
+}
 
 .dark-mode .modules-course .cource-content .container .columns .accordion-item {
   border-bottom-color: rgba(255, 255, 255, 0.5);
@@ -1234,6 +1278,15 @@ html {
 }
 .dark-mode .modules-course .cource-content .container .columns .accordion-content ul li {
   color: #ffffff;
+}
+.dark-mode .modules-course .cource-content .container .columns .accordion-content ul li.complete:before {
+  content: "";
+  position: absolute;
+  background-image: url(../../images/certificate-icon.svg);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  right: 15px;
 }
 .dark-mode .modules-course .cource-content .container .columns .main-content .lesson-header .back,
 .dark-mode .modules-course .cource-content .container .columns .main-content .lesson-header .next {
@@ -1276,9 +1329,120 @@ html {
   background: #f0f0f0;
   color: #000000;
 }
+.dark-mode .modules-course .lesson-complete .control input:checked ~ .control_indicator {
+  background: #000000;
+}
+.dark-mode .modules-course .lesson-complete .control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+}
+.dark-mode .modules-course .lesson-complete .control_indicator {
+  background: #000000;
+  border: 1px solid #ffffff;
+}
+.dark-mode .modules-course .lesson-complete .control:hover input ~ .control_indicator,
+.dark-mode .modules-course .lesson-complete .control input:focus ~ .control_indicator {
+  background: #000000;
+}
+.dark-mode .modules-course .lesson-complete .control:hover input:not([disabled]):checked ~ .control_indicator,
+.dark-mode .modules-course .lesson-complete .control input:checked:focus ~ .control_indicator {
+  background: #ffffff;
+}
+.dark-mode .modules-course .lesson-complete .control-checkbox .control_indicator:after {
+  left: 7px;
+  top: 2px;
+  width: 3px;
+  height: 10px;
+  border: solid #000000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.dark-mode .modules-course .lesson-complete .control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
+}
 
+.dark-mode .rtl .modules-course .cource-content .container .columns .accordion-head.complete h6 {
+  position: relative;
+}
+.dark-mode .rtl .modules-course .cource-content .container .columns .accordion-head.complete h6::after {
+  content: "";
+  position: absolute;
+  background-image: url(../../images/certificate-icon.svg);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  left: -30px;
+}
 .dark-mode .rtl .modules-course .cource-content .container .columns .accordion-content {
   border-right-color: #ffffff;
+}
+.dark-mode .rtl .modules-course .cource-content .container .columns .accordion-content ul li {
+  color: #ffffff;
+}
+.dark-mode .rtl .modules-course .cource-content .container .columns .accordion-content ul li.complete:before {
+  left: 5px;
+  right: unset;
+}
+
+.lesson-complete .control {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.lesson-complete .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.lesson-complete .control input:checked ~ .control_indicator {
+  background: #000000;
+}
+.lesson-complete .control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.lesson-complete .control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.lesson-complete .control_indicator {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background: #f8f8f8;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  border-radius: 0px;
+}
+.lesson-complete .control_indicator:after {
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
+}
+.lesson-complete .control:hover input ~ .control_indicator,
+.lesson-complete .control input:focus ~ .control_indicator {
+  background: #ffffff;
+}
+.lesson-complete .control:hover input:not([disabled]):checked ~ .control_indicator,
+.lesson-complete .control input:checked:focus ~ .control_indicator {
+  background: #000000;
+}
+.lesson-complete .control-checkbox .control_indicator:after {
+  left: 6px;
+  top: 1px;
+  width: 3px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.lesson-complete .control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
 }
 
 .lesson-audio-container .mejs-container {

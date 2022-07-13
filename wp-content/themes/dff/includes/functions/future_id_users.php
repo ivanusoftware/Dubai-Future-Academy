@@ -250,13 +250,7 @@ if (!function_exists('update_tests_result')) {
         global $wpdb;
         $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
         $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
-
         $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
-
-        // $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_key FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = '$response->ID' AND dff_meta_key = '$module_key'"));
-        // //         echo $module_key;
-        // // echo $value;
-        // // if ($response_usmeta->dff_meta_key == $module_key) {
         $wpdb->update(
             $table_name_dff_future_usemeta,
             array(
@@ -388,3 +382,85 @@ if (!function_exists('dff_certificate_info')) {
 //         return get_future_user_course_certificate($future_user_id, $certificate_key);
 //     }
 // }
+
+
+function get_state_lessons($course_id)
+{
+
+    $lesson_state_array = array();
+    if (have_rows('course_module_repeater', $course_id)) :
+        // $row_count = count(get_field('course_module_repeater', $course_id));
+
+        while (have_rows('course_module_repeater', $course_id)) : the_row();
+            // echo 'count' . $count_lessons = count(get_sub_field('course_lesson_repeater'));    
+
+            $module_i       = get_row_index();
+
+            if (have_rows('course_lesson_repeater', $course_id)) :
+                while (have_rows('course_lesson_repeater', $course_id)) : the_row();
+                    $lesson_i = get_row_index();
+
+                    $lesson_state_array[] = array(
+                        'module_' . $module_i . '_lesson_' . $lesson_i  => 0,
+                    );
+
+
+                endwhile;
+
+            endif;
+        endwhile;
+    endif;
+    return $lesson_state_array;
+}
+
+
+
+if (!function_exists('state_course_to_user')) {
+    function state_course_to_user($future_user_id, $state_key, $checked_box_value)
+    {
+        // $module_exam_key = 'course_' . $course_id . '_exam_result';
+        // $get_exem_result = get_user_meta($current_user_id, $module_exam_key, true);
+        global $wpdb;
+        // $state_key = 'course_' . $course_id . '_module_state';
+        $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
+        $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
+
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $state_key));
+        if (!$response_usmeta) {
+            //if post id not already added
+            $wpdb->insert(
+                $table_name_dff_future_usemeta,
+                array(
+                    'dff_future_user_id' => $response->ID,
+                    'dff_meta_key' => $state_key,
+                    'dff_meta_value' => $checked_box_value,
+                    'user_date' => current_time('Y-m-d H:i:s'),
+                    'user_date_gmt' => current_time('Y-m-d H:i:s')
+                )
+            );
+        } else {
+            $wpdb->update(
+                $table_name_dff_future_usemeta,
+                array(
+                    'dff_meta_key' => $state_key,
+                    'dff_meta_value' => $checked_box_value,
+                ),
+                array('dff_future_user_id' => $response->ID, 'dff_meta_key' => $state_key)
+            );
+        }
+    }
+}
+
+if (!function_exists('get_state_lesson_user')) {
+    function get_state_lesson_user($future_user_id, $state_key)
+    {
+        global $wpdb;
+        $table_name_dff_future_users = $wpdb->base_prefix . 'dff_future_users';
+        $table_name_dff_future_usemeta = $wpdb->base_prefix . 'dff_future_usemeta';
+
+        $response = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name_dff_future_users WHERE future_user_id = %s", $future_user_id));
+        $response_usmeta = $wpdb->get_row($wpdb->prepare("SELECT dff_meta_value FROM $table_name_dff_future_usemeta WHERE dff_future_user_id = %s AND dff_meta_key = %s", $response->ID, $state_key));
+        return $response_usmeta;
+    }
+}

@@ -11,7 +11,7 @@ function quiz_answers_callback()
         $dff_get_future_user_data = dff_get_future_user_data();
         $future_user_id = $dff_get_future_user_data->id;
     }
-    
+
     $json_data = array();
     $form = json_decode(stripslashes($_POST['form']), true);
     $type = stripslashes($_POST['type']);
@@ -114,7 +114,7 @@ function quiz_answers_callback()
         } else {
 
             $post_title = 'User Future ID: ' . $user_id . ', Course: ' . $course_id . ', Module: ' . $module_id;
-            $post_id = get_page_by_title($post_title, $output, 'quizzes_answers');
+            $post_id = get_page_by_title($post_title, @$output, 'quizzes_answers');
             if (!$post_id) {
                 $post_id = wp_insert_post([
                     'post_title'  => $post_title,
@@ -125,8 +125,9 @@ function quiz_answers_callback()
 
             update_field('percentage', $percentage, $post_id);
             update_field('answers', $answers_acf, $post_id);
+            $module_key = 'course_' . $course_id . '_module_' . $module_id . '_result';
 
-            update_tests_result($future_user_id, 'course_' . $course_id . '_module_' . $module_id . '_result', $percentage);
+            update_tests_result($future_user_id, $module_key, $percentage);
             update_tests_result($future_user_id, 'course_' . dff_get_id_parrent_lang($course_id) . '_module_' . $module_id . '_result', $percentage);
         }
 

@@ -41,14 +41,24 @@
 
         endif;
         $course_id        = $_POST['course_id'];
-        $module_index     = $_POST['module_index'];
-        $lesson_index     = $_POST['lesson_index'];
-        $count_lesson_row = $_POST['count_lesson_row'];
-        $lesson_test_id   = $_POST['lesson_test_id'];
+        if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
+            $dff_get_future_user_data = dff_get_future_user_data();
+            $future_user_id = $dff_get_future_user_data->id;
+        }
+        if ($module_index && $lesson_index) {
+            $state_key = 'course_' . $course_id . '_status_module_' . $module_index . '_lesson_' . $lesson_index;
+        } else {
+            $state_key = 'course_' . $course_id . '_status_module_1_lesson_1';
+        }
+        $status = get_state_lesson_user($future_user_id, $state_key);
+
         ?>
         <div class="lesson-complete lesson-inner-container">
-            <input type="checkbox" id="lesson-complete" name="lesson-complete" module-index="<?php echo $module_index ? $module_index : 1; ?>" lesson-index="<?php echo $lesson_index ? $lesson_index : 1; ?>" course-id="<?php echo $course_id; ?>">
-            <label for="lesson-complete"><?php _e('Mark as complete', 'dff'); ?></label>
+            <label for="lesson-complete" class="control control-checkbox">
+                <?php _e('Mark as complete', 'dff'); ?>
+                <input type="checkbox" id="lesson-complete" name="lesson-complete" module-index="<?php echo $module_index ? $module_index : 1; ?>" lesson-index="<?php echo $lesson_index ? $lesson_index : 1; ?>" course-id="<?php echo $course_id; ?>" course-id-lang="<?php echo dff_get_id_parrent_lang($course_id); ?>" <?php echo $status->dff_meta_value == 1 ? 'checked' : ''; ?>>
+                <div class="control_indicator"></div>
+            </label>
         </div>
     </article>
 </div>

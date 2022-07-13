@@ -95,15 +95,6 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
 .dark-mode .accordion {
     &-item {
         border-bottom: 0.5px solid $color-white;
@@ -111,6 +102,9 @@
     &-head {
         &.active {
             border-bottom: 0.5px solid $color-white;
+        }
+        &::after {
+            background-image: url("../../images/accordion-arrow-white.svg");           
         }
     }
     &-content {
