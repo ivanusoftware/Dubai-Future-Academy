@@ -21683,7 +21683,7 @@ const $ = jQuery.noConflict();
             console.log(response);
             if (response.success) {
                 console.log(response.success);
-                // window.location.replace(phpParams.site_url + '/my-courses/' + slug);
+                window.location.replace(phpParams.site_url + '/my-courses/' + slug);
             }
         }).fail(function (response) {
             console.log(response);
@@ -22075,11 +22075,6 @@ const $ = jQuery.noConflict();
         $(currentTab).show();
         return false;
     });
-
-    // $(document).on('click',  '.course-quiz__buttons .continue-course-module', function () {
-    //     console.log('continue-course-module');
-
-    // });
 
 
     if ($(window).width() < 768) {
