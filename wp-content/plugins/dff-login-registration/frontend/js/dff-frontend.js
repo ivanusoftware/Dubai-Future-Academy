@@ -33,6 +33,7 @@ jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined"
                 localStorage.clear();
             }
             location.reload();
+            window.location.reload();
         }).fail(function (response) {
             console.log(response);
         });

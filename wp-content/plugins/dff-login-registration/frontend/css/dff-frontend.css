@@ -1,0 +1,19 @@
+.primaryNav a, .page-headActions button.button--futureId ul.futureId li, body:not(.rtl) .page-headActions a.is-language, body.rtl .page-headActions .button--ghost:not(:last-child){
+    font-size: 13px !important;
+}
+.page-foot .page-footBottom, input[type="submit"].button {
+    font-size: 12px !important;    
+}
+.footerNav-container a {
+    font-size: 14px !important; 
+}
+
+.footerBottomNav a {    
+    font-size: 14px !important; 
+}
+.footerNav-title, .newsletter input[type="email"], .newsletter p{    
+    font-size: 16px !important;
+}
+.newsletter h1 {
+    font-size: 28px !important;
+}
