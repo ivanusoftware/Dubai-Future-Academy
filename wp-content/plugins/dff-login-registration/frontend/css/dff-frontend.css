@@ -32,7 +32,6 @@ input[type="submit"].button {
     .page-headLogo {
         border-bottom: 8px solid #333 !important;
         margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-bottom: 30px !important;
+        margin-right: 0 !important;        
     }
 }
