@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wp-content/plugins/dff-login-registration/frontend/build/static/css/main.406e51c6.chunk.css",
-    "main.js": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/main.fab30416.chunk.js",
-    "main.js.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/main.fab30416.chunk.js.map",
+    "main.js": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/main.1728e221.chunk.js",
+    "main.js.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/main.1728e221.chunk.js.map",
     "runtime-main.js": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/runtime-main.61953df1.js",
     "runtime-main.js.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/runtime-main.61953df1.js.map",
     "static/css/2.b1fe6b08.chunk.css": "/wp-content/plugins/dff-login-registration/frontend/build/static/css/2.b1fe6b08.chunk.css",
@@ -11,7 +11,7 @@
     "static/js/3.1febb41a.chunk.js": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/3.1febb41a.chunk.js",
     "static/js/3.1febb41a.chunk.js.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/js/3.1febb41a.chunk.js.map",
     "index.html": "/wp-content/plugins/dff-login-registration/frontend/build/index.html",
-    "precache-manifest.8f21ffe6b841e4da51820590495fbb55.js": "/wp-content/plugins/dff-login-registration/frontend/build/precache-manifest.8f21ffe6b841e4da51820590495fbb55.js",
+    "precache-manifest.91041cd3ff8438ef9fd754e40730b2f8.js": "/wp-content/plugins/dff-login-registration/frontend/build/precache-manifest.91041cd3ff8438ef9fd754e40730b2f8.js",
     "service-worker.js": "/wp-content/plugins/dff-login-registration/frontend/build/service-worker.js",
     "static/css/2.b1fe6b08.chunk.css.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/css/2.b1fe6b08.chunk.css.map",
     "static/css/main.406e51c6.chunk.css.map": "/wp-content/plugins/dff-login-registration/frontend/build/static/css/main.406e51c6.chunk.css.map",
@@ -113,6 +113,6 @@
     "static/css/2.b1fe6b08.chunk.css",
     "static/js/2.2852b2a4.chunk.js",
     "static/css/main.406e51c6.chunk.css",
-    "static/js/main.fab30416.chunk.js"
+    "static/js/main.1728e221.chunk.js"
   ]
 }
