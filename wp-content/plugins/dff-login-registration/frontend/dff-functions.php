@@ -52,14 +52,6 @@
 //     }
 // }
 
-if (!function_exists('dff_get_future_user_data')) {
-    function dff_get_future_user_data()
-    {
-        if ($_COOKIE['user']) {
-            return json_decode(stripslashes($_COOKIE['user']));
-        }
-    }
-}
 
 
 function create_future_user()
@@ -163,3 +155,5 @@ if ( ! function_exists( 'register_future_id_nav' ) ) {
 	}
 }
 add_action( 'init', 'register_future_id_nav' );
+
+

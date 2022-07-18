@@ -464,3 +464,58 @@ if (!function_exists('get_state_lesson_user')) {
         return $response_usmeta;
     }
 }
+
+
+if (!function_exists('dff_get_future_user_name')) {
+    function dff_get_future_user_name($user_id)
+    {
+        if ($_COOKIE['token']) {
+            $auth_Token = $_COOKIE['token'];
+        }
+        $array_options = get_option('dff_reg_options');
+        $remote_url = $array_options['dff_api_url_future_user'] . 'api/v1/users/' . $user_id;
+        $args = array(
+            'headers'     => array(
+                'Authorization' =>  $auth_Token,
+            ),
+        );
+        $result = wp_remote_get($remote_url, $args);
+        $response = json_decode(wp_remote_retrieve_body($result), true);
+        return $response['displayName'];
+    }
+}
+
+if (!function_exists('dff_get_future_user_data')) {
+    function dff_get_future_user_data()
+    {
+        
+        if ($_COOKIE['user']) {
+            return json_decode(stripslashes($_COOKIE['user']));
+        }
+    }
+}
+
+// function dff_unset_cookies()
+// {
+//     /**
+//      * Detect plugin. For frontend only.
+//      */
+//     include_once ABSPATH . 'wp-admin/includes/plugin.php';
+//     if (!is_plugin_active('dff-login-registration/dff-login-registration.php')) {
+//         // register_post_type( 'book', ['public' => true ] ); 
+//         echo "plugin is activated";
+//         if (isset($_COOKIE['token'])) {
+//             unset($_COOKIE['token']);
+//             setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//         }
+//         if (isset($_COOKIE['user'])) {
+//             unset($_COOKIE['user']);
+//             setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//         }
+//         if (isset($_COOKIE['fid-is-loggedin'])) {
+//             unset($_COOKIE['fid-is-loggedin']);
+//             setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
+//         }
+//     }
+// }
+// add_action('init', 'dff_unset_cookies');

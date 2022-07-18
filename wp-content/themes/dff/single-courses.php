@@ -58,7 +58,8 @@ $posttype = get_post_type();
 					<?php
 					$slug = get_post(get_the_ID());
 					if ($_COOKIE['user'] && $_COOKIE['fid-is-loggedin']) {
-						$dff_get_future_user_data = dff_get_future_user_data();
+						
+						$dff_get_future_user_data =  json_decode(stripslashes($_COOKIE['user']));
 						$future_user_id = $dff_get_future_user_data->id;
 					}
 					$future_courses_ids = future_user_courses_ids($future_user_id);
