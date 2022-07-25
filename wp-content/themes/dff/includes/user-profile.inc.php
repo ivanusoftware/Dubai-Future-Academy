@@ -100,11 +100,6 @@ $future_courses_ids = future_user_courses_ids($future_user_id);
                 <?php include(get_template_directory() . '/includes/courses/my-courses/my-certification.inc.php'); ?>
             </div>
         </div>
-
-        <!-- <span>User: <b><?php echo $current_user->user_login ?></b></span>
-        <?php if (is_user_logged_in()) : ?>
-            <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
-        <?php endif; ?> -->
     </div> <!-- END tabs -->
 </section>
 

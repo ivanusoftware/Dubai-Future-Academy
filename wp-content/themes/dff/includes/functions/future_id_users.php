@@ -498,8 +498,8 @@ if (!function_exists('dff_get_future_user_data')) {
 // function dff_unset_cookies()
 // {
 //     /**
-//      * Detect plugin. For frontend only.
-//      */
+//       Detect plugin. For frontend only.
+//      
 //     include_once ABSPATH . 'wp-admin/includes/plugin.php';
 //     if (!is_plugin_active('dff-login-registration/dff-login-registration.php')) {
 //         // register_post_type( 'book', ['public' => true ] ); 

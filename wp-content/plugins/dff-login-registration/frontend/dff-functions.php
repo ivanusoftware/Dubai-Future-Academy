@@ -55,14 +55,13 @@
 
 
 function create_future_user()
-{    
+{
     if (isset($_COOKIE['user']) && isset($_COOKIE['fid-is-loggedin'])) {
         $dff_get_future_user_data = dff_get_future_user_data();
         $future_user_id = $dff_get_future_user_data->id;
         global $wpdb;
         $table_name = $wpdb->base_prefix . 'dff_future_users';
         $res = $wpdb->get_row($wpdb->prepare("SELECT future_user_id FROM $table_name WHERE future_user_id = %s", $future_user_id));
-        // print_r($user_id);
         if (!$res) {
             //if post id not already added
             $wpdb->insert(
@@ -89,31 +88,41 @@ function dff_page_template($page_template)
 
     if (get_page_template_slug() == 'template-login.php') {
         $page_template = dirname(__FILE__) . '/template-login.php';
-    }elseif(get_page_template_slug() == 'template-register.php'){
-        $page_template = dirname(__FILE__) . '/template-register.php';    
-    }elseif(get_page_template_slug() == 'template-dashboard.php'){
+    } elseif (get_page_template_slug() == 'template-register.php') {
+        $page_template = dirname(__FILE__) . '/template-register.php';
+    } elseif (get_page_template_slug() == 'template-dashboard.php') {
         $page_template = dirname(__FILE__) . '/template-dashboard.php';
     }
     return $page_template;
 }
 
-/**
- * Add "Custom" template to page attirbute template section.
- */
-add_filter('theme_page_templates', 'dff_add_template_to_select', 10, 4);
-function dff_add_template_to_select($post_templates, $wp_theme, $post, $post_type)
-{
 
-    // Add custom template named template-custom.php to select dropdown 
-    $post_templates['template-login.php'] = __('Login Future ID', 'dff-plugin');
-    $post_templates['template-register.php'] = __('Register Future ID', 'dff-plugin');
-    $post_templates['template-dashboard.php'] = __('Dashboard Future ID', 'dff-plugin');
+if (!function_exists('dff_add_template_to_select')) {
+    /**
+     * Add "Custom" template to page attirbute template section.
+     *
+     * @param [type] $post_templates
+     * @param [type] $wp_theme
+     * @param [type] $post
+     * @param [type] $post_type
+     * @return void
+     */
+    function dff_add_template_to_select($post_templates, $wp_theme, $post, $post_type)
+    {
 
-    return $post_templates;
+        // Add custom template named template-custom.php to select dropdown 
+        $post_templates['template-login.php'] = __('Login Future ID', 'dff-plugin');
+        $post_templates['template-register.php'] = __('Register Future ID', 'dff-plugin');
+        $post_templates['template-dashboard.php'] = __('Dashboard Future ID', 'dff-plugin');
+
+        return $post_templates;
+    }
 }
+add_filter('theme_page_templates', 'dff_add_template_to_select', 10, 4);
 
 
 
+// Logout a user ajax callback
 function dff_logout_user_ajax_callback()
 {
     // echo 'test';
@@ -136,24 +145,44 @@ add_action('wp_ajax_dff_logout_user_ajax', 'dff_logout_user_ajax_callback');
 add_action('wp_ajax_nopriv_dff_logout_user_ajax', 'dff_logout_user_ajax_callback');
 
 
-// if (has_nav_menu('future-id')) {
-//     wp_nav_menu(
-//         array(
-//             'theme_location' => 'future-id',
-//             'menu_class'     => 'future-id',
-//             // 'container'      => true,
-//             // 'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-//             // 'walker'         => new Nav_MegaMenu_Walker(),
-//         )
-//     );
-// }
-
-if ( ! function_exists( 'register_future_id_nav' ) ) {
-	function register_future_id_nav() {		
-		register_nav_menu( 'future-logged-in-menu', __( 'Future logged in menu', 'dff-plugin' ) );
-		register_nav_menu( 'future-logged-out-menu', __( 'Future logged out menu', 'dff-plugin' ) );
-	}
+if (!function_exists('dff_register_future_id_nav')) {
+    /**
+     * Register the nav menus
+     *
+     * @return void
+     */
+    function dff_register_future_id_nav()
+    {
+        register_nav_menu('future-logged-in-menu', __('Future logged in menu', 'dff-plugin'));
+        register_nav_menu('future-logged-out-menu', __('Future logged out menu', 'dff-plugin'));
+    }
 }
-add_action( 'init', 'register_future_id_nav' );
+add_action('init', 'dff_register_future_id_nav');
 
-
+if (!function_exists('dff_add_params_redirect_after_login')) {
+    /**
+     * The function adds redirection options 
+     * after login or registration
+     *
+     * @param [type] $items
+     * @param [type] $menu
+     * @param [type] $args
+     * @return void
+     */
+    function dff_add_params_redirect_after_login($items, $menu, $args)
+    {
+        global $post;
+        $post_slug = $post->post_name;
+        if ($menu->slug == 'future-logged-out-menu') {
+            foreach ($items as $item) {
+                $item_class = $item->classes;
+                // && $post_slug != 'homepage'
+                if ($item_class[0] == 'dff-login-register-item' && $post_slug != 'login') {
+                    $item->url .= '?callback_url=' . $post_slug;
+                }
+            }
+        }
+        return $items;
+    }
+}
+add_filter('wp_get_nav_menu_items', 'dff_add_params_redirect_after_login', 11, 3);
