@@ -116,7 +116,7 @@ $close_module   = $_POST['close_module'];
                 <?php endif; ?>
 
 
-                <div class="course-quiz__buttons">
+                <div class="course-quiz__buttons course-quiz__buttons_try_again">
                     <ul>
                         <li>
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>

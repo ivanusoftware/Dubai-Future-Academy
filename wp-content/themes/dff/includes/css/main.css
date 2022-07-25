@@ -2265,11 +2265,6 @@ html {
   margin: 0 -8px;
   padding: 0;
 }
-@media (max-width: 767px) {
-  .course-quiz .actions ul, .course-quiz__buttons ul {
-    flex-direction: column-reverse;
-  }
-}
 .course-quiz .actions ul li, .course-quiz__buttons ul li {
   width: calc(50% - 16px);
   flex: 0 0 calc(50% - 16px);
@@ -2316,13 +2311,18 @@ html {
   .course-quiz .course-quiz__progress .course-quiz__buttons ul {
     flex-wrap: wrap;
     margin: 0;
-    flex-direction: column-reverse;
   }
   .course-quiz .course-quiz__progress .course-quiz__buttons ul li {
     width: 100%;
     flex: 0 0 100%;
     max-width: 100%;
     margin-bottom: 12px;
+  }
+  .course-quiz .course-quiz__progress .course-quiz__buttons.course-quiz__buttons_try_again ul {
+    flex-direction: column-reverse;
+  }
+  .course-quiz .course-quiz__progress .course-quiz__buttons.course-quiz__buttons_try_again ul li {
+    margin: 0 0 10px 0;
   }
 }
 
