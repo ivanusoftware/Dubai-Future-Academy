@@ -4,6 +4,8 @@ $lesson_test_id = $_POST['lesson_test_id'];
 $module_index   = $_POST['module_index'];
 $lesson_index   = $_POST['lesson_index'];
 $course_id      = $_POST['course_id'];
+$close_module   = $_POST['close_module'];
+
 ?>
 <div class="phrases">
     <span class="phrase_result"><?php _e('Result', 'dff'); ?></span>
@@ -119,9 +121,15 @@ $course_id      = $_POST['course_id'];
                         <li>
                             <a href="#" class="module-test-try-again" tab-id="tab-2" module-index="<?php echo $module_index; ?>" lesson-index="<?php echo $lesson_index; ?> " lesson-test-id="<?php echo $lesson_test_id; ?>"><?php _e('Try again', 'dff'); ?></a>
                         </li>
-                        <li>
-                            <a href="#" class="continue-course-module" tab-id="tab-2" module-index="<?php echo $module_index + 1; ?>" lesson-index="1" lesson-test-id="<?php echo $lesson_test_id; ?>" exam-post-id="<?php echo $exam_post_id; ?>"><?php _e('Continue course 1', 'dff'); ?></a>
-                        </li>
+                        <?php
+                        if ($close_module != 'true') {
+                        ?>
+                            <li>
+                                <a href="#" class="continue-course-module" tab-id="tab-2" module-index="<?php echo $module_index + 1; ?>" lesson-index="1" lesson-test-id="<?php echo $lesson_test_id; ?>" exam-post-id="<?php echo $exam_post_id; ?>"><?php _e('Continue course', 'dff'); ?></a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

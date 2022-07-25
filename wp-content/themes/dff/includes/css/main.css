@@ -1827,9 +1827,17 @@ html {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 574px;
+  max-width: 335px;
+  padding: 0 20px;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 0 1.5em hsla(0deg, 0%, 0%, 0.35);
+}
+@media only screen and (min-width: 611px) {
+  .modal-popup .modal-wrapper {
+    max-width: 574px;
+    padding: 0;
+  }
 }
 .modal-popup .modal-transition {
   transition: all 0.3s 0.12s;
@@ -1839,7 +1847,12 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 5px 10px 0 0;
+  padding: 5px 0;
+}
+@media only screen and (min-width: 611px) {
+  .modal-popup .modal-header {
+    padding: 5px 10px 0 0;
+  }
 }
 .modal-popup .modal-content {
   padding: 15px 0 42px;
@@ -1858,15 +1871,28 @@ html {
 .modal-popup .modal-content h2 {
   font-style: normal;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 17px;
   line-height: 24px;
+}
+@media only screen and (min-width: 611px) {
+  .modal-popup .modal-content h2 {
+    font-size: 26px;
+  }
 }
 .modal-popup .modal-content p {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 0 30px;
   color: #202020;
   text-align: center;
+}
+@media only screen and (min-width: 611px) {
+  .modal-popup .modal-content p {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0;
+  }
 }
 .modal-popup .modal-content .buttons {
   margin-top: 10px;
@@ -1880,7 +1906,8 @@ html {
   background: #000000;
   border-radius: 2px;
   border: none;
-  width: 326px;
+  max-width: 325px;
+  width: 100%;
   text-align: center;
   line-height: 18px;
 }
@@ -1913,9 +1940,14 @@ html {
   background-repeat: no-repeat;
   width: 24px;
   height: 24px;
-  right: 0;
+  right: -10px;
   top: 3px;
   position: absolute;
+}
+@media only screen and (min-width: 611px) {
+  .modal-popup .modal-close::after {
+    right: 0;
+  }
 }
 .modal-popup .modal-heading {
   font-size: 1.125em;
@@ -2066,7 +2098,8 @@ html {
   border-right: 3px solid #fff;
   transition: all 0.3s ease;
 }
-.course-quiz__checkbox input:checked + label, .course-quiz__checkbox input:focus + label {
+.course-quiz__checkbox input:checked + label,
+.course-quiz__checkbox input:focus + label {
   border-color: #000000;
 }
 .course-quiz__checkbox input:checked + label:before {
@@ -2128,7 +2161,9 @@ html {
 .course-quiz__radio input.error + label {
   border-color: red;
 }
-.course-quiz__radio input:checked + label, .course-quiz__radio input:focus + label, .course-quiz__radio input.error:focus + label {
+.course-quiz__radio input:checked + label,
+.course-quiz__radio input:focus + label,
+.course-quiz__radio input.error:focus + label {
   border-color: #000000;
 }
 .course-quiz__radio input:checked + label:before {
@@ -2230,6 +2265,11 @@ html {
   margin: 0 -8px;
   padding: 0;
 }
+@media (max-width: 767px) {
+  .course-quiz .actions ul, .course-quiz__buttons ul {
+    flex-direction: column-reverse;
+  }
+}
 .course-quiz .actions ul li, .course-quiz__buttons ul li {
   width: calc(50% - 16px);
   flex: 0 0 calc(50% - 16px);
@@ -2276,6 +2316,7 @@ html {
   .course-quiz .course-quiz__progress .course-quiz__buttons ul {
     flex-wrap: wrap;
     margin: 0;
+    flex-direction: column-reverse;
   }
   .course-quiz .course-quiz__progress .course-quiz__buttons ul li {
     width: 100%;
@@ -2379,7 +2420,9 @@ html {
   display: none;
 }
 
-.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+.nice-select .option:hover,
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
   background: rgba(204, 204, 204, 0.2);
 }
 
@@ -2388,7 +2431,10 @@ html {
 }
 
 @media (max-width: 1200px) {
-  .nice-select:active, .nice-select:focus, .nice-select:hover, .nice-select .list:active, .nice-select .list:focus, .nice-select .list:hover {
+  .nice-select:active, .nice-select:focus, .nice-select:hover,
+.nice-select .list:active,
+.nice-select .list:focus,
+.nice-select .list:hover {
     outline: none;
   }
 }
@@ -2454,7 +2500,8 @@ html {
   border-bottom: 3px solid #ffffff;
   border-right: 3px solid #ffffff;
 }
-.dark-mode .course-quiz__checkbox input:checked + label, .dark-mode .course-quiz__checkbox input:focus + label {
+.dark-mode .course-quiz__checkbox input:checked + label,
+.dark-mode .course-quiz__checkbox input:focus + label {
   border-color: #ffffff;
 }
 .dark-mode .course-quiz__checkbox input:checked + label:after {
@@ -2474,7 +2521,8 @@ html {
 .dark-mode .course-quiz__radio label:before {
   background-color: #ffffff;
 }
-.dark-mode .course-quiz__radio input:checked + label, .dark-mode .course-quiz__radio input:focus + label {
+.dark-mode .course-quiz__radio input:checked + label,
+.dark-mode .course-quiz__radio input:focus + label {
   border-color: #ffffff;
 }
 .dark-mode .course-quiz__select input {
@@ -2530,7 +2578,9 @@ html {
   color: #ffffff;
   background-color: #000000;
 }
-.dark-mode .nice-select .option:hover, .dark-mode .nice-select .option.focus, .dark-mode .nice-select .option.selected.focus {
+.dark-mode .nice-select .option:hover,
+.dark-mode .nice-select .option.focus,
+.dark-mode .nice-select .option.selected.focus {
   background: rgba(255, 255, 255, 0.2);
 }
 .dark-mode .error + .nice-select {

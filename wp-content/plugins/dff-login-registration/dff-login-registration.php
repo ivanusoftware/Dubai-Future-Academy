@@ -95,3 +95,4 @@ function true_plugin_language()
         dirname(plugin_basename(__FILE__)) . '/languages/'
     );
 }
+

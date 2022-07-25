@@ -340,8 +340,7 @@ const $ = jQuery.noConflict();
                 data.append('user_id', $(this).data('user-id'));
                 data.append('form', JSON.stringify(quizData));                
                 const moduleId = $(this).data('module-id');
-                const type = $(this).data('type');
-                console.log($(this).data('type'));
+                const type = $(this).data('type');                
                 $.ajax({
                     type: "POST",
                     enctype: 'multipart/form-data',
@@ -362,7 +361,7 @@ const $ = jQuery.noConflict();
                         $('.course-quiz__progress').removeClass('active');
 
                         if (result >= 80) {    
-                            console.log('I am exam!!!!');                       
+                            // console.log('I am exam!!!!');                       
                             $(".module_" + moduleId + " .accordion-content ul li.module-lesson-test").add($(".module_" + moduleId + " .accordion-head")).addClass('complete');                               
                             if(type == 'exam'){                             
                                 $(".exam-tab-item").addClass('complete');                                                                             
