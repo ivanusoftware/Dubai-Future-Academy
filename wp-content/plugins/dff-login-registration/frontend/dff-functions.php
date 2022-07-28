@@ -132,8 +132,8 @@ if (!function_exists('dff_add_params_redirect_after_login')) {
                 // && $post_slug != 'homepage'
                 // if ($item_class[0] == 'dff-login-register-item' && $post_slug != 'authorize') {
                 if ($item_class[0] == 'dff-login-register-item' && $post_slug != 'authorize') {
-                    // $item->url .= '?api_id=' . $post_slug;
-                    $item->url .= '?api_id=courses';
+                    $item->url .= '?api_id=' . $post_slug;
+                    // $item->url .= '?api_id=courses';
                 }
             }
         }
