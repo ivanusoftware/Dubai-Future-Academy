@@ -509,4 +509,6 @@ const $ = jQuery.noConflict();
 
         $(".module_" + moduleIndex + " .accordion-content ul li.tab-item[lesson-index='" + lessonIndex + "']").toggleClass('complete');
     });
+    
+   
 })(jQuery);

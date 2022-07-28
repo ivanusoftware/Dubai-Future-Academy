@@ -1,59 +1,10 @@
 <?php
 
-// function dff_logout_action()
-// {
-//     if (isset($_COOKIE['token'])) {
-//         unset($_COOKIE['token']);
-//         setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//     }
-//     if (isset($_COOKIE['user'])) {
-//         unset($_COOKIE['user']);
-//         setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//     }
-//     if (isset($_COOKIE['fid-is-loggedin'])) {
-//         unset($_COOKIE['fid-is-loggedin']);
-//         setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//     }
-
-//     <script type="text/javascript">
-//         jQuery(function($) {
-//             if (localStorage.length > 0) {
-//                 console.log(localStorage);
-//                 localStorage.clear();
-//             }
-//         });
-//         if (localStorage.length > 0 ) {
-//             console.log(localStorage);
-//             localStorage.clear();
-//         }
-//     </script>
-
-// <?php// wp_redirect(site_url('/'));
-// }
-// add_action('wp_logout', 'dff_logout_action');
-
-
-// if (!function_exists('dff_get_future_user_name')) {
-//     function dff_get_future_user_name($user_id)
-//     {
-//         if ($_COOKIE['auth_Token']) {
-//             $auth_Token = $_COOKIE['auth_Token'];
-//         }
-//         $array_options = get_option('dff_reg_options');
-//         $remote_url = $array_options['dff_api_url_future_user'] . 'api/v1/users/' . $user_id;
-//         $args = array(
-//             'headers'     => array(
-//                 'Authorization' =>  $auth_Token,
-//             ),
-//         );
-//         $result = wp_remote_get($remote_url, $args);
-//         $response = json_decode(wp_remote_retrieve_body($result), true);
-//         return $response['displayName'];
-//     }
-// }
-
-
-
+/**
+ * Adds a new user to the future.
+ *
+ * @return void
+ */
 function create_future_user()
 {
     if (isset($_COOKIE['user']) && isset($_COOKIE['fid-is-loggedin'])) {
@@ -186,3 +137,37 @@ if (!function_exists('dff_add_params_redirect_after_login')) {
     }
 }
 add_filter('wp_get_nav_menu_items', 'dff_add_params_redirect_after_login', 11, 3);
+
+// Adds the rewrite rules for the user and course.
+add_action('init', function () {
+    // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
+    // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
+
+    add_rewrite_rule('my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+    // add_rewrite_rule('ar/my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+
+
+    // add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+    // add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+});
+
+// Adds the filter to the course_id.
+add_filter('query_vars', function ($query_vars) {
+    $query_vars[] = 'course_slug';
+    // $query_vars[] = 'id';
+    return $query_vars;
+});
+
+// Add an action to include a course template.
+add_action('template_include', function ($template) {
+    // if (is_user_logged_in()) {
+    //     // wp_redirect( home_url( '/wp-login.php' ), 302 );
+    //     get_template_part(404);
+    //     exit();
+    // }
+
+    if (get_query_var('course_slug') == false || get_query_var('course_slug') == '') {
+        return $template;
+    }
+    return get_template_directory() . '/includes/courses/my-courses/my-courses.inc.php';
+});

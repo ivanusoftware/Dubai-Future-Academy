@@ -1,6 +1,6 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
-
+<html <?php language_attributes(); ?> data-theme="light">
+<!-- data-theme="light" -->
 <head>
 	<!-- Google Tag Manager -->
 	<script>
@@ -36,6 +36,7 @@
 	<?php wp_head(); ?>
 	<script>
 		(function() {
+			
 			if (!window.CSS || !CSS.supports('color', 'var(--test-var)')) {
 				return;
 			}
@@ -43,6 +44,7 @@
 			window.matchMedia('(prefers-color-scheme: dark)').addListener(function(e) {
 				if (e.matches) {
 					document.documentElement.classList.add('dark-mode');
+
 				} else {
 					document.documentElement.classList.remove('dark-mode');
 				}

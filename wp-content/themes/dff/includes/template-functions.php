@@ -289,6 +289,7 @@ function dff_general_progress_mod()
     return  json_encode($mod_arr);
 }
 
+// dff_general_progress_mod_result
 function dff_general_progress_mod_result($future_user_id, $course_id)
 {
     $mod_result_arr = array();
@@ -316,6 +317,7 @@ function dff_general_progress_mod_result($future_user_id, $course_id)
     return  implode(",", $mod_result_arr);
 }
 
+// dff_general_progress_bar function
 function dff_progress_bar($future_user_id, $course_id)
 {
     $cource_result = dff_general_progress_mod_result($future_user_id, $course_id);

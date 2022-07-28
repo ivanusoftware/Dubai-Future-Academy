@@ -39,5 +39,21 @@ jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined"
         });
     });
 
+    const theme = Cookies.get('color-scheme');
+    const darkMode = $('html').hasClass("dark-mode");
+    if (darkMode && theme) {
+        $('html').attr('data-theme', "dark");
+    }
 
+    $(".page-head .button.is-icon[data-toggle-darkmode]").on("click", function () {        
+        setTimeout(function () {
+            const darkMode = $('html').hasClass("dark-mode");
+            if (darkMode) {
+                $('html').attr('data-theme', "dark");
+            } else {
+                $('html').attr('data-theme', "light");
+            }
+        }, 1);
+
+    });
 });
