@@ -26,7 +26,7 @@ function dff_login_register_activate_plugin()
     flush_rewrite_rules();
 }
 
-register_deactivation_hook(__FILE__, 'dff_login_register_deactivation_plugin');
+// register_deactivation_hook(__FILE__, 'dff_login_register_deactivation_plugin');
 
 
 
