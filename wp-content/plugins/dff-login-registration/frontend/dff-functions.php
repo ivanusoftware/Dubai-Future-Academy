@@ -141,9 +141,6 @@ if (!function_exists('dff_add_params_redirect_after_login')) {
 }
 add_filter('wp_get_nav_menu_items', 'dff_add_params_redirect_after_login', 11, 3);
 
-
-
-
 // function dff_add_build_pages()
 // {
 //     // Create post object
