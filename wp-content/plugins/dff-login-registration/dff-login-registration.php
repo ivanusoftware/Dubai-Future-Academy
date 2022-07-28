@@ -26,13 +26,6 @@ function dff_login_register_activate_plugin()
     flush_rewrite_rules();
 }
 
-register_deactivation_hook(__FILE__, 'dff_login_register_deactivation_plugin');
-
-
-
-
-
-
 require_once plugin_dir_path(__FILE__) . 'admin/dff-option-admin.php';
 require_once plugin_dir_path(__FILE__) . 'admin/enqueue-admin-scripts.php';
 // require_once plugin_dir_path(__FILE__) . 'frontend/partials/dff-shortcodes.php';
