@@ -141,153 +141,38 @@ if (!function_exists('dff_add_params_redirect_after_login')) {
 }
 add_filter('wp_get_nav_menu_items', 'dff_add_params_redirect_after_login', 11, 3);
 
+// Adds the rewrite rules for the user and course.
+// add_action('init', function () {
+//     // add_rewrite_rule( 'user-profile/([a-z]+)[/]?$', 'index.php?my_course=$matches[1]', 'top' );
+//     // add_rewrite_rule('user-profile/([0-9]+)/?$', 'index.php&course_id=$matches[1]', 'top');
 
-// register_deactivation_hook(__FILE__, 'dff_login_register_deactivation_plugin');
-
-// function dff_add_build_pages()
-// {
-//     // Create post object
-//     $my_post = array(
-//         'post_title'    => wp_strip_all_tags('My Custom Page'),
-//         'post_content'  => 'My custom page content',
-//         'post_status'   => 'publish',
-//         'post_author'   => 1,
-//         'post_type'     => 'page',
-//     );
-
-//     // Insert the post into the database
-//     wp_insert_post($my_post);
-// }
-
-// register_activation_hook(__FILE__, 'dff_add_build_pages');
+//     add_rewrite_rule('my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
+//     // add_rewrite_rule('ar/my-courses/([^/]+)[/]?$', 'index.php?course_slug=$matches[1]', 'top');
 
 
+//     // add_rewrite_rule('my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+//     // add_rewrite_rule('ar/my-courses/([0-9]+)[/]?$', 'index.php?course_id=$matches[1]', 'top');
+// });
 
-// register_activation_hook( __FILE__, 'beardbot_plugin_activation' );
-// function beardbot_plugin_activation() {
+// // Adds the filter to the course_id.
+// add_filter('query_vars', function ($query_vars) {
+//     $query_vars[] = 'course_slug';
+//     // $query_vars[] = 'id';
+//     return $query_vars;
+// });
 
-//   if ( ! current_user_can( 'activate_plugins' ) ) return;
+// // Add an action to include a course template.
+// add_action('template_include', function ($template) {
+//     // if (is_user_logged_in()) {
+//     //     // wp_redirect( home_url( '/wp-login.php' ), 302 );
+//     //     get_template_part(404);
+//     //     exit();
+//     // }
 
-//   global $wpdb;
-
-//   if ( null === $wpdb->get_row( "SELECT post_name FROM {$wpdb->prefix}posts WHERE post_name = 'new-page-slug'", 'ARRAY_A' ) ) {
-
-//     $current_user = wp_get_current_user();
-
-//     // create post object
-//     $page = array(
-//       'post_title'  => __( 'TestPage' ),
-//       'post_status' => 'publish',
-//       'post_author' => $current_user->ID,
-//       'post_type'   => 'page',
-//     );
-
-//     // insert the post into the database
-//     wp_insert_post( $page );
-//   }
-// }
-
-
-register_activation_hook(__FILE__, 'insert_page_on_activation_en');
-
-function data_for_insert_pages(){
-    $pages = array(
-        'authorize' => 'Login',
-        'register' => 'Register',
-        'dashboard' => 'Dashboard',
-        'dashboard' => 'Dashboard',
-        'updatemail' => 'Updatemail',
-        'updatepassword' => 'Updatepassword',
-    );
-    foreach ($pages as $page_url => $page_title) {
-        // $id = get_page_by_title($page_title);
-        $new_page = array(
-            'post_type'   => 'page',
-            'post_name'   => $page_url,
-            'post_title'  => $page_title,
-            'post_status' => 'publish',
-            'post_author' => 1,
-            'post_parent' => ''
-        );
-        // if (!isset($id)) wp_insert_post($page);
-        if (!get_page_by_path($page_url, OBJECT, 'page')) { // Check If Page Not Exits
-            $new_page_id = wp_insert_post($new_page);
-        }
-
-        if ($new_page_id && !is_wp_error($new_page_id)) {
-            update_post_meta($new_page_id, '_wp_page_template', 'template-react.php');
-        }
-    };
-}
-
-function insert_page_on_activation_en()
-{
-    if (!current_user_can('activate_plugins')) return;
-    switch_to_blog(3);
-    data_for_insert_pages();
-    restore_current_blog();
-    data_for_insert_pages();
-}
-
-// register_activation_hook(__FILE__, 'insert_page_on_activation_ar');
-
-// function insert_page_on_activation_ar()
-// {
-
-//     $pages = array(
-//         'login' => 'Login',
-//         'register' => 'Register',
-//         'dashboard' => 'Dashboard',
-//         'dashboard' => 'Dashboard',
-//         'updatemail' => 'Updatemail',
-//         'updatepassword' => 'Updatepassword',
-//     );
-//     foreach ($pages as $page_url => $page_title) {
-//         // $id = get_page_by_title($page_title);
-//         $new_page = array(
-//             'post_type'   => 'page',
-//             'post_name'   => $page_url,
-//             'post_title'  => $page_title,
-//             'post_status' => 'publish',
-//             'post_author' => 1,
-//             'post_parent' => ''
-//         );
-//         // if (!isset($id)) wp_insert_post($page);
-//         if (!get_page_by_path($page_url, OBJECT, 'page')) { // Check If Page Not Exits
-//             $new_page_id = wp_insert_post($new_page);
-//         }
-
-//         if ($new_page_id && !is_wp_error($new_page_id)) {
-//             update_post_meta($new_page_id, '_wp_page_template', 'template-react.php');
-//         }
-//     };
-// }
-
-
-
-
-
-// check for plugin using plugin name
-
-// function dff_unset_cookies()
-// {
-//     
-//     include_once ABSPATH . 'wp-admin/includes/plugin.php';
-//     if (!is_plugin_active('dff-login-registration/dff-login-registration.php')) {
-//         echo "plugin is not activated";
-//         // register_post_type( 'book', ['public' => true ] ); 
-//         if (isset($_COOKIE['token'])) {
-//             unset($_COOKIE['token']);
-//             setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
-//         if (isset($_COOKIE['user'])) {
-//             unset($_COOKIE['user']);
-//             setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
-//         if (isset($_COOKIE['fid-is-loggedin'])) {
-//             unset($_COOKIE['fid-is-loggedin']);
-//             setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
+//     if (get_query_var('course_slug') == false || get_query_var('course_slug') == '') {
+//         return $template;
 //     }
-// }
-// add_action('init', 'dff_unset_cookies');
+//     return get_template_directory() . '/includes/courses/my-courses/my-courses.inc.php';
+// });
+
+
