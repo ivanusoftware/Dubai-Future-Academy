@@ -30,50 +30,6 @@ register_deactivation_hook(__FILE__, 'dff_login_register_deactivation_plugin');
 
 
 
-function dff_login_register_deactivation_plugin()
-{
-    // dff_unset_cookies();
-?>
-    <script>
-        // if (localStorage.length > 0) {
-        //     console.log(localStorage);
-        //     localStorage.clear();
-        // }
-        // location.reload();
-        // window.location.reload();
-    </script>
-<?php
-    flush_rewrite_rules();
-}
-
-
-
-// check for plugin using plugin name
-
-// function dff_unset_cookies()
-// {
-//     
-//     include_once ABSPATH . 'wp-admin/includes/plugin.php';
-//     if (!is_plugin_active('dff-login-registration/dff-login-registration.php')) {
-//         echo "plugin is not activated";
-//         // register_post_type( 'book', ['public' => true ] ); 
-//         if (isset($_COOKIE['token'])) {
-//             unset($_COOKIE['token']);
-//             setcookie("token", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
-//         if (isset($_COOKIE['user'])) {
-//             unset($_COOKIE['user']);
-//             setcookie("user", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
-//         if (isset($_COOKIE['fid-is-loggedin'])) {
-//             unset($_COOKIE['fid-is-loggedin']);
-//             setcookie("fid-is-loggedin", '', time() + 3600, "/", $_SERVER['HTTP_HOST']);
-//         }
-//     }
-// }
-// add_action('init', 'dff_unset_cookies');
-
-
 
 require_once plugin_dir_path(__FILE__) . 'admin/dff-option-admin.php';
 require_once plugin_dir_path(__FILE__) . 'admin/enqueue-admin-scripts.php';
@@ -95,4 +51,3 @@ function true_plugin_language()
         dirname(plugin_basename(__FILE__)) . '/languages/'
     );
 }
-

@@ -802,3 +802,4 @@ function dff_create_array($response)
 //         //             WHERE dup_check.rated_post_id IS NULL" ); 
 //     }
 // }
+
